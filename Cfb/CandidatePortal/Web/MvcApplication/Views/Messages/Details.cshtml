@@ -1,0 +1,96 @@
+﻿@using Cfb.CandidatePortal.Cmo
+@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Models.MessageViewModel
+
+@{
+    ViewBag.Title = Model.Title;
+}
+<script>
+    document.title = "@ViewBag.Title";
+</script>
+<nav class="navbar navbar-default navbar-cmo navbar-cmo-message" data-spy="affix" data-offset-top="51">
+    <div class="container-fluid">
+        <div class="navbar-form navbar-left navbar-form-cmo">
+            @using (Ajax.BeginForm(MessagesController.ActionName_Index, new { view = Model.CurrentView }, new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "MailboxViewPanel",
+                LoadingElementId = "LoadingElement",
+                OnSuccess = "mailboxIndex_Success"
+            }, new { @class = "form-group" }))
+            {
+                <button type="submit" class="btn btn-default" name="view" value="@Model.CurrentView" title="Back to @Html.DisplayFor(m => Model.CurrentView)"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" role="navigation"></span> Back to @Html.DisplayFor(m => m.CurrentView)</button>
+            }
+            <script>
+                var mailboxIndex_Success = function () {
+                    window.history.pushState(null, null, "@Url.Action(MessagesController.ActionName_Index, new { view = Model.CurrentView })");
+                    document.title = "Message Center";
+                    initAffix();
+                }
+            </script>
+            <div class="btn-group navbar-cmo-actions">
+                @using (Ajax.BeginForm(MessagesController.ActionName_Update, new { id = Model.ID }, new AjaxOptions
+                {
+                    HttpMethod = "POST",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "MessageHeaderDetails",
+                    LoadingElementId = "LoadingElement"
+                }, new { @class = "form-group btn-group" }))
+                {
+                    <button id="ArchiveButton" type="submit" name="updateAction" class="btn btn-default" title="@(Model.ArchivedDate.HasValue ? "Unarchive" : "Archive")"><span class="glyphicon glyphicon-@(Model.ArchivedDate.HasValue ? "open" : "save")" aria-hidden="true" role="button"></span><span class="hidden-xs"></span></button>
+                    <button id="FlagButton" type="submit" name="updateAction" class="btn btn-default" title="@(Model.Flagged ? "Unflag" : "Flag")"><span class="fa fa-flag@(Model.Flagged ? "-o" : null)" aria-hidden="true" role="button"></span><span class="hidden-xs"></span></button>
+                }
+            </div>
+        </div>
+        <div class="hidden-xs">
+            <div class="navbar-form navbar-right navbar-form-cmo">
+                @using (Ajax.BeginForm(MessagesController.ActionName_Index, new { view = Model.CurrentView }, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "MailboxViewPanel",
+                    LoadingElementId = "LoadingElement",
+                    OnSuccess = "messageIndex_Success"
+                }, new { @class = "form-group btn-group" }))
+                {
+                    <button type="submit" class="btn btn-default @(Model.CurrentIndex < 2 ? "disabled" : null)" title="Newer" name="id" value="@Model.PreviousID"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true" role="navigation"></span><span class="hidden-xs"></span></button>
+                    <button type="submit" class="btn btn-default @(Model.CurrentIndex >= Model.MailboxViewCount ? "disabled" : null)" title="Older" name="id" value="@Model.NextID"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" role="navigation"></span></button>
+                }
+                <script>
+                    var getUrl = function () {
+                        return "@Url.Action(MessagesController.ActionName_Index, new { view = Model.CurrentView, id = Model.ID})";
+                    }
+                    var messageIndex_Success = function (url) {
+                        window.history.pushState(null, null, getUrl());
+                        initAffix();
+                    }
+                </script>
+            </div>
+            <p class="navbar-text navbar-right"><strong>@Model.CurrentIndex</strong> of <strong>@Model.MailboxViewCount</strong></p>
+        </div>
+    </div>
+</nav>
+<h4><span id="MessageTitle">@Model.Title</span> <small class="label label-primary">EC@(Model.ElectionCycle)</small></h4>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="clearfix">
+            <span class="text-muted">Message @Model.ID</span>
+            <div class="pull-right">
+                @Html.DisplayFor(m => m.Posted)<span class="hidden-xs"> @Model.Posted.ToShortTimeString()</span> <span class="glyphicon glyphicon-collapse-down" aria-hidden="true" role="button" data-toggle="collapse" data-target="#MessageHeaderDetails .collapse" aria-expanded="false" aria-controls="MessageHeaderDetails"></span>
+            </div>
+            <div id="MessageHeaderDetails">
+                @Html.Partial(MessagesController.ViewName_MessageHeader, Model)
+            </div>
+        </div>
+        <pre class="pre-cmo">@Html.DisplayFor(m => m.Body)</pre>
+        <p>
+            @foreach (var attID in Model.Attachments)
+            {
+                <a href="@Url.Action(MessagesController.ActionName_Attachment, new { messageid = Model.ID, id = attID })" class="btn btn-primary"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> Attachment @attID <span class="glyphicon glyphicon-download-alt" aria-hidden="true" role="button"></span></a>
+            }
+        </p>
+        <p class="text-muted">Please note that some message attachments are very large and may require a significant amount of time to open. To guarantee a successful download, right-click the attachment link and choose the &ldquo;Save As&rdquo; option.</p>
+    </div>
+</div>

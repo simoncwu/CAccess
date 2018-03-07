@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0ebf3d35-b4e7-43a6-b678-5ca460138988" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8008/CAccess/SecurityService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e7ae5b9b-90f2-4ba8-9943-7caca8eb2f99" SourceId="1" SourceUrl="net.tcp://localhost:8008/CAccess/SecurityService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="0d5a32e2-34b9-4139-956f-65b61a406606" SourceId="1" SourceUrl="net.tcp://localhost:8008/CAccess/SecurityService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="42b0b810-6e06-4501-9a0f-82cc0f092132" SourceId="1" SourceUrl="net.tcp://localhost:8008/CAccess/SecurityService/mex" />
+    <MetadataFile FileName="Cfb.CandidatePortal.Security.xsd" MetadataType="Schema" ID="46d7ee88-4b16-4752-b6a3-8dda88c55775" SourceId="1" SourceUrl="net.tcp://localhost:8008/CAccess/SecurityService/mex" />
+    <MetadataFile FileName="data.xsd" MetadataType="Schema" ID="e5470f6f-0202-4f1c-890a-663add7a14eb" SourceId="1" SourceUrl="net.tcp://localhost:8008/CAccess/SecurityService/mex" />
+    <MetadataFile FileName="System.Data.SqlClient1.xsd" MetadataType="Schema" ID="e0b0d043-e37a-431a-91b1-a76479c2a91b" SourceId="1" SourceUrl="net.tcp://localhost:8008/CAccess/SecurityService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="7f24df1f-2699-4627-8eae-6145aac775eb" SourceId="1" SourceUrl="net.tcp://localhost:8008/CAccess/SecurityService/mex" />
+    <MetadataFile FileName="Cfb.Cfis.CampaignContacts.xsd" MetadataType="Schema" ID="5f05a43d-7385-4b9f-bc7a-e323e9db77bf" SourceId="1" SourceUrl="net.tcp://localhost:8008/CAccess/SecurityService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

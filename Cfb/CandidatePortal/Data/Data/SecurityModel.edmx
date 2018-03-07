@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Cfb.CandidatePortal.Data.SecurityModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CfbCandidatePortalDataSecurityModelStoreContainer">
+          <EntitySet Name="SecurityGroupMembership" EntityType="Cfb.CandidatePortal.Data.SecurityModel.Store.SecurityGroupMembership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SecurityGroups" EntityType="Cfb.CandidatePortal.Data.SecurityModel.Store.SecurityGroups" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SecuritySsoApplications" EntityType="Cfb.CandidatePortal.Data.SecurityModel.Store.SecuritySsoApplications" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SecuritySsoTokens" EntityType="Cfb.CandidatePortal.Data.SecurityModel.Store.SecuritySsoTokens" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SecurityUserElectionCycles" EntityType="Cfb.CandidatePortal.Data.SecurityModel.Store.SecurityUserElectionCycles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SecurityUserProfiles" EntityType="Cfb.CandidatePortal.Data.SecurityModel.Store.SecurityUserProfiles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_SecurityGroupMembership_SecurityGroups" Association="Cfb.CandidatePortal.Data.SecurityModel.Store.FK_SecurityGroupMembership_SecurityGroups">
+            <End Role="SecurityGroups" EntitySet="SecurityGroups" />
+            <End Role="SecurityGroupMembership" EntitySet="SecurityGroupMembership" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SecuritySsoTokens_SecuritySsoApplications" Association="Cfb.CandidatePortal.Data.SecurityModel.Store.FK_SecuritySsoTokens_SecuritySsoApplications">
+            <End Role="SecuritySsoApplications" EntitySet="SecuritySsoApplications" />
+            <End Role="SecuritySsoTokens" EntitySet="SecuritySsoTokens" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SecurityGroupMembership">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="GroupId" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SecurityGroups">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="UserRights" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SecuritySsoApplications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationId" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="UserRights" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Url" Type="nvarchar" MaxLength="256" />
+          <Property Name="RedirectUrl" Type="nvarchar" MaxLength="256" />
+          <Property Name="TokenParameter" Type="nvarchar" MaxLength="8" />
+          <Property Name="LoginPagePath" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="SecuritySsoTokens">
+          <Key>
+            <PropertyRef Name="TokenId" />
+          </Key>
+          <Property Name="TokenId" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationId" Type="tinyint" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Created" Type="datetime" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="SecurityUserElectionCycles">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="ElectionCycle" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="ElectionCycle" Type="varchar" Nullable="false" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="SecurityUserProfiles">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="256" />
+          <Property Name="CandidateId" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="PasswordExpired" Type="bit" Nullable="false" />
+          <Property Name="CfisType" Type="tinyint" Nullable="false" />
+          <Property Name="CfisCommitteeID" Type="varchar" MaxLength="1" />
+          <Property Name="CfisCommitteeContactID" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <Association Name="FK_SecurityGroupMembership_SecurityGroups">
+          <End Role="SecurityGroups" Type="Cfb.CandidatePortal.Data.SecurityModel.Store.SecurityGroups" Multiplicity="1" />
+          <End Role="SecurityGroupMembership" Type="Cfb.CandidatePortal.Data.SecurityModel.Store.SecurityGroupMembership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecurityGroups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="SecurityGroupMembership">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SecuritySsoTokens_SecuritySsoApplications">
+          <End Role="SecuritySsoApplications" Type="Cfb.CandidatePortal.Data.SecurityModel.Store.SecuritySsoApplications" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SecuritySsoTokens" Type="Cfb.CandidatePortal.Data.SecurityModel.Store.SecuritySsoTokens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecuritySsoApplications">
+              <PropertyRef Name="ApplicationId" />
+            </Principal>
+            <Dependent Role="SecuritySsoTokens">
+              <PropertyRef Name="ApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Cfb.CandidatePortal.Data.SecurityModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CPSecurityEntities" a:LazyLoadingEnabled="true" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" b:TypeAccess="Public" xmlns:b="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <EntitySet Name="SecurityUserElectionCycles" EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecurityUserElectionCycle" />
+          <EntitySet Name="SecurityGroupMemberships" EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecurityGroupMembership" />
+          <EntitySet Name="SecurityGroups" EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecurityGroup" />
+          <AssociationSet Name="FK_SecurityGroupMembership_SecurityGroups" Association="Cfb.CandidatePortal.Data.SecurityModel.FK_SecurityGroupMembership_SecurityGroups">
+            <End Role="SecurityGroup" EntitySet="SecurityGroups" />
+            <End Role="SecurityGroupMembership" EntitySet="SecurityGroupMemberships" />
+          </AssociationSet>
+          <EntitySet Name="SecuritySsoTokens" EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecuritySsoToken" />
+          <EntitySet Name="SecuritySsoApplications" EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecuritySsoApplication" />
+          <AssociationSet Name="FK_SecuritySsoTokens_SecuritySsoApplications" Association="Cfb.CandidatePortal.Data.SecurityModel.FK_SecuritySsoTokens_SecuritySsoApplications">
+            <End Role="SecuritySsoApplication" EntitySet="SecuritySsoApplications" />
+            <End Role="SecuritySsoToken" EntitySet="SecuritySsoTokens" />
+          </AssociationSet>
+          <EntitySet Name="SecurityUserProfiles" EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecurityUserProfile" />
+        </EntityContainer>
+        <EntityType Name="SecurityUserElectionCycle">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="ElectionCycle" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ElectionCycle" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SecurityGroupMembership">
+          <Key>
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="GroupId" Nullable="false" />
+          <NavigationProperty Name="SecurityGroup" Relationship="Cfb.CandidatePortal.Data.SecurityModel.FK_SecurityGroupMembership_SecurityGroups" FromRole="SecurityGroupMembership" ToRole="SecurityGroup" />
+        </EntityType>
+        <EntityType Name="SecurityGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Type="Byte" Name="GroupId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SecurityGroupMemberships" Relationship="Cfb.CandidatePortal.Data.SecurityModel.FK_SecurityGroupMembership_SecurityGroups" FromRole="SecurityGroup" ToRole="SecurityGroupMembership" />
+          <Property Type="Int32" Name="UserRights" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_SecurityGroupMembership_SecurityGroups">
+          <End Type="Cfb.CandidatePortal.Data.SecurityModel.SecurityGroup" Role="SecurityGroup" Multiplicity="1" />
+          <End Type="Cfb.CandidatePortal.Data.SecurityModel.SecurityGroupMembership" Role="SecurityGroupMembership" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SecurityGroup">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="SecurityGroupMembership">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+          
+        </Association>
+        <EntityType Name="SecuritySsoToken">
+          <Key>
+            <PropertyRef Name="TokenId" />
+          </Key>
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="TokenId" Nullable="false" a:StoreGeneratedPattern="Identity" Type="Guid" />
+          <Property Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" Type="String" />
+          <Property xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="Created" Nullable="false" a:StoreGeneratedPattern="Identity" Type="DateTime" />
+          <NavigationProperty Name="SecuritySsoApplication" Relationship="Cfb.CandidatePortal.Data.SecurityModel.FK_SecuritySsoTokens_SecuritySsoApplications" FromRole="SecuritySsoToken" ToRole="SecuritySsoApplication" />
+        </EntityType>
+        <EntityType Name="SecuritySsoApplication">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Type="Byte" Name="ApplicationId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="ApplicationName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserRights" Nullable="false" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RedirectUrl" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TokenParameter" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoginPagePath" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SecuritySsoTokens" Relationship="Cfb.CandidatePortal.Data.SecurityModel.FK_SecuritySsoTokens_SecuritySsoApplications" FromRole="SecuritySsoApplication" ToRole="SecuritySsoToken" />
+        </EntityType>
+        <Association Name="FK_SecuritySsoTokens_SecuritySsoApplications">
+          <End Type="Cfb.CandidatePortal.Data.SecurityModel.SecuritySsoApplication" Role="SecuritySsoApplication" Multiplicity="1" />
+          <End Type="Cfb.CandidatePortal.Data.SecurityModel.SecuritySsoToken" Role="SecuritySsoToken" Multiplicity="*" />
+        </Association>
+        <EntityType Name="SecurityUserProfile">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DisplayName" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CandidateId" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="PasswordExpired" Nullable="false" />
+          <Property Type="Byte" Name="CfisType" Nullable="false" />
+          <Property Type="String" Name="CfisCommitteeID" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CfisCommitteeContactID" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CfbCandidatePortalDataSecurityModelStoreContainer" CdmEntityContainer="CPSecurityEntities">
+          <EntitySetMapping Name="SecurityUserElectionCycles"><EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.SecurityModel.SecurityUserElectionCycle"><MappingFragment StoreEntitySet="SecurityUserElectionCycles">
+            <ScalarProperty Name="UserName" ColumnName="UserName" />
+            <ScalarProperty Name="ElectionCycle" ColumnName="ElectionCycle" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SecurityGroupMemberships">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.SecurityModel.SecurityGroupMembership">
+              <MappingFragment StoreEntitySet="SecurityGroupMembership">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecurityGroups">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.SecurityModel.SecurityGroup">
+              <MappingFragment StoreEntitySet="SecurityGroups">
+                <ScalarProperty Name="UserRights" ColumnName="UserRights" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecuritySsoTokens">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.SecurityModel.SecuritySsoToken">
+              <MappingFragment StoreEntitySet="SecuritySsoTokens">
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="TokenId" ColumnName="TokenId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SecuritySsoApplications">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.SecurityModel.SecuritySsoApplication">
+              <MappingFragment StoreEntitySet="SecuritySsoApplications">
+                <ScalarProperty Name="LoginPagePath" ColumnName="LoginPagePath" />
+                <ScalarProperty Name="TokenParameter" ColumnName="TokenParameter" />
+                <ScalarProperty Name="RedirectUrl" ColumnName="RedirectUrl" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UserRights" ColumnName="UserRights" />
+                <ScalarProperty Name="ApplicationName" ColumnName="ApplicationName" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_SecuritySsoTokens_SecuritySsoApplications" TypeName="Cfb.CandidatePortal.Data.SecurityModel.FK_SecuritySsoTokens_SecuritySsoApplications" StoreEntitySet="SecuritySsoTokens">
+            <EndProperty Name="SecuritySsoToken">
+              <ScalarProperty Name="TokenId" ColumnName="TokenId" />
+            </EndProperty>
+            <EndProperty Name="SecuritySsoApplication">
+              <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="SecurityUserProfiles">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.SecurityModel.SecurityUserProfile">
+              <MappingFragment StoreEntitySet="SecurityUserProfiles">
+                <ScalarProperty Name="CfisCommitteeContactID" ColumnName="CfisCommitteeContactID" />
+                <ScalarProperty Name="CfisCommitteeID" ColumnName="CfisCommitteeID" />
+                <ScalarProperty Name="CfisType" ColumnName="CfisType" />
+                <ScalarProperty Name="PasswordExpired" ColumnName="PasswordExpired" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="SecurityModel">
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecurityUserElectionCycle" Width="1.5" PointX="5.75" PointY="0.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecurityGroupMembership" Width="1.5" PointX="3" PointY="5" Height="1.5956835933029652" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecurityGroup" Width="1.5" PointX="0.75" PointY="4.875" Height="1.7879850260416674" />
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.SecurityModel.FK_SecurityGroupMembership_SecurityGroups">
+          <ConnectorPoint PointX="2.25" PointY="5.7978417966514826" />
+          <ConnectorPoint PointX="3" PointY="5.7978417966514826" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecuritySsoToken" PointX="3" PointY="1.5" Width="1.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecuritySsoApplication" Width="1.5" PointX="0.75" PointY="1" Height="2.7494921874999996" />
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.SecurityModel.FK_SecuritySsoTokens_SecuritySsoApplications" >
+          <ConnectorPoint PointX="2.25" PointY="2.3939925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.3939925130208337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.SecurityModel.SecurityUserProfile" Width="1.5" PointX="5.75" PointY="3.75" Height="2.3648893229166674" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

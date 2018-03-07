@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="TollingCodeType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SourceCode" />
+      <xs:enumeration value="EventCode" />
+      <xs:enumeration value="TypeCode" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TollingCodeType" nillable="true" type="tns:TollingCodeType" />
+  <xs:simpleType name="TollingEndReason">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="DraftAuditReport" />
+      <xs:enumeration value="FinalAuditReport" />
+      <xs:enumeration value="AllegedViolationNotice" />
+      <xs:enumeration value="NoResponse" />
+      <xs:enumeration value="Extension" />
+      <xs:enumeration value="ResponseReceived" />
+      <xs:enumeration value="AgreementExpired" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TollingEndReason" nillable="true" type="tns:TollingEndReason" />
+  <xs:simpleType name="InadequateEventRetrieval">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InitialEvent" />
+      <xs:enumeration value="AdditionalEvents" />
+      <xs:enumeration value="AllEvents" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InadequateEventRetrieval" nillable="true" type="tns:InadequateEventRetrieval" />
+  <xs:simpleType name="SuspensionReason">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="Breach" />
+      <xs:enumeration value="Fraud" />
+      <xs:enumeration value="GeneralSpending" />
+      <xs:enumeration value="PrimarySpending" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SuspensionReason" nillable="true" type="tns:SuspensionReason" />
+  <xs:simpleType name="AuditRequestType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FirstRequest" />
+      <xs:enumeration value="FirstRepost" />
+      <xs:enumeration value="SecondRequest" />
+      <xs:enumeration value="SecondRepost" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuditRequestType" nillable="true" type="tns:AuditRequestType" />
+  <xs:simpleType name="AuditReportType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InitialDocumentationRequest" />
+      <xs:enumeration value="IdrInadequateResponse" />
+      <xs:enumeration value="IdrAdditionalInadequateResponse" />
+      <xs:enumeration value="DraftAuditReport" />
+      <xs:enumeration value="DarInadequateResponse" />
+      <xs:enumeration value="DarAdditionalInadequateResponse" />
+      <xs:enumeration value="FinalAuditReport" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuditReportType" nillable="true" type="tns:AuditReportType" />
+</xs:schema>

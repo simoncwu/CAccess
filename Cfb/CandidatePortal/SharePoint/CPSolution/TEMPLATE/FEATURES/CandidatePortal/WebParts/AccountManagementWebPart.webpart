@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<webParts>
+  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
+    <metaData>
+      <type name="Cfb.CandidatePortal.SharePoint.WebParts.AccountManagementWebPart, Cfb.CandidatePortal.SharePoint.WebParts.AccountManagementWebPart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9320c5fb540d5df1" />
+      <importErrorMessage>Cannot import this Web Part.</importErrorMessage>
+    </metaData>
+    <data>
+      <properties>
+        <property name="Title" type="string">Account Management Web Part</property>
+        <property name="Description" type="string">Web part for performing C-Access account management tasks.</property>
+        <property name="ChromeType" type="chrometype">None</property>
+        <property name="AllowHide" type="bool">False</property>
+        <property name="AllowMinimize" type="bool">False</property>
+        <property name="AllowClose" type="bool">False</property>
+      </properties>
+    </data>
+  </webPart>
+</webParts>

@@ -1,0 +1,20 @@
+﻿@model Enum
+<div class="form-group@(ViewData.ContainsKey("class")? " " + ViewData["class"] : null)">
+    @Html.LabelFor(m => m, new { @class = "control-label" })
+    @if (ViewData.ModelMetadata.IsReadOnly)
+    {
+        <p class="form-control-static">@(Model == null ? ViewData.ModelMetadata.NullDisplayText : ViewData.TemplateInfo.FormattedModelValue)</p>
+    }
+    else
+    {
+        var htmlAttr = new Dictionary<string, object> {
+            { "class", "form-control" }
+        };
+        string attr = "readonly";
+        if (ViewData.ContainsKey(attr))
+        {
+            htmlAttr[attr] = attr;
+        }
+        @Html.TextBox("", Model, htmlAttr)
+    }
+</div>

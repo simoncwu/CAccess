@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" CodeBehind="CPMinimal.master.cs" Inherits="Cfb.CandidatePortal.Web.WebApplication.CPMinimal" %>
+
+<!doctype html>
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="ROBOTS" content="NOHTMLINDEX" />
+    <title>
+        <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInHead" runat="server" />
+        <%=Resources.CPResources.title_separator%><%=_applicationName%>"
+    </title>
+    <link rel="stylesheet" type="text/css" href="/styles/cfb2007.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script type="text/javascript" src="/scripts/jquery.js"></script>
+    <script type="text/javascript" src="/scripts/cfb2007.js"></script>
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/styles/ie8.css" />
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="/styles/unsupported.css" />
+    <script type="text/javascript" src="/scripts/unsupported.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <form runat="server">
+        <cfb:NoScript runat="server" />
+        <div class="ms-main">
+            <!-- Site Header -->
+            <header>
+                <div id="cp-header" class="cp-minimal">
+                    <div id="GlobalTitleAreaImage">
+                        <a href="/Default.aspx" class="siteLogo" title="<%=_applicationName%>">
+                            <img src="/images/caccess-logo.png" width="113" height="29" alt="<%=_applicationName%>" /></a>
+                    </div>
+                </div>
+            </header>
+            <!-- End of Site Header -->
+            <h1 id="onetidPageTitle" class="ms-pagetitle">
+                <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInBody" runat="server" />
+            </h1>
+            <!-- Page Content -->
+            <div id="Content">
+                <!-- Main content area -->
+                <asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server" />
+            </div>
+            <!-- End of Page Content -->
+            <!-- Site Footer -->
+            <div class="cp-footer">
+                <div class="cp-footer-inner">
+                    <a href="http://www.nyccfb.info" class="footer_text popup" title="<%=_agencyName%>" target="_blank">
+                        <img src="/images/cfb-bug.gif" width="16" height="16" alt="CFB Logo" class="cfbbug" /></a>
+                    &copy;<%=DateTime.Now.Year%>
+                    <a href="http://www.nyccfb.info" class="footer_text popup" title="<%=_agencyName%>" target="_blank">
+                        <%=_agencyName%></a><span class="privacyLink"> \ <a href="/Help/Privacy.aspx"
+                            class="footer_text" title="<%=Resources.CPResources.privacy_title %>">
+                            <%=Resources.CPResources.privacy_title %></a></span>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cfb.CandidatePortal.CPSettings.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LastReminderDistributionDate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">LastReminderDistributionDate</Value>
+    </Setting>
+    <Setting Name="MessageSenderDisplayName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MessageSenderDisplayName</Value>
+    </Setting>
+    <Setting Name="AdministratorsGroupName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AdministratorsGroupName</Value>
+    </Setting>
+    <Setting Name="AccountManagersGroupName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AccountManagersGroupName</Value>
+    </Setting>
+    <Setting Name="AgencyName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AgencyName</Value>
+    </Setting>
+    <Setting Name="ApplicationName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ApplicationName</Value>
+    </Setting>
+    <Setting Name="ApplicationUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ApplicationUrl</Value>
+    </Setting>
+    <Setting Name="AgencyPhoneNumber" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AgencyPhoneNumber</Value>
+    </Setting>
+    <Setting Name="MinimumPasswordLength" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MinimumPasswordLength</Value>
+    </Setting>
+    <Setting Name="CandidatesSecurityGroupName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CandidatesSecurityGroupName</Value>
+    </Setting>
+    <Setting Name="MinimumElectionCycle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MinimumElectionCycle</Value>
+    </Setting>
+    <Setting Name="MessageSenderEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MessageSenderEmail</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

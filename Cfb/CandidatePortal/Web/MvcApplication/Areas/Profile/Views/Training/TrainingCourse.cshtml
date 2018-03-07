@@ -1,0 +1,37 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.TrainingCourseViewModel
+
+@if (Model.Trainees.Any(t => t.Sessions.Any()))
+{
+    <table class="table table-striped table-bordered">
+        <caption>Course: @Html.DisplayFor(m => m.CourseType)</caption>
+        <thead>
+            <tr>
+                <th>Trainee Name</th>
+                <th style="width:25%">Relationship</th>
+                <th style="width:15%">Session Date</th>
+                <th style="width:12.5%" class="bool">Attended</th>
+                <th style="width:12.5%" class="bool">Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var trainee in Model.Trainees.OrderBy(t => t.Name))
+                {
+                    foreach (var session in trainee.Sessions.OrderByDescending(s => s.Date))
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => trainee.Name)@if (session.AchievesCompliance)
+                        {
+                                <text> </text><span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(m => trainee.Relationship)</td>
+                        <td>@Html.DisplayFor(m => session.Date)</td>
+                        <td class="bool">@Html.DisplayFor(m => session.Attended)</td>
+                        <td class="bool">@Html.DisplayFor(m => session.Completed)</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}

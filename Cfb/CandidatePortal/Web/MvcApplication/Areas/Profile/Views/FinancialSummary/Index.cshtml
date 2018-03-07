@@ -1,0 +1,175 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.FinancialSummaryViewModel
+
+@{
+    ViewBag.Title = "Financial Summary";
+}
+<style>
+    dl.financial-summary {
+    }
+
+        table.financial-summary th, dl.financial-summary dt {
+            padding-left: 13px;
+            text-align: left;
+            width: 170px;
+        }
+        
+        table.financial-summary td, dl.financial-summary dd {
+            width: 120px;
+        }
+
+            dl.financial-summary dd.numeric {
+                padding-right: 13px;
+            }
+</style>
+<h2>@ViewBag.Title</h2>
+<p>
+    Below is a summary of all financial information submitted to the CFB by your campaign on its financial disclosure statements. All data are as reported to the CFB by campaigns in their financial disclosure statements. The data are subject to change as a result of ongoing audits and additional amendments to filings received from candidates. To view the campaign finance summaries of all candidates for the @Model.ElectionCycle election cycle, please visit the <a href="http://www.nyccfb.info/VSApps/WebForm_Finance_Summary.aspx?as_election_cycle=@(Model.ElectionCycle)&sm=press_" target="_blank" class="popup">CFB public web site</a>.
+</p>
+<div class="well well-dl">
+    <div class="row">
+        <dl class="col-sm-6 col-lg-3">
+            <dt>@Html.DisplayNameFor(m => m.CandidateName)</dt>
+            <dd>@Html.DisplayFor(m => m.CandidateName)</dd>
+        </dl>
+        <dl class="col-sm-6 col-lg-3">
+            <dt>@Html.DisplayNameFor(m => m.OfficeSought)</dt>
+            <dd>@Html.DisplayFor(m => m.OfficeSought)</dd>
+        </dl>
+        @if (!Model.IsTie)
+        {
+            <dl class="col-sm-6 col-lg-3">
+                <dt>@Html.DisplayNameFor(m => m.Classification)</dt>
+                <dd>@Html.DisplayFor(m => m.Classification)</dd>
+            </dl>
+        }
+        <dl class="col-xs-12 col-sm-6 col-lg-3 pull-right">
+            <dt>@Html.DisplayNameFor(m => m.LastFiledStatement)</dt>
+            <dd>@Html.DisplayFor(m => m.LastFiledStatement)</dd>
+        </dl>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-body panel-table row">
+        <div class="col-sm-6">
+            <table class="table table-borderless table-centered financial-summary">
+                <caption>Receipts</caption>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.NetContributions)</th>
+                    <td class="numeric">@Html.DisplayFor(m => m.NetContributions)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.MiscReceipts)</th>
+                    <td class="numeric">@Html.DisplayFor(m => m.MiscReceipts)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.LoansReceived)</th>
+                    <td class="numeric">@Html.DisplayFor(m => m.LoansReceived)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.PublicFundsReceived)</th>
+                    <td class="numeric">@Html.DisplayFor(m => m.PublicFundsReceived)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-6 col-divided">
+            <table class="table table-borderless table-centered financial-summary">
+                <caption>Disbursements</caption>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.NetExpenditures)</th>
+                    <td class="numeric">@Html.DisplayFor(m => m.NetExpenditures)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.LoansPaid)</th>
+                    <td class="numeric">@Html.DisplayFor(m => m.LoansPaid)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.OutstandingBills)</th>
+                    <td class="numeric">@Html.DisplayFor(m => m.OutstandingBills)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.FundsReturned)</th>
+                    <td class="numeric">@Html.DisplayFor(m => m.FundsReturned)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+@if (!Model.IsTie)
+{
+    <div class="panel panel-default">
+        <div class="panel-body panel-dl row">
+            <div class="col-sm-6">
+                <dl class="dl-horizontal text-center financial-summary">
+                    <dt>@Html.DisplayNameFor(m => m.ContributorsNumber)</dt>
+                    <dd class="numeric">@Html.DisplayFor(m => m.ContributorsNumber)</dd>
+                </dl>
+            </div>
+            <div class="col-sm-6 col-divided">
+                <dl class="dl-horizontal text-center financial-summary">
+                    <dt>@Html.DisplayNameFor(m => m.MatchingClaims)</dt>
+                    <dd class="numeric">@Html.DisplayFor(m => m.MatchingClaims)</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+<section>
+    <h5>Explanation of Terms</h5>
+    <dl title="Explanation of Terms" class="dl-horizontal">
+        <dt>Office Sought</dt>
+        <dd>Shows the office sought by the candidate as reported on her/his Filer Registration or Certification Form. If this information has not been reported, the candidate&rsquo;s office sought will appear as Undeclared.</dd>
+        @if (!Model.IsTie)
+        {
+            <dt>Classification</dt>
+            <dd>Indicates whether a candidate is a Campaign Finance Program participant, is a limited participant, does not participate, or has not yet decided whether to join the Program. Classification came into use with the 2005 Election Cycle.</dd>
+        }
+        <dt>Last Filed Statement</dt>
+        <dd>Shows the statement number and due date of the most recent financial disclosure statement from the candidate received by the CFB.</dd>
+        <dt>Net Contributions</dt>
+        <dd>The total of itemized and non-itemized monetary contributions, in-kind contributions, transfers received from a party or constituted committee, and unreimbursed advances, less refunds. It does not include any surplus funds from previous elections; transfers from non-covered committees controlled by the candidate; any loans that are deemed contributions because they are outstanding after the election, taken out after the election, or paid back by a third party; or any bills that are deemed contributions because they are outstanding more than 90 days, paid back by a third party, or forgiven.</dd>
+        <dt>Miscellaneous Receipts</dt>
+        @if (!Model.IsTie)
+        {
+            <dd>The total income derived from sources other than contributions, loans, or public funds payments, such as interest and proceeds from sales or leases.It also includes any transfer from a committee solely supporting the same candidate that is not taking part in this election.</dd>
+        }
+        else
+        {
+            <dd>The total income derived from sources other than contributions or loans, such as interest and proceeds from sales or leases.</dd>
+        }
+        <dt>Loans Received</dt>
+        <dd>The total dollar amount of loans received by the campaign.</dd>
+        @if (!Model.IsTie)
+        {
+
+            <dt>Public Funds Received</dt>
+            <dd>The total amount of public funds disbursed to the candidate for the primary, runoff, and/or general elections.</dd>
+        }
+        <dt>Net Expenditures</dt>
+
+        @if (!Model.IsTie)
+        {
+            <dd>The total of itemized and unitemized expenditure payments, in-kind contributions, and transfers to a party or constituted committee, less expenditure refunds.</dd>
+        }
+        else
+        {
+            <dd>The total of itemized and unitemized expenditure payments, and in-kind contributions.</dd>
+        }
+        <dt>Loans Paid</dt>
+        <dd>Includes all payments of loan principal and interest and any loans forgiven.</dd>
+        <dt>Outstanding Bills</dt>
+        <dd>Consists of the outstanding liabilities reported on the last disclosure statement filed.</dd>
+        @if (!Model.IsTie)
+        {
+            <dt>Public Funds Returned</dt>
+            <dd>The total amount of public funds returned by the candidate to the CFB to date (for this election cycle).</dd>
+        }
+        <dt>Number of Contributors</dt>
+        <dd>The total number of individuals and other entities which have made itemized contributions to the campaign.</dd>
+        @if (!Model.IsTie)
+        {
+            <dt>Matching Claims</dt>
+            <dd>The total monetary contributions that candidates have claimed as qualifying for matching public funds. The CFB audits all claims to determine their validity, and valid claims are matched at a rate of $6-to-$1 up to the first $175 given by any individual contributor, for a maximum of $1,050 in public funds per contributor.</dd>
+        }
+    </dl>
+</section>

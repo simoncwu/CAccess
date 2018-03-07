@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Feature
+  Id="C34E45F0-F0B0-40c6-A5E8-F7919BE5C7F8"
+  Title="CFB Candidate Portal Infrastructure"
+  Description="Provides custom web parts, master pages, definitions, libraries, and themes for the online Candidate Portal web site."
+  Hidden="false"
+  Scope="Site"
+  xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ElementManifests>
+    <ElementManifest Location="Columns.xml"/>
+    <ElementManifest Location="ContentTypes.xml"/>
+    <ElementManifest Location="Modules.xml"/>
+		<ElementFile Location="WebParts\AccountManagementWebPart.webpart"/>
+  </ElementManifests>
+</Feature>

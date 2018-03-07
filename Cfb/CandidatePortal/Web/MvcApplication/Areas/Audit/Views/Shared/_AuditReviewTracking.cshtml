@@ -1,0 +1,101 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.AuditReviewTrackingViewModel
+
+@{
+    bool showGroups = Model.CommiteeNames.Count > 1;
+}
+@if (Model != null & Model.Reviews != null && Model.Reviews.Any())
+{
+    foreach (var group in Model.Reviews)
+    {
+        if (group.Value.Any())
+        {
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    @if (showGroups && Model.CommiteeNames.ContainsKey(group.Key))
+                    {
+                        <caption>@Model.CommiteeNames[group.Key]</caption>
+                    }
+                    <thead>
+                        <tr>
+                            <th>@Model.ReviewNumberName</th>
+                            @if (Model.IsComplianceVisits)
+                            {
+                                <th>Appointment</th>
+                            }
+                            <th>@Model.SentNamePrefix Sent</th>
+                            <th>Response Due</th>
+                            <th>Response Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var r in group.Value)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(m => r.ID)</td>
+                                @if (Model.IsComplianceVisits)
+                                {
+                                    <td>@Html.DisplayFor(m => r.AppointmentDate)</td>
+                                }
+                                <td>
+                                    @if (r.SentDate.HasValue)
+                                    {
+                                        @Html.DisplayFor(m => r.SentDate)
+                                    }
+                                    else
+                                    {
+                                        @Model.SentNamePrefix <text>not sent</text>
+                                    }
+                                </td>
+                                <td>
+                                    @if (r.ResponseDueDate.HasValue)
+                                    {
+                                        @Html.DisplayFor(m => r.ResponseDueDate)
+                                        if (r.ExtensionsGranted > 0)
+                                        {
+                                            <br /><em>Originally due @Html.DisplayFor(m => r.OriginalDueDate)</em><br />
+                                            if (r.ExtensionGrantedDate.HasValue)
+                                            {
+                                                <em>Extension granted @r.ExtensionGrantedDate</em>
+                                            }
+                                            else
+                                            {
+                                                <em>Extensions granted: @r.ExtensionsGranted</em>
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <text>Response not required</text>
+                                    }
+                                </td>
+                                <td>
+                                    @if (r.ResponseDueDate.HasValue)
+                                    {
+                                        if (r.ResponseReceivedDate.HasValue)
+                                        {
+                                            <text>Received on </text>@Html.DisplayFor(m => r.ResponseReceivedDate)
+                                        }
+                                        else
+                                        {
+                                            <text>Not yet received</text>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <text>Response not required</text>
+                                    }
+                                </td>
+                                <td>@Helpers.MessageDownloadLink(this, r.MessageID)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+}
+else
+{
+    @Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.EmptyDataPartial)
+}

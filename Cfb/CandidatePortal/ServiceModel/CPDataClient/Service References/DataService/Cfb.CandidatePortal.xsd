@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:simpleType name="CfbClassification">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Undetermined" />
+      <xs:enumeration value="LimitedParticipant" />
+      <xs:enumeration value="NonParticipant" />
+      <xs:enumeration value="Participant" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CfbClassification" nillable="true" type="tns:CfbClassification" />
+  <xs:simpleType name="NycBorough">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Brooklyn" />
+      <xs:enumeration value="Manhattan" />
+      <xs:enumeration value="Queens" />
+      <xs:enumeration value="StatenIsland" />
+      <xs:enumeration value="Bronx" />
+      <xs:enumeration value="OutOfCity" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NycBorough" nillable="true" type="tns:NycBorough" />
+  <xs:simpleType name="NycPublicOfficeType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Undeclared" />
+      <xs:enumeration value="Mayor" />
+      <xs:enumeration value="PublicAdvocate" />
+      <xs:enumeration value="Comptroller" />
+      <xs:enumeration value="BoroughPresident" />
+      <xs:enumeration value="CityCouncilMember" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NycPublicOfficeType" nillable="true" type="tns:NycPublicOfficeType" />
+  <xs:simpleType name="TerminationReason">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="ByBoard" />
+      <xs:enumeration value="CeasedCampaign" />
+      <xs:enumeration value="OffBallot" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TerminationReason" nillable="true" type="tns:TerminationReason" />
+  <xs:simpleType name="BankAccountPurpose">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="Regular" />
+      <xs:enumeration value="RunoffRerun" />
+      <xs:enumeration value="Segregated" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BankAccountPurpose" nillable="true" type="tns:BankAccountPurpose" />
+  <xs:simpleType name="BankAccountType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="Checking" />
+      <xs:enumeration value="CreditCard" />
+      <xs:enumeration value="Custodial" />
+      <xs:enumeration value="Savings" />
+      <xs:enumeration value="MoneyMarket" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="BankAccountType" nillable="true" type="tns:BankAccountType" />
+  <xs:simpleType name="DeliveryType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Email" />
+      <xs:enumeration value="Fax" />
+      <xs:enumeration value="Hand" />
+      <xs:enumeration value="Internet" />
+      <xs:enumeration value="Mail" />
+      <xs:enumeration value="Messenger" />
+      <xs:enumeration value="RegisteredCertified" />
+      <xs:enumeration value="FedEx" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DeliveryType" nillable="true" type="tns:DeliveryType" />
+  <xs:simpleType name="DocumentType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Certification" />
+      <xs:enumeration value="CoibReceipt" />
+      <xs:enumeration value="DisclosureStatement" />
+      <xs:enumeration value="FilerRegistration" />
+      <xs:enumeration value="CsmartIdsRequest" />
+      <xs:enumeration value="PreGeneralDisclosure" />
+      <xs:enumeration value="PrePrimaryDisclosure" />
+      <xs:enumeration value="StatementOfNeedGeneral" />
+      <xs:enumeration value="StatementOfNeedPrimary" />
+      <xs:enumeration value="Termination" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentType" nillable="true" type="tns:DocumentType" />
+  <xs:simpleType name="DocumentStatus">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Accepted" />
+      <xs:enumeration value="OnHold" />
+      <xs:enumeration value="Disregarded" />
+      <xs:enumeration value="Received" />
+      <xs:enumeration value="Rejected" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentStatus" nillable="true" type="tns:DocumentStatus" />
+  <xs:simpleType name="DocumentStatusReason">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other" />
+      <xs:enumeration value="CorruptDisk" />
+      <xs:enumeration value="CoverNotSigned" />
+      <xs:enumeration value="Illegible" />
+      <xs:enumeration value="BankAccount" />
+      <xs:enumeration value="MissingDisk" />
+      <xs:enumeration value="MissingPapers" />
+      <xs:enumeration value="MissingSummary" />
+      <xs:enumeration value="MissingCover" />
+      <xs:enumeration value="MissingPatch" />
+      <xs:enumeration value="MissingReference" />
+      <xs:enumeration value="MissingFile" />
+      <xs:enumeration value="NoFilesOnDisk" />
+      <xs:enumeration value="NoSignature" />
+      <xs:enumeration value="Okay" />
+      <xs:enumeration value="NotUpdated" />
+      <xs:enumeration value="SplitFile" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DocumentStatusReason" nillable="true" type="tns:DocumentStatusReason" />
+  <xs:simpleType name="SubmissionType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Regular" />
+      <xs:enumeration value="Amendment" />
+      <xs:enumeration value="Resubmission" />
+      <xs:enumeration value="InternalAmendment" />
+      <xs:enumeration value="Documentation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="SubmissionType" nillable="true" type="tns:SubmissionType" />
+  <xs:simpleType name="CPCalendarItemType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GenericItem" />
+      <xs:enumeration value="StatementReview" />
+      <xs:enumeration value="ComplianceVisit" />
+      <xs:enumeration value="SRResponseDeadline" />
+      <xs:enumeration value="CVResponseDeadline" />
+      <xs:enumeration value="FilingDeadline" />
+      <xs:enumeration value="DoingBusinessReview" />
+      <xs:enumeration value="DbrResponseDeadline" />
+      <xs:enumeration value="InitialDocumentRequest" />
+      <xs:enumeration value="IdrResponseDeadline" />
+      <xs:enumeration value="IdrInadequateEvent" />
+      <xs:enumeration value="IdrInadequateDeadline" />
+      <xs:enumeration value="IdrAdditionalInadequateEvent" />
+      <xs:enumeration value="IdrAdditionalInadequateDeadline" />
+      <xs:enumeration value="DraftAuditReport" />
+      <xs:enumeration value="DarResponseDeadline" />
+      <xs:enumeration value="DarInadequateEvent" />
+      <xs:enumeration value="DarInadequateDeadline" />
+      <xs:enumeration value="DarAdditionalInadequateEvent" />
+      <xs:enumeration value="DarAdditionalInadequateDeadline" />
+      <xs:enumeration value="FinalAuditReport" />
+      <xs:enumeration value="TollingEvent" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CPCalendarItemType" nillable="true" type="tns:CPCalendarItemType" />
+  <xs:simpleType name="ElectionType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="General" />
+      <xs:enumeration value="Primary" />
+      <xs:enumeration value="Runoff" />
+      <xs:enumeration value="Special" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ElectionType" nillable="true" type="tns:ElectionType" />
+  <xs:simpleType name="PaymentMethod">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Check" />
+      <xs:enumeration value="Eft" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentMethod" nillable="true" type="tns:PaymentMethod" />
+  <xs:simpleType name="ExtensionType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="StatementReview" />
+      <xs:enumeration value="ComplianceVisitReview" />
+      <xs:enumeration value="DoingBusinessReview" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ExtensionType" nillable="true" type="tns:ExtensionType" />
+  <xs:complexType name="PaymentPlan">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PaymentPlanSummary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GracePeriod" type="xs:unsignedByte" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="History" nillable="true" type="q1:ArrayOfKeyValueOfdateTimePlanPaymentKwAVntQD" />
+          <xs:element minOccurs="0" name="Installments" nillable="true" type="tns:ArrayOfPaymentInstallment" />
+          <xs:element minOccurs="0" name="PastDueBalance" type="xs:long" />
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPlanPayment" />
+          <xs:element minOccurs="0" name="Period" type="tns:PaymentPeriod" />
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Schedule" nillable="true" type="q2:ArrayOfKeyValueOfintPaymentInstallmentKwAVntQD" />
+          <xs:element minOccurs="0" name="Total" type="xs:unsignedInt" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentPlan" nillable="true" type="tns:PaymentPlan" />
+  <xs:complexType name="PaymentPlanSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FinalPaymentDueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FirstPaymentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PaymentCount" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="PeriodPaymentAmount" type="xs:unsignedInt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentPlanSummary" nillable="true" type="tns:PaymentPlanSummary" />
+  <xs:complexType name="PlanPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="CheckNumber" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Type" type="tns:PaymentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlanPayment" nillable="true" type="tns:PlanPayment" />
+  <xs:simpleType name="PaymentType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="AutomaticPenalty" />
+      <xs:enumeration value="Candidate" />
+      <xs:enumeration value="ManualPenalty" />
+      <xs:enumeration value="Penalty" />
+      <xs:enumeration value="ReturnedFunds" />
+      <xs:enumeration value="ReimbursedReturn" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentType" nillable="true" type="tns:PaymentType" />
+  <xs:complexType name="ArrayOfPaymentInstallment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaymentInstallment" nillable="true" type="tns:PaymentInstallment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaymentInstallment" nillable="true" type="tns:ArrayOfPaymentInstallment" />
+  <xs:complexType name="PaymentInstallment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AmountDue" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="AmountPaid" nillable="true" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaymentInstallment" nillable="true" type="tns:PaymentInstallment" />
+  <xs:complexType name="ArrayOfPlanPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlanPayment" nillable="true" type="tns:PlanPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlanPayment" nillable="true" type="tns:ArrayOfPlanPayment" />
+  <xs:simpleType name="PaymentPeriod">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Monthly" />
+      <xs:enumeration value="Quarterly" />
+      <xs:enumeration value="SemiAnnual" />
+      <xs:enumeration value="Annual" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PaymentPeriod" nillable="true" type="tns:PaymentPeriod" />
+  <xs:simpleType name="ThresholdRevisionType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Initial" />
+      <xs:enumeration value="Revised" />
+      <xs:enumeration value="Summary" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ThresholdRevisionType" nillable="true" type="tns:ThresholdRevisionType" />
+</xs:schema>

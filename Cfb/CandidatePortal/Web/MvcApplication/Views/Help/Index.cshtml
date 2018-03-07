@@ -1,0 +1,59 @@
+﻿@using Cfb.CandidatePortal.Web.MvcApplication.Controllers;
+@{
+    ViewBag.Title = Cfb.CandidatePortal.Web.Mvc.Strings.AreaNames.Help;
+}
+
+<h3>@ViewBag.Title</h3>
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="well well-list">
+            <h4><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> C-Access Overview</h4>
+            <ul>
+                <li>@Html.ActionLink("About C-Access", HelpController.ActionName_About)</li>
+                <li>@Html.ActionLink("Content Breakdown by Section", HelpController.ActionName_Breakdown)</li>
+                <li>@Html.ActionLink("CFB Terms and Definitions", HelpController.ActionName_TermsDefinitions)</li>
+                <li>@Html.ActionLink("Data Disclaimer", HelpController.ActionName_DataDisclaimer)</li>
+                <li>@Html.ActionLink("Privacy Statement", HelpController.ActionName_Privacy)</li>
+            </ul>
+        </div>
+        <div class="well well-list">
+            <h4><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> C-Access Support</h4>
+            <ul>
+                <li>@Html.ActionLink("Report Data Inaccuracy Issues", HelpController.ActionName_ReportInaccurateData)</li>
+                <li>@Html.ActionLink("Contact the CFB", HelpController.ActionName_Contact)</li>
+                <li>@Html.ActionLink("Request Additional Accounts", HelpController.ActionName_AccountRequest)</li>
+                <li>@Html.ActionLink("Manage Account Settings", Cfb.CandidatePortal.Web.Mvc.Strings.Actions.Default, ManageController.ControllerName)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="well well-list">
+            <h4><span class="glyphicon glyphicon-link" aria-hidden="true"></span> CFB Resources</h4>
+            <ul>
+                <li><a href="http://www.nyccfb.info/law/advisory-opinions" target="_blank" title="Advisory Opinions" class="popup">Advisory Opinions</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/law/act/CFACT.htm" target="_blank" title="Campaign Finance Act" class="popup">Campaign Finance Act</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/candidate-services/forms" target="_blank" title="Candidate Forms" class="popup">Candidate Forms</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/candidate-services" target="_blank" title="Candidate Resources" class="popup">Candidate Resources</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/law/rules/" target="_blank" title="Campaign Finance Board Rules" class="popup">CFB Rules</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/law/final-determinations" target="_blank" title="Final Determinations" class="popup">Final Determinations</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/candidate-services" target="_blank" title="Limits and Requirements" class="popup">Limits and Requirements</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/candidate-services/post-election/audit" target="_blank" title="Post-Election Audit Process" class="popup">Post-Election Audit Process</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/searchabledb/" target="_blank" title="Searchable Database" class="popup">Searchable Database</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/candidate-services/e-learning/disclosure-statement" target="_blank">How to File a Disclosure Statement</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="well well-list">
+            <h4><i class="fa fa-building" aria-hidden="true"></i> General Contact Information</h4>
+            <address>
+                <strong>NYC Campaign Finance Board</strong><br />
+                100 Church Street, 12th Floor<br />
+                New York, NY 10007<br />
+                Tel: @Cfb.CandidatePortal.CPProviders.SettingsProvider.AgencyPhoneNumber<br />
+                Fax: (212) 409-1705<br />
+                <a href="http://www.nyccfb.info" target="_blank" title="NYC Campaign Finance Board">www.nyccfb.info</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span>
+            </address>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Models.ITabPageViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string activeController = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+<h3>@Model.AreaName</h3>
+<ul class="nav nav-tabs" role="tablist">
+    @foreach (var item in Model.Controllers)
+    {
+        <li role="presentation" class="@(item.Value == activeController ? "active" : null)">@Html.ActionLink(item.Key, "Index", item.Value, new { area = Model.Area }, null)</li>
+    }
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" role="tabpanel">
+        @RenderBody()
+    </div>
+</div>
+@section scripts {
+    @RenderSection("scripts", required: false)
+}

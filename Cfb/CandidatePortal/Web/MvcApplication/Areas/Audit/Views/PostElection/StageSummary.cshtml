@@ -1,0 +1,22 @@
+﻿@using Cfb.CandidatePortal.Web.Mvc.Strings;
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.PostElectionSummaryViewModel
+
+@{
+    bool hasInadequate = Model.InadequateResponse != null;
+}
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4 class="panel-title">Campaign Response Deadlines <span class="glyphicon glyphicon-question-sign" title="Displays the CFB's most recent notice addressed to your campaign, the date your response is due, and the date the response was received." data-toggle="tooltip" aria-hidden="true"></span></h4>
+    </div>
+    <div class="panel-body panel-table row">
+        <div class="col-sm-@(hasInadequate ? 6 : 12)">
+            @Html.Partial(Views.PostElectionResponse, Model.ReportResponse)
+        </div>
+        @if (hasInadequate)
+        {
+            <div class="col-sm-6 col-divided">
+                @Html.Partial(Views.PostElectionResponse, Model.InadequateResponse)
+            </div>
+        }
+    </div>
+</div>

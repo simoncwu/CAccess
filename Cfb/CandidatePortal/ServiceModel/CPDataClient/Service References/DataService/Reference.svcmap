@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bb73b8bf-0ace-4040-ad0c-0b5c99036942" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>true</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="net.tcp://localhost:8006/CAccess/DataService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="data.wsdl" MetadataType="Wsdl" ID="5ae9c385-295c-4835-9126-f39bee238620" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="92757f28-b5b2-42bf-a143-24453f4acc99" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="data.xsd" MetadataType="Schema" ID="79b5fb2d-28a5-4f95-9ce9-09a5cee1a551" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="253288a4-7d89-42cd-8b98-89921a83cdeb" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="Cfb.Cfis.CampaignContacts.xsd" MetadataType="Schema" ID="02ca3f2e-3269-4ea0-80b3-b1609399938f" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="Cfb.CandidatePortal.xsd" MetadataType="Schema" ID="268fb0e0-53f5-4550-a3ff-d9797688c79b" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="System.Data.SqlClient.xsd" MetadataType="Schema" ID="89a38cb0-0888-4098-af6f-62332761cacd" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="5625a4e4-5734-4dc0-9c10-52f2171359d7" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="Cfb.CandidatePortal.TrainingTracking.xsd" MetadataType="Schema" ID="e3d0057c-b637-41e2-bb24-8e622d4eb548" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="Cfb.CandidatePortal.PostElection.xsd" MetadataType="Schema" ID="20b07d48-181f-4e5a-8546-7405fd544120" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="Cfb.CandidatePortal.SubmissionDocuments.xsd" MetadataType="Schema" ID="0011368a-5a98-43e6-abb6-f1b86f99d6e6" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="System.IO.xsd" MetadataType="Schema" ID="dab5926d-f220-4754-9882-60574c060f6d" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="c5ccd58f-6c7d-410b-8403-62df4c979cfb" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+    <MetadataFile FileName="Cfb.CandidatePortal.Cmo.xsd" MetadataType="Schema" ID="358655d3-5af5-4e0a-865e-4ade050e8657" SourceId="1" SourceUrl="net.tcp://localhost:8006/CAccess/DataService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

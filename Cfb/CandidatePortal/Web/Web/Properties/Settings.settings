@@ -1,0 +1,132 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cfb.CandidatePortal.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ChangePasswordFlag" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CHANGE_PASSWORD</Value>
+    </Setting>
+    <Setting Name="CommentDelimiter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">::</Value>
+    </Setting>
+    <Setting Name="StreamReadingBufferSize" Type="System.UInt32" Scope="Application">
+      <Value Profile="(Default)">524288</Value>
+    </Setting>
+    <Setting Name="CacheData" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ChangePasswordPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Help/ChangePassword.aspx</Value>
+    </Setting>
+    <Setting Name="ChangeCmoSettingsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Messages/Settings.aspx</Value>
+    </Setting>
+    <Setting Name="ComplianceVisitsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Audit/ComplianceVisits.aspx</Value>
+    </Setting>
+    <Setting Name="StatementReviewsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Audit/StatementReviews.aspx</Value>
+    </Setting>
+    <Setting Name="FilingDayReminderPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Announcements/DisclosureStatement.aspx</Value>
+    </Setting>
+    <Setting Name="DoingBusinessPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Audit/DoingBusiness.aspx</Value>
+    </Setting>
+    <Setting Name="ExtensionRequestPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Audit/ExtensionRequest.aspx</Value>
+    </Setting>
+    <Setting Name="CandidateProfilePageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Profile/Candidate.aspx</Value>
+    </Setting>
+    <Setting Name="CommitteeProfilePageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Profile/Committee.aspx</Value>
+    </Setting>
+    <Setting Name="ThresholdPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Audit/Threshold.aspx</Value>
+    </Setting>
+    <Setting Name="PaymentPlanPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Audit/PaymentPlan.aspx</Value>
+    </Setting>
+    <Setting Name="PublicFundsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Audit/PublicFunds.aspx</Value>
+    </Setting>
+    <Setting Name="FinancialSummaryPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Profile/FinanceSummary.aspx</Value>
+    </Setting>
+    <Setting Name="TrainingTrackingPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Profile/Training.aspx</Value>
+    </Setting>
+    <Setting Name="PostElectionAuditPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Audit/PostElection.aspx</Value>
+    </Setting>
+    <Setting Name="FilerRegistrationsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Submissions/FilerRegistrations.aspx</Value>
+    </Setting>
+    <Setting Name="CsmartIdsRequestsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Submissions/CsmartIds.aspx</Value>
+    </Setting>
+    <Setting Name="CertificationsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Submissions/Certifications.aspx</Value>
+    </Setting>
+    <Setting Name="CoibReceiptsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Submissions/CoibReceipts.aspx</Value>
+    </Setting>
+    <Setting Name="DisclosureStatmentsPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Submissions/DisclosureStatements.aspx</Value>
+    </Setting>
+    <Setting Name="PreElectionPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Submissions/PreElection.aspx</Value>
+    </Setting>
+    <Setting Name="StatementsOfNeedPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Submissions/StatementsOfNeed.aspx</Value>
+    </Setting>
+    <Setting Name="TerminationPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Submissions/Termination.aspx</Value>
+    </Setting>
+    <Setting Name="CmoMessageViewUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Messages/View.aspx</Value>
+    </Setting>
+    <Setting Name="CmoMailboxUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Messages/</Value>
+    </Setting>
+    <Setting Name="AnnouncementPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Announcements/View.aspx</Value>
+    </Setting>
+    <Setting Name="PostElectionAuditTypeParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">peart</Value>
+    </Setting>
+    <Setting Name="CommitteeIDParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">comm</Value>
+    </Setting>
+    <Setting Name="StatementParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">stmt</Value>
+    </Setting>
+    <Setting Name="ExtensionTypeParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">exttype</Value>
+    </Setting>
+    <Setting Name="DateParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">date</Value>
+    </Setting>
+    <Setting Name="ReviewNumberParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">review</Value>
+    </Setting>
+    <Setting Name="LoggedOutParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">loggedout</Value>
+    </Setting>
+    <Setting Name="ReturnUrlParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CPReturnUrl</Value>
+    </Setting>
+    <Setting Name="UnauthorizedPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Errors/Unauthorized.aspx</Value>
+    </Setting>
+    <Setting Name="ErrorPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/Errors/ServerError.aspx</Value>
+    </Setting>
+    <Setting Name="ElectionCycleParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ec</Value>
+    </Setting>
+    <Setting Name="MinimalMasterPageUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/CPMinimal.master</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

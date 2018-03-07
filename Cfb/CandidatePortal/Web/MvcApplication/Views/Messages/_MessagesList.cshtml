@@ -1,0 +1,42 @@
+﻿@using Cfb.CandidatePortal.Web.MvcApplication.Controllers;
+@model IEnumerable<Cfb.CandidatePortal.Web.MvcApplication.Models.MessageHeaderViewModel>
+
+@if (Model.Any())
+{
+    foreach (var m in Model)
+    {
+        <div class="list-group-item @(!m.OpenedDate.HasValue ? "cmo-unopened" : null)">
+            <div class="row">
+                <div class="col-xs-2 col-sm-1 checkbox">
+                    <label><input type="checkbox" name="message_ids" value="@m.ID" /></label>
+                </div>
+                <div class="col-xs-10 col-sm-11">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-2 col-sm-push-1">
+                            EC@(Html.DisplayFor(M => m.ElectionCycle))
+                            @if (!m.OpenedDate.HasValue)
+                            {
+                                <span class="glyphicon glyphicon-envelope hidden-sm" aria-hidden="true" role="status"></span>
+                            }
+                        </div>
+                        <div class="col-xs-6 col-sm-3 col-sm-push-7 col-sm-offset-0 col-md-2 col-md-push-8">
+                            @if (m.HasAttachments)
+                            {
+                                <span class="glyphicon glyphicon-paperclip" aria-hidden="true" role="status"></span>
+                            }
+                            <span class="pull-right">@Html.DisplayFor(M => m.Posted)</span>
+                        </div>
+                        <div class="cmo-title col-xs-10 col-sm-6 col-sm-pull-2 col-md-7 col-md-pull-1">@Html.DisplayFor(M => m.Title)</div>
+                        <div class="col-xs-2 col-sm-1 col-sm-pull-11">
+                            @if (m.Flagged)
+                            {
+                                <i class="fa fa-flag" aria-hidden="true" role="status"></i>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @Html.Partial(MessagesController.ViewName_UpdateResultMessage)
+}

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ContactOrder">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="First" />
+      <xs:enumeration value="Second" />
+      <xs:enumeration value="Third" />
+      <xs:enumeration value="Fourth" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ContactOrder" nillable="true" type="tns:ContactOrder" />
+  <xs:simpleType name="Honorific">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Mr" />
+      <xs:enumeration value="Mrs" />
+      <xs:enumeration value="Ms" />
+      <xs:enumeration value="Rev" />
+      <xs:enumeration value="Sister" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Honorific" nillable="true" type="tns:Honorific" />
+  <xs:simpleType name="EntityType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Generic" />
+      <xs:enumeration value="Candidate" />
+      <xs:enumeration value="Committee" />
+      <xs:enumeration value="Employer" />
+      <xs:enumeration value="Treasurer" />
+      <xs:enumeration value="Liaison" />
+      <xs:enumeration value="Consultant" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EntityType" nillable="true" type="tns:EntityType" />
+  <xs:simpleType name="LiaisonType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Liaison" />
+      <xs:enumeration value="CampaignManager" />
+      <xs:enumeration value="Consultant" />
+      <xs:enumeration value="TIE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LiaisonType" nillable="true" type="tns:LiaisonType" />
+</xs:schema>

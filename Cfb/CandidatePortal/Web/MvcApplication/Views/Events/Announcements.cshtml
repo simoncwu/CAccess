@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Cfb.CandidatePortal.Web.MvcApplication.Models.AnnouncementViewModel>
+
+<section class="well well-list">
+    <h5><span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span> Announcements</h5>
+    @if (Model.Any())
+    {
+        <ul>
+            @foreach (var item in Model)
+                {
+                <li>@Html.ActionLink(item.Title, "Announcement", "Events", new { id = item.ID }, null)</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <span>There are currently no announcements available.</span>
+    }
+</section>

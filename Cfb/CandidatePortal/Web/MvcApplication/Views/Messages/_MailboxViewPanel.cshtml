@@ -1,0 +1,60 @@
+﻿@using Cfb.CandidatePortal.Cmo
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Models.MessageCenterViewModel
+
+@if (Model.SelectedMessage != null)
+{
+    @Html.Partial(MessagesController.ActionName_Details, Model.SelectedMessage)
+}
+else
+{
+    using (Ajax.BeginForm(MessagesController.ActionName_Update, new { view = Model.CurrentView }, new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "MessagesList",
+        LoadingElementId = "LoadingElement",
+        OnBegin = "validateSelection"
+    }))
+    {
+        @Html.AntiForgeryToken()
+        <nav class="navbar navbar-default navbar-cmo" data-spy="affix" data-offset-top="51">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown visible-xs">
+                        <a href="#" id="mailboxMenuLabel" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">@Html.DisplayFor(m => m.CurrentView)<span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="mailboxMenuLabel">
+                            @Html.Partial("_MailboxViewTabs", Model)
+                        </ul>
+                    </li>
+                </ul>
+                <div class="navbar-form navbar-left navbar-cmo-actions">
+                    <div class="checkbox hidden-xs">
+                        <label><input id="SelectAllCheckBox" type="checkbox" /></label>
+                    </div>
+                    @if (Model.CurrentView != CmoMailboxView.Archived)
+                    {
+                        <button type="submit" class="btn btn-default" name="updateAction" value="@MessagesController.ActionName_Archive" title="Archive"><span class="glyphicon glyphicon-save" aria-hidden="true"></span><span class="hidden-xs"> Archive</span></button>
+                    }
+                    @if (Model.CurrentView == CmoMailboxView.Archived || Model.CurrentView == CmoMailboxView.All)
+                    {
+                        <button type="submit" class="btn btn-default" name="updateAction" value="@MessagesController.ActionName_Unarchive" title="Unarchive"><span class="glyphicon glyphicon-open" aria-hidden="true"></span><span class="hidden-xs"> Unarchive</span></button>
+                    }
+                    @if (Model.CurrentView != CmoMailboxView.FollowUp)
+                    {
+                        <button type="submit" class="btn btn-default" name="updateAction" value="@MessagesController.ActionName_Flag" title="Flag"><i class="fa fa-flag" aria-hidden="true"></i><span class="hidden-xs"> Flag</span></button>
+                    }
+                    <button type="submit" class="btn btn-default" name="updateAction" value="@MessagesController.ActionName_ClearFlag" title="Unflag"><i class="fa fa-flag-o" aria-hidden="true"></i><span class="hidden-xs"> Unflag</span></button>
+                </div>
+            </div>
+        </nav>
+        <section id="MessagesList" class="list-group list-group-cmo form-inline">
+            @Html.Partial(MessagesController.ViewName_MessagesList, Model.Messages)
+        </section>
+    }
+    <script>
+        var validateSelection = function () {
+            return $("#MessagesList .list-group-item :checked").length > 0;
+        }
+    </script>
+}

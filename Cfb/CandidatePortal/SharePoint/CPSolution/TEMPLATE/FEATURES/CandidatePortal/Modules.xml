@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="WebParts" List="113" Url="_catalogs/wp" Path="WebParts" RootWebOnly="true">
+    <File Url="AccountManagementWebPart.webpart" Type="GhostableInLibrary">
+      <Property Name="Group" Value="CFB Web Parts" />
+    </File>
+  </Module>
+</Elements>

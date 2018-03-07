@@ -1,0 +1,283 @@
+﻿.cmoPaperSettingsLink
+{
+    display: block;
+    float: right;
+    position: relative;
+    right: 30px;
+    bottom: 1.5em;
+    text-transform: none;
+}
+.cp-PageResults + #CmoContainer
+{
+}
+
+#CmoTabbedPanels .TabbedPanelsContent
+{
+    margin: 0;
+    padding: 0;
+}
+.cmo.contentTabs
+{
+    padding: .5em .5em 1em;
+}
+.cmo.contentTabs::before
+{
+    content: "";
+    background-color: #57575B;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border: 1px solid #57575B;
+    position: absolute;
+    top: .5em;
+    bottom: 1em;
+    width: calc(125px + 4px);
+}
+.cmo.contentTabs .ui-tabs-nav
+{
+    width: 125px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    display: inline-block;
+}
+.cmo.contentTabs.ui-tabs .ui-tabs-nav li
+{
+    float: none;
+    margin: 1px 0 3px 0;
+    border-radius: 3px 0 0 3px;
+    border-bottom-width: 1px;
+    line-height: 2.5em;
+}
+.cmo.contentTabs.ui-tabs .ui-tabs-nav li a
+{
+    display: block;
+    float: none;
+}
+.cmo.contentTabs.ui-tabs .ui-tabs-nav li.ui-tabs-active
+{
+    padding-bottom: 0;
+    padding-right: 1px;
+}
+.cmo.contentTabs.ui-tabs .ui-tabs-panel
+{
+    display: inline-block;
+    padding: 0;
+    width: calc(100% - 125px - 6px);
+    vertical-align: top;
+    margin-left: 6px;
+}
+.cmoToolbar
+{
+    background-color: #256A9A;
+    padding: 0 1em;
+    height: 27px;
+    border-top-left-radius: 0;
+}
+.ie10plus .cmoToolbar
+{
+    border-radius: 0;
+}
+.ui-widget-content .cmoToolbar .button
+{
+    background-color: #E8EAE8;
+    border-color: #bfc0b5;
+    color: #414144;
+    margin-top: 2px;
+    height: 23px;
+    padding-top: 2px;
+}
+.ui-widget-content .cmoToolbar .button.disabled, .ui-widget-content .cmoToolbar .ui-state-hover.button.disabled
+{
+    background-color: transparent;
+    background-image: none;
+    border-color: #bfc0b5;
+}
+.cmoToolbar .button + .button, .cmoToolbar .icons + .button
+{
+    margin-left: 5px;
+}
+.cmoToolbar .ui-state-default.button
+{
+    padding: 2px .5em 1px .5em;
+}
+.cmoToolbar .cmoMailboxIndexInfo .button
+{
+    margin-left: .5em;
+}
+.cmoToolbar .cmoMailboxIndexInfo .button:first-child
+{
+    margin-right: .5em;
+}
+.ui-widget-content .cmoToolbar a.button:hover, .ui-widget-content .cmoToolbar .ui-state-hover.button
+{
+    background-color: #414144;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#57575B),to(#414144));
+    background-image: -webkit-linear-gradient(top,#57575B,#414144);
+    background-image: -moz-linear-gradient(top,#57575B,#414144);
+    background-image: -ms-linear-gradient(top,#57575B,#414144);
+    background-image: -o-linear-gradient(top,#57575B,#414144);
+    background-image: linear-gradient(top,#57575B,#414144);
+    border-color: #414144;
+    color: #e8eae8;
+}
+.cmoMailboxIndexInfo
+{
+    color: #E8EAE8;
+    white-space: nowrap;
+    display: inline-block;
+    float: right;
+    line-height: 28px;
+}
+.cmoMailboxIndexInfo a img
+{
+    vertical-align: text-top;
+}
+.cp-CmoMailboxMessageListControl
+{
+}
+.cp-CmoMailboxMessageListControl p
+{
+    margin-left: .8em;
+    margin-right: .8em;
+}
+.cmoMailboxMessageList .ui-state-hover
+{
+    border: none;
+    background: none;
+}
+.cmoMailboxMessageList .ui-icon-flag
+{
+    margin: auto;
+    position: relative;
+    bottom: 2px;
+}
+#CmoContainer .cmoMailboxMessageList .cmoMessage
+{
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color .1s linear;
+}
+#CmoContainer .cmoMailboxMessageList .newMessage
+{
+    font-weight: bold;
+    background-color: #FFFFFF;
+}
+#CmoContainer .cmoMailboxMessageList .cmoMessage:hover
+{
+    background-color: #E2F2EE;
+}
+.cmoMailboxMessageList .cmoMessage td
+{
+    border-bottom: solid 1px #bfc0b5;
+}
+.cmoMailboxMessageList .cmoMessage td:first-child
+{
+}
+.cmoMailboxMessageList .messageSelect
+{
+    width: 6%;
+}
+.cmoMailboxMessageList .openStatus, .cmoMailboxMessageList .attachmentStatus, .cmoMailboxMessageList .followUp
+{
+    width: 4%;
+}
+.cmoMailboxMessageList .messageSelect
+{
+    cursor: auto;
+}
+.cmoMailboxMessageList .messageSelect input[type=checkbox]
+{
+    margin-top: 1px;
+    margin-left: 20px;
+    vertical-align: top;
+}
+.cmoMailboxMessageList .electionCycle, .cmoMailboxMessageList .receivedDate
+{
+    width: 9%;
+}
+.cmoMailboxMessageList .electionCycle div
+{
+}
+.cmoMailboxMessageList .title
+{
+    overflow: hidden;
+    white-space: nowrap;
+}
+.cmoMailboxMessageList .title div
+{
+    overflow: hidden;
+}
+.CmoMessageDetails .messageHeader, .CmoMessageDetails .description
+{
+    margin: 1em;
+}
+.messageHeader h2
+{
+    margin: 0;
+}
+.cmoMessageFollowUp
+{
+    padding: .5em;
+}
+.cmoMessageFollowUp .ui-icon-flag
+{
+    display: inline-block;
+    height: 1em;
+    vertical-align: top;
+}
+.messageHeader table
+{
+    width: 100%;
+    font-size: 9.5pt;
+}
+.messageHeader table tr
+{
+    line-height: 1.5em;
+}
+.messageHeader table th
+{
+    width: 118px;
+    white-space: nowrap;
+}
+.messageHeader table th.date
+{
+    width: 74px;
+}
+.messageHeader table td
+{
+    white-space: nowrap;
+}
+.messageHeader table td.date
+{
+    width: 1%;
+}
+.CmoMessageDetails .description
+{
+    background-color: white;
+    padding: .5em;
+    border: 1px solid #BFC0B5;
+}
+.CmoMessageDetails .description pre
+{
+}
+.messageAttachments
+{
+    margin: 1em;
+}
+.messageAttachments h3
+{
+    margin-top: 0;
+}
+.messageAttachments ul
+{
+    margin: 0;
+}
+.messageAttachments ul li
+{
+    background-image: none;
+    line-height: normal;
+    margin: .5em 0;
+}
+#ctl00_ctl00_PlaceHolderMain_PlaceHolderMain_CmoMessageNotFound
+{
+    padding: 0 1em;
+}

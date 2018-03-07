@@ -1,0 +1,25 @@
+﻿@using Cfb.CandidatePortal.Web.Mvc.Strings;
+@model DateTime?
+<div class="form-group@(ViewData.ContainsKey("class") ? " " + ViewData["class"] : null)">
+    @Html.LabelFor(m => m, new { @class = "control-label" })
+    @if (ViewData.ModelMetadata.IsReadOnly)
+    {
+        <p class="form-control-static">@(Model.HasValue ? string.Format(DataFormats.MediumDate, Model.Value) : ViewData.ModelMetadata.NullDisplayText)</p>
+    }
+    else
+    {
+        var htmlAttr = new Dictionary<string, object> {
+                { "type", "date" },
+                { "class", "form-control date" }
+            };
+        string attr = "readonly";
+        if (ViewData.ContainsKey(attr))
+        {
+            htmlAttr[attr] = attr;
+        }
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            @Html.TextBox("", string.Format(DataFormats.DateField, Model), htmlAttr)
+        </div>
+    }
+</div>

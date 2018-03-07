@@ -1,0 +1,110 @@
+﻿using Cfb.DirectoryServices;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+
+namespace Cfb.CandidatePortal.UnitTest
+{
+
+
+	/// <summary>
+	///This is a test class for CfbDirectorySearcherTest and is intended
+	///to contain all CfbDirectorySearcherTest Unit Tests
+	///</summary>
+	[TestClass()]
+	public class CfbDirectorySearcherTest
+	{
+
+
+		private TestContext testContextInstance;
+
+		/// <summary>
+		///Gets or sets the test context which provides
+		///information about and functionality for the current test run.
+		///</summary>
+		public TestContext TestContext
+		{
+			get
+			{
+				return testContextInstance;
+			}
+			set
+			{
+				testContextInstance = value;
+			}
+		}
+
+		#region Additional test attributes
+		// 
+		//You can use the following additional attributes as you write your tests:
+		//
+		//Use ClassInitialize to run code before running the first test in the class
+		//[ClassInitialize()]
+		//public static void MyClassInitialize(TestContext testContext)
+		//{
+		//}
+		//
+		//Use ClassCleanup to run code after all tests in a class have run
+		//[ClassCleanup()]
+		//public static void MyClassCleanup()
+		//{
+		//}
+		//
+		//Use TestInitialize to run code before running each test
+		//[TestInitialize()]
+		//public void MyTestInitialize()
+		//{
+		//}
+		//
+		//Use TestCleanup to run code after each test has run
+		//[TestCleanup()]
+		//public void MyTestCleanup()
+		//{
+		//}
+		//
+		#endregion
+
+
+		/// <summary>
+		///A test for CfbDirectorySearcher Constructor
+		///</summary>
+		[TestMethod()]
+		public void CfbDirectorySearcherConstructorTest()
+		{
+			CfbDirectorySearcher target = new CfbDirectorySearcher();
+			Assert.Inconclusive("TODO: Implement code to verify target");
+		}
+
+		/// <summary>
+		///A test for GetCfbStaff
+		///</summary>
+		[TestMethod()]
+		public void GetCfbStaffTest()
+		{
+			List<User> expected = null; // TODO: Initialize to an appropriate value
+			List<User> actual;
+			actual = CfbDirectorySearcher.GetCfbStaff();
+			Assert.AreEqual(expected, actual);
+			Assert.Inconclusive("Verify the correctness of this test method.");
+		}
+
+		/// <summary>
+		///A test for GetUser
+		///</summary>
+		[TestMethod()]
+		public void GetUserTest()
+		{
+			string username = "swu";
+			User expected = new User()
+			{
+				DisplayName = "Simon C. Wu",
+				Email = "swu@nyccfb.info",
+				Username = "swu"
+			};
+			User actual;
+			actual = CfbDirectorySearcher.GetUser(username);
+			Assert.AreEqual(expected, actual);
+			Assert.Inconclusive("Verify the correctness of this test method.");
+		}
+	}
+}

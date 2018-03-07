@@ -1,0 +1,9 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.PrimaryGeneralStatusListViewModel
+
+@{
+    ViewBag.Title = "Daily Pre-Election Disclosure Statements";
+}
+<h2>@ViewBag.Title</h2>
+<p>Listed below is the history of all Daily Pre-Election Disclosure Statements, resubmissions of Daily Pre-Election Disclosure Statements, and amendments to Daily Pre-Election Disclosure Statements received by the CFB from your campaign. Daily Pre-Election Disclosure Statements may have a status of Processing, Accepted, On-Hold, Rejected or No Processing Required. A &ldquo;Processing&rdquo; status does not indicate that a Daily Pre-Election Disclosure Statement has been &ldquo;Accepted&rdquo; by the CFB.</p>
+<p>Candidates should amend their Daily Pre-Election Disclosure Statements when information reported on this has changed.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.PrimaryGeneralStatusList, Model)

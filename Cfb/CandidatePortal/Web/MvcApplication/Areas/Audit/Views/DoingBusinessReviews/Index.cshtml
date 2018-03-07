@@ -1,0 +1,8 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.AuditReviewTrackingViewModel
+
+@{
+    ViewBag.Title = "Doing Business Reviews";
+}
+<h2>@ViewBag.Title</h2>
+<p>CFB staff will review each financial disclosure statement submitted by your campaign for contributions that are subject to the <a href="http://www.nyccfb.info/candidate-services/doing-business-faqs" class="popup" target="_blank" title="Doing Business FAQs">doing business regulations</a>.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.AuditReviewTracking, Model)

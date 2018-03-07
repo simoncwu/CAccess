@@ -1,0 +1,9 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.DocumentStatusListViewModel
+
+@{
+    ViewBag.Title = "Filer Registration";
+}
+<h2>@ViewBag.Title</h2>
+<p>Listed below is the history of Filer Registrations, resubmissions of Filer Registrations, and amendments to Filer Registrations received by the CFB from your campaign. A Filer Registration may have a status of Processing, Accepted, On-Hold, Rejected or No Processing Required. A &ldquo;Processing&rdquo; status does not indicate that a Filer Registration has been &ldquo;Accepted&rdquo; by the CFB.</p>
+<p>Candidates should amend their Filer Registration when information reported on the form has changed.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.DocumentStatusList, Model.Documents)

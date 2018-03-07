@@ -1,0 +1,8 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.AuditReviewTrackingViewModel
+
+@{ 
+    ViewBag.Title = "Statement Reviews";
+}
+<h2>@ViewBag.Title</h2>
+<p>CFB staff will review each financial disclosure statement submitted by your campaign. Candidates seeking public matching funds will also be reviewed for invalid matching claims, meeting threshold, backup and to determine eligibility for public fund payment.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.AuditReviewTracking, Model)

@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" CodeBehind="CandidatePortal.master.cs" Inherits="Cfb.CandidatePortal.Web.WebApplication.CandidatePortal" %>
+
+<!doctype html>
+<html lang="en-us" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+        <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInHead" runat="server" />
+        <%=Resources.CPResources.title_separator%><%=CPProviders.SettingsProvider.ApplicationName%>
+    </title>
+    <link rel="stylesheet" type="text/css" href="/styles/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/cfb2007.css" />
+    <link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/dojo/1.9.2/dijit/themes/claro/claro.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js"></script>
+    <script type="text/javascript" src="/scripts/cfb2007.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/scripts/html5tags.js"></script>
+    <![endif]-->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/styles/ie8.css" />
+    <![endif]-->
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="/styles/unsupported.css" />
+    <script type="text/javascript" src="/scripts/unsupported.js"></script>
+    <![endif]-->
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="/styles/ie.css" />
+    <script type="text/javascript" src="/scripts/bu.js"></script>
+    <![endif]-->
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+</head>
+<body class="claro">
+    <form runat="server">
+    <cfb:NoScript runat="server" />
+    <asp:ScriptManager ID="ScriptManager" runat="server" EnablePartialRendering="true"
+        AllowCustomErrorsRedirect="true" EnablePageMethods="true" EnableViewState="true">
+    </asp:ScriptManager>
+    <div class="ms-main">
+        <!-- Full Site Header -->
+        <header>
+            <!-- Site Header -->
+            <div id="cp-header">
+                <div id="SsoMenu">
+                    <div class="innermenu sso-bg">
+                        <cfb:SsoApplicationList runat="server" CssClass="sso-app-list">
+                        </cfb:SsoApplicationList>
+                        <div class="logout">
+                            <cfb:UserHello runat="server" ID="_userHello" DisplayName="" OnLoad="_userHello_Load" />
+                            <a href="/Logout.aspx" title="<%=Resources.CPResources.logout_text%>" class="button">
+                                <%=Resources.CPResources.logout_text%></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/Default.aspx" class="siteLogo" title="<%=CPProviders.SettingsProvider.ApplicationName%>">
+                    <img src="/images/caccess-logo.png" width="113" height="29" alt="<%=CPProviders.SettingsProvider.ApplicationName%>" /></a>
+                <cfb:ElectionCycleChooser ID="_electionCycleChooser" runat="server" />
+            </div>
+            <!-- End of Site Header -->
+            <!-- Horizontal Top Navigation Bar -->
+            <asp:SiteMapDataSource ID="CPSiteMap" runat="server" ShowStartingNode="false" SiteMapProvider="CPSiteMapProvider"
+                StartingNodeOffset="0" StartingNodeUrl="~/" />
+            <nav id="cp-TopNavigationMenu">
+                <asp:ContentPlaceHolder ID="PlaceHolderCmoCounter" runat="server">
+                    <cfb:CmoNewMessageCounter runat="server" ID="_cmoNewMessageCounter" NewMessageText="1 new message"
+                        NewMessageCountFormat="{0} new messages" Title="<%$Resources:CPResources,cmo_inbox_title%>"
+                        OnLoad="_cmoNewMessageCounter_Load" />
+                </asp:ContentPlaceHolder>
+                <cfb:SiteMenu runat="server" DataSourceID="CPSiteMap" />
+            </nav>
+            <!-- End of Horizontal Top Navigation Bar -->
+        </header>
+        <!-- End of Full Site Header -->
+        <!-- Page Header -->
+        <h1 id="onetidPageTitle" class="ms-pagetitle">
+            <!-- Page Title -->
+            <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInBody" runat="server" />
+        </h1>
+        <!-- End of Page Header -->
+        <asp:ContentPlaceHolder ID="PlaceHolderTitleAreaSeparator" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Page Content -->
+        <div id="Content">
+            <!-- Errors -->
+            <asp:Panel ID="PageResults" runat="server" Visible="false" CssClass="cp-PageResults ui-state-highlight ui-corner-all">
+                <ul class="icons">
+                    <li class="ui-state-default ui-corner-all" title="Close"><span class="ui-icon ui-icon-closethick">
+                    </span></li>
+                </ul>
+            </asp:Panel>
+            <asp:Panel ID="PageErrors" runat="server" Visible="false" CssClass="cp-PageErrors ui-state-error ui-corner-all">
+            </asp:Panel>
+            <!-- Main content area -->
+            <asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server" />
+            <asp:ContentPlaceHolder ID="PlaceHolderInaccurateData" runat="server">
+                <div id="ReportInaccurateData">
+                    Please <a href="/Help/InaccurateData.aspx" title="Report Data Inaccuracies">report</a>
+                    any data inaccuracies to the Candidate Services Unit immediately.
+                </div>
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- End of Page Content -->
+        <!-- Site Footer -->
+        <div class="cp-footer">
+            <div class="cp-footer-inner">
+                <cfb:WebTransferTimestamp ID="WebTransferTimestamp" DateFormat="<%$Resources:CPResources,webtransfer_format%>"
+                    runat="server" />
+                <a href="http://www.nyccfb.info" class="footer_text popup" title="<%=Resources.CPResources.agency_name%>"
+                    target="_blank">
+                    <img src="/images/cfb-bug.gif" width="16" height="16" alt="CFB Logo" class="cfbbug" /></a>
+                &copy;<%=DateTime.Now.Year%>
+                <a class="footer_text popup" href="http://www.nyccfb.info" target="_blank" title="<%=Resources.CPResources.agency_name%>">
+                    <%=Resources.CPResources.agency_name%></a> \ <a class="footer_text" href="/Help/Disclaimer.aspx"
+                        title="<%=Resources.CPResources.disclaimer_title%>">
+                        <%=Resources.CPResources.disclaimer_title%></a> \ <a class="footer_text popup" href="/Help/Privacy.aspx"
+                            target="_blank" title="<%=Resources.CPResources.privacy_title %>">
+                            <%=Resources.CPResources.privacy_title%></a> \ <a class="footer_text" href="/Help/Contact.aspx"
+                                title="<%=Resources.CPResources.contact_title %>">
+                                <%=Resources.CPResources.contact_title%></a>
+            </div>
+        </div>
+    </div>
+    </form>
+    <script type="text/javascript">
+        // override to disable Presence feature (detection of online status in Office programs)
+        function ProcessImn() { return; }
+    </script>
+</body>
+</html>

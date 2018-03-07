@@ -1,0 +1,7 @@
+﻿@using System.ComponentModel
+@model Enum
+
+@{
+    var description = Model == null ? null : Model.GetType().GetMember(Model.ToString())[0].GetCustomAttributes(typeof(DescriptionAttribute), false).FirstOrDefault() as DescriptionAttribute;
+    @Html.Raw(Model == null ? ViewData.ModelMetadata.NullDisplayText : description == null ? Model.ToString() : description.Description)
+}

@@ -1,0 +1,961 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DDD57570-3E0A-4E62-9FB0-53CD443F2002}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cfb.CandidatePortal.Web.WebApplication</RootNamespace>
+    <AssemblyName>Cfb.CandidatePortal.Web.WebApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Cfb.CandidatePortal.Web.WebApplication.XML</DocumentationFile>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Cfb.CandidatePortal.Web.WebApplication.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Cfb.CandidatePortal.Web.WebApplication.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Training|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Cfb.CandidatePortal.Web.WebApplication.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.SharePoint, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Common Files\microsoft shared\Web Server Extensions\12\ISAPI\Microsoft.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.ApplicationPages">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Common Files\microsoft shared\Web Server Extensions\12\ISAPI\Microsoft.SharePoint.ApplicationPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Announcements\DisclosureStatement.aspx" />
+    <Content Include="Announcements\View.aspx" />
+    <Content Include="Audit\ComplianceVisits.aspx" />
+    <Content Include="Audit\Default.aspx" />
+    <Content Include="Audit\DoingBusiness.aspx" />
+    <Content Include="Audit\ExtensionRequest.aspx" />
+    <Content Include="Audit\PaymentPlan.aspx" />
+    <Content Include="Audit\PostElection.aspx" />
+    <Content Include="Audit\PublicFunds.aspx" />
+    <Content Include="Audit\StatementReviews.aspx" />
+    <Content Include="Audit\Threshold.aspx" />
+    <Content Include="Calendar\Default.aspx" />
+    <Content Include="Controls\CandidateProfile.ascx" />
+    <Content Include="Controls\CfbResources.ascx" />
+    <Content Include="Controls\CommitteeProfile.ascx" />
+    <Content Include="Controls\CPCalendarView.ascx" />
+    <Content Include="Controls\NoScript.ascx" />
+    <Content Include="Controls\PhotoGreeting.ascx" />
+    <Content Include="Controls\WebTransferDisclaimer.ascx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Errors\PageNotFound.aspx" />
+    <Content Include="Errors\ServerError.aspx" />
+    <Content Include="Errors\Unauthorized.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Help\AccessRequest.aspx" />
+    <Content Include="Help\Breakdown.aspx" />
+    <Content Include="Help\ChangePassword.aspx" />
+    <Content Include="Help\Contact.aspx" />
+    <Content Include="Help\Default.aspx" />
+    <Content Include="Help\Disclaimer.aspx" />
+    <Content Include="Help\InaccurateData.aspx" />
+    <Content Include="Help\Privacy.aspx" />
+    <Content Include="Help\Purpose.aspx" />
+    <Content Include="Help\ResetPassword.aspx" />
+    <Content Include="Help\Terms.aspx" />
+    <Content Include="images\alert.gif" />
+    <Content Include="images\arrow-left.gif" />
+    <Content Include="images\arrow-right.gif" />
+    <Content Include="images\blocked.png" />
+    <Content Include="images\caccess-logo-login.png" />
+    <Content Include="images\caccess-logo.png" />
+    <Content Include="images\cand_info_h.gif" />
+    <Content Include="images\cfb-bug.gif" />
+    <Content Include="images\checked.png" />
+    <Content Include="images\collapse.gif" />
+    <Content Include="images\completed.png" />
+    <Content Include="images\df_ind.gif" />
+    <Content Include="images\error.png" />
+    <Content Include="images\expand.gif" />
+    <Content Include="images\flag.gif" />
+    <Content Include="images\flag_gray.gif" />
+    <Content Include="images\gradient-footer-hp.jpg" />
+    <Content Include="images\gradient-hp.jpg" />
+    <Content Include="images\gradient-nav.jpg" />
+    <Content Include="images\icon_none.gif" />
+    <Content Include="images\icon_pdf.gif" />
+    <Content Include="images\info.gif" />
+    <Content Include="images\link.gif" />
+    <Content Include="images\logo-hp.gif" />
+    <Content Include="images\MenuBarDown.gif" />
+    <Content Include="images\MenuBarDownHover.gif" />
+    <Content Include="images\moreinfo.gif" />
+    <Content Include="images\msg-gen.gif" />
+    <Content Include="images\msg-new.gif" />
+    <Content Include="images\msg-open.gif" />
+    <Content Include="images\nav\pe_dar_disabled.png" />
+    <Content Include="images\nav\pe_dar_off.png" />
+    <Content Include="images\nav\pe_dar_on.png" />
+    <Content Include="images\nav\pe_far_disabled.png" />
+    <Content Include="images\nav\pe_far_off.png" />
+    <Content Include="images\nav\pe_far_on.png" />
+    <Content Include="images\nav\pe_idr_off.png" />
+    <Content Include="images\nav\pe_idr_on.png" />
+    <Content Include="images\new.gif" />
+    <Content Include="images\nextbuttonltr.gif" />
+    <Content Include="images\paperclip.gif" />
+    <Content Include="images\paperclip_gray.gif" />
+    <Content Include="images\pe_dar_disabled.png" />
+    <Content Include="images\pe_dar_off.png" />
+    <Content Include="images\pe_dar_on.png" />
+    <Content Include="images\pe_far_disabled.png" />
+    <Content Include="images\pe_far_off.png" />
+    <Content Include="images\pe_far_on.png" />
+    <Content Include="images\pe_idr_off.png" />
+    <Content Include="images\pe_idr_on.png" />
+    <Content Include="images\prevbuttonltr.gif" />
+    <Content Include="images\printerfriendly.gif" />
+    <Content Include="images\removed.png" />
+    <Content Include="images\sc_ind.gif" />
+    <Content Include="images\sso\csmart-logo.png" />
+    <Content Include="images\table-groupby-bg.jpg" />
+    <Content Include="images\tooltip.png" />
+    <Content Include="images\tooltip_clear.png" />
+    <Content Include="Login.aspx" />
+    <Content Include="Login\Default.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Messages\Default.aspx" />
+    <Content Include="Messages\Settings.aspx" />
+    <Content Include="Messages\View.aspx" />
+    <Content Include="Offline.aspx" />
+    <Content Include="Profile\Candidate.aspx" />
+    <Content Include="Profile\Committee.aspx" />
+    <Content Include="Profile\Default.aspx" />
+    <Content Include="Profile\FinanceSummary.aspx" />
+    <Content Include="Profile\Training.aspx" />
+    <Content Include="scripts\bu-update.js" />
+    <Content Include="scripts\bu.js" />
+    <Content Include="scripts\cfb2007.js" />
+    <Content Include="scripts\html5tags.js" />
+    <Content Include="scripts\jquery-ui.js" />
+    <Content Include="scripts\jquery.js" />
+    <Content Include="scripts\maintenance-alert-off.js" />
+    <Content Include="scripts\unsupported.js" />
+    <Content Include="Login\Csmart.aspx" />
+    <Content Include="styles\Audit.css" />
+    <Content Include="styles\calendar.css" />
+    <Content Include="styles\cfb2007.css" />
+    <Content Include="styles\cmo.css" />
+    <Content Include="styles\ie.css" />
+    <Content Include="styles\ie8.css" />
+    <Content Include="styles\images\animated-overlay.gif" />
+    <Content Include="styles\images\ui-bg_diagonals-thick_100_e8eae8_40x40.png" />
+    <Content Include="styles\images\ui-bg_flat_100_57575B_40x100.png" />
+    <Content Include="styles\images\ui-bg_flat_100_e2f2ee_40x100.png" />
+    <Content Include="styles\images\ui-bg_flat_15_e2cfcf_40x100.png" />
+    <Content Include="styles\images\ui-bg_flat_50_256a9a_40x100.png" />
+    <Content Include="styles\images\ui-bg_flat_80_ddddde_40x100.png" />
+    <Content Include="styles\images\ui-bg_highlight-hard_100_e8eae8_1x100.png" />
+    <Content Include="styles\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="styles\images\ui-bg_highlight-soft_60_002B55_1x100.png" />
+    <Content Include="styles\images\ui-bg_highlight-soft_80_ddddde_1x100.png" />
+    <Content Include="styles\images\ui-icons_216b82_256x240.png" />
+    <Content Include="styles\images\ui-icons_256a9a_256x240.png" />
+    <Content Include="styles\images\ui-icons_960404_256x240.png" />
+    <Content Include="styles\images\ui-icons_e8eae8_256x240.png" />
+    <Content Include="styles\jquery-ui.css" />
+    <Content Include="styles\Profile.css" />
+    <Content Include="styles\unsupported.css" />
+    <Content Include="styles\webfonts.css" />
+    <Content Include="Submissions\Certifications.aspx" />
+    <Content Include="Submissions\CoibReceipts.aspx" />
+    <Content Include="Submissions\CsmartIds.aspx" />
+    <Content Include="Submissions\Default.aspx" />
+    <Content Include="Submissions\DisclosureStatements.aspx" />
+    <Content Include="Submissions\FilerRegistrations.aspx" />
+    <Content Include="Submissions\PreElection.aspx" />
+    <Content Include="Submissions\StatementsOfNeed.aspx" />
+    <Content Include="Submissions\Termination.aspx" />
+    <Content Include="_controltemplates\DefaultTemplates.ascx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_controltemplates\MobileDefaultTemplates.ascx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_controltemplates\ToolBar.ascx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_controltemplates\ToolBarButton.ascx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="_layouts\1033\core.js" />
+    <Content Include="_layouts\1033\init.js" />
+    <Content Include="_layouts\1033\MENU.JS" />
+    <Content Include="_layouts\1033\MSSTRING.JS" />
+    <Content Include="_layouts\1033\OWSBROWS.JS" />
+    <Content Include="_layouts\1033\styles\core.css" />
+    <Content Include="_layouts\1033\styles\datepicker.css" />
+    <Content Include="_layouts\1033\styles\MENU.CSS" />
+    <Content Include="_layouts\datepicker.js" />
+    <Content Include="_layouts\iframe.aspx" />
+    <Content Include="_layouts\images\blank.gif" />
+    <Content Include="_layouts\images\calendar.gif" />
+    <Content Include="_layouts\images\calnumBttn.gif" />
+    <Content Include="_layouts\images\calnumBttnover.gif" />
+    <Content Include="_layouts\images\calnumbttntoday.gif" />
+    <Content Include="_layouts\images\listheadergrad.gif" />
+    <Content Include="_layouts\images\nextbuttonltr.gif" />
+    <Content Include="_layouts\images\pickback.gif" />
+    <Content Include="_layouts\images\pickforward.gif" />
+    <Content Include="_layouts\images\pickheader.gif" />
+    <Content Include="_layouts\images\prevbuttonltr.gif" />
+    <Content Include="_layouts\images\quickLaunchHeader.gif" />
+    <Content Include="_layouts\images\selectednav.gif" />
+    <Content Include="_layouts\images\square.gif" />
+    <Content Include="_layouts\images\weekbox.gif" />
+    <Content Include="_layouts\spgridview.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Announcements\DisclosureStatement.aspx.cs">
+      <DependentUpon>DisclosureStatement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Announcements\DisclosureStatement.aspx.designer.cs">
+      <DependentUpon>DisclosureStatement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Announcements\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Announcements\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\CPResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CPResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\Audit.master.cs">
+      <DependentUpon>Audit.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\Audit.master.designer.cs">
+      <DependentUpon>Audit.master</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\ComplianceVisits.aspx.cs">
+      <DependentUpon>ComplianceVisits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\ComplianceVisits.aspx.designer.cs">
+      <DependentUpon>ComplianceVisits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\DoingBusiness.aspx.cs">
+      <DependentUpon>DoingBusiness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\DoingBusiness.aspx.designer.cs">
+      <DependentUpon>DoingBusiness.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\ExtensionRequest.aspx.cs">
+      <DependentUpon>ExtensionRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\ExtensionRequest.aspx.designer.cs">
+      <DependentUpon>ExtensionRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\PaymentPlan.aspx.cs">
+      <DependentUpon>PaymentPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\PaymentPlan.aspx.designer.cs">
+      <DependentUpon>PaymentPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\PostElection.aspx.cs">
+      <DependentUpon>PostElection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\PostElection.aspx.designer.cs">
+      <DependentUpon>PostElection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\PublicFunds.aspx.cs">
+      <DependentUpon>PublicFunds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\PublicFunds.aspx.designer.cs">
+      <DependentUpon>PublicFunds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\StatementReviews.aspx.cs">
+      <DependentUpon>StatementReviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\StatementReviews.aspx.designer.cs">
+      <DependentUpon>StatementReviews.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Audit\Threshold.aspx.cs">
+      <DependentUpon>Threshold.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Audit\Threshold.aspx.designer.cs">
+      <DependentUpon>Threshold.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Calendar\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Calendar\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CandidatePortal.master.designer.cs">
+      <DependentUpon>CandidatePortal.master</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\Messages.master.designer.cs">
+      <DependentUpon>Messages.master</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CandidateProfile.ascx.cs">
+      <DependentUpon>CandidateProfile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CandidateProfile.ascx.designer.cs">
+      <DependentUpon>CandidateProfile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CfbResources.ascx.cs">
+      <DependentUpon>CfbResources.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CfbResources.ascx.designer.cs">
+      <DependentUpon>CfbResources.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CommitteeProfile.ascx.cs">
+      <DependentUpon>CommitteeProfile.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CommitteeProfile.ascx.designer.cs">
+      <DependentUpon>CommitteeProfile.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CPCalendarView.ascx.cs">
+      <DependentUpon>CPCalendarView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CPCalendarView.ascx.designer.cs">
+      <DependentUpon>CPCalendarView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\NoScript.ascx.cs">
+      <DependentUpon>NoScript.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\NoScript.ascx.designer.cs">
+      <DependentUpon>NoScript.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PhotoGreeting.ascx.cs">
+      <DependentUpon>PhotoGreeting.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\PhotoGreeting.ascx.designer.cs">
+      <DependentUpon>PhotoGreeting.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WebTransferDisclaimer.ascx.cs">
+      <DependentUpon>WebTransferDisclaimer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\WebTransferDisclaimer.ascx.designer.cs">
+      <DependentUpon>WebTransferDisclaimer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CPMinimal.master.cs">
+      <DependentUpon>CPMinimal.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CPMinimal.master.designer.cs">
+      <DependentUpon>CPMinimal.master</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\PageNotFound.aspx.cs">
+      <DependentUpon>PageNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\PageNotFound.aspx.designer.cs">
+      <DependentUpon>PageNotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\ServerError.aspx.cs">
+      <DependentUpon>ServerError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\ServerError.aspx.designer.cs">
+      <DependentUpon>ServerError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\Unauthorized.aspx.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\Unauthorized.aspx.designer.cs">
+      <DependentUpon>Unauthorized.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Help.master.cs">
+      <DependentUpon>Help.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\Help.master.designer.cs">
+      <DependentUpon>Help.master</DependentUpon>
+    </Compile>
+    <Compile Include="Help\AccessRequest.aspx.cs">
+      <DependentUpon>AccessRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\AccessRequest.aspx.designer.cs">
+      <DependentUpon>AccessRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Breakdown.aspx.cs">
+      <DependentUpon>Breakdown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\Breakdown.aspx.designer.cs">
+      <DependentUpon>Breakdown.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Disclaimer.aspx.cs">
+      <DependentUpon>Disclaimer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\Disclaimer.aspx.designer.cs">
+      <DependentUpon>Disclaimer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\InaccurateData.aspx.cs">
+      <DependentUpon>InaccurateData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\InaccurateData.aspx.designer.cs">
+      <DependentUpon>InaccurateData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Privacy.aspx.cs">
+      <DependentUpon>Privacy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\Privacy.aspx.designer.cs">
+      <DependentUpon>Privacy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Purpose.aspx.cs">
+      <DependentUpon>Purpose.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\Purpose.aspx.designer.cs">
+      <DependentUpon>Purpose.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Help\Terms.aspx.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Help\Terms.aspx.designer.cs">
+      <DependentUpon>Terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login\Login.master.designer.cs">
+      <DependentUpon>Login.master</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CandidatePortal.master.cs">
+      <DependentUpon>CandidatePortal.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Messages\Messages.master.cs">
+      <DependentUpon>Messages.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Login.master.cs">
+      <DependentUpon>Login.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Messages\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Messages\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Messages\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Offline.aspx.cs">
+      <DependentUpon>Offline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Offline.aspx.designer.cs">
+      <DependentUpon>Offline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\Profile.master.cs">
+      <DependentUpon>Profile.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\Profile.master.designer.cs">
+      <DependentUpon>Profile.master</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\Candidate.aspx.cs">
+      <DependentUpon>Candidate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\Candidate.aspx.designer.cs">
+      <DependentUpon>Candidate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\Committee.aspx.cs">
+      <DependentUpon>Committee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\Committee.aspx.designer.cs">
+      <DependentUpon>Committee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\FinanceSummary.aspx.cs">
+      <DependentUpon>FinanceSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\FinanceSummary.aspx.designer.cs">
+      <DependentUpon>FinanceSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\Training.aspx.cs">
+      <DependentUpon>Training.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile\Training.aspx.designer.cs">
+      <DependentUpon>Training.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Login\Csmart.aspx.cs">
+      <DependentUpon>Csmart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login\Csmart.aspx.designer.cs">
+      <DependentUpon>Csmart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\Submissions.master.cs">
+      <DependentUpon>Submissions.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\Submissions.master.designer.cs">
+      <DependentUpon>Submissions.master</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\Certifications.aspx.cs">
+      <DependentUpon>Certifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\Certifications.aspx.designer.cs">
+      <DependentUpon>Certifications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\CoibReceipts.aspx.cs">
+      <DependentUpon>CoibReceipts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\CoibReceipts.aspx.designer.cs">
+      <DependentUpon>CoibReceipts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\CsmartIds.aspx.cs">
+      <DependentUpon>CsmartIds.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\CsmartIds.aspx.designer.cs">
+      <DependentUpon>CsmartIds.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\DisclosureStatements.aspx.cs">
+      <DependentUpon>DisclosureStatements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\DisclosureStatements.aspx.designer.cs">
+      <DependentUpon>DisclosureStatements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\FilerRegistrations.aspx.cs">
+      <DependentUpon>FilerRegistrations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\FilerRegistrations.aspx.designer.cs">
+      <DependentUpon>FilerRegistrations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\PreElection.aspx.cs">
+      <DependentUpon>PreElection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\PreElection.aspx.designer.cs">
+      <DependentUpon>PreElection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\StatementsOfNeed.aspx.cs">
+      <DependentUpon>StatementsOfNeed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\StatementsOfNeed.aspx.designer.cs">
+      <DependentUpon>StatementsOfNeed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Submissions\Termination.aspx.cs">
+      <DependentUpon>Termination.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Submissions\Termination.aspx.designer.cs">
+      <DependentUpon>Termination.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_controltemplates\ToolBarButton.ascx.cs">
+      <DependentUpon>ToolBarButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Cfis\CampaignContacts\CampaignContacts.csproj">
+      <Project>{CE725812-F7FC-467A-856B-C26C8390BF05}</Project>
+      <Name>CampaignContacts %28Cfis\CampaignContacts%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ExceptionHandling\ExceptionHandling.csproj">
+      <Project>{521ECB6D-848B-4946-B007-9D37C9D0F234}</Project>
+      <Name>ExceptionHandling</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Extensions\Extensions\Extensions.csproj">
+      <Project>{FFBABC0D-C837-479B-8AEE-2AB284CFC679}</Project>
+      <Name>Extensions %28Extensions\Extensions%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Extensions\Web\Web.csproj">
+      <Project>{033FE4D3-DD1B-42E0-B43B-4D2FBE5AE2F8}</Project>
+      <Name>Web %28Extensions\Web%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\SharePoint\SharePoint\SharePoint.csproj">
+      <Project>{A29B23CB-3BBD-451D-A455-B15EB404C8AF}</Project>
+      <Name>SharePoint %28SharePoint\SharePoint%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CampaignContacts\CampaignContacts.csproj">
+      <Project>{42D80573-57D2-43B9-98C3-2720941DA85E}</Project>
+      <Name>CampaignContacts %28CandidatePortal\CampaignContacts%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CandidatePortal\CandidatePortal.csproj">
+      <Project>{2093CDB2-61F2-406E-959B-A6E3828E3AAD}</Project>
+      <Name>CandidatePortal %28CandidatePortal\CandidatePortal%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Cmo\Cmo.csproj">
+      <Project>{3DAEB28A-82A9-4869-BB21-950B11B97B09}</Project>
+      <Name>Cmo %28CandidatePortal\Cmo%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Net\Net.csproj">
+      <Project>{8D6F9122-05DB-446D-9352-F07F0BF0F746}</Project>
+      <Name>Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Security\Security.csproj">
+      <Project>{32C4B76E-4FC7-4A8A-A7C0-D35159616864}</Project>
+      <Name>Security %28CandidatePortal\Security%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceModel\CPDataClient\CPDataClient.csproj">
+      <Project>{B2A1E764-2F94-4A5B-9EC9-5ABF9F5EB187}</Project>
+      <Name>CPDataClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ServiceModel\CPSecurityClient\CPSecurityClient.csproj">
+      <Project>{4C8F2117-FC81-4365-AA8F-BCF0B4BA0807}</Project>
+      <Name>CPSecurityClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharePoint\Controls\Controls.csproj">
+      <Project>{FDF23C57-87DA-48F8-AAC4-B9DBDA9B404A}</Project>
+      <Name>Controls %28CandidatePortal\SharePoint\Controls%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Controls.csproj">
+      <Project>{0BCD98F6-356F-4943-BF07-2142D3032D0B}</Project>
+      <Name>Controls %28CandidatePortal\Web\Controls%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security\Security.csproj">
+      <Project>{D96C033B-4AD8-4EDC-8C31-2979B84BC363}</Project>
+      <Name>Security %28CandidatePortal\Web\Security%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\Web.csproj">
+      <Project>{632B4D62-68C2-4C6D-B1D7-42CBAAFD4502}</Project>
+      <Name>Web %28CandidatePortal\Web\Web%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\CPResources.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>CPResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\wss.en-US.resx" />
+    <Content Include="App_GlobalResources\wss.resx" />
+    <Content Include="App_GlobalResources\spsearchadmin.en-us.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\SPSearchAdmin.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audit\Audit.master" />
+    <Content Include="CandidatePortal.master" />
+    <Content Include="Messages\Messages.master" />
+    <Content Include="CPMinimal.master" />
+    <Content Include="Help\Help.master" />
+    <Content Include="Login\Login.master" />
+    <Content Include="Profile\Profile.master" />
+    <Content Include="Submissions\Submissions.master" />
+    <Content Include="Profile\CandidatePhoto.axd" />
+    <None Include="iirf.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\PublishProfiles\Production.pubxml" />
+    <None Include="Properties\PublishProfiles\Test.pubxml" />
+    <Content Include="styles\webfonts\27565D_0_0.eot" />
+    <Content Include="styles\webfonts\27565D_0_0.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="styles\webfonts\27565D_0_0.woff" />
+    <Content Include="styles\webfonts\27565D_1_0.eot" />
+    <Content Include="styles\webfonts\27565D_1_0.ttf" />
+    <Content Include="styles\webfonts\27565D_1_0.woff" />
+    <Content Include="styles\webfonts\27565D_2_0.eot" />
+    <Content Include="styles\webfonts\27565D_2_0.ttf" />
+    <Content Include="styles\webfonts\27565D_2_0.woff" />
+    <Content Include="styles\webfonts\27565D_3_0.eot" />
+    <Content Include="styles\webfonts\27565D_3_0.ttf" />
+    <Content Include="styles\webfonts\27565D_3_0.woff" />
+    <Content Include="styles\webfonts\27565D_4_0.eot" />
+    <Content Include="styles\webfonts\27565D_4_0.ttf" />
+    <Content Include="styles\webfonts\27565D_4_0.woff" />
+    <Content Include="styles\webfonts\27565D_5_0.eot" />
+    <Content Include="styles\webfonts\27565D_5_0.ttf" />
+    <Content Include="styles\webfonts\27565D_5_0.woff" />
+    <Content Include="styles\webfonts\27565D_6_0.eot" />
+    <Content Include="styles\webfonts\27565D_6_0.ttf" />
+    <Content Include="styles\webfonts\27565D_6_0.woff" />
+    <Content Include="styles\webfonts\27565D_7_0.eot" />
+    <Content Include="styles\webfonts\27565D_7_0.ttf" />
+    <Content Include="styles\webfonts\27565D_7_0.woff" />
+    <Content Include="styles\webfonts\27565D_8_0.eot" />
+    <Content Include="styles\webfonts\27565D_8_0.ttf" />
+    <Content Include="styles\webfonts\27565D_8_0.woff" />
+    <Content Include="styles\webfonts\27565D_9_0.eot" />
+    <Content Include="styles\webfonts\27565D_9_0.ttf" />
+    <Content Include="styles\webfonts\27565D_9_0.woff" />
+    <Content Include="styles\webfonts\27565D_A_0.eot" />
+    <Content Include="styles\webfonts\27565D_A_0.ttf" />
+    <Content Include="styles\webfonts\27565D_A_0.woff" />
+    <Content Include="styles\webfonts\27565D_B_0.eot" />
+    <Content Include="styles\webfonts\27565D_B_0.ttf" />
+    <Content Include="styles\webfonts\27565D_B_0.woff" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\Training.pubxml" />
+    <Content Include="web.Training.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
+    <Content Include="web.Test.config">
+      <DependentUpon>web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>44834</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

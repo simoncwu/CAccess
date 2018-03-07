@@ -1,0 +1,60 @@
+﻿@using Cfb.CandidatePortal.TrainingTracking
+@using Cfb.CandidatePortal.Web.Mvc.Strings;
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.TrainingTrackingViewModel
+
+@{
+    ViewBag.Title = "Campaign Training";
+}
+<h2>@ViewBag.Title</h2>
+<p>The New York City Campaign Finance Board offers Compliance and C-SMART trainings throughout each election cycle. Compliance trainings cover campaign finance laws and CFB rules. C-SMART trainings provide an overview of the CFB&rsquo;s web application that campaigns must use to manage and disclose financial activity. The candidate, treasurer, campaign manager, or an individual with significant managerial control over a campaign is required to attend both a Compliance and a C-SMART training. Failure to complete these trainings will result in a violation and potential penalties.</p>
+<p>Audit trainings are also available in the post-election period to assist campaigns with their Draft Audit Report (DAR) response. Attending the audit training will move up the deadline for issuance of the campaign&rsquo;s Final Audit Report by two months, possibly resulting in quicker completion of the audit process.</p>
+<p>Trainings are held in the afternoons and evenings at the CFB offices located at 100 Church Street in lower Manhattan. Please contact the Candidate Services Unit at @Html.DisplayFor(m => m.AgencyPhoneNumber) or <a href="mailto:CSUmail@nyccfb.info">CSUmail@nyccfb.info</a> to make a reservation.</p>
+<h4>Compliance and C-SMART Training</h4>
+<div class="panel-group">
+    <div class="panel panel-@(Model.HasCsmartCompliance ? "success" : "info")">
+        <div class="panel-heading" data-toggle="collapse" data-target="#CsmartCompliancePanel">
+            <h5 class="panel-title">@Html.DisplayNameFor(m => m.HasCsmartCompliance): <span class="glyphicon glyphicon-@(Model.HasCsmartCompliance ? "ok" : "remove")-circle"></span></h5>
+        </div>
+        <div id="CsmartCompliancePanel" class="panel-collapse collapse in table-responsive">
+            @if (!Model.HasCsmartComplianceTrainings)
+            {
+                <div class="panel-body">
+                    <p>At this time, no campaign staff have attended any Compliance or C-SMART trainings for this election cycle. Please refer to the training calendar found in the Candidates section of the <a href="http://www.nyccfb.info" class="popup">CFB website</a>.</p>
+                </div>
+            }
+            else
+            {
+                @Html.Partial(Views.TrainingCourse, Model.Courses[TrainingCourseType.CombinedWeb])
+                @Html.Partial(Views.TrainingCourse, Model.Courses[TrainingCourseType.Combined])
+                @Html.Partial(Views.TrainingCourse, Model.Courses[TrainingCourseType.Supplemental])
+                @Html.Partial(Views.TrainingCourse, Model.Courses[TrainingCourseType.Compliance])
+                @Html.Partial(Views.TrainingCourse, Model.Courses[TrainingCourseType.CsmartWeb])
+                @Html.Partial(Views.TrainingCourse, Model.Courses[TrainingCourseType.AdvancedCsmart])
+                @Html.Partial(Views.TrainingCourse, Model.Courses[TrainingCourseType.Csmart])
+            }
+        </div>
+    </div>
+</div>
+<h4>Audit Training</h4>
+<div class="panel-group">
+    <div class="panel panel-@(Model.HasAuditCompliance ? "success" : "info")">
+        <div class="panel-heading" data-toggle="collapse" data-target="#AuditPanel">
+            <h5 class="panel-title">@Html.DisplayNameFor(m => m.HasAuditCompliance): <span class="glyphicon glyphicon-@(Model.HasAuditCompliance ? "ok" : "remove")-circle"></span></h5>
+        </div>
+        <div id="AuditPanel" class="panel-collapse collapse in table-responsive">
+            @if (!Model.HasAuditTrainings)
+            {
+                <div class="panel-body">
+                    <p>At this time, no campaign staff have attended any Audit trainings for this election cycle. Please refer to the training calendar found in the Candidates section of the <a href="http://www.nyccfb.info" class="popup">CFB website</a>.</p>
+                </div>
+            }
+            else
+            {
+                @Html.Partial(Views.TrainingCourse, Model.Courses[TrainingCourseType.Audit])
+            }
+        </div>
+    </div>
+</div>
+<div class="alert alert-info">
+    <span class="glyphicon glyphicon-education" aria-hidden="true"></span> = counts toward the campaign&rsquo;s training requirements
+</div>

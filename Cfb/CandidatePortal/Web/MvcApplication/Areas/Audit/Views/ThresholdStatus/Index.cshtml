@@ -1,0 +1,145 @@
+﻿@using Cfb.CandidatePortal
+@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.ThresholdStatusViewModel
+
+@{
+    ViewBag.Title = "Threshold Status";
+    var current = Model == null ? null : Model.CurrentRevision;
+    const string InitVerDef = "Threshold count was generated based on an initial review of the candidates filing.";
+    const string RevVerDef = "Threshold count was generated based on a review of the response and revisions provided by a candidate to a previous filing.";
+}
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-sm-@(current == null ? 12 : 7) col-md-8">
+        <p>The threshold number and threshold dollar amount reflect valid matching claims at the time each report was prepared. All matching claims are subject to ongoing audit by the CFB. Each report does not constitute a guarantee that the committee will have met the threshold when the Board is prepared to disburse public funds, or a guarantee that the committee will receive public funds. Remember, meeting the threshold is only one of several eligibility requirements for receiving matching funds.</p>
+        <p>If the candidate has not indicated on CFB forms which office s/he is seeking, the CFB cannot state the threshold requirements or determine how many residents can be counted for threshold purposes. This is indicated by &ldquo;(n/a)&rdquo; on this report. If the candidate wishes to declare an office sought, please contact the Candidate Services Unit.</p>
+        <div class="panel panel-info hidden-xs hidden-sm">
+            <div class="panel-heading" data-toggle="collapse" data-target="#VersionDefsPanel" role="tab"><h6 class="panel-title">Explanation of Version</h6></div>
+            <div id="VersionDefsPanel" class="panel-collapse collapse in" role="tablist">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>@ThresholdRevisionType.Initial</dt>
+                        <dd>@InitVerDef</dd>
+                        <dt>@ThresholdRevisionType.Revised</dt>
+                        <dd>@RevVerDef</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (current != null)
+    {
+        <style>
+            .cp-threshold-current table td {
+                text-align: right;
+            }
+
+            .table-row-collapse tr.cp-threshold-prev.collapsing {
+                display: none !important;
+
+            }
+        </style>
+        <div class="col-sm-5 col-md-4">
+            <section>
+                <div class="well well-sm well-table cp-threshold-current">
+                    <table class="table table-borderless table-condensed">
+                        <caption>Current Status</caption>
+                        <tbody>
+                            <tr>
+                                <th>@Html.DisplayNameFor(m => current.OfficeSought)</th>
+                                <td style="white-space:nowrap">@Html.DisplayFor(m => current.OfficeSought)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(m => current.Number)</th>
+                                <td>@Html.DisplayFor(m => current.Number)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(m => current.NumberRequired)</th>
+                                <td>@Html.DisplayFor(m => current.NumberRequired)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(m => current.Amount)</th>
+                                <td>@Html.DisplayFor(m => current.Amount)</td>
+                            </tr>
+                            <tr>
+                                <th>@Html.DisplayNameFor(m => current.AmountRequired)</th>
+                                <td>@Html.DisplayFor(m => current.AmountRequired)</td>
+                            </tr>
+                            <tr>
+                                <th style="white-space:nowrap">Through Statement</th>
+                                <td>@Html.DisplayFor(m => current.Statement)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    }
+</div>
+@if (current == null)
+{
+    @Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.EmptyDataPartial)
+}
+else
+{
+    var oddGroup = true;
+    <div class="row">
+        <div class="col-xs-12">
+            <section class="table-responsive">
+                <table id="HistoryTable" class="table table-striped table-bordered table-row-collapse">
+                    <caption>
+                        Complete Status History<br />
+                        <div id="VersionToggles" class="btn-group" data-toggle="buttons" data-target="#HistoryTable">
+                            <label class="btn btn-primary active" data-toggle="collapse" data-target=".cp-threshold-prev"><input type="radio" name="options" autocomplete="off" />Latest Versions</label>
+                            <label class="btn btn-primary" data-toggle="collapse" data-target=".cp-threshold-prev"><input id="AllVersionToggle" type="radio" name="options" autocomplete="off" checked />All Versions</label>
+                        </div>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>@Html.DisplayNameFor(m => current.Statement)</th>
+                            <th class="numeric">@Html.DisplayNameFor(m => current.Number)</th>
+                            <th class="numeric">@Html.DisplayNameFor(m => current.NumberRequired)</th>
+                            <th class="numeric">@Html.DisplayNameFor(m => current.Amount)</th>
+                            <th class="numeric">@Html.DisplayNameFor(m => current.AmountRequired)</th>
+                            <th>@Html.DisplayNameFor(m => current.Version)</th>
+                            <th>@Html.DisplayNameFor(m => current.OfficeSought)</th>
+                            <th>@Html.DisplayNameFor(m => current.Date)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var s in Model.Revisions.OrderByDescending(s => s.Key))
+                        {
+                            var previous = false;
+                            foreach (var r in s.Value.OrderByDescending(r => r.Date))
+                            {
+                                string versionDef = r.Version == ThresholdRevisionType.Initial ? InitVerDef : RevVerDef;
+                                <tr class="@(previous ? "cp-threshold-prev collapse" : null)@(oddGroup ? " table-row-collapse-odd" : null)">
+                                    <td>@Html.DisplayFor(m => r.Statement)</td>
+                                    <td class="numeric">@Html.DisplayFor(m => r.Number)</td>
+                                    <td class="numeric">@Html.DisplayFor(m => r.NumberRequired)</td>
+                                    <td class="numeric">@Html.DisplayFor(m => r.Amount)</td>
+                                    <td class="numeric">@Html.DisplayFor(m => r.AmountRequired)</td>
+                                    <td><abbr title="@versionDef">@Html.DisplayFor(m => r.Version)</abbr></td>
+                                    <td>@Html.DisplayFor(m => r.OfficeSought)</td>
+                                    <td>@Html.DisplayFor(m => r.Date)</td>
+                                </tr>
+                                previous = true;
+                            }
+                            oddGroup = !oddGroup;
+                        }
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+}
+@section scripts {
+    <script>
+        $("#VersionToggles").on("click", ".btn", function () {
+            var o = $(this);
+            if (o.is(".active"))
+                return false;
+            $(o.closest(".btn-group").data("target")).toggleClass("table-row-collapse");
+        });
+    </script>
+}

@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CPModelStoreContainer">
+          <EntitySet Name="ExtensionRequests" EntityType="CPModel.Store.ExtensionRequests" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GlobalSettings" EntityType="CPModel.Store.GlobalSettings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TollingEvents" EntityType="CPModel.Store.TollingEvents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TollingLetters" EntityType="CPModel.Store.TollingLetters" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TollingSources" EntityType="CPModel.Store.TollingSources" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TollingTypes" EntityType="CPModel.Store.TollingTypes" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TollingLetters_TollingEvents" Association="CPModel.Store.FK_TollingLetters_TollingEvents">
+            <End Role="TollingEvents" EntitySet="TollingEvents" />
+            <End Role="TollingLetters" EntitySet="TollingLetters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TollingLetters_TollingSources" Association="CPModel.Store.FK_TollingLetters_TollingSources">
+            <End Role="TollingSources" EntitySet="TollingSources" />
+            <End Role="TollingLetters" EntitySet="TollingLetters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TollingLetters_TollingTypes" Association="CPModel.Store.FK_TollingLetters_TollingTypes">
+            <End Role="TollingTypes" EntitySet="TollingTypes" />
+            <End Role="TollingLetters" EntitySet="TollingLetters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ExtensionRequests">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+            <PropertyRef Name="ElectionCycle" />
+            <PropertyRef Name="ExtensionType" />
+            <PropertyRef Name="ReviewNumber" />
+            <PropertyRef Name="Iteration" />
+          </Key>
+          <Property Name="CandidateID" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="ElectionCycle" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="ExtensionType" Type="tinyint" Nullable="false" />
+          <Property Name="ReviewNumber" Type="tinyint" Nullable="false" />
+          <Property Name="Iteration" Type="tinyint" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="RequestedDueDate" Type="datetime" Nullable="false" />
+          <Property Name="Reason" Type="ntext" Nullable="false" />
+          <Property Name="Version" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="GlobalSettings">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="TollingEvents">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="TollingLetters">
+          <Key>
+            <PropertyRef Name="LetterId" />
+          </Key>
+          <Property Name="LetterId" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SourceId" Type="tinyint" Nullable="false" />
+          <Property Name="EventId" Type="tinyint" Nullable="false" />
+          <Property Name="TypeId" Type="tinyint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Title" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="TollingSources">
+          <Key>
+            <PropertyRef Name="SourceId" />
+          </Key>
+          <Property Name="SourceId" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="TollingTypes">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="varchar" Nullable="false" MaxLength="6" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <Association Name="FK_TollingLetters_TollingEvents">
+          <End Role="TollingEvents" Type="CPModel.Store.TollingEvents" Multiplicity="1" />
+          <End Role="TollingLetters" Type="CPModel.Store.TollingLetters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TollingEvents">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="TollingLetters">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TollingLetters_TollingSources">
+          <End Role="TollingSources" Type="CPModel.Store.TollingSources" Multiplicity="1" />
+          <End Role="TollingLetters" Type="CPModel.Store.TollingLetters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TollingSources">
+              <PropertyRef Name="SourceId" />
+            </Principal>
+            <Dependent Role="TollingLetters">
+              <PropertyRef Name="SourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TollingLetters_TollingTypes">
+          <End Role="TollingTypes" Type="CPModel.Store.TollingTypes" Multiplicity="1" />
+          <End Role="TollingLetters" Type="CPModel.Store.TollingLetters" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TollingTypes">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="TollingLetters">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Cfb.CandidatePortal.Data.CPModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ExtensionRequests" EntityType="Cfb.CandidatePortal.Data.CPModel.ExtensionRequest" />
+          <EntitySet Name="GlobalSettings" EntityType="Cfb.CandidatePortal.Data.CPModel.GlobalSetting" />
+          <EntitySet Name="TollingEvents" EntityType="Cfb.CandidatePortal.Data.CPModel.TollingEvent" />
+          <EntitySet Name="TollingLetters" EntityType="Cfb.CandidatePortal.Data.CPModel.TollingLetter" />
+          <EntitySet Name="TollingSources" EntityType="Cfb.CandidatePortal.Data.CPModel.TollingSource" />
+          <EntitySet Name="TollingTypes" EntityType="Cfb.CandidatePortal.Data.CPModel.TollingType" />
+          <AssociationSet Name="FK_TollingLetters_TollingEvents" Association="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingEvents">
+            <End Role="TollingEvents" EntitySet="TollingEvents" />
+            <End Role="TollingLetters" EntitySet="TollingLetters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TollingLetters_TollingSources" Association="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingSources">
+            <End Role="TollingSources" EntitySet="TollingSources" />
+            <End Role="TollingLetters" EntitySet="TollingLetters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TollingLetters_TollingTypes" Association="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingTypes">
+            <End Role="TollingTypes" EntitySet="TollingTypes" />
+            <End Role="TollingLetters" EntitySet="TollingLetters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ExtensionRequest">
+          <Key>
+            <PropertyRef Name="CandidateID" />
+            <PropertyRef Name="ElectionCycle" />
+            <PropertyRef Name="ExtensionType" />
+            <PropertyRef Name="ReviewNumber" />
+            <PropertyRef Name="Iteration" />
+          </Key>
+          <Property Name="CandidateID" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="ElectionCycle" Type="String" Nullable="false" MaxLength="5" Unicode="false" FixedLength="false" />
+          <Property Name="ExtensionType" Type="Byte" Nullable="false" />
+          <Property Name="ReviewNumber" Type="Byte" Nullable="false" />
+          <Property Name="Iteration" Type="Byte" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" />
+          <Property Name="RequestedDueDate" Type="DateTime" Nullable="false" />
+          <Property Name="Reason" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="GlobalSetting">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TollingEvent">
+          <Key>
+            <PropertyRef Name="EventId" />
+          </Key>
+          <Property Name="EventId" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TollingLetters" Relationship="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingEvents" FromRole="TollingEvents" ToRole="TollingLetters" />
+        </EntityType>
+        <EntityType Name="TollingLetter">
+          <Key>
+            <PropertyRef Name="LetterId" />
+          </Key>
+          <Property Name="LetterId" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SourceId" Type="Byte" Nullable="false" />
+          <Property Name="EventId" Type="Byte" Nullable="false" />
+          <Property Name="TypeId" Type="Byte" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Title" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TollingEvent" Relationship="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingEvents" FromRole="TollingLetters" ToRole="TollingEvents" />
+          <NavigationProperty Name="TollingSource" Relationship="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingSources" FromRole="TollingLetters" ToRole="TollingSources" />
+          <NavigationProperty Name="TollingType" Relationship="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingTypes" FromRole="TollingLetters" ToRole="TollingTypes" />
+        </EntityType>
+        <EntityType Name="TollingSource">
+          <Key>
+            <PropertyRef Name="SourceId" />
+          </Key>
+          <Property Name="SourceId" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TollingLetters" Relationship="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingSources" FromRole="TollingSources" ToRole="TollingLetters" />
+        </EntityType>
+        <EntityType Name="TollingType">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="TollingLetters" Relationship="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingTypes" FromRole="TollingTypes" ToRole="TollingLetters" />
+        </EntityType>
+        <Association Name="FK_TollingLetters_TollingEvents">
+          <End Role="TollingEvents" Type="Cfb.CandidatePortal.Data.CPModel.TollingEvent" Multiplicity="1" />
+          <End Role="TollingLetters" Type="Cfb.CandidatePortal.Data.CPModel.TollingLetter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TollingEvents">
+              <PropertyRef Name="EventId" />
+            </Principal>
+            <Dependent Role="TollingLetters">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TollingLetters_TollingSources">
+          <End Role="TollingSources" Type="Cfb.CandidatePortal.Data.CPModel.TollingSource" Multiplicity="1" />
+          <End Role="TollingLetters" Type="Cfb.CandidatePortal.Data.CPModel.TollingLetter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TollingSources">
+              <PropertyRef Name="SourceId" />
+            </Principal>
+            <Dependent Role="TollingLetters">
+              <PropertyRef Name="SourceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TollingLetters_TollingTypes">
+          <End Role="TollingTypes" Type="Cfb.CandidatePortal.Data.CPModel.TollingType" Multiplicity="1" />
+          <End Role="TollingLetters" Type="Cfb.CandidatePortal.Data.CPModel.TollingLetter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TollingTypes">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="TollingLetters">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CPModelStoreContainer" CdmEntityContainer="CPEntities">
+          <EntitySetMapping Name="ExtensionRequests"><EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CPModel.ExtensionRequest"><MappingFragment StoreEntitySet="ExtensionRequests">
+            <ScalarProperty Name="CandidateID" ColumnName="CandidateID" />
+            <ScalarProperty Name="ElectionCycle" ColumnName="ElectionCycle" />
+            <ScalarProperty Name="ExtensionType" ColumnName="ExtensionType" />
+            <ScalarProperty Name="ReviewNumber" ColumnName="ReviewNumber" />
+            <ScalarProperty Name="Iteration" ColumnName="Iteration" />
+            <ScalarProperty Name="Date" ColumnName="Date" />
+            <ScalarProperty Name="RequestedDueDate" ColumnName="RequestedDueDate" />
+            <ScalarProperty Name="Reason" ColumnName="Reason" />
+            <ScalarProperty Name="Version" ColumnName="Version" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="GlobalSettings"><EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CPModel.GlobalSetting"><MappingFragment StoreEntitySet="GlobalSettings">
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Value" ColumnName="Value" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TollingEvents"><EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CPModel.TollingEvent"><MappingFragment StoreEntitySet="TollingEvents">
+            <ScalarProperty Name="EventId" ColumnName="EventId" />
+            <ScalarProperty Name="Code" ColumnName="Code" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TollingLetters"><EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CPModel.TollingLetter"><MappingFragment StoreEntitySet="TollingLetters">
+            <ScalarProperty Name="LetterId" ColumnName="LetterId" />
+            <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+            <ScalarProperty Name="EventId" ColumnName="EventId" />
+            <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Title" ColumnName="Title" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TollingSources"><EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CPModel.TollingSource"><MappingFragment StoreEntitySet="TollingSources">
+            <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+            <ScalarProperty Name="Code" ColumnName="Code" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TollingTypes"><EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CPModel.TollingType"><MappingFragment StoreEntitySet="TollingTypes">
+            <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+            <ScalarProperty Name="Code" ColumnName="Code" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CPModel">
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CPModel.ExtensionRequest" Width="1.5" PointX="2.75" PointY="4.75" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CPModel.GlobalSetting" Width="1.5" PointX="4.75" PointY="4.75" Height="1.4033821614583335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CPModel.TollingEvent" Width="1.5" PointX="0.75" PointY="1.5" Height="1.7879850260416665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CPModel.TollingLetter" Width="1.5" PointX="3" PointY="1" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CPModel.TollingSource" Width="1.5" PointX="0.75" PointY="4.875" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CPModel.TollingType" Width="1.5" PointX="0.75" PointY="7.375" Height="1.7879850260416674" IsExpanded="true" />
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingEvents" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.3939925130208337" />
+          <ConnectorPoint PointX="3" PointY="2.3939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingSources" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.7689925130208337" />
+          <ConnectorPoint PointX="2.5" PointY="5.7689925130208337" />
+          <ConnectorPoint PointX="2.5" PointY="4.5" />
+          <ConnectorPoint PointX="3.75" PointY="4.5" />
+          <ConnectorPoint PointX="3.75" PointY="3.7494921874999996" />
+        </AssociationConnector>
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.CPModel.FK_TollingLetters_TollingTypes" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.3624886069695155" />
+          <ConnectorPoint PointX="4.40625" PointY="8.3624886069695155" />
+          <ConnectorPoint PointX="4.40625" PointY="3.7494921874999996" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

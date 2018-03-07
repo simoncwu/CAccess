@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Feature
+  Id="3194AF6D-07B0-4367-9E04-95D1EDF03C3E"
+  Title="CFB Candidate Portal List Instances"
+  Description="List instances for the CFB Candidate Portal web site"
+  Hidden="false"
+  Scope="Web"
+  xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ElementManifests>
+    <ElementManifest Location="ListTemplates\portalannouncements.xml"/>
+    <ElementFile Location="PortalAnnouncements\schema.xml"/>
+  </ElementManifests>
+</Feature>

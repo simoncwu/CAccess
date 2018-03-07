@@ -1,0 +1,18 @@
+﻿@using Cfb.CandidatePortal
+@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@{
+    ViewBag.Title = "About C-Access";
+    var appName = CPProviders.SettingsProvider.ApplicationName;
+}
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", Actions.Default, HomeController.ControllerName)</li>
+    <li>@Html.ActionLink("Help", Actions.Default)</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+<h3>Help and Support</h3>
+<h2>@ViewBag.Title</h2>
+<p>@appName is an online resource for campaigns to streamline and manage their communications with the CFB.</p>
+<p>By providing a secure, internet-based gateway to the CFB, @appName will allow candidates and campaign staff to view and update their personalized CFB information 24 hours a day, seven days a week.</p>
+<p>Candidates can use @appName to receive information from the CFB in a paperless fashion. Campaigns will be able to check the status of the paperwork they&rsquo;ve submitted to the CFB as well as the status of their eligibility for public funds and post-election audits.</p>
+<p>@appName will be continuously updated with new functionality and information throughout the election cycle.</p>

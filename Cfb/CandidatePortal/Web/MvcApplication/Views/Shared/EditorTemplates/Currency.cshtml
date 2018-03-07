@@ -1,0 +1,25 @@
+﻿@model decimal?
+<div class="form-group@(ViewData.ContainsKey("class")? " " + ViewData["class"] : null)">
+    @Html.LabelFor(m => m, new { @class = "control-label" })
+    @if (ViewData.ModelMetadata.IsReadOnly)
+    {
+        <p class="form-control-static">@Html.DisplayFor(m => m)</p>
+    }
+    else
+    {
+        var htmlAttr = new Dictionary<string, object> {
+            { "type", "number" },
+            { "step", "any" },
+            { "class", "form-control" }
+        };
+        string attr = "readonly";
+        if (ViewData.ContainsKey(attr))
+        {
+            htmlAttr.Add(attr, attr);
+        }
+        <div class="input-group">
+            <span class="input-group-addon">@System.Globalization.NumberFormatInfo.CurrentInfo.CurrencySymbol</span>
+            @Html.TextBox("", string.Format(Cfb.CandidatePortal.Web.Mvc.Strings.DataFormats.CurrencyField, Model), htmlAttr)
+        </div>
+    }
+</div>

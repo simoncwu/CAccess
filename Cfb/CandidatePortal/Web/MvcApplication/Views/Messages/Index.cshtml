@@ -1,0 +1,84 @@
+﻿@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Models.MessageCenterViewModel
+
+@{
+    ViewBag.Title = Model.SelectedMessage != null ? Model.SelectedMessage.Title : "Message Center";
+}
+<h3>@ViewBag.Title</h3>
+<div class="row">
+    <div class="col-sm-2 hidden-xs">
+        <ul class="nav nav-pills nav-stacked nav-cmo">
+            @Html.Partial("_MailboxViewTabs", Model)
+        </ul>
+    </div>
+    <div class="col-sm-10">
+        <div id="MailboxViewPanel">
+            @Html.Partial("_MailboxViewPanel", Model)
+        </div>
+        <div id="LoadingElement" style="display:none;">
+            @Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.LoaderOverlayPartial)
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        // affix navbar
+        var initAffix = function () {
+            $("[data-spy=affix]").affix({ offset: 51 });
+            window.scrollTo(0, 0);
+        }
+
+        $(function () {
+            // update active tab
+            $(".nav-cmo>li").click(function (e) {
+                var target = $(this);
+                target.siblings(".active").removeClass("active");
+                target.addClass("active");
+                var href = target.children("a").attr("href");
+                window.history.pushState(null, null, href);
+            });
+
+            var $mbxPanel = $("#MailboxViewPanel");
+
+            // enable AJAX state navigation
+            $mbxPanel.on("click", ".ajax-state", function (e) {
+                window.history.pushState(null, null, $(this).attr("href"));
+            });
+            $mbxPanel.on("click", ".list-group-item", function (e) {
+                if ($(e.target).is(":checkbox")) return;
+                var href = location.href + "/" + $(this).find(":checkbox").val();
+                window.history.pushState(null, null, href);
+                var loader = $("#LoadingElement");
+                loader.show();
+                $mbxPanel.load(href, function () {
+                    document.title = $("#MessageTitle").text();
+                    loader.hide();
+                    initAffix();
+                });
+            });
+
+            // select all checkbox
+            $mbxPanel.on("click", "#SelectAllCheckBox", function () {
+                $("#MessagesList :checkbox").prop("checked", $(this).is(":checked"));
+            });
+
+            // individual message actions
+            $mbxPanel.on("click", "#ArchiveButton", function () {
+                var btn = $(this);
+                var icon = btn.find(".glyphicon");
+                var archive = icon.hasClass("glyphicon-save");
+                btn.val(archive ? "@MessagesController.ActionName_Archive" : "@MessagesController.ActionName_Unarchive");
+                btn.attr("title", archive ? "Unarchive" : "Archive");
+                icon.toggleClass("glyphicon-save glyphicon-open");
+            });
+            $mbxPanel.on("click", "#FlagButton", function () {
+                var btn = $(this);
+                var icon = btn.find(".fa");
+                var flag = icon.hasClass("fa-flag");
+                btn.val(flag ? "@MessagesController.ActionName_Flag" : "@MessagesController.ActionName_ClearFlag");
+                btn.attr("title", flag ? "Unflag" : "Flag");
+                icon.toggleClass("fa-flag fa-flag-o");
+            });
+        });
+    </script>
+}

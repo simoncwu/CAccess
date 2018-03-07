@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="abb_date_format" xml:space="preserve">
+    <value>MMM d, yyyy</value>
+    <comment>Abbreviated date format.</comment>
+  </data>
+  <data name="agency_name" xml:space="preserve">
+    <value>NYC Campaign Finance Board</value>
+    <comment>Agency name.</comment>
+  </data>
+  <data name="annNotFound_text" xml:space="preserve">
+    <value>The requested announcement was not found.</value>
+    <comment>Text to display when an announcement cannot be found.</comment>
+  </data>
+  <data name="announcements_title" xml:space="preserve">
+    <value>Announcement</value>
+    <comment>Page title for announcements.</comment>
+  </data>
+  <data name="audit_email_subject" xml:space="preserve">
+    <value>C-Access Audit/Compliance Inquiry</value>
+    <comment>E-mail subject for audit issues.</comment>
+  </data>
+  <data name="audit_title" xml:space="preserve">
+    <value>Audit Reviews</value>
+    <comment>Section title for audit reviews.</comment>
+  </data>
+  <data name="cfs_title" xml:space="preserve">
+    <value>Financial Summary</value>
+    <comment>Page title for individualized summary of financial activity.</comment>
+  </data>
+  <data name="contact_title" xml:space="preserve">
+    <value>Contact the CFB</value>
+    <comment>Page title for contact page.</comment>
+  </data>
+  <data name="contactconfirm_title" xml:space="preserve">
+    <value>Contact Form Confirmation</value>
+    <comment>Page title for contact form confirmation message.</comment>
+  </data>
+  <data name="csu_email_subject" xml:space="preserve">
+    <value>C-Access Candidate Services Inquiry</value>
+    <comment>E-mail subject for CSU issues.</comment>
+  </data>
+  <data name="dsnumber_title_format" xml:space="preserve">
+    <value>Disclosure Statement {0} Filing Deadline</value>
+    <comment>Page title for filing deadline information.</comment>
+  </data>
+  <data name="error_title" xml:space="preserve">
+    <value>Server Error</value>
+    <comment>Page title for server-side errors.</comment>
+  </data>
+  <data name="error404_title" xml:space="preserve">
+    <value>Page Not Found</value>
+    <comment>Page title for 404/cannot be found errors.</comment>
+  </data>
+  <data name="general_email_subject" xml:space="preserve">
+    <value>C-Access General Comments</value>
+    <comment>E-mail subject for general portal issues.</comment>
+  </data>
+  <data name="help_title" xml:space="preserve">
+    <value>Help and Support</value>
+    <comment>Section title for help and support.</comment>
+  </data>
+  <data name="offline_text" xml:space="preserve">
+    <value>The C-Access portal is currently unavailable due to regularly scheduled maintenance. We apologize for any inconvenience this may cuase. Please try again later. Thank you.</value>
+    <comment>Offline page text message.</comment>
+  </data>
+  <data name="payplan_title" xml:space="preserve">
+    <value>Payment Plan</value>
+    <comment>Page title for payment plans.</comment>
+  </data>
+  <data name="profile_title" xml:space="preserve">
+    <value>Campaign Profile</value>
+    <comment>Section title for campaign profile.</comment>
+  </data>
+  <data name="pwreset_title" xml:space="preserve">
+    <value>Forgotten Username and Password Reset</value>
+    <comment>Page title for password reset page.</comment>
+  </data>
+  <data name="title_separator" xml:space="preserve">
+    <value> : </value>
+    <comment>Text for separating page title from site title in HTML title tag.</comment>
+  </data>
+  <data name="upcomingDS_title" xml:space="preserve">
+    <value>Upcoming Disclosure Statement {0} Filing Deadline</value>
+    <comment>Page title for upcoming filing deadline information.</comment>
+  </data>
+  <data name="submissions_title" xml:space="preserve">
+    <value>Document Submission Status</value>
+    <comment>Section title for document submissions.</comment>
+  </data>
+  <data name="generalDS_title" xml:space="preserve">
+    <value>Disclosure Statement Filing Procedures</value>
+    <comment>Page title for general dislcosure statement filing procedures.</comment>
+  </data>
+  <data name="privacy_title" xml:space="preserve">
+    <value>Privacy Statement</value>
+    <comment>Page title for privacy statement.</comment>
+  </data>
+  <data name="uploadPhoto_text" xml:space="preserve">
+    <value>Please browse for an image to be uploaded. Only BMP, GIF, JPG, TIF, and PNG files are supported.</value>
+    <comment>Instructions for uploading a candidate photo.</comment>
+  </data>
+  <data name="calendar_title" xml:space="preserve">
+    <value>Candidate Calendar</value>
+    <comment>Page title for calendar.</comment>
+  </data>
+  <data name="candidate_title" xml:space="preserve">
+    <value>Candidate Profile</value>
+    <comment>Page title for candidate profile.</comment>
+  </data>
+  <data name="committee_title" xml:space="preserve">
+    <value>Committee Profile</value>
+    <comment>Page title for committee profile.</comment>
+  </data>
+  <data name="cv_title" xml:space="preserve">
+    <value>Compliance Visits</value>
+    <comment>Page title for compliance visits.</comment>
+  </data>
+  <data name="penalty_title" xml:space="preserve">
+    <value>Penalty Payment Plan</value>
+    <comment>Page title for penalty payment plan.</comment>
+  </data>
+  <data name="sr_title" xml:space="preserve">
+    <value>Statement Reviews</value>
+    <comment>Page title for statement reviews.</comment>
+  </data>
+  <data name="certification_title" xml:space="preserve">
+    <value>Candidate Certification</value>
+    <comment>Page title for Candidate Certification.</comment>
+  </data>
+  <data name="coibreceipt_title" xml:space="preserve">
+    <value>Conflicts of Interest Board Receipts</value>
+    <comment>Page title for COIB receipts.</comment>
+  </data>
+  <data name="disclosure_title" xml:space="preserve">
+    <value>Financial Disclosure Statements</value>
+    <comment>Page title for disclosure statements.</comment>
+  </data>
+  <data name="fr_title" xml:space="preserve">
+    <value>Filer Registration</value>
+    <comment>Page title for Filer Registration.</comment>
+  </data>
+  <data name="idsrequest_title" xml:space="preserve">
+    <value>C-SMART/IDS Password Requests</value>
+    <comment>Page title for c-smart/ids requests.</comment>
+  </data>
+  <data name="pedisclosure_title" xml:space="preserve">
+    <value>Daily Pre-Election Disclosure Statements</value>
+    <comment>Page title for Daily Pre-Election Disclosure Statements.</comment>
+  </data>
+  <data name="statementsofneed_title" xml:space="preserve">
+    <value>Statements of Need</value>
+    <comment>Page title for Statements of Need.</comment>
+  </data>
+  <data name="termination_title" xml:space="preserve">
+    <value>Verification of Termination</value>
+    <comment>Page title for termination verification.</comment>
+  </data>
+  <data name="disclaimer_title" xml:space="preserve">
+    <value>Data Disclaimer</value>
+    <comment>Page title for data disclaimer page.</comment>
+  </data>
+  <data name="help_baddata_title" xml:space="preserve">
+    <value>Report Data Inaccuracy Issues</value>
+    <comment>Page title for inaccurate data report form.</comment>
+  </data>
+  <data name="help_changepw_title" xml:space="preserve">
+    <value>Change Account Password</value>
+    <comment>Page title for change password form.</comment>
+  </data>
+  <data name="termsdefs_title" xml:space="preserve">
+    <value>CFB Terms and Definitions</value>
+    <comment>Page title for terms and definitions page.</comment>
+  </data>
+  <data name="threshold_title" xml:space="preserve">
+    <value>Threshold Status</value>
+    <comment>Page title for threshold status history.</comment>
+  </data>
+  <data name="logout_text" xml:space="preserve">
+    <value>Log out</value>
+    <comment>Text for log out link.</comment>
+  </data>
+  <data name="help_about_title" xml:space="preserve">
+    <value>Purpose of C-Access</value>
+    <comment>Page title for site about page.</comment>
+  </data>
+  <data name="help_breakdown_title" xml:space="preserve">
+    <value>Content Breakdown by Section</value>
+    <comment>Page title for content breakdown page.</comment>
+  </data>
+  <data name="help_accountrequest_title" xml:space="preserve">
+    <value>Request Additional Accounts</value>
+    <comment>Page title for requesting additional user accounts.</comment>
+  </data>
+  <data name="webtransfer_format" xml:space="preserve">
+    <value>[ C-Access last updated {0:M/d/yyyy h:mm tt} ]</value>
+    <comment>Date format for web transfer timestamp.</comment>
+  </data>
+  <data name="cmo_paperless_title" xml:space="preserve">
+    <value>Paper Mailings Settings</value>
+    <comment>Page title for Campaign Messages Online paperless settings.</comment>
+  </data>
+  <data name="agency_name_abbrev" xml:space="preserve">
+    <value>CFB</value>
+    <comment>Abbreviation for agency name.</comment>
+  </data>
+  <data name="cmo_inbox_title" xml:space="preserve">
+    <value>Message Center</value>
+    <comment>Page title for campaign messages inbox.</comment>
+  </data>
+  <data name="cmo_title" xml:space="preserve">
+    <value>Campaign Messages Online</value>
+    <comment>Section title for Campaign Messages Online.</comment>
+  </data>
+  <data name="GenericSubmitErrorMessage" xml:space="preserve">
+    <value>We were unable to complete your previous request. Please try again.</value>
+    <comment>A generic error message for when page submissions encounter errors.</comment>
+  </data>
+  <data name="cmo_message_title" xml:space="preserve">
+    <value>Campaign Message</value>
+    <comment>Page title for campaign messages.</comment>
+  </data>
+  <data name="db_title" xml:space="preserve">
+    <value>Doing Business Reviews</value>
+    <comment>Page title for doing business reviews.</comment>
+  </data>
+  <data name="extrequest_title" xml:space="preserve">
+    <value>Request Extension to Audit Review Response</value>
+    <comment>Page title for response deadline extension requests.</comment>
+  </data>
+  <data name="publicFunds_title" xml:space="preserve">
+    <value>Public Fund Disbursements</value>
+    <comment>Page title for public funds payments/non-payments.</comment>
+  </data>
+  <data name="training_title" xml:space="preserve">
+    <value>Campaign Training</value>
+    <comment>Page title for training tracking page.</comment>
+  </data>
+  <data name="postelection_title" xml:space="preserve">
+    <value>Post Election Audit</value>
+    <comment>Page title for post election status page.</comment>
+  </data>
+  <data name="application_name" xml:space="preserve">
+    <value>C-Access</value>
+    <comment>Name of the web application</comment>
+  </data>
+  <data name="agency_phone" xml:space="preserve">
+    <value>(212) 409-1800</value>
+    <comment>Main phone number for the agency.</comment>
+  </data>
+</root>

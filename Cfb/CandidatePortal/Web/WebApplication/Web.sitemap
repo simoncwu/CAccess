@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~" title="Home" description="C-Access">
+    <siteMapNode url="~/Audit/" title="Audit Reviews" description="Audit Reviews"/>
+    <siteMapNode url="~/Calendar/" title="Calendar" description="Calendar"/>
+    <siteMapNode url="~/Profile/" title="Campaign Profile" description="Campaign Profile"/>
+    <siteMapNode url="~/Submissions/" title="Document Status" description="Document Submission Status"/>
+    <siteMapNode url="~/Help/" title="Help" description="Help and Support"/>
+  </siteMapNode>
+</siteMap>

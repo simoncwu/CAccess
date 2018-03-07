@@ -1,0 +1,39 @@
+﻿@using Cfb.CandidatePortal
+@model IEnumerable<Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.DocumentStatusViewModel>
+
+@if (Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.ReceivedDate)</th>
+                    <th>@Html.DisplayNameFor(m => m.SubmissionType)</th>
+                    <th>@Html.DisplayNameFor(m => m.Status)</th>
+                    <th>@Html.DisplayNameFor(m => m.StatusDate)</th>
+                    <th>@Html.DisplayNameFor(m => m.PageCount)</th>
+                    <th>@Html.DisplayNameFor(m => m.DeliveryType)</th>
+                    <th>@Html.DisplayNameFor(m => m.PostmarkDate)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => d.ReceivedDate)</td>
+                        <td>@Html.DisplayFor(m => d.SubmissionType)</td>
+                        <td>@Html.DisplayFor(m => d.Status)</td>
+                        <td>@Html.DisplayFor(m => d.StatusDate)</td>
+                        <td>@Html.DisplayFor(m => d.PageCount)</td>
+                        <td>@Html.DisplayFor(m => d.DeliveryType)</td>
+                        <td>@Html.DisplayFor(m => d.PostmarkDate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    @Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.EmptyDataPartial)
+}

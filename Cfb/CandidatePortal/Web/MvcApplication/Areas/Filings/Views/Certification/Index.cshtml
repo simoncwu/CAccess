@@ -1,0 +1,9 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.DocumentStatusListViewModel
+
+@{ 
+    ViewBag.Title = "Candidate Certification";
+}
+<h2>@ViewBag.Title</h2>
+<p>Listed below is the history of Certifications, resubmissions of Certifications, and amendments to your Certifications received by the CFB from your campaign. The Certification officially makes the campaign a participant in the Campaign Finance Program. Certifications may have a status of Processing, Accepted, On-Hold, Rejected or No Processing Required. A &ldquo;Processing&rdquo; status does not indicate that a Certification has been &ldquo;Accepted&rdquo; by the CFB.</p>
+<p>Candidates should amend their Certifications when information reported on the form has changed.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.DocumentStatusList, Model.Documents)

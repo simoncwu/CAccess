@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/CandidatePortal.master" CodeBehind="Messages.master.cs"
+    Inherits="Cfb.CandidatePortal.Web.WebApplication.Messages.Messages" %>
+
+<%@ MasterType VirtualPath="~/CandidatePortal.master" %>
+<asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInHead" runat="server">
+    <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInBody" runat="server">
+    <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInBody" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
+    <link type="text/css" rel="stylesheet" href="/styles/cmo.css" />
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
+    <cfb:CmoNavigationTabs ID="CmoTabs" runat="server" CssClass="cmo contentTabs">
+        <div id="CmoContainer">
+            <asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server" />
+        </div>
+    </cfb:CmoNavigationTabs>
+</asp:Content>

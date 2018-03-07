@@ -1,0 +1,434 @@
+﻿/* start Audit Review History */
+.cp-AuditReviewHistory
+{
+}
+.ms-gv-gb .cp-DownloadLink, .cp-AuditReviewHistory .cp-Downloadlink, .cp-AuditReviewHistory .cp-VisitNumber
+{
+}
+.cp-AuditReviewHistory .cp-Appointment, .cp-AuditReviewHistory .cp-StatementNumber, .cp-AuditReviewHistory .cp-DateCompleted, .cp-AuditReviewHistory .cp-LetterSent, .cp-AuditReviewHistory .cp-ReviewSent
+{
+    width: 15%;
+}
+.cp-AuditReviewHistory .cp-ResponseDue, .cp-AuditReviewHistory .cp-ResponseStatus
+{
+    width: 23%;
+}
+.subrow table.ms-listviewtable td.statementNumber
+{
+    border-top-style: hidden;
+}
+/* end Audit Review History */
+
+/* start Extension Request */
+#ExtensionRequestForm table
+{
+    font-size: 8pt;
+}
+#ExtensionRequestForm tr
+{
+    height: 24px;
+    vertical-align: middle;
+}
+#ExtensionRequestForm th, #ExtensionRequestForm td
+{
+    padding: 0;
+}
+#ExtensionRequestForm th
+{
+    width: 13em;
+    padding-right: 1em;
+}
+/* end Extension Request */
+
+/* start PaymentPlanWebPart */
+.cp-detailsection
+{
+    border: 1px solid #422715;
+    margin: 10px auto;
+    font-size: 11pt;
+}
+.cp-detailsection h2
+{
+    padding: 3px 7px;
+    background-color: #422715;
+    color: #EEE;
+    font-weight: bold;
+    font-size: 10pt;
+    margin: 0;
+}
+.cp-leftcolumn
+{
+    float: left;
+    margin-right: 43px;
+}
+.cp-infolabel
+{
+    font-weight: bold;
+    white-space: nowrap;
+}
+.cp-infodata
+{
+    text-align: right;
+    white-space: nowrap;
+}
+.cp-sectiontable td, .cp-sectiontable th
+{
+    padding: 3px 10px !important;
+}
+.cp-PaymentPlanOverviewPanel
+{
+    width: 800px;
+}
+.cp-PaymentPlanSchedulePanel
+{
+    width: 500px;
+}
+.cp-PaymentPlanBalancesPanel
+{
+    margin-top: 0;
+    width: 500px;
+}
+.cp-PaymentPlanHistoryPanel
+{
+    width: 200px;
+}
+/* end PaymentPlanWebPart */
+
+/* start Public Funds section */
+.publicFundsSummary
+{
+    border: 1px solid #BFC0B5;
+    margin-top: 25px;
+    width: auto;
+}
+.publicFundsSummary tr
+{
+    border-width: 0;
+}
+.publicFundsSummary.ms-listviewtable tr > *
+{
+    padding-right: 2em;
+    padding-left: 2em;
+    border: 0;
+}
+.publicFundsHistory tr > *:first-child, .publicFundsHistory.ms-listviewtable .ms-viewheadertr th:first-child
+{
+    padding-left: 2em;
+}
+.publicFundsSummary tr td
+{
+    text-align: center;
+}
+/* end Public Funds section */
+
+/* start Threshold Status */
+.cp-Threshold.legend .ui-accordion .ui-accordion-header
+{
+    cursor: default;
+}
+h3.cp-Threshold, h3.subsection
+{
+    margin-top: 2em;
+    text-transform: uppercase;
+    border-bottom: 0;
+}
+.cp-Threshold.caption
+{
+    margin-top: 1em;
+}
+table.cp-ThresholdSummary td span
+{
+    margin-right: 4em;
+    margin-left: 1em;
+}
+table.cp-ThresholdSummary td ~ td span
+{
+    margin-right: 0;
+}
+.cp-ThresholdSummary.ms-listviewtable tr
+{
+    border-width: 0;
+}
+table.cp-ThresholdSummary tr th
+{
+    padding-left: 0;
+    text-align: left;
+}
+table.cp-ThresholdSummary td
+{
+    text-align: right;
+}
+.cp-ThresholdHistoryControl
+{
+    margin-top: 2em;
+}
+.cp-ThresholdHistoryControl .statementNumber
+{
+    width: 100px;
+    text-align: left;
+}
+.cp-ThresholdHistoryControl .ms-listviewtable .numActual
+{
+    width: 90px;
+    text-align: center;
+}
+.cp-ThresholdHistoryControl .ms-listviewtable .numRequired
+{
+    width: 125px;
+    text-align: center;
+}
+.cp-ThresholdHistoryControl .amtActual, .cp-ThresholdHistoryControl .amtRequired
+{
+    width: 124px;
+    text-align: left;
+}
+.cp-ThresholdHistoryControl .version
+{
+    width: 90px;
+}
+.cp-ThresholdHistoryControl .tooltip
+{
+    vertical-align: top;
+}
+.cp-ThresholdHistoryControl .office
+{
+    width: 120px;
+    text-align: left;
+}
+.cp-ThresholdHistoryControl .date
+{
+    width: 94px;
+    text-align: left;
+}
+/* end Threshold Status */
+
+/* start Post Election */
+.cp-PostElection .columns
+{
+    line-height: 1.5em;
+    margin: 0;
+}
+.cp-PostElection .columns .column
+{
+}
+.cp-PostElection .columns .column.two-up
+{
+}
+.cp-PostElectionSummary, .cp-PostElectionIssueDates
+{
+    display: inline-block;
+    vertical-align: top;
+}
+.cp-PostElection .cp-PostElectionSummary
+{
+    width: 600px;
+}
+.cp-PostElection
+{
+    display: table;
+    width: 100%;
+}
+.cp-PostElection .cp-PostElectionSummary .currentStatus
+{
+    background-color: #DDDDDE;
+    color: #57575B;
+    border: 1px solid #bfc0b5;
+    border-top: 0;
+    font-weight: bold;
+    padding: 1em 25px;
+}
+.cp-PostElection .cp-PostElectionAuditReportDates tr
+{
+    overflow: visible;
+    line-height: 22px;
+}
+.cp-PostElection .cp-PostElectionAuditReportDates .alert
+{
+    font-weight: bold;
+}
+.cp-PostElection .cp-PostElectionAuditReportDates .cp-DownloadLink .pdf-file
+{
+    background-position: 98% 50%;
+    display: inline;
+    padding: 0 20px 1px 0;
+}
+.cp-PostElection .cp-PostElectionSummary .currentStatus span
+{
+    color: green;
+    font-weight: normal;
+    text-transform: none;
+}
+.cp-PostElection .cp-PostElectionSummary .currentStatus .campaign
+{
+    color: #960404;
+}
+.cp-PostElectionIssueDates
+{
+    margin-bottom: 1em;
+    float: right;
+    width: 284px;
+}
+.cp-PostElectionIssueDates .ms-listviewtable tr.ms-viewheadertr th
+{
+    text-align: center;
+    line-height: 18px;
+}
+@-moz-document url-prefix()
+{
+    .cp-PostElectionIssueDates .ms-listviewtable tr.ms-viewheadertr th
+    {
+        line-height: 17px;
+    }
+}
+.cp-PostElectionIssueDates .ms-listviewtable tr.caption .tooltip
+{
+    top: 0;
+}
+.cp-PostElectionIssueDates .ms-listviewtable tr
+{
+    border: 0;
+}
+.cp-PostElectionIssueDates .ms-listviewtable tr > *
+{
+    height: auto;
+    padding: 3px 0;
+}
+.cp-PostElectionIssueDates .ms-listviewtable tr:not(.ms-viewheadertr) th
+{
+    white-space: nowrap;
+    font-weight: normal;
+}
+.cp-PostElectionIssueDates .ms-listviewtable td
+{
+    border-bottom: 0;
+    border-right: 0;
+    text-align: right;
+}
+.cp-PostElectionIssueDates .ms-listviewtable td:first-child
+{
+    text-align: left;
+}
+.cp-PostElectionIssueDates .ms-listviewtable tr.tollingDeadline
+{
+    height: 24px;
+}
+.cp-PostElectionIssueDates .ms-listviewtable tr.tollingDeadline th, .cp-PostElectionIssueDates .tollingDeadline td
+{
+    border-top: 1px #333333 solid;
+    font-weight: bold;
+}
+.cp-PostElectionIssueDates .ms-listviewtable + .ms-listviewtable
+{
+    margin-top: 1em;
+}
+.cp-PostElection h4
+{
+    font-family: inherit;
+    font-weight: bold;
+    margin: 1em 0 6px 20px;
+    position: relative;
+    text-transform: uppercase;
+    line-height: 18px;
+}
+.cp-PostElection h4 a.button
+{
+    font-size: 12px;
+    font-weight: normal;
+    position: absolute;
+    height: 24px;
+    right: 0;
+    padding-top: 3px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 8em;
+    text-align: center;
+    
+}
+.cp-TollingEventsList
+{
+    clear: both;
+}
+.cp-TollingEventsList .tollingEvent
+{
+    padding-right: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.cp-TollingEventsList .tollingStartDate, .cp-TollingEventsList .tollingEndDate
+{
+    width: 90px;
+}
+.cp-TollingEventsList .dueDate
+{
+    width: 100px;
+}
+.cp-TollingEventsList .tollingEndReason
+{
+    width: 165px;
+}
+.cp-TollingEventsList .tollingDays
+{
+    width: 70px;
+}
+.cp-TollingEventsList .tollingDays
+{
+    text-align: center;
+}
+.cp-TollingEventsList .dueDate
+{
+    padding-left: 1em;
+}
+.cp-TollingEventsList .emptydata
+{
+    padding-left: 23px !important;
+    padding-right: 23px !important;
+}
+.cp-PostElectionAuditNavigation
+{
+    color: #256A9A;
+    font-weight: bold;
+    letter-spacing: .1em;
+    margin: 0 auto 1em;
+    text-align: center;
+    text-transform: uppercase;
+}
+.cp-PostElectionAuditNavigation div 
+{
+    margin-top: .3em;
+}
+.cp-PostElectionAuditNavigation ul
+{
+    background-color: #E8EAE8;
+    list-style-image: none;
+    list-style: none;
+    margin: auto;
+    padding: 0;
+    white-space: nowrap;
+    width: 430px;
+}
+.cp-PostElectionAuditNavigation li
+{
+    display: inline;
+    list-style-image: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 2px;
+}
+.cp-PostElectionAuditNavigation .documentationRequest
+{
+    margin-left: 15px;
+    z-index: 2;
+}
+.cp-PostElectionAuditNavigation .draftAuditReport
+{
+    left: -39px;
+    z-index: 1;
+}
+.cp-PostElectionAuditNavigation .finalAuditReport
+{
+    left: -71px;
+}
+/* end Post Election */

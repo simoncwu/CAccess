@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cfb.CandidatePortal.Web.Controls.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PressReleasesSearchUrlFormat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.nyccfb.info/sitesearch/search.asp?zoom_query=%22{0}+{1}%22+%22{1}+{0}%22&amp;zoom_per_page=10&amp;zoom_cat=3&amp;zoom_and=0&amp;zoom_sort=0</Value>
+    </Setting>
+    <Setting Name="PressReleasesSearchUrlMIFormat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.nyccfb.info/sitesearch/search.asp?zoom_query=%22{0}+{2}%22+%22{2}+{0}%22+%22{0}+{1}+{2}%22&amp;zoom_per_page=10&amp;zoom_cat=3&amp;zoom_and=0&amp;zoom_sort=0</Value>
+    </Setting>
+    <Setting Name="NewAnnouncementCutoffDays" Type="System.Byte" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="TooltipFormat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;img src="/images/tooltip.png" width="16" height="16" alt="" class="{0}" /&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,127 @@
+﻿@using Cfb.CandidatePortal
+@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.CommitteeProfileViewModel
+
+@{
+    ViewBag.Title = "Committee Profile";
+}
+<h2>@ViewBag.Title</h2>
+<p>
+    Below is a summary of candidate information as submitted to the CFB by your campaign in a Filer Registration or Certification form. If any of this information has changed and is no longer current, you must update the appropriate <a href="http://www.nyccfb.info/candidate-services/forms" target="_blank" title="NYC Campaign Finance Board Candidate Forms">form</a>. In order to update the Filer Registration or Certification, you must submit an amended form in hard copy. Please contact your CSU liaison for further information.
+</p>
+<ul class="nav nav-pills nav-justified" role="tablist">
+    <li role="presentation" class="active"><a href="#CommitteeTabContent" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span> Committee</a></li>
+    <li role="presentation"><a href="#TreasurerTabContent" role="tab" data-toggle="tab"><i class="fa fa-money" aria-hidden="true"></i> Treasurer</a></li>
+    <li role="presentation"><a href="#ContactsTabContent" role="tab" data-toggle="tab"><i class="fa fa-users" aria-hidden="true"></i> Campaign Staff</a></li>
+    <li role="presentation"><a href="#BankAccountsTabContent" role="tab" data-toggle="tab"><i class="fa fa-bank" aria-hidden="true"></i> Bank Accounts</a></li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="CommitteeTabContent" role="tabpanel">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @* Committee Information *@
+            <section>
+                <div class="row">
+                    <div class="col-xs-4 col-sm-2 col-sm-push-10 col-md-1 col-md-push-11">
+                        <div class="cp-ID">
+                            @Html.EditorFor(m => m.ID)
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-sm-pull-2 col-md-11 col-md-pull-1">
+                        @Html.EditorFor(m => m.Name, new { @readonly = true })
+                    </div>
+                </div>
+                @Html.EditorFor(m => m.ContactInfo)
+                <div class="row">
+                    <div class="col-sm-4 col-md-3">
+                        @Html.EditorFor(m => m.BoeAuthDate, new { @readonly = true })
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        @Html.EditorFor(m => m.TerminationDate)
+                    </div>
+                    <div class="col-sm-4 col-md-6">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-12 col-md-6">
+                                @Html.EditorFor(m => m.IsPrincipal, new { @readonly = true })
+                            </div>
+                            <div class="col-xs-6 col-sm-12 col-md-6">
+                                @Html.EditorFor(m => m.IsActive, new { @readonly = true })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr />
+            <div class="panel-group">
+                @* Mailing Address *@
+                <section class="panel panel-info panel-heading-only">
+                    <div class="panel-heading" data-toggle="collapse" data-target="#MailingAddressPanel">
+                        <h4 class="panel-title"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Mailing Address (if different)</h4>
+                    </div>
+                    <div id="MailingAddressPanel" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.EditorFor(m => m.MailingAddress)
+                        </div>
+                    </div>
+                </section>
+
+                @* Previous Elections *@
+                <section class="panel panel-info panel-heading-only">
+                    <div class="panel-heading" data-toggle="collapse" data-target="#PreviousPanel">
+                        <h4 class="panel-title"><i class="fa fa-history" aria-hidden="true"></i> Previous Elections</h4>
+                    </div>
+                    <div id="PreviousPanel" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-3">
+                                    @Html.EditorFor(m => m.LastElectionDate, new { @readonly = true })
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    @Html.EditorFor(m => m.LastOfficeSought, new { @readonly = true })
+                                </div>
+                                <div class="col-sm-4 col-md-3">
+                                    @Html.EditorFor(m => m.LastDistrict, new { @readonly = true })
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.EditorFor(m => m.LastPrimaryParty, new { @readonly = true })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        }
+    </div>
+    <div class="tab-pane" id="TreasurerTabContent" role="tabpanel">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            @* Treasurer Information *@
+            <section>
+                @Html.EditorFor(m => m.Treasurer)
+            </section>
+            <hr />
+            <div class="panel-group">
+                <section class="panel panel-info panel-heading-only">
+                    <div class="panel-heading" data-toggle="collapse" data-target="#EmployerPanel">
+                        <h4 class="panel-title"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Treasurer Employer</h4>
+                    </div>
+                    <div id="EmployerPanel" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.EditorFor(m => m.Treasurer.Employer)
+                        </div>
+                    </div>
+                </section>
+            </div>
+        }
+    </div>
+    <div class="tab-pane" id="ContactsTabContent" role="tabpanel">
+        @Html.Action(CommitteeController.ActionName_CampaignStaff, new { committeeID = Model.ID })
+    </div>
+    <div class="tab-pane" id="BankAccountsTabContent" role="tabpanel">
+        @Html.Action(CommitteeController.ActionName_BankAccount, new { committeeID = Model.ID })
+    </div>
+</div>

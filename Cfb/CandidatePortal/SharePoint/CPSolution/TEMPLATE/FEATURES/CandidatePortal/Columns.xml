@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<Field ID="{4ed10c82-ee13-4598-ae2f-7846e3fe3078}" Name="Category"
+		   DisplayName="Category"
+		   Type="Choice"
+		   Format="Dropdown"
+		   Required="TRUE"
+		   Indexed="TRUE"
+		   StaticName="Category"
+		   SourceID="http://schemas.microsoft.com/sharepoint/v3"
+		   Group="CFB Candidate Portal Columns">
+		<CHOICES>
+			<CHOICE>None</CHOICE>
+			<CHOICE>Filing Dates</CHOICE>
+			<CHOICE>Pre-Election Disclosure</CHOICE>
+			<CHOICE>Voter Guide</CHOICE>
+		</CHOICES>
+		<Default>None</Default>
+	</Field>
+	<Field ID="{cc398a83-819d-4862-8dbb-01b2c1072d13}" Name="ElectionCycles"
+		   DisplayName="Election Cycles"
+		   Type="Text"
+		   Indexed="TRUE"
+		   StripWS="TRUE"
+		   StaticName="ElectionCycles"
+		   Group="CFB Candidate Portal Columns">
+		<Default></Default>
+	</Field>
+	<Field ID="{b5840911-6002-4929-9173-0d887e1266d9}" Name="StatementNumber"
+		   DisplayName="Statement Number"
+		   Type="Integer"
+		   Min="1"
+		   Max="16"
+		   MaxLength="2"
+		   Indexed="TRUE"
+		   StripWS="TRUE"
+		   StaticName="StatementNumber"
+		   Group="CFB Candidate Portal Columns">
+		<Default></Default>
+	</Field>
+	<Field ID="{3c763cdc-218c-449f-8545-d2f95062952c}" Name="FilingDateOverride"
+		DisplayName="Override generic filing date message?"
+		   Type="Boolean"
+		   StaticName="FilingDateOverride"
+		   Group="CFB Candidate Portal Columns">
+		<Default>FALSE</Default>
+	</Field>
+	<Field ID="{b83cee10-b48a-4ef7-8c25-1c35a947fddb}" Name="Posted"
+         DisplayName="Posted"
+         Type="DateTime"
+         Format="DateOnly"
+         Required="TRUE"
+         Indexed="TRUE"
+         StaticName="Posted"
+         SourceID="http://schemas.microsoft.com/sharepoint/v3"
+         Group="CFB Candidate Portal Columns">
+		<Default>[Today]</Default>
+	</Field>
+	<Field ID="{7662cd2c-f069-4dba-9e35-082cf976e170}" Name="Body"
+		   Type="Note"
+		   RichText="TRUE"
+		   RichTextMode="FullHtml"
+		   IsolateStyles="TRUE"
+		   NumLines="1"
+		   DisplayName="$Resources:core,camlid2;"
+		   Sortable="FALSE"
+		   SourceID="http://schemas.microsoft.com/sharepoint/v3"
+		   StaticName="Body">
+	</Field>
+	<Field ID="{6a09e75b-8d17-4698-94a8-371eda1af1ac}" Name="Expires"
+		   Type="DateTime"
+		   DisplayName="$Resources:core,camlid3;"
+		   Format="DateOnly"
+		   Indexed="TRUE"
+		   SourceID="http://schemas.microsoft.com/sharepoint/v3"
+		   StaticName="Expires">
+	</Field>
+</Elements>

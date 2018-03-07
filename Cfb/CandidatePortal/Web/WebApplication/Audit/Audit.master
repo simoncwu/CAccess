@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" CodeBehind="Audit.master.cs" Inherits="Cfb.CandidatePortal.Web.WebApplication.Audit.Audit"
+    MasterPageFile="~/CandidatePortal.master" %>
+
+<%@ MasterType VirtualPath="~/CandidatePortal.master" %>
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderPageTitleInHead">
+    <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInBody" runat="server">
+    <%=Resources.CPResources.audit_title%></asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderAdditionalPageHead">
+    <link href="/styles/Audit.css" type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
+    <cfb:AuditTabs ID="AuditTabs" runat="server" ActiveTabID="AuditContentTab">
+        <article>
+            <h2 class="ms-pagetitle">
+                <asp:ContentPlaceHolder ID="PlaceHolderAuditPageTitle" runat="server" />
+            </h2>
+            <asp:ContentPlaceHolder ID="PlaceHolderPageContent" runat="server" />
+        </article>
+    </cfb:AuditTabs>
+</asp:Content>

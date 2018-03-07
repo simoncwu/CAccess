@@ -1,0 +1,51 @@
+﻿@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Controllers;
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.DisclosureStatementListViewModel
+
+@{
+    const string CommitteeAjaxTargetId = "DisclosureStatementsSection";
+    const string StatementAjaxTargetId = "DisclosureStatementsTable";
+}
+<section id="@CommitteeAjaxTargetId" style="position:relative;">
+    <div class="navbar">
+        @using (Ajax.BeginForm(DisclosureStatementController.ActionName_Index, null, new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = CommitteeAjaxTargetId,
+            LoadingElementId = "LoadingElement",
+            OnSuccess = "ajaxOnSuccess"
+        }, new { @class = "navbar-form navbar-left" }))
+        {
+            <div class="form-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.CommitteeID)</label>
+                @Html.DropDownListFor(m => m.CommitteeID, new SelectList(Model.Committees, "Value", "Text"), new { @class = "form-control", data_ajax_trigger = "change" })
+            </div>
+        }
+        @using (Ajax.BeginForm(DisclosureStatementController.ActionName_Statement, new { committeeID = Model.CommitteeID }, new AjaxOptions
+        {
+            HttpMethod = "GET",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = StatementAjaxTargetId,
+            LoadingElementId = "LoadingElement",
+            OnSuccess = "ajaxOnSuccess"
+        }, new { @class = "navbar-form navbar-left" }))
+        {
+            <div class="form-group">
+                <label class="control-label">@Html.DisplayNameFor(m => m.StatementNumber)</label>
+                @Html.DropDownListFor(m => m.StatementNumber, new SelectList(Model.Statements, "Value", "Text"), new { @class = "form-control", data_ajax_trigger = "change" })
+            </div>
+        }
+    </div>
+    <div id="@StatementAjaxTargetId" class="table-responsive">
+        @Html.Partial(Views.DisclosureStatementTable, Model.Documents)
+    </div>
+    <div id="LoadingElement" style="display:none;">
+        @Html.Partial(Views.LoaderOverlayPartial)
+    </div>
+</section>
+<script>
+    var ajaxOnSuccess = function () {
+        CFBCP.ajaxUiInit();
+    };
+</script>

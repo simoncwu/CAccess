@@ -1,0 +1,23 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Models.UpcomingEventsViewModel
+
+<section class="well well-table">
+    <h5><span class="glyphicon glyphicon-bell" aria-hidden="true"></span> My Upcoming Events</h5>
+    @if (Model.Any())
+    {
+        <table class="table table-borderless table-condensed">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.End.ToString(Model.Condensed ? "M/d" : "d")</td>
+                        <td><a href="@item.Url">@(Model.Condensed ? item.Title : item.Description)</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <span>You have no upcoming events on file for the @Cfb.CandidatePortal.Web.CPProfile.ElectionCycle election cycle.</span>
+    }
+</section>

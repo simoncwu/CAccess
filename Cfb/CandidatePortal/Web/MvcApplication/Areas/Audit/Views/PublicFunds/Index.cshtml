@@ -1,0 +1,58 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.PublicFundsTrackingViewModel
+
+@{
+    ViewBag.Title = "Public Funds Disbursements";
+}
+<h2>@ViewBag.Title</h2>
+<p>Below is a detailed listing of public fund payments disbursed to your campaign during this election. In addition to showing the amount and date of the payment, the data below also indicate for which period of the election the payment was disbursed (Primary, General, Runoff/Rerun) as well as the method by which it was disbursed&mdash;electronically (EFT) or Check.</p>
+
+@if (Model != null && Model.Payments != null && Model.Payments.Any())
+{
+    <section class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Payment Date</th>
+                    <th class="numeric">Amount</th>
+                    <th>Method</th>
+                    <th>Election</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var p in Model.Payments)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => p.Date)</td>
+                    <td class="numeric">@Html.DisplayFor(m => p.Amount)</td>
+                    <td>@Html.DisplayFor(m => p.Method)</td>
+                    <td>@Html.DisplayFor(m => p.ElectionType)</td>
+                    <td>@Helpers.MessageDownloadLink(this, p.MessageID > 0 ? p.MessageID.ToString() : null)</td>
+                </tr>
+            }
+        </table>
+    </section>
+    <section class="well well-sm well-table">
+        <div class="row">
+            <div class="col-sm-6">
+                <table class="table table-borderless table-centered">
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.Count)</th>
+                        <td>@Html.DisplayFor(m => m.Count)</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-sm-6">
+                <table class="table table-borderless table-centered">
+                    <tr>
+                        <th>@Html.DisplayNameFor(m => m.TotalAmount)</th>
+                        <td>@Html.DisplayFor(m => m.TotalAmount)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    @Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.EmptyDataPartial)
+}

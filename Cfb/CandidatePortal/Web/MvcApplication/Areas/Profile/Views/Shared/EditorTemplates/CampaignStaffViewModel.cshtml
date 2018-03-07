@@ -1,0 +1,45 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.CampaignStaffViewModel
+
+@{
+    bool consultant = Model.ContactType == Cfb.Cfis.CampaignContacts.LiaisonType.Consultant;
+}
+<div class="row">
+    <div class="col-xs-6 col-sm-2">
+        @Html.EditorFor(m => m.Name.Salutation, new { @readonly = true })
+    </div>
+    <div class="col-xs-6 col-sm-3 col-sm-offset-0 col-sm-push-7 col-md-2 col-md-push-8">
+        @Html.EditorFor(m => m.ContactOrder, new { @readonly = true })
+    </div>
+    <div class="col-xs-9 col-sm-5 col-sm-pull-3 col-md-3 col-md-pull-2">
+        @Html.EditorFor(m => m.Name.FirstName, new { @readonly = true })
+    </div>
+    <div class="col-xs-3 col-sm-2 col-sm-pull-3 col-md-1 col-md-pull-2">
+        @Html.EditorFor(m => m.Name.MiddleInitial, new { @readonly = true })
+    </div>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-2 col-md-4 col-md-pull-2 col-md-offset-0">
+        @Html.EditorFor(m => m.Name.LastName, new { @readonly = true })
+    </div>
+</div>
+@Html.EditorFor(m => m.ContactInfo)
+
+@* liaison-only info *@
+@if (Model.ContactType.HasValue)
+{
+    <div class="row">
+        <div class="col-sm-6@(consultant ? " col-md-3" : null)">
+            @Html.EditorFor(m => m.ContactType, new { @readonly = true })
+        </div>
+        @if (consultant)
+        {
+            <div class="col-sm-6 col-md-5">
+                @Html.EditorFor(m => m.ConsultantEntityName, new { @readonly = true })
+            </div>
+        }
+        <div class="col-xs-6 @(consultant ? "col-md-2" : "col-sm-3")">
+            @Html.EditorFor(m => m.ManagerialControl, new { @readonly = true })
+        </div>
+        <div class="col-xs-6 @(consultant ? "col-md-2" : "col-sm-3")">
+            @Html.EditorFor(m => m.VGLiaison, new { @readonly = true })
+        </div>
+    </div>
+}

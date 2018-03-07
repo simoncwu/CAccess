@@ -1,0 +1,31 @@
+﻿@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "Content Breakdown by Section";
+    var appName = Cfb.CandidatePortal.CPProviders.SettingsProvider.ApplicationName;
+}
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", Actions.Default, HomeController.ControllerName)</li>
+    <li>@Html.ActionLink("Help", Actions.Default)</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+<h3>@AreaNames.Help</h3>
+<h2>@ViewBag.Title</h2>
+<dl>
+    <dt>Homepage</dt>
+    <dd>The @appName Homepage includes a listing of upcoming events specific to your campaign, general announcements to all campaigns, links to important campaign resources on the CFB web site, a confirmation of basic information about your campaign, and the ability to upload a candidate or campaign photo.</dd>
+    <dt>Audit Reviews</dt>
+    <dd>The @appName Audit Reviews section includes status information of your campaign regarding CFB Statement Reviews, Compliance Visits, Threshold Status, Public Fund payment amounts and date of Public Funds payments, including the period of the election (Primary, General, Runoff/Rerun) that the Public Fund payment was disbursed.</dd>
+    <dt>Campaign Profile</dt>
+    <dd>The @appName Campaign Profile section includes information on the candidate and committee that was submitted to the CFB on your campaign&rsquo;s Filer Registration or Certification. The Campaign Profile also contains a Financial Profile section which provides a snapshot of your campaign&rsquo;s financial information. Data on the Financial Profile was submitted to the CFB on the candidate&rsquo;s financial disclosure statements.</dd>
+    <dt>Events</dt>
+    <dd>The @appName Events section includes links to other important campaign related calendars, upcoming events, announcements, as well as the ability to flip through months and years on a calendar and then select a particular month for monthly details.</dd>
+    <dt>Filings</dt>
+    <dd>Your campaign will be filing different types of documents to the CFB throughout the course of an election. The first time your campaign files a specific type of document, a new tab will appear in this section providing status information for that document. Filings may include: Filer Registrations, Certifications, IDS/C-SMART Requests, Financial Disclosure Statements, COIB Receipts, Small Campaign Disclosure, Special Pre Election Disclosure, Statements of Need, and Candidacy Terminations.</dd>
+    <dt>Campaign Messages</dt>
+    <dd>@appName Campaign Messages provides candidates, treasurers and other campaign representatives with a reliable way to receive communications electronically from the @Cfb.CandidatePortal.CPProviders.SettingsProvider.AgencyName. These communications, can include Statement Reviews, Draft Audit Reports, and various other messages available in PDF format (requires free and easy-to-use Adobe Acrobat Reader, or equivalent).</dd>
+    <dt>Help</dt>
+    <dd>The @appName Help section includes helpful information for using @appName. This information includes a purpose statement, descriptions of possible content found in each section, CFB contact information, and information on how to change your @appName password.</dd>
+</dl>

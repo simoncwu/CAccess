@@ -1,0 +1,23 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Models.CampaignContactViewModel
+
+@{
+    var updateTarget = "AccountRequestSubmitResults";
+}
+@if (Model != null)
+{
+    <p>You have selected the following contact  for an additional account:</p>
+    <dl>
+        <dt>@Html.DisplayNameFor(m => m.FirstName)</dt>
+        <dd>@Html.DisplayFor(m => m.FirstName)</dd>
+        <dt>@Html.DisplayNameFor(m => m.MiddleInitial)</dt>
+        <dd>@Html.DisplayFor(m => m.MiddleInitial)</dd>
+        <dt>@Html.DisplayNameFor(m => m.LastName)</dt>
+        <dd>@Html.DisplayFor(m => m.LastName)</dd>
+        <dt>@Html.DisplayNameFor(m => m.Email)</dt>
+        <dd>@Html.DisplayFor(m => m.Email)</dd>
+    </dl>
+    <div id="@updateTarget">
+        @Html.AntiForgeryToken()
+        @Ajax.ActionLink("Submit Request", Cfb.CandidatePortal.Web.MvcApplication.Controllers.HelpController.ActionName_AccountRequest, new { id = Model.ID }, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = updateTarget, OnSuccess = "accountRequestSuccess", OnFailure = "accountRequestFail" }, new { @class = "btn btn-primary" })
+    </div>
+}

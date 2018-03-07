@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.TrainingTracking" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.TrainingTracking" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="TrainingCourseType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Combined" />
+      <xs:enumeration value="Compliance" />
+      <xs:enumeration value="Csmart" />
+      <xs:enumeration value="Supplemental" />
+      <xs:enumeration value="AdvancedCsmart" />
+      <xs:enumeration value="Audit" />
+      <xs:enumeration value="CsmartWeb" />
+      <xs:enumeration value="CombinedWeb" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrainingCourseType" nillable="true" type="tns:TrainingCourseType" />
+  <xs:simpleType name="TrainingLocation">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="ConferenceRoom" />
+      <xs:enumeration value="LawLibrary" />
+      <xs:enumeration value="TrainingRoom" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrainingLocation" nillable="true" type="tns:TrainingLocation" />
+  <xs:simpleType name="TrainerRole">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Assistant" />
+      <xs:enumeration value="Compliance" />
+      <xs:enumeration value="Csmart" />
+      <xs:enumeration value="Combined" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TrainerRole" nillable="true" type="tns:TrainerRole" />
+  <xs:simpleType name="CampaignRelationship">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="unsignedByte" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        </ActualType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="Candidate" />
+      <xs:enumeration value="Treasurer" />
+      <xs:enumeration value="Manager" />
+      <xs:enumeration value="Authority" />
+      <xs:enumeration value="AsisstantTreasurer" />
+      <xs:enumeration value="Coordinator" />
+      <xs:enumeration value="Consultant" />
+      <xs:enumeration value="Liaison" />
+      <xs:enumeration value="Volunteer" />
+      <xs:enumeration value="Worker" />
+      <xs:enumeration value="FormerStaff" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CampaignRelationship" nillable="true" type="tns:CampaignRelationship" />
+</xs:schema>

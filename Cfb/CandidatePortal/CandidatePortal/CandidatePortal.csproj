@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2093CDB2-61F2-406E-959B-A6E3828E3AAD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cfb.CandidatePortal</RootNamespace>
+    <AssemblyName>Cfb.CandidatePortal</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\NYCCFB.snk</AssemblyOriginatorKeyFile>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Cfb.CandidatePortal.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Announcement.cs" />
+    <Compile Include="AuditReviewBase.cs" />
+    <Compile Include="AuthorizedCommittee.cs" />
+    <Compile Include="AuthorizedCommittees.cs" />
+    <Compile Include="BankAccount.cs" />
+    <Compile Include="Candidate.cs" />
+    <Compile Include="ICalendarItem.cs" />
+    <Compile Include="ISettingsProvider.cs" />
+    <Compile Include="PostElection\SuspensionReason.cs" />
+    <Compile Include="PostElection\Extensions.cs" />
+    <Compile Include="PostElection\FinalAuditReport.cs" />
+    <Compile Include="PostElection\DarInadequateDeadline.cs" />
+    <Compile Include="PostElection\DarInadequateEvent.cs" />
+    <Compile Include="PostElection\InadequateEventBase.cs" />
+    <Compile Include="PostElection\InadequateEventRetrieval.cs" />
+    <Compile Include="PostElection\ReportResponseDeadline.cs" />
+    <Compile Include="PostElection\Suspension.cs" />
+    <Compile Include="PostElection\TollingEndReason.cs" />
+    <Compile Include="PostElection\TollingEvent.cs" />
+    <Compile Include="PostElection\TollingEventCollection.cs" />
+    <Compile Include="PostElection\TollingEventType.cs" />
+    <Compile Include="PostElection\DarResponseDeadline.cs" />
+    <Compile Include="PostElection\IdrResponseAnalysis.cs" />
+    <Compile Include="PostElection\IdrInadequateDeadline.cs" />
+    <Compile Include="PostElection\IdrInadequateEvent.cs" />
+    <Compile Include="CsuLiaison.cs" />
+    <Compile Include="PostElection\DraftAuditReport.cs" />
+    <Compile Include="PostElection\ITollingEvent.cs" />
+    <Compile Include="SubmissionDocuments\CertificationHistory.cs" />
+    <Compile Include="CfbClassification.cs" />
+    <Compile Include="SubmissionDocuments\CoibReceiptHistory.cs" />
+    <Compile Include="Committee.cs" />
+    <Compile Include="BankAccountType.cs" />
+    <Compile Include="BankAccountPurpose.cs" />
+    <Compile Include="ActiveCandidate.cs" />
+    <Compile Include="PostElection\IdrResponseDeadline.cs" />
+    <Compile Include="PostElection\AuditReportBase.cs" />
+    <Compile Include="CPProviders.cs" />
+    <Compile Include="DbrResponseDeadlines.cs" />
+    <Compile Include="DoingBusinessReviews.cs" />
+    <Compile Include="DbrResponseDeadline.cs" />
+    <Compile Include="DoingBusinessReview.cs" />
+    <Compile Include="Election.cs" />
+    <Compile Include="Elections.cs" />
+    <Compile Include="ElectionType.cs" />
+    <Compile Include="ExtensionRequest.cs" />
+    <Compile Include="ExtensionType.cs" />
+    <Compile Include="FilingDeadline.cs" />
+    <Compile Include="FilingDeadlines.cs" />
+    <Compile Include="PostElection\InitialDocumentationRequest.cs" />
+    <Compile Include="PostElection\AuditReportType.cs" />
+    <Compile Include="PostElection\AuditRequestType.cs" />
+    <Compile Include="PublicFundsDetermination.cs" />
+    <Compile Include="PublicFundsHistory.cs" />
+    <Compile Include="IDataProvider.cs" />
+    <Compile Include="IPersistable.cs" />
+    <Compile Include="IQueryStringAware.cs" />
+    <Compile Include="Liaison.cs" />
+    <Compile Include="PaymentMethod.cs" />
+    <Compile Include="ResponseDeadlineBase.cs" />
+    <Compile Include="NycPublicOffice.cs" />
+    <Compile Include="SubmissionDocuments\SubmissionFormat.cs" />
+    <Compile Include="TerminationReason.cs" />
+    <Compile Include="SubmissionDocuments\CsmartIdsRequest.cs" />
+    <Compile Include="SubmissionDocuments\CsmartIdsRequestHistory.cs" />
+    <Compile Include="SubmissionDocuments\DisclosureStatement.cs" />
+    <Compile Include="SubmissionDocuments\DisclosureStatementHistories.cs" />
+    <Compile Include="SubmissionDocuments\DisclosureStatementHistory.cs" />
+    <Compile Include="SubmissionDocuments\FilerRegistrationHistory.cs" />
+    <Compile Include="PaymentType.cs" />
+    <Compile Include="PlanPayment.cs" />
+    <Compile Include="PlanPaymentHistory.cs" />
+    <Compile Include="PaymentInstallment.cs" />
+    <Compile Include="PaymentPlan.cs" />
+    <Compile Include="PaymentPeriod.cs" />
+    <Compile Include="PaymentPlanSummary.cs" />
+    <Compile Include="PaymentSchedule.cs" />
+    <Compile Include="SubmissionDocuments\PreElectionDisclosureHistory.cs" />
+    <Compile Include="SubmissionDocuments\PreElectionDisclosure.cs" />
+    <Compile Include="Statement.cs" />
+    <Compile Include="SubmissionDocuments\StatementOfNeed.cs" />
+    <Compile Include="SubmissionDocuments\StatementOfNeedHistory.cs" />
+    <Compile Include="SubmissionDocuments\SubmissionHistory.cs" />
+    <Compile Include="SubmissionDocuments\TerminationHistory.cs" />
+    <Compile Include="SubmissionDocuments\FilerRegistrationDocument.cs" />
+    <Compile Include="SubmissionDocuments\CoibReceipt.cs" />
+    <Compile Include="SubmissionDocuments\TerminationVerification.cs" />
+    <Compile Include="CPConvert.cs" />
+    <Compile Include="FinancialSummary.cs" />
+    <Compile Include="NycBorough.cs" />
+    <Compile Include="NycPublicOfficeType.cs" />
+    <Compile Include="Properties\CPCalendarItemResources.Designer.cs">
+      <DependentUpon>CPCalendarItemResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CPCalendarItemComparer.cs" />
+    <Compile Include="CPCalendarItemType.cs" />
+    <Compile Include="SubmissionDocuments\CertificationDocument.cs" />
+    <Compile Include="ComplianceVisit.cs" />
+    <Compile Include="ComplianceVisits.cs" />
+    <Compile Include="CPCalendarItem.cs" />
+    <Compile Include="CPCalendarItemCollection.cs" />
+    <Compile Include="CVResponseDeadline.cs" />
+    <Compile Include="CVResponseDeadlines.cs" />
+    <Compile Include="DeliveryType.cs" />
+    <Compile Include="DocumentStatusReason.cs" />
+    <Compile Include="DocumentType.cs" />
+    <Compile Include="PageVariables.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SRResponseDeadline.cs" />
+    <Compile Include="SRResponseDeadlines.cs" />
+    <Compile Include="StatementReview.cs" />
+    <Compile Include="StatementReviews.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentStatus.cs" />
+    <Compile Include="SubmissionDocuments\SubmissionDocument.cs" />
+    <Compile Include="SubmissionType.cs" />
+    <Compile Include="ThresholdHistory.cs" />
+    <Compile Include="ThresholdRevisionType.cs" />
+    <Compile Include="ThresholdStatus.cs" />
+    <Compile Include="ThresholdRevision.cs" />
+    <Compile Include="PostElection\TollingLetter.cs" />
+    <Compile Include="PostElection\TollingCode.cs" />
+    <Compile Include="PostElection\TollingCodeType.cs" />
+    <Compile Include="TrainingTracking\CampaignRelationship.cs" />
+    <Compile Include="TrainingTracking\TrainerRole.cs" />
+    <Compile Include="TrainingTracking\TrainerCollection.cs" />
+    <Compile Include="TrainingTracking\TrainingLocation.cs" />
+    <Compile Include="TrainingTracking\TrainingCourseType.cs" />
+    <Compile Include="TrainingTracking\TrainingRegistration.cs" />
+    <Compile Include="TrainingTracking\TrainingRegistrationCollection.cs" />
+    <Compile Include="TrainingTracking\TrainingSession.cs" />
+    <Compile Include="TrainingTracking\TrainingSessionCollection.cs" />
+    <Compile Include="TrainingTracking\TrainingStatus.cs" />
+    <Compile Include="TrainingTracking\Trainee.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\NYCCFB.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\CPCalendarItemResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CPCalendarItemResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cfis\CampaignContacts\CampaignContacts.csproj">
+      <Project>{CE725812-F7FC-467A-856B-C26C8390BF05}</Project>
+      <Name>CampaignContacts %28Cfis\CampaignContacts%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

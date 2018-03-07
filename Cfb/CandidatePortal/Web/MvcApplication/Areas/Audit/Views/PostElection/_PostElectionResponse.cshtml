@@ -1,0 +1,61 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.PostElectionResponseViewModel
+
+<table class="table table-borderless table-condensed table-centered">
+    <caption>
+        @if (Model.IsInadequate)
+        {
+            @:Inadequate Response Notice
+        }
+        else
+        {
+            @Html.DisplayFor(m => m.ReportType)
+        }
+    </caption>
+    <tbody>
+        <tr>
+            <th>@Model.ReportTypeText Sent</th>
+            <td>
+                @if (Model.HasNoFindings)
+                {
+                    <span class="text-muted">A report was not issued for the current election cycle.</span>
+                }
+                else
+                {
+                    @Html.DisplayFor(m => m.SentDate)
+                }
+            </td>
+            <td>
+                @Helpers.MessageDownloadLink(this, Model.MessageID, null)
+            </td>
+        </tr>
+        @if (Model.SecondSentDate.HasValue)
+        {
+            <tr>
+                <th>Second @Model.ReportTypeText Sent</th>
+                <td>@Html.DisplayFor(m => m.SecondSentDate)</td>
+                <td></td>
+            </tr>
+        }
+        @if (Model.DueDate.HasValue)
+        {
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.DueDate)</th>
+                <td class="@(Model.Overdue ? "alert" : null)">@Html.DisplayFor(m => m.DueDate)</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.ReceivedDate)</th>
+                <td class="@(Model.Overdue ? "alert" : null)">@Html.DisplayFor(m => m.ReceivedDate)</td>
+                <td></td>
+            </tr>
+        }
+        @if (Model.PostmarkedDate.HasValue)
+        {
+            <tr>
+                <th>@Html.DisplayNameFor(m => m.PostmarkedDate)</th>
+                <td>@Html.DisplayFor(m => m.PostmarkedDate)</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

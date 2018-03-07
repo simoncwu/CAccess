@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+	<ContentType ID="0x0104003442F8794B214ad581AF60A14684142B" Name="Portal Announcements"
+				 Description=""
+				 Version="0"
+				 Group="CFB Candidate Portal Content Types">
+		<FieldRefs>
+			<FieldRef ID="{fa564e0f-0c70-4ab9-b863-0177e6ddd247}"
+					  Name="Title"
+					  DisplayName="Title"
+					  Sealed="TRUE" />
+			<FieldRef ID="{4ed10c82-ee13-4598-ae2f-7846e3fe3078}"
+					  Name="Category"
+					  DisplayName="Category" />
+			<FieldRef ID="{cc398a83-819d-4862-8dbb-01b2c1072d13}"
+					  Name="ElectionCycles"
+					  DisplayName="Election Cycles" />
+			<FieldRef ID="{b5840911-6002-4929-9173-0d887e1266d9}"
+					  Name="StatementNumber"
+					  DisplayName="Statement Number" />
+			<FieldRef ID="{3c763cdc-218c-449f-8545-d2f95062952c}" Name="FilingDateOverride"
+					  DisplayName="Override generic filing date message?" />
+			<FieldRef ID="{b83cee10-b48a-4ef7-8c25-1c35a947fddb}"
+					  Name="Posted"
+					  DisplayName="Posted" />
+			<FieldRef ID="{7662cd2c-f069-4dba-9e35-082cf976e170}"
+					  Name="Body"
+					  DisplayName="Description" />
+			<FieldRef ID="{6a09e75b-8d17-4698-94a8-371eda1af1ac}"
+					  Name="Expires"
+					  DisplayName="Expires" />
+		</FieldRefs>
+	</ContentType>
+</Elements>

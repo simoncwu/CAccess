@@ -1,0 +1,43 @@
+.OPTION EXPLICIT
+.Set CabinetNameTemplate=C-Access.wsp
+.Set DiskDirectoryTemplate=CDROM
+.Set CompressionType=MSZIP
+.Set UniqueFiles="ON"
+.Set Cabinet=on
+manifest.xml
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; CandidatePortal feature ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+.Set DestinationDir=CandidatePortal
+.Set SourceDir=TEMPLATE\FEATURES\CandidatePortal
+feature.xml
+Columns.xml
+ContentTypes.xml
+Modules.xml
+
+; Web part definitions
+.Set DestinationDir=CandidatePortal\WebParts
+.Set SourceDir=TEMPLATE\FEATURES\CandidatePortal\WebParts
+AccountManagementWebPart.webpart
+
+; Web part libraries
+.Set DestinationDir=
+.Set SourceDir=bin\Release
+Cfb.CandidatePortal.SharePoint.WebParts.AccountManagementWebPart.dll
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; CandidatePortalLists feature ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+.Set DestinationDir=CandidatePortalLists
+.Set SourceDir=TEMPLATE\FEATURES\CandidatePortalLists
+feature.xml
+
+; List templates
+.Set DestinationDir=CandidatePortalLists\ListTemplates
+ListTemplates\portalannouncements.xml
+
+; Portal announcements list
+.Set DestinationDir=CandidatePortalLists\PortalAnnouncements
+PortalAnnouncements\schema.xml

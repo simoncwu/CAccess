@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cfb.CandidatePortal.SharePoint.WebParts.AccountCreator" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EAWBAAAAgAAIABAAAQlAAAQDAZACQAwQGBAAAEAACCE=</HashCode>
+      <FileName>AccountCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cfb.CandidatePortal.SharePoint.WebParts.AccountManagementControl" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAEIAAAgAAABAAQAAAQAAAAABBIAQAAIAAAIAAAA=</HashCode>
+      <FileName>AccountManagementControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cfb.CandidatePortal.SharePoint.WebParts.AccountManagementWebPart" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIACACAABAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>AccountManagementWebPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cfb.CandidatePortal.SharePoint.WebParts.AccountViewer" Collapsed="true">
+    <Position X="5.5" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAABAAQBAAAQAAAgQCQBAAAARQEBAHAAAAAgE=</HashCode>
+      <FileName>AccountViewer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cfb.CandidatePortal.SharePoint.WebParts.Properties.Resources" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAEAAAAAAAAABBEBAAAQCAAAgAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cfb.CandidatePortal.SharePoint.WebParts.Properties.Settings" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cfb.CandidatePortal.SharePoint.WebParts.AccountManager">
+    <Position X="3" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>AccountManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Cfb.CandidatePortal.SharePoint.WebParts.AmcResult" Collapsed="true">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAgACAAAAAAAAIAAA=</HashCode>
+      <FileName>AmcResult.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

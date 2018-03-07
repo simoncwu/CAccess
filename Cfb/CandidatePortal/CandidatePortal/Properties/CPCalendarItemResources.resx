@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CVDescription" xml:space="preserve">
+    <value>Scheduled CFB Compliance Visit</value>
+    <comment>Description for compliance visits.</comment>
+  </data>
+  <data name="CVRDDescription" xml:space="preserve">
+    <value>Response Due for {0} Compliance Visit</value>
+    <comment>Description format for compliance visit response deadlines.</comment>
+  </data>
+  <data name="CVRDTitle" xml:space="preserve">
+    <value>Comp Visit Resp Due</value>
+    <comment>Title for compliance visit response deadlines.</comment>
+  </data>
+  <data name="CVTitle" xml:space="preserve">
+    <value>Comp Visit</value>
+    <comment>Title for compliance visits.</comment>
+  </data>
+  <data name="DbrRDDescription" xml:space="preserve">
+    <value>Response Due for Statement {0} Doing Business Review</value>
+    <comment>Description format for Doing Business review response deadlines.</comment>
+  </data>
+  <data name="DbrDescription" xml:space="preserve">
+    <value>Statement {0} Doing Business Review</value>
+    <comment>Description format for Doing Business reviews.</comment>
+  </data>
+  <data name="DbrRDTitle" xml:space="preserve">
+    <value>Stmt {0} DB Resp Due</value>
+    <comment>Title for Doing Business review response deadlines.</comment>
+  </data>
+  <data name="DbrTitle" xml:space="preserve">
+    <value>Stmt {0} DB Review</value>
+    <comment>Title format for Doing Business reviews.</comment>
+  </data>
+  <data name="FilingDateDescription" xml:space="preserve">
+    <value>Financial Disclosure Statement {0} Due</value>
+    <comment>Description format for filing dates.</comment>
+  </data>
+  <data name="FilingDateTitle" xml:space="preserve">
+    <value>Stmt {0} Filing Day</value>
+    <comment>Title for required filing dates.</comment>
+  </data>
+  <data name="SRDescription" xml:space="preserve">
+    <value>Statement {0} Audit Review</value>
+    <comment>Description format for statement reviews.</comment>
+  </data>
+  <data name="SRRDDescription" xml:space="preserve">
+    <value>Response Due for Statement {0} Audit Review</value>
+    <comment>Description format for statement review response deadlines.</comment>
+  </data>
+  <data name="SRRDTitle" xml:space="preserve">
+    <value>Stmt {0} Resp Due</value>
+    <comment>Title format for statement review response deadlines.</comment>
+  </data>
+  <data name="SRTitle" xml:space="preserve">
+    <value>Stmt {0} Review</value>
+    <comment>Title format for statement reviews.</comment>
+  </data>
+  <data name="IdrDescription" xml:space="preserve">
+    <value>Post Election Documentation Request</value>
+    <comment>Description for post election audit initial documentation requests.</comment>
+  </data>
+  <data name="IdrRDDescription" xml:space="preserve">
+    <value>Response Due for Post Election Documentation Request</value>
+    <comment>Description for post election audit inital documentation request deadlines.</comment>
+  </data>
+  <data name="IdrRDTitle" xml:space="preserve">
+    <value>Doc Req Resp Due</value>
+    <comment>Title for post election audit initial documentation request deadlines.</comment>
+  </data>
+  <data name="IdrTitle" xml:space="preserve">
+    <value>Doc Request</value>
+    <comment>Title for post election audit initial documentation requests.</comment>
+  </data>
+  <data name="IdrIRRDDescription" xml:space="preserve">
+    <value>Response Due for Post Election Inadequate Documentation Response</value>
+    <comment>Description for post election audit initial documentation request inadequate response letter response deadlines.</comment>
+  </data>
+  <data name="IdrIRRDTitle" xml:space="preserve">
+    <value>Inad Doc Resp Due</value>
+    <comment>Title for post election audit initial documentation request inadequate response letter response deadlines.</comment>
+  </data>
+  <data name="DarDescription" xml:space="preserve">
+    <value>Post Election Draft Audit Report</value>
+    <comment>Description for post election draft audit reports.</comment>
+  </data>
+  <data name="DarRDDescription" xml:space="preserve">
+    <value>Response Due for Post Election Draft Audit Report</value>
+    <comment>Description for post election draft audit report response deadlines.</comment>
+  </data>
+  <data name="DarRDTitle" xml:space="preserve">
+    <value>DAR Resp Due</value>
+    <comment>Title for post election draft audit report response deadlines.</comment>
+  </data>
+  <data name="DarTitle" xml:space="preserve">
+    <value>Draft Audit Report</value>
+    <comment>Title for post election draft audit reports.</comment>
+  </data>
+  <data name="DarIRRDDescription" xml:space="preserve">
+    <value>Response Due for Post Election Draft Audit Report Inadequate Response</value>
+    <comment>Description for post election draft audit report inadequate response letter response deadlines.</comment>
+  </data>
+  <data name="DarIRRDTitle" xml:space="preserve">
+    <value>Inad DAR Resp Due</value>
+    <comment>Title for post election draft audit report inadequate response letter response deadlines.</comment>
+  </data>
+  <data name="DarIRDescription" xml:space="preserve">
+    <value>Post Election Draft Audit Report Inadequate Response</value>
+    <comment>Description for post election draft audit report inadequate response letters.</comment>
+  </data>
+  <data name="DarIRTitle" xml:space="preserve">
+    <value>Inad DAR Resp</value>
+    <comment>Title for post election draft audit report inadequate response letters.</comment>
+  </data>
+  <data name="IdrIRDescription" xml:space="preserve">
+    <value>Post Election Documentation Request Inadequate Response</value>
+    <comment>Description for post election audit initial documentation request inadequate response letters.</comment>
+  </data>
+  <data name="IdrIRTitle" xml:space="preserve">
+    <value>Inad Doc Req Resp</value>
+    <comment>Title for post election audit initial documentation request inadequate response letters.</comment>
+  </data>
+</root>

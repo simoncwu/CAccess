@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" CodeBehind="Profile.master.cs" Inherits="Cfb.CandidatePortal.Web.WebApplication.Profile.Profile"
+    MasterPageFile="~/CandidatePortal.master" %>
+
+<%@ MasterType VirtualPath="~/CandidatePortal.master" %>
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderPageTitleInHead">
+    <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInHead" runat="server" />
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderPageTitleInBody">
+    <%=Resources.CPResources.profile_title%></asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderAdditionalPageHead">
+    <link href="/styles/Profile.css" type="text/css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
+    <cfb:ProfileTabs ID="ProfileTabs" runat="server" ActiveTabID="ProfileContentTab">
+        <h2 class="ms-pagetitle">
+            <asp:ContentPlaceHolder ID="PlaceHolderProfilePageTitle" runat="server" />
+        </h2>
+        <asp:ContentPlaceHolder ID="PlaceHolderPageContent" runat="server" />
+    </cfb:ProfileTabs>
+</asp:Content>

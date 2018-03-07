@@ -1,0 +1,51 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.ContactInfoViewModel
+
+@{
+    bool employer = Model.IsEmployer;
+    var daytimePhoneViewData = employer ? (object)new { @readonly = true, label = "Phone #" } : new { @readonly = true };
+}
+@Html.EditorFor(m => m.Address)
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="row">
+            <div class="col-sm-8">
+                @Html.EditorFor(m => m.DaytimePhone, daytimePhoneViewData)
+            </div>
+            <div class="col-sm-4">
+                @Html.EditorFor(m => m.DaytimePhoneExt, new { @readonly = true })
+            </div>
+        </div>
+    </div>
+    @if (!employer)
+    {
+        <div class="col-sm-6 col-md-4">
+            <div class="row">
+                <div class="col-sm-8">
+                    @Html.EditorFor(m => m.EveningPhone, new { @readonly = true })
+                </div>
+                <div class="col-sm-4">
+                    @Html.EditorFor(m => m.EveningPhoneExt, new { @readonly = true })
+                </div>
+            </div>
+        </div>
+    }
+    <div class="col-sm-4 col-md-4">
+        <div class="row">
+            <div class="col-md-8">
+                @Html.EditorFor(m => m.Fax, new { @readonly = true })
+            </div>
+        </div>
+    </div>
+    @if (!employer)
+    {
+        <div class="col-sm-6 col-sm-offset-2 col-md-offset-0">
+            @Html.EditorFor(m => m.Email, new { @readonly = true })
+        </div>
+    }
+    @if (Model.HasUrls)
+    {
+        <div class="col-md-6">
+            @Html.EditorFor(m => m.Urls, new { @readonly = true })
+        </div>
+    }
+</div>

@@ -1,0 +1,332 @@
+﻿.cp-CommitteeInfo table, .cp-CandidateInfo div.row
+{
+    margin-left: 20px;
+}
+
+.cp-CommitteeInfo table, .cp-CandidateInfo table
+{
+    margin-left: 0;
+}
+.cp-CommitteeInfo table, .cp-CandidateInfo table
+{
+    clear: both;
+}
+
+.cp-CommitteeInfo tr, .cp-CandidateInfo tr
+{
+    height: 3.5em;
+    vertical-align: middle;
+}
+
+.field.cp-candidateID, .field.contactOrder
+{
+    width: 9.5%;
+}
+.cp-CandidateInfo .cp-candidateID .fieldData
+{
+    background-color: #DDD;
+    color: #256A9A;
+}
+
+.cp-CommitteeProfile .cp-SelectedCommittee select
+{
+    width: 100%;
+}
+
+.cp-CommitteeProfile ul.MenuBarHorizontal li
+{
+    white-space: nowrap;
+    line-height: 22px;
+}
+.ie10plus .cp-CommitteeProfile ul.MenuBarHorizontal li
+{
+    line-height: 21px;
+}
+
+.cp-CommitteeProfile ul.MenuBarHorizontal .cp-committeeID
+{
+    position: absolute;
+    left: 7px;
+}
+
+.field.entityName, .address .field.mailingLine1
+{
+    width: 100%;
+}
+.field.date, .field.phone, .field.liaisonType, .bankAccounts .field.accountNumber
+{
+    width: 20%;
+}
+.field.fax, .address .field.apt, .address .field.zip
+{
+    width: 14%;
+}
+.field.email
+{
+    width: 43%;
+}
+.field.url
+{
+    width: 43%;
+}
+.field.salutation, .address .field.streetNum
+{
+    width: 9%;
+}
+.field.lastName
+{
+    width: 46%;
+}
+.field.firstName, .address .field.state
+{
+    width: 28%;
+}
+.field.middleInitial
+{
+    width: 3.5%;
+}
+.address .field.streetName
+{
+    width: 75%;
+}
+.address .field.city
+{
+    width: 56%;
+}
+.activationInfo .last.field label
+{
+    margin-right: 0;
+}
+.activationInfo .terminated.date.field span
+{
+    color: #960404;
+}
+.field.isDDAuth, .field.isRRDDAuth
+{
+    width: 21%;
+}
+.field.isDDAuth, .field.isRRDDAuth
+{
+}
+.activationInfo .field.isDDAuth, .field.polparty
+{
+    margin-left: 20%;
+}
+.field.date.terminated + .field.isDDAuth
+{
+    margin-left: 1%;
+}
+.activationInfo .field.isRRDDAuth
+{
+}
+.activationInfo .field.date, .activationInfo .field.candClass, .activationInfo .field.office, .activationInfo .field.district, .employerInfo .phoneNumbers .field
+{
+    width: 18%;
+}
+.field.isPrincipal
+{
+    width: 7%;
+}
+.field.polparty
+{
+    width: 43%;
+}
+.field.district ~ .field.polparty
+{
+    margin-left: 1%;
+}
+.field.polparty:first-child
+{
+    float: right;
+}
+.field.polparty:first-child + .field
+{
+    margin-left: 0;
+}
+
+.cp-CommitteeInfo .streetAddress
+{
+    width: 100%;
+}
+.committeeInfo .field.email 
+{
+    width: 41%;
+}
+.field.entityName.consultant
+{
+    width: 58%;
+}
+.field.managerial
+{
+    width: 10%;
+}
+.field.vgLiaison
+{
+    width: 9%;
+}
+.cp-CommitteeInfo .fieldset.previousElection
+{
+}
+.field.date.boe, .field.date.termination
+{
+    width: 21%;
+}
+.field.isActive
+{
+    width: 6%;
+}
+.previousElection .field.date.termination
+{
+}
+
+.cp-CommitteeInfo .bankAccounts
+{
+}
+.bankAccounts .field.accountName
+{
+    width: 79%;
+}
+.bankAccounts .entityName, .bankAccounts .field.accountTypePurpose
+{
+    width: 51%;
+}
+.bankAccounts .field.accountTypePurpose + .field.accountTypePurpose
+{
+    width: 48%;
+}
+.bankAccounts .address .field.city
+{
+    width: 28%;
+}
+.bankAccounts .address .field.state
+{
+    width: 4%;
+}
+.bankAccounts .field.accountTypeOther, .bankAccounts .field.accountPurposeOther
+{
+    width: 270px;
+}
+.bankAccounts .field.date.opened, .bankAccounts .field.date.closed
+{
+}
+.bankAccounts .field.balance
+{
+    width: 17%;
+}
+.bankAccounts .field.balance .fieldData
+{
+    text-align: right;
+}
+.bankAccounts .field.isDDAuth
+{
+    width: 19%;
+}
+
+/* start Campaign Finance Summary */
+
+table.cp-FinanceSummaryHeader
+{
+    width: 100%;
+}
+table.cp-FinanceSummaryHeader th
+{
+    text-shadow: 0 0 1px rgba(65,65,68,0.3);
+    border: 0;
+    text-align: left;
+}
+table.cp-FinanceSummaryHeader col.FinanceSummaryCandidate
+{
+    width: 37%;
+}
+table.cp-FinanceSummaryHeader col.FinanceSummaryOfficeSought
+{
+    width: 27%;
+}
+table.cp-FinanceSummaryHeader col.FinanceSummaryClassification
+{
+    width: 17%;
+}
+.cp-FinanceSummaryPanel
+{
+    margin-bottom: 2em;
+    white-space: nowrap;
+}
+.cp-FinanceSummaryPanel .columns
+{
+    margin: 18px 0;
+}
+
+.cp-FinanceSummaryFooter.columns.ms-listviewtable.detailsview
+{
+    padding: 15px 0;
+}
+
+section.cp-FinanceSummary details summary
+{
+    font: bold 16px Times New Roman, Times, serif;
+    color: #414144;
+    border: 0;
+    border-bottom: 1px solid #414144;
+    background-color: Transparent;
+    margin-bottom: 7px;
+    margin-top: 1em;
+    padding: 0;
+}
+
+.cp-FinanceSummary dt
+{
+    display: none;
+}
+.cp-FinanceSummary dd
+{
+    margin-top: 1em;
+}
+
+/* end Campaign Finance Summary */
+
+/* start Training Tracking */
+
+.complianceGroup h3
+{
+    margin: 0;
+}
+.complianceGroup .complianceGroupBody
+{
+    border: 1px #BFC0B5 solid;
+    min-height: 2em;
+}
+.complianceGroup summary span
+{
+    font-weight: bold;
+}
+.cp-TrainingCourse
+{
+    margin: 1em auto;
+}
+.cp-TrainingCourse .ms-gb
+{
+    border: 0;
+}
+.cp-TrainingCourse .compliant
+{
+    padding-right: .5em;
+    text-align: right;
+}
+.cp-TrainingCourse .emptydata
+{
+    text-align: center;
+}
+.cp-TrainingCourse .upcoming
+{
+    font-style: italic;
+}
+.cp-TrainingCourse .date
+{
+    width: 110px;
+}
+.cp-TrainingCourse .attcomp
+{
+    text-align: center;
+    width: 8em;
+}
+/* end Training Tracking */

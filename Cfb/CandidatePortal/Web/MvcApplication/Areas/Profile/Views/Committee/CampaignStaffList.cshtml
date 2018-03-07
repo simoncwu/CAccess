@@ -1,0 +1,58 @@
+﻿@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Controllers;
+@model IEnumerable<Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.CampaignStaffViewModel>
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var contact in Model.OrderBy(m => m.Name.FirstName).ThenBy(m => m.Name.MiddleInitial).ThenBy(m => m.Name.LastName))
+        {
+            using (Ajax.BeginForm(CommitteeController.ActionName_CampaignStaff, CommitteeController.ControllerName, new { committeeID = contact.CommitteeID, id = contact.ID }, new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "CampaignContactDetailsUpdateTarget",
+                LoadingElementId = "LoadingElement",
+                OnSuccess = "campaignContactDetails_OnSuccess"
+            }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="well well-sm ajax-trigger" data-toggle="modal" data-target="#CampaignContactDetailsModal">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <h4>@contact.Name.FirstName @contact.Name.MiddleInitial @contact.Name.LastName<small>@Html.DisplayFor(m => contact.ContactType)</small></h4>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div id="CampaignContactDetailsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span class="glyphicon glyphicon-user"></span> Campaign Contact Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="CampaignContactDetailsUpdateTarget"></div>
+                    <div id="LoadingElement" style="display:none;">
+                        @Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.LoaderOverlayPartial)
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var campaignContactDetails_OnSuccess = function () {
+            $('#CampaignContactDetailsUpdateTarget input.bfh-phone').each(function () {
+                $(this).bfhphone($(this).data());
+            });
+        }
+    </script>
+}
+else
+{
+    <p>You do not have any additional campaign contacts on file for this committee.</p>
+}

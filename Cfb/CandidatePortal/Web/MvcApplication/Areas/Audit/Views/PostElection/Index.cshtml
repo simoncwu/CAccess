@@ -1,0 +1,217 @@
+﻿@using Cfb.CandidatePortal.PostElection
+@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Controllers
+@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.PostElectionViewModel
+@helper PostElectionStageLink(string linkText, AuditReportType stage, string onComplete)
+{
+    @Ajax.ActionLink(linkText, PostElectionController.ActionName_StageSummary, new { id = stage }, new AjaxOptions
+{
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "PostElectionSummaryPanel",
+    LoadingElementId = "SummaryLoadingElement",
+    OnBegin = "onSummaryBegin",
+    OnComplete = onComplete
+})
+}
+@{
+    ViewBag.Title = "Post Election Audit";
+}
+<style>
+    .cp-pe-deadlines td {
+        text-align: right;
+    }
+</style>
+<h2>@ViewBag.Title</h2>
+<p>The Draft Audit Report (DAR) is the result of CFB&rsquo;s preliminary review of your campaign&rsquo;s reporting and recordkeeping to assure it complies with the Campaign Finance Act and Board Rules. It is posted to your C-Access account and mailed to both the candidate&rsquo;s and treasurer&rsquo;s home addresses. Once your campaign responds, the CFB will review your submissions again.</p>
+<p>The CFB must complete your Final Audit Report (FAR) or issue a notice regarding alleged violation and/or a potential repayment of public funds to complete the post-election audit process within 14&ndash;18 months (depending on the office sought) from your last disclosure statement. This deadline will be extended (tolled), and the new deadline posted below, by the number of days of:</p>
+<ul>
+    <li>any extensions requested by your campaign,</li>
+    <li>any extensions requested by the CFB that you approve,</li>
+    <li>responses submitted late by your campaign, and</li>
+    <li>responses submitted by your campaign and deemed inadequate.</li>
+</ul>
+<p>In addition, attending audit trainings will move up the deadline for issuance of the campaign&rsquo;s Final Audit Report by two months.</p>
+<p>If the audit raises serious issues of non-compliance, the deadline may be suspended while the issues are investigated.</p>
+<p>If you have any questions, contact the Audit Unit at @Model.AgencyPhoneNumber or via the @Html.ActionLink("Contact the CFB", "Contact", "Help", new { area = "" }, null) page.</p>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active row">
+        <section class="col-md-4 col-md-push-8 cp-pe-deadlines">
+            <div class="well well-sm well-table">
+                <h5>CFB Issuance Deadlines <span class="glyphicon glyphicon-question-sign" title="Displays the CFB's deadlines for completing your campaign's Draft and Final Audit Reports" aria-hidden="true" data-toggle="tooltip"></span></h5>
+                <div class="row">
+                    <div class="col-sm-6 col-md-12">
+                        <table class="table table-borderless table-condensed">
+                            <caption>Draft Audit Report</caption>
+                            <tbody>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.DarOriginalDeadline)</th>
+                                    <td>@Html.DisplayFor(m => m.DarOriginalDeadline)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.DarTollingDays)</th>
+                                    <td>@Html.DisplayFor(m => m.DarTollingDays)</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.DarTargetDeadline)</th>
+                                    <td>@Html.DisplayFor(m => m.DarTargetDeadline)</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <table class="table table-borderless table-condensed">
+                            <caption>End of Audit <span class="glyphicon glyphicon-question-sign" aria-hidden="true" data-toggle="tooltip" title="The audit process ends when the CFB issues your Final Audit Report or notifies your campaign of potential penalties and/or public funds repayment obligations."></span></caption>
+                            <tbody>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.FarOriginalDeadline)</th>
+                                    <td>@Html.DisplayFor(m => m.FarOriginalDeadline)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.FarTollingDays)</th>
+                                    <td>@Html.DisplayFor(m => m.FarTollingDays)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.TotalTollingDays)</th>
+                                    <td>@Html.DisplayFor(m => m.TotalTollingDays)</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(m => m.FarTargetDeadline)</th>
+                                    <td>@Html.DisplayFor(m => m.FarTargetDeadline)</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="col-md-8 col-md-pull-4">
+            <h5 class="text-center text-primary text-uppercase"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>  Post Election Audit Timeline</h5>
+            <div class="progress progress-nav">
+                <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li id="IdrTab" role="presentation" class="@(Model.Stage == AuditReportType.InitialDocumentationRequest ? "active" : null)">
+                        @PostElectionStageLink("1. Request for Documentation", AuditReportType.InitialDocumentationRequest, "activateIdrTab")
+                    </li>
+                    <li id="DarTab" role="presentation" class="@(Model.Stage == AuditReportType.DraftAuditReport ? "active" : null)">
+                        @if (Model.Stage >= AuditReportType.DraftAuditReport)
+                        {
+                            @PostElectionStageLink("2. Draft Audit Report", AuditReportType.DraftAuditReport, "activateDarTab")
+                        }
+                        else
+                        {
+                            <a class="disabled">2. Draft Audit Report</a>
+                        }
+                    </li>
+                    <li id="FarTab" role="presentation" class="@(Model.Stage == AuditReportType.FinalAuditReport ? "active": "disabled")">
+                        @if (Model.Stage == AuditReportType.FinalAuditReport)
+                        {
+                            @PostElectionStageLink("3. Final Audit Report", AuditReportType.FinalAuditReport, "activateFarTab")
+                        }
+                        else
+                        {
+                            <a>3. Final Audit Report</a>
+                        }
+                    </li>
+                </ul>
+            </div>
+            @{
+                string alertClass = "warning";
+                switch (Model.CurrentStatus)
+                {
+                    case PostElectionStatus.FinalAuditComplete:
+                        alertClass = "success";
+                        break;
+                    case PostElectionStatus.UnderReview:
+                        alertClass = "info";
+                        break;
+                    case PostElectionStatus.Suspended:
+                        alertClass = "danger";
+                        break;
+                }
+            }
+            <div class="well-dl alert alert-@alertClass">
+                <dl class="dl-horizontal">
+                    <dt>@Html.DisplayNameFor(m => m.CurrentStatus)</dt>
+                    <dd>
+                        @if (Model.CurrentStatus == PostElectionStatus.Suspended)
+                        {
+                            @:Your audit review has been suspended. Please contact the CFB&rsquo;s Audit unit at @Model.AgencyPhoneNumber for more information.
+                    }
+                        else
+                        {
+                            @Html.DisplayFor(m => m.CurrentStatus)
+                        }
+                    </dd>
+                </dl>
+            </div>
+            <div>
+                <section id="PostElectionSummaryPanel" class="cp-pe-deadlines">
+                    @Html.Action(PostElectionController.ActionName_StageSummary, new { id = Model.Stage })
+                </section>
+                <div id="SummaryLoadingElement" style="display:none;">
+                    @Html.Partial(Views.LoaderOverlayPartial)
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <section id="TollingEventsPanel">
+                @Html.Action(PostElectionController.ActionName_TollingEvents, new { id = Model.Stage })
+            </section>
+            <div id="TollingLoadingElement" style="display:none;">
+                @Html.Partial(Views.LoaderOverlayPartial)
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var showTollingLoader = function () {
+            $("#TollingLoadingElement").show();
+        };
+        var hideTollingLoader = function () {
+            $("#TollingLoadingElement").hide();
+        };
+        var activateTab = function (tabId) {
+            $(tabId).addClass("active").siblings(".active").removeClass("active");
+        }
+        var showTolling = function (url) {
+            showTollingLoader();
+            $.get(url, function (data) {
+                $("#TollingEventsPanel").html(data);
+                hideTollingLoader();
+            });
+        };
+        var onSummaryBegin = function () {
+            showTollingLoader();
+        };
+        var showAllTolling = function () {
+            showTolling("@Url.Action(PostElectionController.ActionName_TollingEvents, new { id = AuditReportType.FinalAuditReport })");
+        };
+        var showDarTolling = function () {
+            showTolling("@Url.Action(PostElectionController.ActionName_TollingEvents, new { id = AuditReportType.DraftAuditReport})");
+        };
+        var activateIdrTab = function () {
+            activateTab("#IdrTab");
+            showTolling("@Url.Action(PostElectionController.ActionName_TollingEvents, new { id = AuditReportType.InitialDocumentationRequest })");
+        };
+        var activateDarTab = function () {
+            activateTab("#DarTab");
+            showDarTolling();
+        };
+        var activateFarTab = function () {
+            activateTab("#FarTab");
+            showAllTolling();
+        };
+        $("#TollingEventsPanel").on("change", ":checkbox", function () {
+            if ($(this).is(":checked"))
+                showAllTolling();
+            else
+                showDarTolling();
+        });
+    </script>
+}

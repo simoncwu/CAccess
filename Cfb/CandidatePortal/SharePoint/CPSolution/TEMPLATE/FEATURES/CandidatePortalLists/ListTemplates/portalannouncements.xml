@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <ListTemplate Name="PortalAnnouncements"
+                Type="10400"
+                BaseType="0"
+                Category="Communications"
+                SecurityBits="14"
+                EnableModeration="True"
+                FolderCreation="True"
+                DisplayName="Portal Announcements"
+                Description="Create a CFB announcements list when you want a place to post news, status, and other short bits of information to all candidates.">
+  </ListTemplate>
+  <ListInstance TemplateType="10400"
+                Title="Announcements"
+                Url="$Resources:core,lists_Folder;/Announcements"
+                OnQuickLaunch="TRUE">
+  </ListInstance>
+</Elements>

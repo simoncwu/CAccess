@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cfb.Camp.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CampWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">930</Value>
+    </Setting>
+    <Setting Name="CampHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">700</Value>
+    </Setting>
+    <Setting Name="CampWindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="CampTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DEV C-Access Management Program (CAMP-DEV)</Value>
+    </Setting>
+    <Setting Name="CampLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="MinWidth" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">930</Value>
+    </Setting>
+    <Setting Name="MinHeight" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">700</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

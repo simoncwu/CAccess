@@ -1,0 +1,107 @@
+﻿@using Cfb.CandidatePortal;
+@using Cfb.CandidatePortal.Web;
+@using Cfb.CandidatePortal.Web.Mvc.Strings;
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers;
+@{
+    ViewBag.AgencyName = CPProviders.SettingsProvider.AgencyName;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="theme-color" content="#95d7e7" />
+    <meta name="msapplication-navbutton-color" content="#95d7e7" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#95d7e7" />
+    <meta name="description" content="C-Access is the CFB’s interactive website for campaigns, providing secure online access to campaign information." />
+
+    <title>@ViewBag.Title - C-Access Campaign Portal</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("styles", required: false)
+    <link rel="shortcut icon" type="image/x-icon" href="@Url.Content("~/favicon.ico")" />
+    <link rel="icon" type="image/x-icon" href=@Url.Content("~/favicon.ico") />
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-sso hidden-xs">
+                <div class="container">
+                    <ul class="nav navbar-nav navbar-left sso-apps">
+                        <li><a href="https://csmart.nyccfb.info" target="_blank" class="csmart">C-SMART</a></li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+            <nav class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MainNav" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <a class="navbar-brand" href="@Url.Action(Actions.Default, "Home", new { area = "" })"><img src="@Url.Content("~/Content/Images/caccess-logo.png")" width="113" height="29" alt="@CPProviders.SettingsProvider.ApplicationName" /></a>
+                    }
+                </div>
+                <div id="MainNav" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="@(Areas.Audit.Equals(ViewContext.RouteData.DataTokens["area"]) ? "active" : null)">@Html.ActionLink(AreaNames.Audit, Actions.Default, "Home", new { area = Areas.Audit }, null)</li>
+                        <li class="@(Areas.Profile.Equals(ViewContext.RouteData.DataTokens["area"]) ? "active" : null)">@Html.ActionLink("Campaign Profile", Actions.Default, "Home", new { area = Areas.Profile }, null)</li>
+                        <li class="@(EventsController.ControllerName.Equals(ViewContext.RouteData.Values["controller"])?"active" : null)">@Html.ActionLink("Events", Actions.Default, "Events", new { area = "" }, null)</li>
+                        <li class="@(Areas.Filings.Equals(ViewContext.RouteData.DataTokens["area"]) ? "active" : null)">@Html.ActionLink(AreaNames.Filings, Actions.Default, "Home", new { area = Areas.Filings }, null)</li>
+                        <li class="@(HelpController.ControllerName.Equals(ViewContext.RouteData.Values["controller"])?"active" : null)">@Html.ActionLink("Help", "Index", "Help", new { area = "" }, null)</li>
+                    </ul>
+                    @if (Request.IsAuthenticated)
+                    {
+                        @Html.Partial("_ElectionCyclePartial")
+                    }
+                    <div class="hidden-sm hidden-md hidden-lg">
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="container body-content">
+        @RenderBody()
+        @if (Request.IsAuthenticated)
+        {
+            <footer class="text-muted">
+                <h6>Please @Html.ActionLink("report", "ReportInaccurateData", "Help", null, new { title = "Report Data Inaccuracies" }) any data inaccuracies to the Candidate Services Unit immediately.</h6>
+            </footer>
+        }
+    </main>
+    <footer>
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://www.nyccfb.info" title="@ViewBag.AgencyName" target="_blank"><img src="@Url.Content("~/Content/Images/cfb-bug.gif")" width="16" height="16" alt="CFB Logo"></a></li>
+                    <li><a href="http://www.nyccfb.info" target="_blank" title="@ViewBag.AgencyName">@ViewBag.AgencyName</a> </li>
+                    <li>@Html.ActionLink("Data Disclaimer", "DataDisclaimer", "Help")</li>
+                    <li>@Html.ActionLink("Privacy Statement", "Privacy", "Help")</li>
+                    <li>@Html.ActionLink("Contact the CFB", "Contact", "Help")</li>
+                </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    <p class="navbar-text text-muted navbar-right">C-Access last updated @string.Format("{0:g}", CPProviders.DataProvider.GetWebTransferDate(CPProfile.ElectionCycle))</p>
+                }
+            </div>
+        </div>
+    </footer>
+    <div class="navbar-backdrop fade"></div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/site.js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

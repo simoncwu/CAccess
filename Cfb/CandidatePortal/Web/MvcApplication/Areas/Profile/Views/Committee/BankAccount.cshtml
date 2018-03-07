@@ -1,0 +1,51 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.BankAccountViewModel
+
+@using (Html.BeginForm(new { committeeID = Model.CommitteeID, id = Model.ID }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-sm-8">
+            @Html.EditorFor(m => m.BankName, new { @readonly = true })
+        </div>
+        <div class="col-sm-4">
+            @Html.EditorFor(m => m.AccountNumber, new { @readonly = true })
+        </div>
+        <div class="col-xs-12">
+            @Html.EditorFor(m => m.FriendlyName, new { @readonly = true })
+        </div>
+        <div class="col-sm-6">
+            @Html.EditorFor(m => m.City, new { @readonly = true })
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-xs-8 col-sm-7 col-md-8">
+                    @Html.EditorFor(m => m.StateCode, new { @readonly = true })
+                </div>
+                <div class="col-xs-4 col-sm-5 col-md-4">
+                    @Html.EditorFor(m => m.Zip, new { @readonly = true })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            @Html.EditorFor(m => m.OpenedDate, new { @readonly = true })
+        </div>
+        <div class="col-sm-6 col-md-3">
+            @Html.EditorFor(m => m.ClosedDate, new { @readonly = true })
+        </div>
+        <div class="col-sm-6 col-md-3">
+            @Html.EditorFor(m => m.BalanceDate, new { @readonly = true })
+        </div>
+        <div class="col-sm-6 col-md-3">
+            @Html.EditorFor(m => m.Balance, new { @readonly = true })
+        </div>
+        <div class="col-sm-6">
+            @Html.EditorFor(m => m.Type, new { @readonly = true })
+        </div>
+        <div class="col-sm-6">
+            @Html.EditorFor(m => m.Purpose, new { @readonly = true })
+        </div>
+    </div>
+    @Html.EditorFor(m => m.DirectDeposit, new { @readonly = true })
+}

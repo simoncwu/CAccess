@@ -1,0 +1,24 @@
+﻿@using Cfb.CandidatePortal.Cmo
+@using Cfb.CandidatePortal.Web
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="@Url.Action(MessagesController.ActionName_Index, MessagesController.ControllerName, new { area = "", view = (string)null, id = (string)null})"><span class="glyphicon glyphicon-inbox" aria-hidden="true" role="navigation"></span> Messages <span class="badge">@Html.Action("CountUnopened", "Messages", new { area = "" })</span></a></li>
+            <li>@Html.ActionLink(CPProfile.DisplayName, "Index", "Manage", routeValues: new { area = "" }, htmlAttributes: new { title = "Manage" })</li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

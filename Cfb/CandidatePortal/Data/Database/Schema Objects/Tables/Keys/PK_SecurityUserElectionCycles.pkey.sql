@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[SecurityUserElectionCycles]
+    ADD CONSTRAINT [PK_SecurityUserElectionCycles] PRIMARY KEY CLUSTERED ([UserName] ASC, [ElectionCycle] ASC) WITH (ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, PAD_INDEX = OFF, IGNORE_DUP_KEY = OFF, STATISTICS_NORECOMPUTE = OFF);
+

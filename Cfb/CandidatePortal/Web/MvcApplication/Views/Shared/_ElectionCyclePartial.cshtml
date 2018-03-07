@@ -1,0 +1,12 @@
+﻿@using Cfb.CandidatePortal.Web
+
+@{
+    var cycle = CPProfile.ElectionCycle;
+}
+@using (Html.BeginForm("ChangeElectionCycle", "Manage", new { area = "" }, FormMethod.Post, new { @class = "navbar-form navbar-left form-inline" }))
+{
+    <div class="form-group cp-election-chooser">
+        <span class="control-label hidden-sm">Election Cycle</span>&nbsp;
+        @Html.DropDownList("cycle", CPProfile.Elections.Values.OrderByDescending(e => e.ElectionDate).Select(e => new SelectListItem() { Text = e.Cycle, Value = e.Cycle, Selected = e.Cycle == cycle }), new { @class = "form-control", data_ajax_trigger = "change" })
+    </div>
+}

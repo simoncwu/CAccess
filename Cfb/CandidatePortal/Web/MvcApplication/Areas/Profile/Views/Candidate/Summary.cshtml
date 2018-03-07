@@ -1,0 +1,46 @@
+﻿@using Cfb.CandidatePortal
+@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Controllers;
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.CandidateProfileViewModel
+
+<section class="panel panel-primary">
+    <div class="panel-heading"><h4 class="panel-title">Campaign Summary</h4></div>
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(m => m.ID)</dt>
+            <dd>@Html.DisplayFor(m => m.ID) <a href="@Url.Action(CandidateController.ActionName_Index, CandidateController.ControllerName)" title="View Full Candidate Profile"><span class="glyphicon glyphicon-zoom-in"></span></a></dd>
+            <dt>@Html.DisplayNameFor(m => m.FullName)</dt>
+            <dd>@Html.DisplayFor(m => m.FullName)</dd>
+            @if (Model.CertificationDate.HasValue)
+            {
+                <dt>@Html.DisplayNameFor(m => m.CertificationDate)</dt>
+                <dd>@Html.DisplayFor(m => m.CertificationDate)</dd>
+            }
+            else
+            {
+                <dt>@Html.DisplayNameFor(m => m.RegistrationDate)</dt>
+                <dd>@Html.DisplayFor(m => m.RegistrationDate)</dd>
+            }
+            @if (Model.TerminationDate.HasValue)
+            {
+                <dt>@Html.DisplayNameFor(m => m.TerminationDate)</dt>
+                <dd>@Html.DisplayFor(m => m.TerminationDate)</dd>
+            }
+            <dt>@Html.DisplayNameFor(m => m.OfficeSoughtDetails)</dt>
+            <dd>@Html.DisplayFor(m => m.OfficeSoughtDetails)</dd>
+            <dt>@Html.DisplayNameFor(m => m.Classification)</dt>
+            <dd>@Html.DisplayFor(m => m.Classification)</dd>
+            <dt>@Html.DisplayNameFor(m => m.ContactInfo.Email)</dt>
+            <dd>@Html.DisplayFor(m => m.ContactInfo.Email)</dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>Principal Committee</dt>
+            <dd>@Html.DisplayFor(m => m.PrincipalCommittee) <a href="@Url.Action(CommitteeController.ActionName_Principal, CommitteeController.ControllerName)" title="View Full Committee Profile"><span class="glyphicon glyphicon-zoom-in"></span></a></dd>
+        </dl>
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(m => m.CsuLiaison)</dt>
+            <dd>@Html.DisplayFor(m => m.CsuLiaison)</dd>
+            <dt>@Html.DisplayNameFor(m => m.Auditor)</dt>
+            <dd>@Html.DisplayFor(m => m.Auditor)</dd>
+        </dl>
+    </div>
+</section>

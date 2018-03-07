@@ -1,0 +1,15 @@
+﻿@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@{
+    ViewBag.Title = "Data Disclaimer";
+    var appName = Cfb.CandidatePortal.CPProviders.SettingsProvider.ApplicationName;
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", Actions.Default, HomeController.ControllerName)</li>
+    <li>@Html.ActionLink("Help", Actions.Default)</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+<h3>@AreaNames.Help</h3>
+<h2>@ViewBag.Title</h2>
+<p>The @appName web site includes information about financial disclosure statements, other forms submitted to the Campaign Finance Board (CFB) and, other campaign related information and campaign compliance information entered by CFB staff. All financial disclosure data are as reported to the CFB by campaigns in their financial disclosure statements. @appName data is subject to change as a result of ongoing audits, additional amendments to filings received from candidates, and on-going CFB actions. The data was last updated as indicated by the &ldquo;@appName last updated&rdquo; date. Please contact the CFB if you have any questions regarding this data.</p>

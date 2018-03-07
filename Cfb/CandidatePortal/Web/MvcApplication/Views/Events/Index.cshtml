@@ -1,0 +1,74 @@
+﻿@using Cfb.CandidatePortal.Web.MvcApplication.Controllers;
+
+@{
+    ViewBag.Title = "Campaign Events";
+    ViewBag.CondensedAnnouncements = true;
+}
+
+<h3>@ViewBag.Title</h3>
+<div class="row">
+    <div class="col-sm-7 col-md-8 col-lg-9">
+        <div class="panel panel-default">
+            <div id="CampaignCalendar" class="panel-body"></div>
+            <form id="JumpToDateForm" class="form-inline panel-footer">
+                <div class="form-group">
+                    <label class="control-label">Jump To Date</label>
+                    <div class="input-group" data-date-format="yyyy-mm-dd" data-date="">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+                        <input type="date" class="form-control" placeholder="mm/dd/yyyy" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default">Go</button>
+            </form>
+        </div>
+    </div>
+    <aside class="col-sm-5 col-md-4 col-lg-3">
+        @Html.Action(EventsController.ActionName_Announcements)
+        @Html.Action(EventsController.ActionName_Upcoming, new { condensed = true })
+        <section class="well well-list">
+            <h5><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Other Calendars</h5>
+            <ul>
+                <li><a href="http://www.nyccfb.info/candidate-services/trainings" target="_blank" title="Candidate Training Calendar" class="popup">CFB Training Calendar</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/candidate-services/disclosure-deadlines/@Cfb.CandidatePortal.Web.CPProfile.ElectionCycle" target="_blank" title="Disclosure Statement Deadlines for the 2017 Election" class="popup">EC2017 Filing Deadlines</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.nyccfb.info/about/calendar?field_calendar_type_tid%5B%5D=256&amp;=Filter" target="_blank" title="Board Meetings Schedule" class="popup">Board Meetings Schedule</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                <li><a href="http://www.vote.nyc.ny.us/html/dates/dates.shtml" target="_blank" title="Board of Elections Calendar" class="popup">Board of Elections Calendar</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+            </ul>
+        </section>
+    </aside>
+</div>
+@section styles {
+    @Styles.Render("~/Content/fullcalendar.min.css")
+    <link href="/Content/fullcalendar.print.css" rel="stylesheet" media="print" />
+}
+@section scripts {
+    @Scripts.Render("~/Scripts/moment.js")
+    @Scripts.Render("~/Scripts/fullcalendar.min.js")
+    <script>
+        $(function () {
+            $("#CampaignCalendar").fullCalendar({
+                allDayDefault: true,
+                durationEditable: false,
+                eventClick: function (calEvent, jsEvent, view) {
+                    console.log('Event: ' + calEvent.title);
+                    console.log('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                    console.log('View: ' + view.name);
+                    //$(this).fullCalendar('gotoDate', '2016-01-01');
+                },
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                startEditable: false,
+                events: "@Url.Action(EventsController.ActionName_CalendarEvents)",
+                weekends: false
+            });
+            $("#JumpToDateForm").submit(function (event) {
+                var date = $(this).find("input[type=date]").val();
+                if (date != "")
+                    $("#CampaignCalendar").fullCalendar("gotoDate", date);
+                event.preventDefault();
+            });
+        });
+    </script>
+}

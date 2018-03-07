@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cfb.CandidatePortal.Net.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CmoMessageTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;p&gt;The NYC Campaign Finance Board has sent the &lt;strong&gt;{0} {1}&lt;/strong&gt; (ID: {2}) campaign a new {3} message. &lt;strong&gt;This message requires your attention.&lt;/strong&gt;&lt;/p&gt;</Value>
+    </Setting>
+    <Setting Name="CmoMessageExtensionTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;p&gt;The NYC Campaign Finance Board has issued a response to the extension requested by the &lt;strong&gt;{0} {1}&lt;/strong&gt; (ID: {2}) campaign. Please check your C-Access account to obtain the details and any modifications to the due date.&lt;/p&gt;</Value>
+    </Setting>
+    <Setting Name="MessageBodyTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;&lt;img src="{2}/images/caccess-logo.png" width="113" height="29" alt="C-Access"/&gt;&lt;/h1&gt;
+&lt;p&gt;Dear {0},&lt;/p&gt;
+{1}
+&lt;p&gt;If you have not yet received or do not know your C-Access username/password, please contact the Candidate Services Unit at (212) 409-1800.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;NOTE: Please do not reply to this automated message, as e-mail sent to this address will not be answered.&lt;/em&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</Value>
+    </Setting>
+    <Setting Name="CmoMessageViewLinkTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;p&gt;View this message in your C-Access Message Center by clicking the URL below or copying and pasting it in a new browser window:&lt;br/&gt;
+&lt;a href="{0}/Messages/View.aspx?id={1}" target="_blank" title="View New CFBMessage"&gt;{0}/Messages/View.aspx?id={1}&lt;/a&gt;&lt;/p&gt;</Value>
+    </Setting>
+    <Setting Name="CmoMessageCCEmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">caccess-messages@nyccfb.info</Value>
+    </Setting>
+    <Setting Name="CmoMessageTollingTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;p&gt;The NYC Campaign Finance Board has sent the &lt;strong&gt;{0} {1}&lt;/strong&gt; (ID: {2}) campaign a new {3} letter. &lt;strong&gt;This letter requires your attention.&lt;/strong&gt;&lt;/p&gt;</Value>
+    </Setting>
+    <Setting Name="CmoMessageInadequateTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;p&gt;The NYC Campaign Finance Board has sent the &lt;strong&gt;{0} {1}&lt;/strong&gt; (ID: {2}) campaign a new {3}. &lt;strong&gt;This letter requires your attention.&lt;/strong&gt;&lt;/p&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

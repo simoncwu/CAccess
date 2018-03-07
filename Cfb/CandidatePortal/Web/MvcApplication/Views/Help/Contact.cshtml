@@ -1,0 +1,58 @@
+﻿@using Cfb.CandidatePortal
+@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Models.ContactViewModel
+
+@{
+    ViewBag.Title = "Contact the CFB";
+    var appName = Cfb.CandidatePortal.CPProviders.SettingsProvider.ApplicationName;
+    var updateTarget = "ContactFormContents";
+}
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", Actions.Default, HomeController.ControllerName)</li>
+    <li>@Html.ActionLink("Help", Actions.Default)</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+@using (Ajax.BeginForm(new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = updateTarget,
+    OnFailure = "contactSubmitFail"
+}))
+{
+    <h3>@AreaNames.Help</h3>
+    <section id="@updateTarget">
+        <h2>@ViewBag.Title</h2>
+        <div class="row">
+            <div class="col-sm-8">
+                <p id="ContactFail" class="alert alert-danger hidden" role="alert">An error occurred while submitting your inquiry. Please try again, or use one of the alternate contact methods listed.</p>
+                <div class="form-group">
+                    <label class="control-label">Please select the topic that best describes your inquiry</label>
+                    @Html.DropDownListFor(m => m.SelectedCategory, Model.Categories, "(select a topic)", new { @class = "form-control", required = "required" })
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="6" placeholder="State the nature of your inquiry in as much detail as possible..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <p>You may also contact us for immediate assistance via telephone at @CPProviders.SettingsProvider.AgencyPhoneNumber, or write to us at the following mailing address:</p>
+                <address>
+                    <strong>@CPProviders.SettingsProvider.AgencyName</strong><br />
+                    100 Church Street, 12th Floor<br />
+                    New York, NY 10007
+                </address>
+            </div>
+        </div>
+    </section>
+}
+@section scripts{
+    <script>
+        var contactSubmitFail = function () {
+            $("#ContactFail").removeClass("hidden");
+        };
+    </script>
+}

@@ -1,0 +1,66 @@
+﻿@using Cfb.CandidatePortal.PostElection
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.TollingEventsListViewModel
+
+@{
+    var events = Model.Events;
+    var theadModel = events.FirstOrDefault() ?? new Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.TollingEventViewModel();
+}
+<div class="table-responsive">
+    <style>
+        .cp-pe-tollingevents th {
+            white-space: nowrap;
+        }
+
+        .cp-pe-tollingevents td:first-child {
+            width: 42%;
+            max-width: 42%;
+        }
+    </style>
+    <table class="table table-striped table-bordered cp-pe-tollingevents">
+        <caption>
+            @Html.DisplayFor(m => m.ReportType) Tolling Event Details
+            @if (Model.ReportType != AuditReportType.InitialDocumentationRequest)
+            {
+                <br /><label class="text-muted"><input type="checkbox" @(Model.ReportType != AuditReportType.DraftAuditReport ? "checked" : null) /> Include Request for Documentation Tolling</label>
+            }
+    </caption>
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => theadModel.Description)</th>
+            <th>@Html.DisplayNameFor(m => theadModel.StartDate)</th>
+            <th>@Html.DisplayNameFor(m => theadModel.EndDate)</th>
+            <th>@Html.DisplayNameFor(m => theadModel.EndReason)</th>
+            <th>@Html.DisplayNameFor(m => theadModel.TollingDays)</th>
+            <th>@Html.DisplayNameFor(m => theadModel.DueDate)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (events.Any())
+            {
+                foreach (var t in events.OrderByDescending(e => e.StartDate))
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => t.Description)
+                        @if (!string.IsNullOrWhiteSpace(t.MessageID))
+                    {
+                            @Helpers.MessageDownloadLink(this, t.MessageID, null)
+                        }
+                    </td>
+                    <td>@Html.DisplayFor(m => t.StartDate)</td>
+                    <td>@Html.DisplayFor(m => t.EndDate)</td>
+                    <td>@Html.DisplayFor(m => t.EndReason)</td>
+                    <td>@Html.DisplayFor(m => t.TollingDays)</td>
+                    <td>@Html.DisplayFor(m => t.DueDate)</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-muted">No tolling events have occured.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" CodeBehind="Submissions.master.cs" Inherits="Cfb.CandidatePortal.Web.WebApplication.Submissions.Submissions"
+    MasterPageFile="~/CandidatePortal.master" %>
+
+<%@ MasterType VirtualPath="~/CandidatePortal.master" %>
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderPageTitleInHead">
+    <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInBody" runat="server">
+    <%=Resources.CPResources.submissions_title%></asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID="PlaceHolderAdditionalPageHead">
+    <script type="text/javascript">
+    //<![CDATA[
+        function LoadTooltips() {
+            var pos = { my: 'left top', at: 'right bottom', collision: 'flipfit' };
+            $('.submissionGrid .submission-tooltip-reg').tooltip({
+                position: pos,
+                items: '.tooltip',
+                content: 'An initial document is the first submission of a document type.'
+            });
+            $('.submissionGrid .submission-tooltip-amend').tooltip({
+                position: pos,
+                items: '.tooltip',
+                content: 'An amendment is a document updating or correcting information about the committee or a submission in C-SMART adding or correcting information previously reported in that particular disclosure statement.'
+            });
+            $('.submissionGrid .submission-tooltip-resub').tooltip({
+                position: pos,
+                items: '.tooltip',
+                content: 'A resubmission is a disclosure statement sent to replace a previous filing.',
+            });
+            $('.submissionGrid .submission-tooltip-iamend').tooltip({
+                position: pos,
+                items: '.tooltip',
+                content: 'An internal amendment indicates when the CFB has updated or corrected committee information, usually to clarify unclear information provided to the CFB.'
+            });
+            $('.submissionGrid .submission-tooltip-doconly').tooltip({
+                position: pos,
+                items: '.tooltip',
+                content: 'Documentation consists of other disclosure information sent to the CFB in response to an audit statement review.'
+            });
+        }
+    //]]>
+    </script>
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
+    <cfb:SubmissionTabs ID="SubmissionTabs" runat="server" ActiveTabID="SubmissionContentTab">
+        <article>
+            <div class="submission details">
+                <h2 class="ms-pagetitle">
+                    <asp:ContentPlaceHolder ID="PlaceHolderSubmissionPageTitle" runat="server" />
+                </h2>
+                <div class="submission description">
+                    <asp:ContentPlaceHolder ID="PlaceHolderPageDescription" runat="server" />
+                </div>
+                <asp:ContentPlaceHolder ID="PlaceHolderSubmissionLegend" runat="server">
+                    <aside class="submission legend">
+                        <h3 class="caption">
+                            Explanation of Status</h3>
+                        <div id="SubmissionLegendAccordion">
+                            <h3>
+                                <%=CPConvert.ToString(DocumentStatus.Received)%></h3>
+                            <div>
+                                The document is in the possession of the CFB but has not been through the quality
+                                control checks that would result in acceptance.</div>
+                            <h3>
+                                <%=CPConvert.ToString(DocumentStatus.OnHold)%></h3>
+                            <div>
+                                The document is in possession of CFB but is missing information needed to be accepted.</div>
+                            <h3>
+                                <%=CPConvert.ToString(DocumentStatus.Accepted)%></h3>
+                            <div>
+                                The document has been reconciled and, if electronic, uploaded into the CFB&rsquo;s
+                                systems.</div>
+                            <h3>
+                                <%=CPConvert.ToString(DocumentStatus.Rejected)%></h3>
+                            <div>
+                                The document has errors rendering it unacceptable and is returned to the committee.
+                                The committee must correct all errors and resubmit.</div>
+                            <h3>
+                                <%=CPConvert.ToString(DocumentStatus.Disregarded)%></h3>
+                            <div>
+                                The document is in the possession of the CFB but does not require any processing
+                                by the CFB&rsquo;s systems.</div>
+                        </div>
+                        <script type="text/javascript">
+                        //<![CDATA[
+                            $("#SubmissionLegendAccordion").accordion({ active: false, collapsible: true, heightStyle: "content" });
+                        //]]>
+                        </script>
+                    </aside>
+                </asp:ContentPlaceHolder>
+            </div>
+            <asp:ContentPlaceHolder ID="PlaceHolderPageContent" runat="server" />
+            <script type="text/javascript">
+            //<![CDATA[
+                LoadTooltips();
+                Sys.WebForms.PageRequestManager.getInstance().add_endRequest(LoadTooltips);
+            //]]>
+            </script>
+        </article>
+    </cfb:SubmissionTabs>
+</asp:Content>

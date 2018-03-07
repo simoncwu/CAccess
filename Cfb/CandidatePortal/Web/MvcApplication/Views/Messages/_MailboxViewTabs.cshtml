@@ -1,0 +1,15 @@
+﻿@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Models.MessageCenterViewModel
+@foreach (var v in Model.Views)
+{
+    <li role="presentation" class="@(Model.CurrentView == v.Value ? "active" : null)">
+        @Ajax.ActionLink(v.Key, MessagesController.ActionName_Index, new { view = v.Value }, new AjaxOptions
+   {
+       HttpMethod = "GET",
+       InsertionMode = InsertionMode.Replace,
+       UpdateTargetId = "MailboxViewPanel",
+       LoadingElementId = "LoadingElement",
+       OnSuccess = "initAffix"
+   }, new { @class = "ajax-state" })
+    </li>
+}

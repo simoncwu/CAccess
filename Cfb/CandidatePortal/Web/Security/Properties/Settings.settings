@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cfb.CandidatePortal.Web.Security.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LockoutDuration" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="SPPeopleService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://candidateportaldev:10006/_vti_bin/People.asmx</Value>
+    </Setting>
+    <Setting Name="SPGroupName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Candidates</Value>
+    </Setting>
+    <Setting Name="LogFileNameFormat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Puma_{0}.log</Value>
+    </Setting>
+    <Setting Name="SPSiteName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">candidateportaldev</Value>
+    </Setting>
+    <Setting Name="AspNetDbConnection" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=portaldev;Initial Catalog=CandidatePortal_AspNetDb;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=portaldev;Initial Catalog=CandidatePortal_AspNetDb;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="CfisIdProfileProperty" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CfisID</Value>
+    </Setting>
+    <Setting Name="CaidProfileProperty" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CAID</Value>
+    </Setting>
+    <Setting Name="Cfb_CandidatePortal_Web_Security_SPPeopleService_People" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://candidateportaldev:10006/_vti_bin/People.asmx</Value>
+    </Setting>
+    <Setting Name="Cfb_CandidatePortal_Web_Security_SPUserGroupService_UserGroup" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://candidateportaldev:10006/_vti_bin/UserGroup.asmx</Value>
+    </Setting>
+    <Setting Name="UserNameSkipCharacters" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">'- ,.</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

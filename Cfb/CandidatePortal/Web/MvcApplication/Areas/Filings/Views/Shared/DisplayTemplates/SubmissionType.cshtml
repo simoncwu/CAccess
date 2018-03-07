@@ -1,0 +1,25 @@
+﻿@using Cfb.CandidatePortal
+@model Cfb.CandidatePortal.SubmissionType
+
+@{ 
+    string desc = null;
+    switch (Model)
+    {
+        case SubmissionType.Amendment:
+            desc = "An amendment is a document updating or correcting information about the committee or a submission in C-SMART adding or correcting information previously reported in that particular disclosure statement.";
+            break;
+        case SubmissionType.Documentation:
+            desc = "Documentation consists of other disclosure information sent to the CFB in response to an audit statement review.";
+            break;
+        case SubmissionType.InternalAmendment:
+            desc = "An internal amendment indicates when the CFB has updated or corrected committee information, usually to clarify unclear information provided to the CFB.";
+            break;
+        case SubmissionType.Regular:
+            desc = "An initial document is the first submission of a document type.";
+            break;
+        case SubmissionType.Resubmission:
+            desc = "A resubmission is a disclosure statement sent to replace a previous filing.";
+            break;
+    }
+}
+<abbr title="@desc">@CPConvert.ToString(Model)</abbr>

@@ -1,0 +1,131 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cfb.CandidatePortal.SharePoint.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AnnouncementsListName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Announcements</Value>
+    </Setting>
+    <Setting Name="AnnouncementTitleAttributeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ows_Title</Value>
+    </Setting>
+    <Setting Name="AnnouncementPostedAttributeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ows_Posted</Value>
+    </Setting>
+    <Setting Name="AnnouncementElectionCyclesAttributeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ows_ElectionCycles</Value>
+    </Setting>
+    <Setting Name="ListItemModerationAttributeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ows__ModerationStatus</Value>
+    </Setting>
+    <Setting Name="AnnouncementListQueryFilter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;OrderBy&gt;
+	&lt;FieldRef Name="Posted" Ascending="TRUE" /&gt;
+&lt;/OrderBy&gt;
+&lt;Where&gt;
+	&lt;And&gt;
+		&lt;Eq&gt;
+			&lt;FieldRef Name="_ModerationStatus" /&gt;
+			&lt;Value Type="ModStat"&gt;Approved&lt;/Value&gt;
+		&lt;/Eq&gt;
+		&lt;And&gt;
+			&lt;And&gt;
+				&lt;Or&gt;
+					&lt;IsNull&gt;
+						&lt;FieldRef Name="Expires" /&gt;
+					&lt;/IsNull&gt;
+					&lt;Geq&gt;
+						&lt;FieldRef Name="Expires" /&gt;
+						&lt;Value Type="DateTime"&gt;
+							&lt;Today /&gt;
+						&lt;/Value&gt;
+					&lt;/Geq&gt;
+				&lt;/Or&gt;
+				&lt;Leq&gt;
+					&lt;FieldRef Name="Posted" /&gt;
+					&lt;Value Type="DateTime"&gt;
+						&lt;Today /&gt;
+					&lt;/Value&gt;
+				&lt;/Leq&gt;
+			&lt;/And&gt;
+			&lt;Or&gt;
+				&lt;IsNull&gt;
+					&lt;FieldRef Name="ElectionCycles" /&gt;
+				&lt;/IsNull&gt;
+				&lt;Contains&gt;
+					&lt;FieldRef Name="ElectionCycles" /&gt;
+					&lt;Value Type="Text"&gt;{0}&lt;/Value&gt;
+				&lt;/Contains&gt;
+			&lt;/Or&gt;
+		&lt;/And&gt;
+	&lt;/And&gt;
+&lt;/Where&gt;</Value>
+    </Setting>
+    <Setting Name="AnnouncementItemQueryFilter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;Where&gt;
+	&lt;And&gt;
+		&lt;Eq&gt;
+			&lt;FieldRef Name="ID" /&gt;
+			&lt;Value Type="Integer"&gt;{0}&lt;/Value&gt;
+		&lt;/Eq&gt;
+		&lt;Leq&gt;
+			&lt;FieldRef Name="Posted" /&gt;
+			&lt;Value Type="DateTime"&gt;
+				&lt;Today /&gt;
+			&lt;/Value&gt;
+		&lt;/Leq&gt;
+	&lt;/And&gt;
+&lt;/Where&gt;</Value>
+    </Setting>
+    <Setting Name="ListItemIDAttributeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ows_ID</Value>
+    </Setting>
+    <Setting Name="FilingDateAnnouncementListQueryFilter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;OrderBy&gt;
+	&lt;FieldRef Name="Posted" Ascending="FALSE" /&gt;
+&lt;/OrderBy&gt;
+&lt;Where&gt;
+	&lt;And&gt;
+		&lt;And&gt;
+			&lt;Eq&gt;
+				&lt;FieldRef Name="Category" /&gt;
+				&lt;Value Type="Text"&gt;Filing Dates&lt;/Value&gt;
+			&lt;/Eq&gt;
+			&lt;Eq&gt;
+				&lt;FieldRef Name="StatementNumber" /&gt;
+				&lt;Value Type="Integer"&gt;{0}&lt;/Value&gt;
+			&lt;/Eq&gt;
+		&lt;/And&gt;
+		&lt;And&gt;
+			&lt;And&gt;
+				&lt;Leq&gt;
+					&lt;FieldRef Name="Posted" /&gt;
+					&lt;Value Type="DateTime"&gt;
+						&lt;Today /&gt;
+					&lt;/Value&gt;
+				&lt;/Leq&gt;
+				&lt;Or&gt;
+					&lt;IsNull&gt;
+						&lt;FieldRef Name="ElectionCycles" /&gt;
+					&lt;/IsNull&gt;
+					&lt;Contains&gt;
+						&lt;FieldRef Name="ElectionCycles" /&gt;
+						&lt;Value Type="Text"&gt;{1}&lt;/Value&gt;
+					&lt;/Contains&gt;
+				&lt;/Or&gt;
+			&lt;/And&gt;
+			&lt;Eq&gt;
+				&lt;FieldRef Name="_ModerationStatus" /&gt;
+				&lt;Value Type="ModStat"&gt;Approved&lt;/Value&gt;
+			&lt;/Eq&gt;
+		&lt;/And&gt;
+	&lt;/And&gt;
+&lt;/Where&gt;</Value>
+    </Setting>
+    <Setting Name="AnnouncementFilingOverrideAttributeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ows_FilingDateOverride</Value>
+    </Setting>
+    <Setting Name="AnnouncementBodyAttributeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ows_Body</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

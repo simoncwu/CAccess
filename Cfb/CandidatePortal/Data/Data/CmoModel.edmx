@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CmoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CmoModelStoreContainer">
+          <EntitySet Name="CmoAttachments" EntityType="CmoModel.Store.CmoAttachments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CmoAuditReviews" EntityType="CmoModel.Store.CmoAuditReviews" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CmoCategories" EntityType="CmoModel.Store.CmoCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CmoMessages" EntityType="CmoModel.Store.CmoMessages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CmoPostElectionRequests" EntityType="CmoModel.Store.CmoPostElectionRequests" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CmoTollingLetters" EntityType="CmoModel.Store.CmoTollingLetters" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CmoAttachments_CmoMessages" Association="CmoModel.Store.FK_CmoAttachments_CmoMessages">
+            <End Role="CmoMessages" EntitySet="CmoMessages" />
+            <End Role="CmoAttachments" EntitySet="CmoAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CmoAuditReviews_CmoMessages" Association="CmoModel.Store.FK_CmoAuditReviews_CmoMessages">
+            <End Role="CmoMessages" EntitySet="CmoMessages" />
+            <End Role="CmoAuditReviews" EntitySet="CmoAuditReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CmoMessages_CmoCategories" Association="CmoModel.Store.FK_CmoMessages_CmoCategories">
+            <End Role="CmoCategories" EntitySet="CmoCategories" />
+            <End Role="CmoMessages" EntitySet="CmoMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CmoPostElectionRequests_CmoMessages" Association="CmoModel.Store.FK_CmoPostElectionRequests_CmoMessages">
+            <End Role="CmoMessages" EntitySet="CmoMessages" />
+            <End Role="CmoPostElectionRequests" EntitySet="CmoPostElectionRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CmoTollingLetters_CmoMessages" Association="CmoModel.Store.FK_CmoTollingLetters_CmoMessages">
+            <End Role="CmoMessages" EntitySet="CmoMessages" />
+            <End Role="CmoTollingLetters" EntitySet="CmoTollingLetters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CmoAttachments">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+            <PropertyRef Name="AttachmentId" />
+          </Key>
+          <Property Name="CandidateId" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="AttachmentId" Type="tinyint" Nullable="false" />
+          <Property Name="AttachmentName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="CmoAuditReviews">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="CandidateId" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="ReviewNumber" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CmoCategories">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Hidden" Type="bit" Nullable="false" />
+          <Property Name="TemplateTitle" Type="nvarchar" MaxLength="256" />
+          <Property Name="TemplateBody" Type="ntext" />
+          <Property Name="TemplateEditable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CmoMessages">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="CandidateId" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="ElectionCycle" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Body" Type="ntext" Nullable="false" />
+          <Property Name="CreatorADUserName" Type="varchar" Nullable="false" MaxLength="64" />
+          <Property Name="OpenReceiptEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="Category" Type="tinyint" />
+          <Property Name="PostDate" Type="datetime" />
+          <Property Name="OpenUserName" Type="nvarchar" MaxLength="255" />
+          <Property Name="OpenDate" Type="datetime" />
+          <Property Name="ArchiveUserName" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArchiveDate" Type="datetime" />
+          <Property Name="FollowUp" Type="bit" Nullable="false" />
+          <Property Name="FollowUpUserName" Type="nvarchar" MaxLength="255" />
+          <Property Name="FollowUpDate" Type="datetime" />
+          <Property Name="Version" Type="timestamp" Nullable="false" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="CmoPostElectionRequests">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="CandidateId" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="Repost" Type="bit" Nullable="false" />
+          <Property Name="SecondRequest" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CmoTollingLetters">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Name="CandidateId" Type="varchar" Nullable="false" MaxLength="5" />
+          <Property Name="MessageId" Type="int" Nullable="false" />
+          <Property Name="EventNumber" Type="int" Nullable="false" />
+          <Property Name="LetterId" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CmoAttachments_CmoMessages">
+          <End Role="CmoMessages" Type="CmoModel.Store.CmoMessages" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CmoAttachments" Type="CmoModel.Store.CmoAttachments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CmoMessages">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CmoAttachments">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CmoAuditReviews_CmoMessages">
+          <End Role="CmoMessages" Type="CmoModel.Store.CmoMessages" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CmoAuditReviews" Type="CmoModel.Store.CmoAuditReviews" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CmoMessages">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CmoAuditReviews">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CmoMessages_CmoCategories">
+          <End Role="CmoCategories" Type="CmoModel.Store.CmoCategories" Multiplicity="0..1" />
+          <End Role="CmoMessages" Type="CmoModel.Store.CmoMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CmoCategories">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="CmoMessages">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CmoPostElectionRequests_CmoMessages">
+          <End Role="CmoMessages" Type="CmoModel.Store.CmoMessages" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CmoPostElectionRequests" Type="CmoModel.Store.CmoPostElectionRequests" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CmoMessages">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CmoPostElectionRequests">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CmoTollingLetters_CmoMessages">
+          <End Role="CmoMessages" Type="CmoModel.Store.CmoMessages" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CmoTollingLetters" Type="CmoModel.Store.CmoTollingLetters" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CmoMessages">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CmoTollingLetters">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="cfb_cp_Cmo_ArchiveMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="candidateId" Type="varchar" Mode="In" />
+          <Parameter Name="messageId" Type="int" Mode="In" />
+          <Parameter Name="archiveUserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="archived" Type="bit" Mode="In" />
+          <Parameter Name="version" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="cfb_cp_Cmo_FollowUpMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="candidateId" Type="varchar" Mode="In" />
+          <Parameter Name="messageId" Type="int" Mode="In" />
+          <Parameter Name="followUpUserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="followUp" Type="bit" Mode="In" />
+          <Parameter Name="version" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="cfb_cp_Cmo_GetCandidateTollingEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="candidateId" Type="varchar" Mode="In" />
+          <Parameter Name="electionCycle" Type="varchar" Mode="In" />
+          <Parameter Name="isFar" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="cfb_cp_Cmo_OpenMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="candidateId" Type="varchar" Mode="In" />
+          <Parameter Name="messageId" Type="int" Mode="In" />
+          <Parameter Name="openUserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="version" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="cfb_cp_Cmo_PostMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="candidateId" Type="varchar" Mode="In" />
+          <Parameter Name="messageId" Type="int" Mode="In" />
+          <Parameter Name="version" Type="timestamp" Mode="In" />
+        </Function>
+        <Function Name="cfb_cp_Cmo_SaveAttachment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="candidateId" Type="varchar" Mode="In" />
+          <Parameter Name="messageId" Type="int" Mode="In" />
+          <Parameter Name="attachmentId" Type="tinyint" Mode="In" />
+          <Parameter Name="attachmentName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="cfb_cp_Cmo_SaveMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="candidateId" Type="varchar" Mode="In" />
+          <Parameter Name="messageId" Type="int" Mode="In" />
+          <Parameter Name="electionCycle" Type="varchar" Mode="In" />
+          <Parameter Name="title" Type="nvarchar" Mode="In" />
+          <Parameter Name="body" Type="ntext" Mode="In" />
+          <Parameter Name="creatorADUserName" Type="varchar" Mode="In" />
+          <Parameter Name="openReceiptEmail" Type="nvarchar" Mode="In" />
+          <Parameter Name="category" Type="tinyint" Mode="In" />
+          <Parameter Name="version" Type="timestamp" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Cfb.CandidatePortal.Data.CmoModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CmoEntities" a:LazyLoadingEnabled="true" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" b:TypeAccess="Public" xmlns:b="http://schemas.microsoft.com/ado/2006/04/codegeneration">
+          <FunctionImport Name="CmoArchiveMessage" ReturnType="Collection(Int32)">
+            <Parameter Name="candidateId" Mode="In" Type="String" />
+            <Parameter Name="messageId" Mode="In" Type="Int32" />
+            <Parameter Name="archiveUserName" Mode="In" Type="String" />
+            <Parameter Name="archived" Mode="In" Type="Boolean" />
+            <Parameter Name="version" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="CmoFollowUpMessage" ReturnType="Collection(Int32)">
+            <Parameter Name="candidateId" Mode="In" Type="String" />
+            <Parameter Name="messageId" Mode="In" Type="Int32" />
+            <Parameter Name="followUpUserName" Mode="In" Type="String" />
+            <Parameter Name="followUp" Mode="In" Type="Boolean" />
+            <Parameter Name="version" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="CmoOpenMessage" ReturnType="Collection(Int32)">
+            <Parameter Name="candidateId" Mode="In" Type="String" />
+            <Parameter Name="messageId" Mode="In" Type="Int32" />
+            <Parameter Name="openUserName" Mode="In" Type="String" />
+            <Parameter Name="version" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="CmoPostMessage" ReturnType="Collection(Int32)">
+            <Parameter Name="candidateId" Mode="In" Type="String" />
+            <Parameter Name="messageId" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="CmoSaveMessage" ReturnType="Collection(Int32)">
+            <Parameter Name="candidateId" Mode="In" Type="String" />
+            <Parameter Name="messageId" Mode="In" Type="Int32" />
+            <Parameter Name="electionCycle" Mode="In" Type="String" />
+            <Parameter Name="title" Mode="In" Type="String" />
+            <Parameter Name="body" Mode="In" Type="String" />
+            <Parameter Name="creatorADUserName" Mode="In" Type="String" />
+            <Parameter Name="openReceiptEmail" Mode="In" Type="String" />
+            <Parameter Name="category" Mode="In" Type="Byte" />
+            <Parameter Name="version" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="CmoGetCandidateTollingEvents" EntitySet="CmoTollingLetters" ReturnType="Collection(Cfb.CandidatePortal.Data.CmoModel.CmoTollingLetter)">
+            <Parameter Name="candidateId" Mode="In" Type="String" />
+            <Parameter Name="electionCycle" Mode="In" Type="String" />
+            <Parameter Name="isFar" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="CmoAttachments" EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoAttachment" />
+          <EntitySet Name="CmoAuditReviews" EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoAuditReview" />
+          <EntitySet Name="CmoCategories" EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoCategory" />
+          <EntitySet Name="CmoMessages" EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoMessage" />
+          <EntitySet Name="CmoPostElectionRequests" EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoPostElectionRequest" />
+          <EntitySet Name="CmoTollingLetters" EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoTollingLetter" />
+          <AssociationSet Name="FK_CmoAttachments_CmoMessages" Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoAttachments_CmoMessages">
+            <End Role="CmoMessage" EntitySet="CmoMessages" />
+            <End Role="CmoAttachment" EntitySet="CmoAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CmoAuditReviews_CmoMessages" Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoAuditReviews_CmoMessages">
+            <End Role="CmoMessage" EntitySet="CmoMessages" />
+            <End Role="CmoAuditReview" EntitySet="CmoAuditReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CmoMessages_CmoCategories" Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoMessages_CmoCategories">
+            <End Role="CmoCategory" EntitySet="CmoCategories" />
+            <End Role="CmoMessage" EntitySet="CmoMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CmoPostElectionRequests_CmoMessages" Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoPostElectionRequests_CmoMessages">
+            <End Role="CmoMessage" EntitySet="CmoMessages" />
+            <End Role="CmoPostElectionRequest" EntitySet="CmoPostElectionRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CmoTollingLetters_CmoMessages" Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoTollingLetters_CmoMessages">
+            <End Role="CmoMessage" EntitySet="CmoMessages" />
+            <End Role="CmoTollingLetter" EntitySet="CmoTollingLetters" />
+          </AssociationSet>
+          <FunctionImport Name="CmoSaveAttachment" ReturnType="Collection(Int32)">
+            <Parameter Name="candidateId" Mode="In" Type="String" />
+            <Parameter Name="messageId" Mode="In" Type="Int32" />
+            <Parameter Name="attachmentId" Mode="In" Type="Byte" />
+            <Parameter Name="attachmentName" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="CmoAttachment">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+            <PropertyRef Name="AttachmentId" />
+          </Key>
+          <Property Type="String" Name="CandidateId" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MessageId" Nullable="false" />
+          <Property Type="Byte" Name="AttachmentId" Nullable="false" />
+          <Property Type="String" Name="AttachmentName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CmoMessage" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoAttachments_CmoMessages" FromRole="CmoAttachment" ToRole="CmoMessage" />
+        </EntityType>
+        <EntityType Name="CmoAuditReview">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Type="String" Name="CandidateId" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MessageId" Nullable="false" />
+          <Property Type="Byte" Name="ReviewNumber" Nullable="false" />
+          <NavigationProperty Name="CmoMessage" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoAuditReviews_CmoMessages" FromRole="CmoAuditReview" ToRole="CmoMessage" />
+        </EntityType>
+        <EntityType Name="CmoCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Type="Byte" Name="CategoryId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Hidden" Nullable="false" />
+          <Property Type="String" Name="TemplateTitle" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TemplateBody" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="TemplateEditable" Nullable="false" />
+          <NavigationProperty Name="CmoMessages" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoMessages_CmoCategories" FromRole="CmoCategory" ToRole="CmoMessage" />
+        </EntityType>
+        <EntityType Name="CmoMessage">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Type="String" Name="CandidateId" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MessageId" Nullable="false" />
+          <Property Type="String" Name="ElectionCycle" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreatorADUserName" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OpenReceiptEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PostDate" />
+          <Property Type="String" Name="OpenUserName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="OpenDate" />
+          <Property Type="String" Name="ArchiveUserName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ArchiveDate" />
+          <Property Type="Boolean" Name="FollowUp" Nullable="false" />
+          <Property Type="String" Name="FollowUpUserName" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="FollowUpDate" />
+          <Property Type="Binary" Name="Version" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="CmoAttachments" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoAttachments_CmoMessages" FromRole="CmoMessage" ToRole="CmoAttachment" />
+          <NavigationProperty Name="CmoAuditReview" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoAuditReviews_CmoMessages" FromRole="CmoMessage" ToRole="CmoAuditReview" />
+          <NavigationProperty Name="CmoCategory" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoMessages_CmoCategories" FromRole="CmoMessage" ToRole="CmoCategory" />
+          <NavigationProperty Name="CmoPostElectionRequest" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoPostElectionRequests_CmoMessages" FromRole="CmoMessage" ToRole="CmoPostElectionRequest" />
+          <NavigationProperty Name="CmoTollingLetter" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoTollingLetters_CmoMessages" FromRole="CmoMessage" ToRole="CmoTollingLetter" />
+        </EntityType>
+        <EntityType Name="CmoPostElectionRequest">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Type="String" Name="CandidateId" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MessageId" Nullable="false" />
+          <Property Type="Boolean" Name="Repost" Nullable="false" />
+          <Property Type="Boolean" Name="SecondRequest" Nullable="false" />
+          <NavigationProperty Name="CmoMessage" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoPostElectionRequests_CmoMessages" FromRole="CmoPostElectionRequest" ToRole="CmoMessage" />
+        </EntityType>
+        <EntityType Name="CmoTollingLetter">
+          <Key>
+            <PropertyRef Name="CandidateId" />
+            <PropertyRef Name="MessageId" />
+          </Key>
+          <Property Type="String" Name="CandidateId" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="MessageId" Nullable="false" />
+          <Property Type="Int32" Name="EventNumber" Nullable="false" />
+          <Property Type="Byte" Name="LetterId" Nullable="false" />
+          <NavigationProperty Name="CmoMessage" Relationship="Cfb.CandidatePortal.Data.CmoModel.FK_CmoTollingLetters_CmoMessages" FromRole="CmoTollingLetter" ToRole="CmoMessage" />
+        </EntityType>
+        <Association Name="FK_CmoAttachments_CmoMessages">
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoMessage" Role="CmoMessage" Multiplicity="1" />
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoAttachment" Role="CmoAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CmoMessage">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CmoAttachment">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CmoAuditReviews_CmoMessages">
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoMessage" Role="CmoMessage" Multiplicity="1" />
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoAuditReview" Role="CmoAuditReview" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CmoMessage">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CmoAuditReview">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CmoMessages_CmoCategories">
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoCategory" Role="CmoCategory" Multiplicity="0..1" />
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoMessage" Role="CmoMessage" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CmoPostElectionRequests_CmoMessages">
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoMessage" Role="CmoMessage" Multiplicity="1" />
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoPostElectionRequest" Role="CmoPostElectionRequest" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CmoMessage">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CmoPostElectionRequest">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CmoTollingLetters_CmoMessages">
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoMessage" Role="CmoMessage" Multiplicity="1" />
+          <End Type="Cfb.CandidatePortal.Data.CmoModel.CmoTollingLetter" Role="CmoTollingLetter" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CmoMessage">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Principal>
+            <Dependent Role="CmoTollingLetter">
+              <PropertyRef Name="CandidateId" />
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CmoModelStoreContainer" CdmEntityContainer="CmoEntities">
+          <FunctionImportMapping FunctionImportName="CmoFollowUpMessage" FunctionName="CmoModel.Store.cfb_cp_Cmo_FollowUpMessage" />
+          <FunctionImportMapping FunctionImportName="CmoOpenMessage" FunctionName="CmoModel.Store.cfb_cp_Cmo_OpenMessage" />
+          <FunctionImportMapping FunctionImportName="CmoArchiveMessage" FunctionName="CmoModel.Store.cfb_cp_Cmo_ArchiveMessage" />
+          <FunctionImportMapping FunctionImportName="CmoPostMessage" FunctionName="CmoModel.Store.cfb_cp_Cmo_PostMessage" />
+          <FunctionImportMapping FunctionImportName="CmoSaveMessage" FunctionName="CmoModel.Store.cfb_cp_Cmo_SaveMessage" />
+          <FunctionImportMapping FunctionImportName="CmoGetCandidateTollingEvents" FunctionName="CmoModel.Store.cfb_cp_Cmo_GetCandidateTollingEvents" />
+          <EntitySetMapping Name="CmoAttachments">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CmoModel.CmoAttachment">
+              <MappingFragment StoreEntitySet="CmoAttachments">
+                <ScalarProperty Name="AttachmentName" ColumnName="AttachmentName" />
+                <ScalarProperty Name="AttachmentId" ColumnName="AttachmentId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CmoAuditReviews">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CmoModel.CmoAuditReview">
+              <MappingFragment StoreEntitySet="CmoAuditReviews">
+                <ScalarProperty Name="ReviewNumber" ColumnName="ReviewNumber" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CmoCategories">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CmoModel.CmoCategory">
+              <MappingFragment StoreEntitySet="CmoCategories">
+                <ScalarProperty Name="TemplateEditable" ColumnName="TemplateEditable" />
+                <ScalarProperty Name="TemplateBody" ColumnName="TemplateBody" />
+                <ScalarProperty Name="TemplateTitle" ColumnName="TemplateTitle" />
+                <ScalarProperty Name="Hidden" ColumnName="Hidden" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CmoMessages">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CmoModel.CmoMessage">
+              <MappingFragment StoreEntitySet="CmoMessages">
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="FollowUpDate" ColumnName="FollowUpDate" />
+                <ScalarProperty Name="FollowUpUserName" ColumnName="FollowUpUserName" />
+                <ScalarProperty Name="FollowUp" ColumnName="FollowUp" />
+                <ScalarProperty Name="ArchiveDate" ColumnName="ArchiveDate" />
+                <ScalarProperty Name="ArchiveUserName" ColumnName="ArchiveUserName" />
+                <ScalarProperty Name="OpenDate" ColumnName="OpenDate" />
+                <ScalarProperty Name="OpenUserName" ColumnName="OpenUserName" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="OpenReceiptEmail" ColumnName="OpenReceiptEmail" />
+                <ScalarProperty Name="CreatorADUserName" ColumnName="CreatorADUserName" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ElectionCycle" ColumnName="ElectionCycle" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CmoPostElectionRequests">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CmoModel.CmoPostElectionRequest">
+              <MappingFragment StoreEntitySet="CmoPostElectionRequests">
+                <ScalarProperty Name="SecondRequest" ColumnName="SecondRequest" />
+                <ScalarProperty Name="Repost" ColumnName="Repost" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CmoTollingLetters">
+            <EntityTypeMapping TypeName="Cfb.CandidatePortal.Data.CmoModel.CmoTollingLetter">
+              <MappingFragment StoreEntitySet="CmoTollingLetters">
+                <ScalarProperty Name="LetterId" ColumnName="LetterId" />
+                <ScalarProperty Name="EventNumber" ColumnName="EventNumber" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_CmoMessages_CmoCategories" TypeName="Cfb.CandidatePortal.Data.CmoModel.FK_CmoMessages_CmoCategories" StoreEntitySet="CmoMessages">
+            <EndProperty Name="CmoMessage">
+              <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+              <ScalarProperty Name="CandidateId" ColumnName="CandidateId" />
+            </EndProperty>
+            <EndProperty Name="CmoCategory">
+              <ScalarProperty Name="CategoryId" ColumnName="Category" />
+            </EndProperty>
+            <Condition ColumnName="Category" IsNull="false" />
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="CmoSaveAttachment" FunctionName="CmoModel.Store.cfb_cp_Cmo_SaveAttachment" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="CmoModel" ZoomLevel="100">
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoAttachment" Width="1.5" PointX="5.25" PointY="1.375" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoAuditReview" Width="1.5" PointX="5.25" PointY="4" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoCategory" Width="1.5" PointX="0.75" PointY="5" Height="2.5571907552083317" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoMessage" Width="1.5" PointX="3" PointY="3.75" Height="5.0571093749999987" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoPostElectionRequest" Width="1.5" PointX="5.25" PointY="6.625" Height="1.9802864583333397" />
+        <EntityTypeShape EntityType="Cfb.CandidatePortal.Data.CmoModel.CmoTollingLetter" Width="1.5" PointX="5.25" PointY="9.375" Height="1.9802864583333388" />
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoAttachments_CmoMessages" >
+          <ConnectorPoint PointX="3.75" PointY="3.75" />
+          <ConnectorPoint PointX="3.75" PointY="2.3651432291666659" />
+          <ConnectorPoint PointX="5.25" PointY="2.3651432291666659" />
+        </AssociationConnector>
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoAuditReviews_CmoMessages" >
+          <ConnectorPoint PointX="4.5" PointY="4.8939925130208337" />
+          <ConnectorPoint PointX="5.25" PointY="4.8939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoMessages_CmoCategories" >
+          <ConnectorPoint PointX="2.25" PointY="6.2785953776041659" />
+          <ConnectorPoint PointX="3" PointY="6.2785953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoPostElectionRequests_CmoMessages" >
+          <ConnectorPoint PointX="4.5" PointY="7.6151432291666694" />
+          <ConnectorPoint PointX="5.25" PointY="7.6151432291666694" />
+        </AssociationConnector>
+        <AssociationConnector Association="Cfb.CandidatePortal.Data.CmoModel.FK_CmoTollingLetters_CmoMessages" >
+          <ConnectorPoint PointX="3.75" PointY="8.807109375" />
+          <ConnectorPoint PointX="3.75" PointY="10.365143229166669" />
+          <ConnectorPoint PointX="5.25" PointY="10.365143229166669" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

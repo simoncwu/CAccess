@@ -1,0 +1,7 @@
+﻿@helper MessageDownloadLink(System.Web.Mvc.WebViewPage page, string messageID, string text = "View/Download")
+{
+    if (!string.IsNullOrWhiteSpace(messageID))
+    {
+        <a href="@page.Url.Action(Cfb.CandidatePortal.Web.MvcApplication.Controllers.MessagesController.ActionName_Details, Cfb.CandidatePortal.Web.MvcApplication.Controllers.MessagesController.ControllerName, new { area = "", id = messageID })"><span class="hidden-xs">@(!string.IsNullOrWhiteSpace(text) ? text + " " : null)</span><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a>
+    }
+}

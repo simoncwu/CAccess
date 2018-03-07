@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{087A2281-567D-4053-B328-81376E381914}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cfb.Cfis.Data</RootNamespace>
+    <AssemblyName>Cfb.Cfis.Data</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\NYCCFB.snk</AssemblyOriginatorKeyFile>
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Cfb.Cfis.Data.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActiveCandidateTds.cs">
+      <DependentUpon>ActiveCandidateTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveCandidateTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActiveCandidateTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveElectionCycleTds.cs">
+      <DependentUpon>ActiveElectionCycleTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ActiveElectionCycleTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ActiveElectionCycleTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorizedCommitteeTds.cs">
+      <DependentUpon>AuthorizedCommitteeTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorizedCommitteeTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AuthorizedCommitteeTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateTds.cs">
+      <DependentUpon>CandidateTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CandidateTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CertificationDocumentTds.cs">
+      <DependentUpon>CertificationDocumentTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CertificationDocumentTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CertificationDocumentTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ComplianceVisitTds.cs">
+      <DependentUpon>ComplianceVisitTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ComplianceVisitTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComplianceVisitTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CoibReceiptTds.cs">
+      <DependentUpon>CoibReceiptTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CoibReceiptTds.Designer.cs">
+      <DependentUpon>CoibReceiptTds.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ConnectionManager.cs" />
+    <Compile Include="CsmartIdsRequestTds.cs">
+      <DependentUpon>CsmartIdsRequestTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CsmartIdsRequestTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CsmartIdsRequestTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CsuLiaisonTds.cs">
+      <DependentUpon>CsuLiaisonTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CsuLiaisonTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CsuLiaisonTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DisclosureStatementTds.cs">
+      <DependentUpon>DisclosureStatementTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DisclosureStatementTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DisclosureStatementTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DoingBusinessReviewTds.cs">
+      <DependentUpon>DoingBusinessReviewTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DoingBusinessReviewTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DoingBusinessReviewTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionCycleTds.cs">
+      <DependentUpon>ElectionCycleTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionCycleTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ElectionCycleTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FilerRegistrationDocumentTds.cs">
+      <DependentUpon>FilerRegistrationDocumentTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FilerRegistrationDocumentTds.Designer.cs">
+      <DependentUpon>FilerRegistrationDocumentTds.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FilingRequirementTds.cs">
+      <DependentUpon>FilingRequirementTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FilingRequirementTds.Designer.cs">
+      <DependentUpon>FilingRequirementTds.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="FinancialSummaryTds.cs">
+      <DependentUpon>FinancialSummaryTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialSummaryTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinancialSummaryTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentPlanTds.cs">
+      <DependentUpon>PaymentPlanTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentPlanTds.Designer.cs">
+      <DependentUpon>PaymentPlanTds.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="PostElectionTds.cs">
+      <DependentUpon>PostElectionTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PostElectionTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PostElectionTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PreElectionDisclosureTds.cs">
+      <DependentUpon>PreElectionDisclosureTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PreElectionDisclosureTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreElectionDisclosureTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="StatementDateTds.cs">
+      <DependentUpon>StatementDateTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StatementDateTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatementDateTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StatementOfNeedTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatementOfNeedTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StatementReviewTds.cs">
+      <DependentUpon>StatementReviewTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="StatementReviewTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatementReviewTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TerminationVerificationTds.cs">
+      <DependentUpon>TerminationVerificationTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TerminationVerificationTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TerminationVerificationTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdTds.cs">
+      <DependentUpon>ThresholdTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ThresholdTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThresholdTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingTrackingTds.cs">
+      <DependentUpon>TrainingTrackingTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingTrackingTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrainingTrackingTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WebTransferDateTds.cs">
+      <DependentUpon>WebTransferDateTds.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="WebTransferDateTds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebTransferDateTds.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ActiveCandidateTds.xsc">
+      <DependentUpon>ActiveCandidateTds.xsd</DependentUpon>
+    </None>
+    <None Include="ActiveCandidateTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ActiveCandidateTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ActiveCandidateTds.xss">
+      <DependentUpon>ActiveCandidateTds.xsd</DependentUpon>
+    </None>
+    <None Include="ActiveElectionCycleTds.xsc">
+      <DependentUpon>ActiveElectionCycleTds.xsd</DependentUpon>
+    </None>
+    <None Include="ActiveElectionCycleTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ActiveElectionCycleTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ActiveElectionCycleTds.xss">
+      <DependentUpon>ActiveElectionCycleTds.xsd</DependentUpon>
+    </None>
+    <None Include="app.config" />
+    <None Include="AuthorizedCommitteeTds.xsc">
+      <DependentUpon>AuthorizedCommitteeTds.xsd</DependentUpon>
+    </None>
+    <None Include="AuthorizedCommitteeTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AuthorizedCommitteeTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AuthorizedCommitteeTds.xss">
+      <DependentUpon>AuthorizedCommitteeTds.xsd</DependentUpon>
+    </None>
+    <None Include="CandidateTds.xsc">
+      <DependentUpon>CandidateTds.xsd</DependentUpon>
+    </None>
+    <None Include="CandidateTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CandidateTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CandidateTds.xss">
+      <DependentUpon>CandidateTds.xsd</DependentUpon>
+    </None>
+    <None Include="CertificationDocumentTds.xsc">
+      <DependentUpon>CertificationDocumentTds.xsd</DependentUpon>
+    </None>
+    <None Include="CertificationDocumentTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CertificationDocumentTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CertificationDocumentTds.xss">
+      <DependentUpon>CertificationDocumentTds.xsd</DependentUpon>
+    </None>
+    <None Include="ComplianceVisitTds.xsc">
+      <DependentUpon>ComplianceVisitTds.xsd</DependentUpon>
+    </None>
+    <None Include="ComplianceVisitTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ComplianceVisitTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ComplianceVisitTds.xss">
+      <DependentUpon>ComplianceVisitTds.xsd</DependentUpon>
+    </None>
+    <None Include="CoibReceiptTds.xsc">
+      <DependentUpon>CoibReceiptTds.xsd</DependentUpon>
+    </None>
+    <None Include="CoibReceiptTds.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CoibReceiptTds.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CoibReceiptTds.xss">
+      <DependentUpon>CoibReceiptTds.xsd</DependentUpon>
+    </None>
+    <None Include="CsmartIdsRequestTds.xsc">
+      <DependentUpon>CsmartIdsRequestTds.xsd</DependentUpon>
+    </None>
+    <None Include="CsmartIdsRequestTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CsmartIdsRequestTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CsmartIdsRequestTds.xss">
+      <DependentUpon>CsmartIdsRequestTds.xsd</DependentUpon>
+    </None>
+    <None Include="CsuLiaisonTds.xsc">
+      <DependentUpon>CsuLiaisonTds.xsd</DependentUpon>
+    </None>
+    <None Include="CsuLiaisonTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CsuLiaisonTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CsuLiaisonTds.xss">
+      <DependentUpon>CsuLiaisonTds.xsd</DependentUpon>
+    </None>
+    <None Include="DisclosureStatementTds.xsc">
+      <DependentUpon>DisclosureStatementTds.xsd</DependentUpon>
+    </None>
+    <None Include="DisclosureStatementTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DisclosureStatementTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DisclosureStatementTds.xss">
+      <DependentUpon>DisclosureStatementTds.xsd</DependentUpon>
+    </None>
+    <None Include="DoingBusinessReviewTds.xsc">
+      <DependentUpon>DoingBusinessReviewTds.xsd</DependentUpon>
+    </None>
+    <None Include="DoingBusinessReviewTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DoingBusinessReviewTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DoingBusinessReviewTds.xss">
+      <DependentUpon>DoingBusinessReviewTds.xsd</DependentUpon>
+    </None>
+    <None Include="ElectionCycleTds.xsc">
+      <DependentUpon>ElectionCycleTds.xsd</DependentUpon>
+    </None>
+    <None Include="ElectionCycleTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ElectionCycleTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ElectionCycleTds.xss">
+      <DependentUpon>ElectionCycleTds.xsd</DependentUpon>
+    </None>
+    <None Include="FilerRegistrationDocumentTds.xsc">
+      <DependentUpon>FilerRegistrationDocumentTds.xsd</DependentUpon>
+    </None>
+    <None Include="FilerRegistrationDocumentTds.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FilerRegistrationDocumentTds.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FilerRegistrationDocumentTds.xss">
+      <DependentUpon>FilerRegistrationDocumentTds.xsd</DependentUpon>
+    </None>
+    <None Include="FilingRequirementTds.xsc">
+      <DependentUpon>FilingRequirementTds.xsd</DependentUpon>
+    </None>
+    <None Include="FilingRequirementTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FilingRequirementTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FilingRequirementTds.xss">
+      <DependentUpon>FilingRequirementTds.xsd</DependentUpon>
+    </None>
+    <None Include="FinancialSummaryTds.xsc">
+      <DependentUpon>FinancialSummaryTds.xsd</DependentUpon>
+    </None>
+    <None Include="FinancialSummaryTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FinancialSummaryTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="FinancialSummaryTds.xss">
+      <DependentUpon>FinancialSummaryTds.xsd</DependentUpon>
+    </None>
+    <None Include="PaymentPlanTds.xsc">
+      <DependentUpon>PaymentPlanTds.xsd</DependentUpon>
+    </None>
+    <None Include="PaymentPlanTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PaymentPlanTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PaymentPlanTds.xss">
+      <DependentUpon>PaymentPlanTds.xsd</DependentUpon>
+    </None>
+    <None Include="PostElectionTds.xsc">
+      <DependentUpon>PostElectionTds.xsd</DependentUpon>
+    </None>
+    <None Include="PostElectionTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PostElectionTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PostElectionTds.xss">
+      <DependentUpon>PostElectionTds.xsd</DependentUpon>
+    </None>
+    <None Include="PreElectionDisclosureTds.xsc">
+      <DependentUpon>PreElectionDisclosureTds.xsd</DependentUpon>
+    </None>
+    <None Include="PreElectionDisclosureTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PreElectionDisclosureTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PreElectionDisclosureTds.xss">
+      <DependentUpon>PreElectionDisclosureTds.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\NYCCFB.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StatementDateTds.xsc">
+      <DependentUpon>StatementDateTds.xsd</DependentUpon>
+    </None>
+    <None Include="StatementDateTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StatementDateTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StatementDateTds.xss">
+      <DependentUpon>StatementDateTds.xsd</DependentUpon>
+    </None>
+    <None Include="StatementOfNeedTds.xsc">
+      <DependentUpon>StatementOfNeedTds.xsd</DependentUpon>
+    </None>
+    <None Include="StatementOfNeedTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StatementOfNeedTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StatementOfNeedTds.xss">
+      <DependentUpon>StatementOfNeedTds.xsd</DependentUpon>
+    </None>
+    <None Include="StatementReviewTds.xsc">
+      <DependentUpon>StatementReviewTds.xsd</DependentUpon>
+    </None>
+    <None Include="StatementReviewTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StatementReviewTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StatementReviewTds.xss">
+      <DependentUpon>StatementReviewTds.xsd</DependentUpon>
+    </None>
+    <None Include="TerminationVerificationTds.xsc">
+      <DependentUpon>TerminationVerificationTds.xsd</DependentUpon>
+    </None>
+    <None Include="TerminationVerificationTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TerminationVerificationTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TerminationVerificationTds.xss">
+      <DependentUpon>TerminationVerificationTds.xsd</DependentUpon>
+    </None>
+    <None Include="ThresholdTds.xsc">
+      <DependentUpon>ThresholdTds.xsd</DependentUpon>
+    </None>
+    <None Include="ThresholdTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ThresholdTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ThresholdTds.xss">
+      <DependentUpon>ThresholdTds.xsd</DependentUpon>
+    </None>
+    <None Include="TrainingTrackingTds.xsc">
+      <DependentUpon>TrainingTrackingTds.xsd</DependentUpon>
+    </None>
+    <None Include="TrainingTrackingTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TrainingTrackingTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TrainingTrackingTds.xss">
+      <DependentUpon>TrainingTrackingTds.xsd</DependentUpon>
+    </None>
+    <None Include="WebTransferDateTds.xsc">
+      <DependentUpon>WebTransferDateTds.xsd</DependentUpon>
+    </None>
+    <None Include="WebTransferDateTds.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>WebTransferDateTds.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="WebTransferDateTds.xss">
+      <DependentUpon>WebTransferDateTds.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Extensions\Extensions\Extensions.csproj">
+      <Project>{FFBABC0D-C837-479B-8AEE-2AB284CFC679}</Project>
+      <Name>Extensions %28Extensions\Extensions%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

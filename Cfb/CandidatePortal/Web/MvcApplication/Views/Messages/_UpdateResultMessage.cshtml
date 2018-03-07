@@ -1,0 +1,52 @@
+﻿@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+
+@if (ViewData.ContainsKey("UpdateAction"))
+{
+    string action = "updated";
+    switch (ViewData["UpdateAction"].ToString())
+    {
+        case MessagesController.ActionName_Archive:
+            action = "archived";
+            break;
+        case MessagesController.ActionName_Unarchive:
+            action = "unarchived";
+            break;
+        case MessagesController.ActionName_Flag:
+            action = "flagged";
+            break;
+        case MessagesController.ActionName_ClearFlag:
+            action = "unflagged";
+            break;
+    }
+    bool error = ViewData.ContainsKey("UpdateError");
+    var alertClass = error ? "danger" : "info";
+    int processed;
+    string prefix = "No messages";
+    if (int.TryParse(ViewData["UpdateCount"] as string, out processed) && processed > 0)
+    {
+        alertClass = error ? "warning" : "success";
+        if (error)
+        {
+            alertClass += ", but with some errors";
+        }
+        prefix = processed > 1 ? processed + " messages have" : "The message has";
+    }
+    <div class="alert-float">
+        <div class="alert alert-@alertClass alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            @switch (alertClass)
+            {
+                case "info":
+                    @:@prefix were @(action).
+                    break;
+                case "success":
+                case "warning":
+                    @:@prefix been @(action).
+                    break;
+                case "danger":
+                    @:An error occurred while processing your request.
+                    break;
+            }
+        </div>
+    </div>
+}

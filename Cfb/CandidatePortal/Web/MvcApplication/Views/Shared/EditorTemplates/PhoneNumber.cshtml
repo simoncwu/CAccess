@@ -1,0 +1,32 @@
+﻿@model string
+<div class="form-group@(ViewData.ContainsKey("class")? " " + ViewData["class"] : null)">
+    @if (ViewData.ContainsKey("label"))
+    {
+        @Html.LabelFor(m => m, ViewData["label"].ToString(), new { @class = "control-label" })
+    }
+    else
+    {
+        @Html.LabelFor(m => m, new { @class = "control-label" })
+    }
+    @if (ViewData.ModelMetadata.IsReadOnly)
+    {
+        <p class="form-control-static">@Html.DisplayFor(m => m)</p>
+    }
+    else
+    {
+        var htmlAttr = new Dictionary<string, object> {
+            { "type", "tel" },
+            { "class", "form-control bfh-phone" },
+            { "data-format", Cfb.CandidatePortal.Web.Mvc.Strings.DataFormats.Phone }
+        };
+        string attr = "readonly";
+        if (ViewData.ContainsKey(attr))
+        {
+            htmlAttr[attr] = attr;
+        }
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+            @Html.TextBox("", Model, htmlAttr)
+        </div>
+    }
+</div>

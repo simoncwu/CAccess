@@ -1,0 +1,44 @@
+﻿@using Cfb.CandidatePortal.Web;
+@using Cfb.CandidatePortal.Web.Mvc.Strings;
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers;
+@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Controllers;
+@{
+    ViewBag.Title = "Home";
+    ViewBag.UserDisplayName = CPProfile.DisplayName;
+    ViewBag.ElectionCycle = CPProfile.ElectionCycle;
+}
+<div class="row">
+    <div class="col-md-6">
+        <section class="cp-user-greeting">
+            <h3>Welcome, @ViewBag.UserDisplayName</h3>
+            <p>You are currently viewing information for the <strong>@ViewBag.ElectionCycle</strong> election cycle.</p>
+        </section>
+        @Html.Action(CandidateController.ActionName_Summary, CandidateController.ControllerName, new { area = Areas.Profile })
+    </div>
+    <aside class="col-md-6">
+        @Html.Action(EventsController.ActionName_Announcements, EventsController.ControllerName)
+        @Html.Action(EventsController.ActionName_Upcoming, EventsController.ControllerName)
+        <section class="well well-list hidden-xs">
+            <h5><span class="glyphicon glyphicon-link" aria-hidden="true"></span> CFB Resources</h5>
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul>
+                        <li><a href="http://www.nyccfb.info/law/advisory-opinions" target="_blank" title="Advisory Opinions" class="popup">Advisory Opinions</a></li>
+                        <li><a href="http://www.nyccfb.info/law/act/CFACT.htm" target="_blank" title="Campaign Finance Act" class="popup">Campaign Finance Act</a></li>
+                        <li><a href="http://www.nyccfb.info/candidate-services/forms" target="_blank" title="Candidate Forms" class="popup">Candidate Forms</a></li>
+                        <li><a href="http://www.nyccfb.info/candidate-services" target="_blank" title="Candidate Resources" class="popup">Candidate Resources</a></li>
+                        <li><a href="http://www.nyccfb.info/law/rules/" target="_blank" title="Campaign Finance Board Rules" class="popup">CFB Rules</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <ul>
+                        <li><a href="http://www.nyccfb.info/law/final-determinations" target="_blank" title="Final Determinations" class="popup">Final Determinations</a></li>
+                        <li><a href="http://www.nyccfb.info/candidate-services" target="_blank" title="Limits and Requirements" class="popup">Limits and Requirements</a></li>
+                        <li><a href="http://www.nyccfb.info/candidate-services/post-election/audit" target="_blank" title="Post-Election Audit Process" class="popup">Post-Election Audit Process</a></li>
+                        <li><a href="http://www.nyccfb.info/searchabledb/" target="_blank" title="Searchable Database" class="popup">Searchable Database</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </aside>
+</div>

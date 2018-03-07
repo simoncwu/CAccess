@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution SolutionId="bd3c8548-3c49-4c1e-b27a-d3fbc1dd032c" xmlns="http://schemas.microsoft.com/sharepoint/">
+	<FeatureManifests>
+		<FeatureManifest Location="CandidatePortal\feature.xml" />
+		<FeatureManifest Location="CandidatePortalLists\feature.xml" />
+	</FeatureManifests>
+	<Assemblies>
+		<Assembly Location="Cfb.CandidatePortal.SharePoint.WebParts.AccountManagementWebPart.dll" DeploymentTarget="GlobalAssemblyCache">
+			<SafeControls>
+				<SafeControl Assembly="Cfb.CandidatePortal.SharePoint.WebParts.AccountManagementWebPart, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9320c5fb540d5df1" Namespace="Cfb.CandidatePortal.SharePoint.WebParts" TypeName="*" Safe="True" />
+			</SafeControls>
+		</Assembly>
+	</Assemblies>
+</Solution>

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{98C8C16D-133C-4ECB-8B80-46E434CAE9C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cfb.CandidatePortal.ServiceModel.CPCmoService</RootNamespace>
+    <AssemblyName>Cfb.CandidatePortal.ServiceModel.CPCmoService</AssemblyName>
+    <ProjectTypeGuids>{3D9AD99F-2412-4246-B90B-4EAA41C64699};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <StartArguments>/client:"WcfTestClient.exe"</StartArguments>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SignManifests>true</SignManifests>
+    <SignAssembly>true</SignAssembly>
+    <ManifestCertificateThumbprint>CF903C542FC6AB585AFB5086A93863A468F25EF0</ManifestCertificateThumbprint>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+    <AssemblyOriginatorKeyFile>Properties\NYCCFB.snk</AssemblyOriginatorKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Cfb.CandidatePortal.ServiceModel.CPCmoService.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CmoServiceError.cs" />
+    <Compile Include="ICmoService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="CmoService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DirectoryServices\DirectoryServices.csproj">
+      <Project>{0373A77B-8866-4AA4-BDF3-F6B0AD3D0FBD}</Project>
+      <Name>DirectoryServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\ExceptionHandling\ExceptionHandling.csproj">
+      <Project>{521ECB6D-848B-4946-B007-9D37C9D0F234}</Project>
+      <Name>ExceptionHandling</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CandidatePortal\CandidatePortal.csproj">
+      <Project>{2093CDB2-61F2-406E-959B-A6E3828E3AAD}</Project>
+      <Name>CandidatePortal %28CandidatePortal\CandidatePortal%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Cmo\Cmo.csproj">
+      <Project>{3DAEB28A-82A9-4869-BB21-950B11B97B09}</Project>
+      <Name>Cmo %28CandidatePortal\Cmo%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CPSettings\CPSettings.csproj">
+      <Project>{92775E6F-4657-48FF-A1E9-77360F26B378}</Project>
+      <Name>CPSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Net\Net.csproj">
+      <Project>{8D6F9122-05DB-446D-9352-F07F0BF0F746}</Project>
+      <Name>Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CPDataClient\CPDataClient.csproj">
+      <Project>{B2A1E764-2F94-4A5B-9EC9-5ABF9F5EB187}</Project>
+      <Name>CPDataClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceModel\ServiceModel.csproj">
+      <Project>{62797CC5-A9DD-4BB3-827F-0DFF1B6DDC85}</Project>
+      <Name>ServiceModel %28CandidatePortal\ServiceModel\ServiceModel%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\NYCCFB.pfx" />
+    <None Include="Properties\NYCCFB.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.Cmo.CmoAttachment.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.Cmo.CmoCategory.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.Cmo.CmoMessage.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.Cmo.CmoSettings.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.Cmo.CmoStatementReview.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.ActiveCandidate.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.AuthorizedCommittees.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.Candidate.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.CertificationDocument.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.CoibReceipt.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.CsmartIdsRequest.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.Elections.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.ExtensionRequest.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.FilerRegistrationDocument.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.FinancialSummary.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.PaymentPlan.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.Statement.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.TerminationVerification.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.ComplianceVisits.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.DisclosureStatementHistories.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.DoingBusinessReviews.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.FilingDeadlines.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.PreElectionDisclosureHistory.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.StatementOfNeedHistory.datasource" />
+    <None Include="Properties\DataSources\Cfb.CandidatePortal.StatementReviews.datasource" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{3D9AD99F-2412-4246-B90B-4EAA41C64699}">
+        <WcfProjectProperties>
+          <AutoStart>True</AutoStart>
+        </WcfProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

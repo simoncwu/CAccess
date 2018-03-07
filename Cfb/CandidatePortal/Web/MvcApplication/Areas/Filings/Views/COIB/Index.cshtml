@@ -1,0 +1,8 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.DocumentStatusListViewModel
+
+@{
+    ViewBag.Title = "Conflict of Interest Board Receipts";
+}
+<h2>@ViewBag.Title</h2>
+<p>To be eligible to receive public funds, you must provide the CFB with an original raised seal receipt from the Conflicts of Interest Board (&ldquo;COIB&rdquo;) evidencing submission of your personal financial disclosure statement. Listed below is the history of COIB Receipts, resubmissions of COIB Receipts, and amendments to COIB Receipts received by the CFB from your campaign. COIB Receipts may have a status of Processing, Accepted, On-Hold, Rejected or No Processing Required. A &ldquo;Processing&rdquo; status does not indicate that a COIB Receipt has been &ldquo;Accepted&rdquo; by the CFB. Your campaign can submit either an original <strong>or</strong> a copy of your COIB Receipt.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.DocumentStatusList, Model.Documents)

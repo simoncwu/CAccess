@@ -1,0 +1,8 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Models.AnnouncementViewModel
+
+@{ 
+    ViewBag.Title = Model.Title;
+}
+<h3>Announcement</h3>
+<h2>@Html.DisplayFor(m => m.Title)</h2>
+<pre>@Html.DisplayFor(m=> m.Body)</pre>

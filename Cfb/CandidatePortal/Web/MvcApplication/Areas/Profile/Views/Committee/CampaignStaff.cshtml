@@ -1,0 +1,7 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.CampaignStaffViewModel
+
+@using (Html.BeginForm(new { committeeID = Model.CommitteeID, id = Model.ID }))
+{
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(m => m)
+}

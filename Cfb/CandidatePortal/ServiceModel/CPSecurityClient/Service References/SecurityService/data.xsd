@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://caccess.nyccfb.info/schema/data" elementFormDefault="qualified" targetNamespace="http://caccess.nyccfb.info/schema/data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Data.SqlClient" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.Security" />
+  <xs:complexType name="OfflineDataException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Class" type="xs:unsignedByte" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Data.SqlClient" minOccurs="0" name="Errors" nillable="true" type="q1:ArrayOfSqlError" />
+      <xs:element minOccurs="0" name="LineNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="Procedure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Server" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OfflineDataException" nillable="true" type="tns:OfflineDataException" />
+  <xs:complexType name="ArrayOfCPUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CPUser" nillable="true" type="tns:CPUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCPUser" nillable="true" type="tns:ArrayOfCPUser" />
+  <xs:complexType name="CPUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Applications" nillable="true" type="tns:ArrayOfApplication" />
+      <xs:element minOccurs="0" name="Cid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ElectionCycles" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ImplicitElectionCycles" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastActivityDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastLockoutDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastLoginDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastPasswordChangedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LockedOut" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PasswordExpired" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SourceCommitteeID" nillable="true" type="ser:char" />
+      <xs:element minOccurs="0" name="SourceElectionCycle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceLiaisonID" nillable="true" type="xs:unsignedByte" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" minOccurs="0" name="SourceType" type="q3:EntityType" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.Security" minOccurs="0" name="UserRights" type="q4:CPUserRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CPUser" nillable="true" type="tns:CPUser" />
+  <xs:complexType name="ArrayOfApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Application" nillable="true" type="tns:Application" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplication" nillable="true" type="tns:ArrayOfApplication" />
+  <xs:complexType name="Application">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.Security" minOccurs="0" name="AccessRights" type="q5:CPUserRights" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="LoginPagePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RedirectUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TokenParameter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Url" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Application" nillable="true" type="tns:Application" />
+  <xs:complexType name="Token">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Application" nillable="true" type="tns:Application" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Token" nillable="true" type="tns:Token" />
+  <xs:complexType name="ArrayOfCPGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CPGroup" nillable="true" type="tns:CPGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCPGroup" nillable="true" type="tns:ArrayOfCPGroup" />
+  <xs:complexType name="CPGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.Security" minOccurs="0" name="UserRights" type="q6:CPUserRights" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CPGroup" nillable="true" type="tns:CPGroup" />
+</xs:schema>

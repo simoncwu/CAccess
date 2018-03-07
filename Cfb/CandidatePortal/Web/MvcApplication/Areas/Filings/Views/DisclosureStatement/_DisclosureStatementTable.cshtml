@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.DisclosureStatementViewModel>
+
+<style>
+    .cp-ds-info-addtl dl {
+        margin-bottom: 0;
+    }
+</style>
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th>@Html.DisplayNameFor(m => m.ReceivedDate)</th>
+            <th>@Html.DisplayNameFor(m => m.SubmissionType)</th>
+            <th>@Html.DisplayNameFor(m => m.Status)</th>
+            <th>@Html.DisplayNameFor(m => m.StatusDate)</th>
+            <th>@Html.DisplayNameFor(m => m.PageCount)</th>
+            <th>@Html.DisplayNameFor(m => m.DeliveryType)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr></tr>
+        @foreach (var d in Model.OrderByDescending(d => d.ReceivedDate))
+        {
+            <tr data-toggle="row-collapse">
+                <td><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" role="presentation"></span></td>
+                <td>@Html.DisplayFor(m => d.ReceivedDate)</td>
+                <td>@Html.DisplayFor(m => d.SubmissionType)</td>
+                <td>@Html.DisplayFor(m => d.Status)</td>
+                <td>@Html.DisplayFor(m => d.StatusDate)</td>
+                <td>@Html.DisplayFor(m => d.PageCount)</td>
+                <td>
+                    @Html.DisplayFor(m => d.DeliveryType)
+                    @if (d.PostmarkDate.HasValue)
+                    {
+                        @: on @Html.DisplayFor(m => d.PostmarkDate)
+                    }
+                    @if (d.Deferred)
+                    {
+                        <span class="label label-warning" data-toggle="tooltip" title="Deferred Filing">Deferred</span>
+                    }
+                    @if (d.IsSmallCampaign)
+                    {
+                        <span class="label label-info" data-toggle="tooltip" title="Small Campaign">Small</span>
+                    }
+                </td>
+            </tr>
+            <tr class="cp-ds-info-addtl">
+                <td class="collapse" aria-expanded="false">
+                    <div class="collapse"></div>
+                </td>
+                <td colspan="6" class="collapse" aria-expanded="false">
+                    <div class="row collapse">
+                        <div class="col-xs-4">
+                            <dl>
+                                <dt>@Html.DisplayNameFor(m => m.DataFormat)</dt>
+                                <dd>@Html.DisplayFor(m => d.DataFormat)</dd>
+                            </dl>
+                        </div>
+                        @if (d.BackupReceivedDate.HasValue)
+                        {
+                            <div class="col-xs-8 col-divided">
+                                <div class="row">
+                                    <dl class="col-xs-4">
+                                        <dt>@Html.DisplayNameFor(m => m.BackupReceivedDate)</dt>
+                                        <dd>@Html.DisplayFor(m => d.BackupReceivedDate)</dd>
+                                    </dl>
+                                    <dl class="col-xs-8">
+                                        <dt>@Html.DisplayNameFor(m => m.BackupDeliveryType)</dt>
+                                        <dd>
+                                            @Html.DisplayFor(m => d.BackupDeliveryType)
+                                            @if (d.BackupPostmarkDate.HasValue)
+                                            {
+                                                @: on @Html.DisplayFor(m => d.BackupPostmarkDate)
+                                            }
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,1309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://caccess.nyccfb.info/schema/data" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://caccess.nyccfb.info/schema/data" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://caccess.nyccfb.info/schema/data/Imports">
+      <xsd:import namespace="http://caccess.nyccfb.info/schema/data" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Data.SqlClient" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.TrainingTracking" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.SubmissionDocuments" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.Cmo" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDataService_GetActiveCandidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveCandidate" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveCandidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveCandidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveCandidate_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveCandidates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveCandidates" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveCandidates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveCandidatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveCandidates_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveElectionCycles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveElectionCycles" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveElectionCycles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveElectionCyclesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveElectionCycles_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAuthorizedCommittees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedCommittees" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAuthorizedCommittees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorizedCommitteesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAuthorizedCommittees_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPrimaryCommitteeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryCommitteeID" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPrimaryCommitteeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrimaryCommitteeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPrimaryCommitteeID_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCommittees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommittees" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCommittees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommitteesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCommittees_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBankAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccounts" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBankAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBankAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetBankAccounts_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCandidate" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCandidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidate_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCandidates" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCandidatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidates_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidateName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCandidateName" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidateName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCandidateNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCandidateName_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCertificationDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificationDocuments" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCertificationDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCertificationDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCertificationDocuments_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCsuLiaisons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCsuLiaisons" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCsuLiaisons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCsuLiaisonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCsuLiaisons_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTrainingStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrainingStatus" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTrainingStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrainingStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTrainingStatus_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetterByCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingLetterByCodes" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetterByCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingLetterByCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetterByCodes_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetterByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingLetterByID" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetterByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingLetterByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetterByID_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingLetters" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingLettersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingLetters_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCoibReceipts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoibReceipts" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCoibReceipts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoibReceiptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCoibReceipts_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetComplianceVisits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComplianceVisits" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetComplianceVisits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComplianceVisitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetComplianceVisits_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetInitialDocumentationRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialDocumentationRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetInitialDocumentationRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInitialDocumentationRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetInitialDocumentationRequest_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetIdrInadequateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIdrInadequateEvent" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetIdrInadequateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIdrInadequateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetIdrInadequateEvent_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_HasIdrResponseAnalysis_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasIdrResponseAnalysis" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_HasIdrResponseAnalysis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasIdrResponseAnalysisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_HasIdrResponseAnalysis_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDraftAuditReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftAuditReport" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDraftAuditReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDraftAuditReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDraftAuditReport_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDarInadequateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarInadequateEvent" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDarInadequateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarInadequateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDarInadequateEvent_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFinalAuditReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalAuditReport" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFinalAuditReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinalAuditReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFinalAuditReport_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CountTollingDaysIncurred_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountTollingDaysIncurred" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CountTollingDaysIncurred_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountTollingDaysIncurredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CountTollingDaysIncurred_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingEvents" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingEvents_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetIdrInadequateEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIdrInadequateEvents" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetIdrInadequateEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIdrInadequateEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetIdrInadequateEvents_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDarInadequateEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarInadequateEvents" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDarInadequateEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarInadequateEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDarInadequateEvents_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSuspension_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuspension" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSuspension_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSuspensionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetSuspension_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingStartDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingStartDate" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingStartDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingStartDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingStartDate_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPublicFundsHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublicFundsHistory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPublicFundsHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPublicFundsHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPublicFundsHistory_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetGlobalSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGlobalSetting" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetGlobalSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGlobalSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetGlobalSetting_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetGlobalSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetGlobalSetting" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetGlobalSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetGlobalSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetGlobalSetting_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCsmartIdsRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCsmartIdsRequests" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCsmartIdsRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCsmartIdsRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCsmartIdsRequests_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDisclosureStatements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisclosureStatements" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDisclosureStatements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDisclosureStatementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDisclosureStatements_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDoingBusinessReviews_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoingBusinessReviews" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDoingBusinessReviews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoingBusinessReviewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDoingBusinessReviews_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetElections_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetElections" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetElections_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetElectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetElections_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveElections_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveElections" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveElections_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetActiveElectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetActiveElections_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetExtensionRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExtensionRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetExtensionRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExtensionRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetExtensionRequest_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddExtensionRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddExtensionRequest" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddExtensionRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddExtensionRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddExtensionRequest_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFilerRegistrations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilerRegistrations" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFilerRegistrations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilerRegistrationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFilerRegistrations_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFilingDeadlines_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilingDeadlines" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFilingDeadlines_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilingDeadlinesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFilingDeadlines_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFinancialSummary_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinancialSummary" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFinancialSummary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFinancialSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetFinancialSummary_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetLiaisons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLiaisons" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetLiaisons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLiaisonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetLiaisons_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPaymentPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentPlan" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPaymentPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPaymentPlan_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPreElectionDisclosures_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreElectionDisclosures" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPreElectionDisclosures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPreElectionDisclosuresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPreElectionDisclosures_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementsOfNeed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementsOfNeed" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementsOfNeed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementsOfNeedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementsOfNeed_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPrincipalStatementReviews_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrincipalStatementReviews" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPrincipalStatementReviews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrincipalStatementReviewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPrincipalStatementReviews_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementReviews_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementReviews" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementReviews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementReviewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementReviews_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatements" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatements_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTerminationVerifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminationVerifications" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTerminationVerifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerminationVerificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTerminationVerifications_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetThresholdHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetThresholdHistory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetThresholdHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetThresholdHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetThresholdHistory_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetWebTransferDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWebTransferDate" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetWebTransferDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWebTransferDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetWebTransferDate_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoAttachmentStream_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCmoAttachmentStream" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoAttachmentStream_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCmoAttachmentStreamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoAttachmentStream_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoAttachment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCmoAttachment" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCmoAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoAttachment_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoAttachment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCmoAttachment" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCmoAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoAttachment_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoAttachment" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachment_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachmentByIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoAttachmentByIDs" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachmentByIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoAttachmentByIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachmentByIDs_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachmentPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoAttachmentPath" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachmentPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoAttachmentPathResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoAttachmentPath_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoAttachment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCmoAttachment" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoAttachment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCmoAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoAttachment_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCmoCategory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCmoCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoCategory_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoCategories" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoCategories_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoCategory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoCategory_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCmoCategory" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCmoCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoCategory_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetMailboxMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMailboxMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetMailboxMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMailboxMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetMailboxMessages_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CountUnopenedMailboxMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:CountUnopenedMailboxMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CountUnopenedMailboxMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CountUnopenedMailboxMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_CountUnopenedMailboxMessages_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCmoMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCmoMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoMessage_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCmoMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCmoMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_DeleteCmoMessage_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindCmoMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindCmoMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindCmoMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindCmoMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_FindCmoMessages_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageCreators_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoMessageCreators" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageCreators_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoMessageCreatorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageCreators_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageByCandidateMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoMessageByCandidateMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageByCandidateMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoMessageByCandidateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageByCandidateMessage_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoMessageByID" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoMessageByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessageByID_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoMessages_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoPostedMessagesByCandidateElection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoPostedMessagesByCandidateElection" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoPostedMessagesByCandidateElection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoPostedMessagesByCandidateElectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoPostedMessagesByCandidateElection_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoPostedMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoPostedMessages" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoPostedMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoPostedMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoPostedMessages_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_OpenCmoMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:OpenCmoMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_OpenCmoMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OpenCmoMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_OpenCmoMessage_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_PostCmoMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostCmoMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_PostCmoMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostCmoMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_PostCmoMessage_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageArchiveStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCmoMessageArchiveStatus" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageArchiveStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCmoMessageArchiveStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageArchiveStatus_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageFlagStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCmoMessageFlagStatus" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageFlagStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCmoMessageFlagStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageFlagStatus_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCmoMessage" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCmoMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoMessage_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCmoSettings" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCmoSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_AddCmoSettings_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoSettings" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCmoSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetCmoSettings_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCmoSettings" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCmoSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_UpdateCmoSettings_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementReviewMessageIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementReviewMessageIDs" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementReviewMessageIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatementReviewMessageIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetStatementReviewMessageIDs_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetComplianceVisitMessageIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComplianceVisitMessageIDs" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetComplianceVisitMessageIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComplianceVisitMessageIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetComplianceVisitMessageIDs_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDoingBusinessReviewMessageIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoingBusinessReviewMessageIDs" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDoingBusinessReviewMessageIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoingBusinessReviewMessageIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetDoingBusinessReviewMessageIDs_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAuditReportMessageIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditReportMessageIDs" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAuditReportMessageIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuditReportMessageIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetAuditReportMessageIDs_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPaymentMessageID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentMessageID" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPaymentMessageID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPaymentMessageIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetPaymentMessageID_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageTolling_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetCmoMessageTolling" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageTolling_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetCmoMessageTollingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_SetCmoMessageTolling_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingMessageIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingMessageIDs" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingMessageIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTollingMessageIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetTollingMessageIDs_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_PingCfis_InputMessage">
+    <wsdl:part name="parameters" element="tns:PingCfis" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_PingCfis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingCfisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_PingCfis_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetEntity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntity" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetEntity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_GetEntity_OfflineDataExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:OfflineDataException" />
+  </wsdl:message>
+  <wsdl:portType name="IDataService">
+    <wsdl:operation name="GetActiveCandidate">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveCandidate" message="tns:IDataService_GetActiveCandidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveCandidateResponse" message="tns:IDataService_GetActiveCandidate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveCandidateOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetActiveCandidate_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCandidates">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveCandidates" message="tns:IDataService_GetActiveCandidates_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveCandidatesResponse" message="tns:IDataService_GetActiveCandidates_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveCandidatesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetActiveCandidates_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveElectionCycles">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveElectionCycles" message="tns:IDataService_GetActiveElectionCycles_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveElectionCyclesResponse" message="tns:IDataService_GetActiveElectionCycles_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveElectionCyclesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetActiveElectionCycles_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedCommittees">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetAuthorizedCommittees" message="tns:IDataService_GetAuthorizedCommittees_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetAuthorizedCommitteesResponse" message="tns:IDataService_GetAuthorizedCommittees_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetAuthorizedCommitteesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetAuthorizedCommittees_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryCommitteeID">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPrimaryCommitteeID" message="tns:IDataService_GetPrimaryCommitteeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPrimaryCommitteeIDResponse" message="tns:IDataService_GetPrimaryCommitteeID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPrimaryCommitteeIDOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetPrimaryCommitteeID_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommittees">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCommittees" message="tns:IDataService_GetCommittees_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCommitteesResponse" message="tns:IDataService_GetCommittees_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCommitteesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCommittees_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccounts">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetBankAccounts" message="tns:IDataService_GetBankAccounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetBankAccountsResponse" message="tns:IDataService_GetBankAccounts_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetBankAccountsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetBankAccounts_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidate">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidate" message="tns:IDataService_GetCandidate_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidateResponse" message="tns:IDataService_GetCandidate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidateOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCandidate_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidates">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidates" message="tns:IDataService_GetCandidates_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidatesResponse" message="tns:IDataService_GetCandidates_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidatesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCandidates_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidateName">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidateName" message="tns:IDataService_GetCandidateName_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidateNameResponse" message="tns:IDataService_GetCandidateName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidateNameOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCandidateName_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificationDocuments">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCertificationDocuments" message="tns:IDataService_GetCertificationDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCertificationDocumentsResponse" message="tns:IDataService_GetCertificationDocuments_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCertificationDocumentsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCertificationDocuments_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCsuLiaisons">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCsuLiaisons" message="tns:IDataService_GetCsuLiaisons_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCsuLiaisonsResponse" message="tns:IDataService_GetCsuLiaisons_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCsuLiaisonsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCsuLiaisons_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingStatus">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTrainingStatus" message="tns:IDataService_GetTrainingStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTrainingStatusResponse" message="tns:IDataService_GetTrainingStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTrainingStatusOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetTrainingStatus_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingLetterByCodes">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetterByCodes" message="tns:IDataService_GetTollingLetterByCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetterByCodesResponse" message="tns:IDataService_GetTollingLetterByCodes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetterByCodesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetTollingLetterByCodes_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingLetterByID">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetterByID" message="tns:IDataService_GetTollingLetterByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetterByIDResponse" message="tns:IDataService_GetTollingLetterByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetterByIDOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetTollingLetterByID_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingLetters">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetters" message="tns:IDataService_GetTollingLetters_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLettersResponse" message="tns:IDataService_GetTollingLetters_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLettersOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetTollingLetters_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoibReceipts">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCoibReceipts" message="tns:IDataService_GetCoibReceipts_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCoibReceiptsResponse" message="tns:IDataService_GetCoibReceipts_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCoibReceiptsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCoibReceipts_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComplianceVisits">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetComplianceVisits" message="tns:IDataService_GetComplianceVisits_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetComplianceVisitsResponse" message="tns:IDataService_GetComplianceVisits_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetComplianceVisitsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetComplianceVisits_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialDocumentationRequest">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetInitialDocumentationRequest" message="tns:IDataService_GetInitialDocumentationRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetInitialDocumentationRequestResponse" message="tns:IDataService_GetInitialDocumentationRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetInitialDocumentationRequestOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetInitialDocumentationRequest_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdrInadequateEvent">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetIdrInadequateEvent" message="tns:IDataService_GetIdrInadequateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetIdrInadequateEventResponse" message="tns:IDataService_GetIdrInadequateEvent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetIdrInadequateEventOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetIdrInadequateEvent_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasIdrResponseAnalysis">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/HasIdrResponseAnalysis" message="tns:IDataService_HasIdrResponseAnalysis_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/HasIdrResponseAnalysisResponse" message="tns:IDataService_HasIdrResponseAnalysis_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/HasIdrResponseAnalysisOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_HasIdrResponseAnalysis_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftAuditReport">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDraftAuditReport" message="tns:IDataService_GetDraftAuditReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDraftAuditReportResponse" message="tns:IDataService_GetDraftAuditReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDraftAuditReportOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetDraftAuditReport_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarInadequateEvent">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDarInadequateEvent" message="tns:IDataService_GetDarInadequateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDarInadequateEventResponse" message="tns:IDataService_GetDarInadequateEvent_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDarInadequateEventOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetDarInadequateEvent_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalAuditReport">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFinalAuditReport" message="tns:IDataService_GetFinalAuditReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFinalAuditReportResponse" message="tns:IDataService_GetFinalAuditReport_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFinalAuditReportOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetFinalAuditReport_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountTollingDaysIncurred">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/CountTollingDaysIncurred" message="tns:IDataService_CountTollingDaysIncurred_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/CountTollingDaysIncurredResponse" message="tns:IDataService_CountTollingDaysIncurred_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/CountTollingDaysIncurredOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_CountTollingDaysIncurred_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingEvents">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingEvents" message="tns:IDataService_GetTollingEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingEventsResponse" message="tns:IDataService_GetTollingEvents_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingEventsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetTollingEvents_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIdrInadequateEvents">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetIdrInadequateEvents" message="tns:IDataService_GetIdrInadequateEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetIdrInadequateEventsResponse" message="tns:IDataService_GetIdrInadequateEvents_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetIdrInadequateEventsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetIdrInadequateEvents_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarInadequateEvents">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDarInadequateEvents" message="tns:IDataService_GetDarInadequateEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDarInadequateEventsResponse" message="tns:IDataService_GetDarInadequateEvents_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDarInadequateEventsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetDarInadequateEvents_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuspension">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetSuspension" message="tns:IDataService_GetSuspension_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetSuspensionResponse" message="tns:IDataService_GetSuspension_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetSuspensionOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetSuspension_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingStartDate">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingStartDate" message="tns:IDataService_GetTollingStartDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingStartDateResponse" message="tns:IDataService_GetTollingStartDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingStartDateOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetTollingStartDate_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicFundsHistory">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPublicFundsHistory" message="tns:IDataService_GetPublicFundsHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPublicFundsHistoryResponse" message="tns:IDataService_GetPublicFundsHistory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPublicFundsHistoryOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetPublicFundsHistory_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalSetting">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetGlobalSetting" message="tns:IDataService_GetGlobalSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetGlobalSettingResponse" message="tns:IDataService_GetGlobalSetting_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetGlobalSettingOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetGlobalSetting_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetGlobalSetting">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetGlobalSetting" message="tns:IDataService_SetGlobalSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetGlobalSettingResponse" message="tns:IDataService_SetGlobalSetting_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetGlobalSettingOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_SetGlobalSetting_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCsmartIdsRequests">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCsmartIdsRequests" message="tns:IDataService_GetCsmartIdsRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCsmartIdsRequestsResponse" message="tns:IDataService_GetCsmartIdsRequests_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCsmartIdsRequestsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCsmartIdsRequests_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDisclosureStatements">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDisclosureStatements" message="tns:IDataService_GetDisclosureStatements_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDisclosureStatementsResponse" message="tns:IDataService_GetDisclosureStatements_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDisclosureStatementsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetDisclosureStatements_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoingBusinessReviews">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDoingBusinessReviews" message="tns:IDataService_GetDoingBusinessReviews_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDoingBusinessReviewsResponse" message="tns:IDataService_GetDoingBusinessReviews_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDoingBusinessReviewsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetDoingBusinessReviews_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetElections">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetElections" message="tns:IDataService_GetElections_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetElectionsResponse" message="tns:IDataService_GetElections_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetElectionsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetElections_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveElections">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveElections" message="tns:IDataService_GetActiveElections_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveElectionsResponse" message="tns:IDataService_GetActiveElections_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveElectionsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetActiveElections_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExtensionRequest">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetExtensionRequest" message="tns:IDataService_GetExtensionRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetExtensionRequestResponse" message="tns:IDataService_GetExtensionRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetExtensionRequestOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetExtensionRequest_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddExtensionRequest">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddExtensionRequest" message="tns:IDataService_AddExtensionRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddExtensionRequestResponse" message="tns:IDataService_AddExtensionRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddExtensionRequestOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_AddExtensionRequest_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilerRegistrations">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFilerRegistrations" message="tns:IDataService_GetFilerRegistrations_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFilerRegistrationsResponse" message="tns:IDataService_GetFilerRegistrations_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFilerRegistrationsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetFilerRegistrations_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilingDeadlines">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFilingDeadlines" message="tns:IDataService_GetFilingDeadlines_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFilingDeadlinesResponse" message="tns:IDataService_GetFilingDeadlines_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFilingDeadlinesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetFilingDeadlines_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialSummary">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFinancialSummary" message="tns:IDataService_GetFinancialSummary_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFinancialSummaryResponse" message="tns:IDataService_GetFinancialSummary_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetFinancialSummaryOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetFinancialSummary_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLiaisons">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetLiaisons" message="tns:IDataService_GetLiaisons_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetLiaisonsResponse" message="tns:IDataService_GetLiaisons_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetLiaisonsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetLiaisons_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentPlan">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPaymentPlan" message="tns:IDataService_GetPaymentPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPaymentPlanResponse" message="tns:IDataService_GetPaymentPlan_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPaymentPlanOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetPaymentPlan_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreElectionDisclosures">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPreElectionDisclosures" message="tns:IDataService_GetPreElectionDisclosures_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPreElectionDisclosuresResponse" message="tns:IDataService_GetPreElectionDisclosures_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPreElectionDisclosuresOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetPreElectionDisclosures_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementsOfNeed">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementsOfNeed" message="tns:IDataService_GetStatementsOfNeed_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementsOfNeedResponse" message="tns:IDataService_GetStatementsOfNeed_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementsOfNeedOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetStatementsOfNeed_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrincipalStatementReviews">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPrincipalStatementReviews" message="tns:IDataService_GetPrincipalStatementReviews_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPrincipalStatementReviewsResponse" message="tns:IDataService_GetPrincipalStatementReviews_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPrincipalStatementReviewsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetPrincipalStatementReviews_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementReviews">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementReviews" message="tns:IDataService_GetStatementReviews_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementReviewsResponse" message="tns:IDataService_GetStatementReviews_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementReviewsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetStatementReviews_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatements">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatements" message="tns:IDataService_GetStatements_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementsResponse" message="tns:IDataService_GetStatements_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetStatements_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminationVerifications">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTerminationVerifications" message="tns:IDataService_GetTerminationVerifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTerminationVerificationsResponse" message="tns:IDataService_GetTerminationVerifications_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTerminationVerificationsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetTerminationVerifications_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetThresholdHistory">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetThresholdHistory" message="tns:IDataService_GetThresholdHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetThresholdHistoryResponse" message="tns:IDataService_GetThresholdHistory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetThresholdHistoryOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetThresholdHistory_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWebTransferDate">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetWebTransferDate" message="tns:IDataService_GetWebTransferDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetWebTransferDateResponse" message="tns:IDataService_GetWebTransferDate_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetWebTransferDateOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetWebTransferDate_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCmoAttachmentStream">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoAttachmentStream" message="tns:IDataService_AddCmoAttachmentStream_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoAttachmentStreamResponse" message="tns:IDataService_AddCmoAttachmentStream_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoAttachmentStreamOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_AddCmoAttachmentStream_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCmoAttachment">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoAttachment" message="tns:IDataService_AddCmoAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoAttachmentResponse" message="tns:IDataService_AddCmoAttachment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoAttachmentOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_AddCmoAttachment_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCmoAttachment">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoAttachment" message="tns:IDataService_DeleteCmoAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoAttachmentResponse" message="tns:IDataService_DeleteCmoAttachment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoAttachmentOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_DeleteCmoAttachment_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoAttachment">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachment" message="tns:IDataService_GetCmoAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentResponse" message="tns:IDataService_GetCmoAttachment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoAttachment_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoAttachmentByIDs">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentByIDs" message="tns:IDataService_GetCmoAttachmentByIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentByIDsResponse" message="tns:IDataService_GetCmoAttachmentByIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentByIDsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoAttachmentByIDs_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoAttachmentPath">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentPath" message="tns:IDataService_GetCmoAttachmentPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentPathResponse" message="tns:IDataService_GetCmoAttachmentPath_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentPathOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoAttachmentPath_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCmoAttachment">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoAttachment" message="tns:IDataService_UpdateCmoAttachment_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoAttachmentResponse" message="tns:IDataService_UpdateCmoAttachment_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoAttachmentOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_UpdateCmoAttachment_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCmoCategory">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoCategory" message="tns:IDataService_DeleteCmoCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoCategoryResponse" message="tns:IDataService_DeleteCmoCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoCategoryOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_DeleteCmoCategory_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoCategories">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoCategories" message="tns:IDataService_GetCmoCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoCategoriesResponse" message="tns:IDataService_GetCmoCategories_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoCategoriesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoCategories_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoCategory">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoCategory" message="tns:IDataService_GetCmoCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoCategoryResponse" message="tns:IDataService_GetCmoCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoCategoryOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoCategory_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCmoCategory">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoCategory" message="tns:IDataService_UpdateCmoCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoCategoryResponse" message="tns:IDataService_UpdateCmoCategory_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoCategoryOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_UpdateCmoCategory_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailboxMessages">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetMailboxMessages" message="tns:IDataService_GetMailboxMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetMailboxMessagesResponse" message="tns:IDataService_GetMailboxMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetMailboxMessagesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetMailboxMessages_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CountUnopenedMailboxMessages">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/CountUnopenedMailboxMessages" message="tns:IDataService_CountUnopenedMailboxMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/CountUnopenedMailboxMessagesResponse" message="tns:IDataService_CountUnopenedMailboxMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/CountUnopenedMailboxMessagesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_CountUnopenedMailboxMessages_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCmoMessage">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoMessage" message="tns:IDataService_AddCmoMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoMessageResponse" message="tns:IDataService_AddCmoMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoMessageOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_AddCmoMessage_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCmoMessage">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoMessage" message="tns:IDataService_DeleteCmoMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoMessageResponse" message="tns:IDataService_DeleteCmoMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoMessageOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_DeleteCmoMessage_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCmoMessages">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/FindCmoMessages" message="tns:IDataService_FindCmoMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/FindCmoMessagesResponse" message="tns:IDataService_FindCmoMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/FindCmoMessagesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_FindCmoMessages_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoMessageCreators">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageCreators" message="tns:IDataService_GetCmoMessageCreators_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageCreatorsResponse" message="tns:IDataService_GetCmoMessageCreators_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageCreatorsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoMessageCreators_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoMessageByCandidateMessage">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageByCandidateMessage" message="tns:IDataService_GetCmoMessageByCandidateMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageByCandidateMessageResponse" message="tns:IDataService_GetCmoMessageByCandidateMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageByCandidateMessageOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoMessageByCandidateMessage_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoMessageByID">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageByID" message="tns:IDataService_GetCmoMessageByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageByIDResponse" message="tns:IDataService_GetCmoMessageByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageByIDOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoMessageByID_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoMessages">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessages" message="tns:IDataService_GetCmoMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessagesResponse" message="tns:IDataService_GetCmoMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessagesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoMessages_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoPostedMessagesByCandidateElection">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoPostedMessagesByCandidateElection" message="tns:IDataService_GetCmoPostedMessagesByCandidateElection_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoPostedMessagesByCandidateElectionResponse" message="tns:IDataService_GetCmoPostedMessagesByCandidateElection_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoPostedMessagesByCandidateElectionOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoPostedMessagesByCandidateElection_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoPostedMessages">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoPostedMessages" message="tns:IDataService_GetCmoPostedMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoPostedMessagesResponse" message="tns:IDataService_GetCmoPostedMessages_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoPostedMessagesOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoPostedMessages_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenCmoMessage">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/OpenCmoMessage" message="tns:IDataService_OpenCmoMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/OpenCmoMessageResponse" message="tns:IDataService_OpenCmoMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/OpenCmoMessageOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_OpenCmoMessage_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostCmoMessage">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/PostCmoMessage" message="tns:IDataService_PostCmoMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/PostCmoMessageResponse" message="tns:IDataService_PostCmoMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/PostCmoMessageOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_PostCmoMessage_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCmoMessageArchiveStatus">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageArchiveStatus" message="tns:IDataService_SetCmoMessageArchiveStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageArchiveStatusResponse" message="tns:IDataService_SetCmoMessageArchiveStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageArchiveStatusOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_SetCmoMessageArchiveStatus_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCmoMessageFlagStatus">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageFlagStatus" message="tns:IDataService_SetCmoMessageFlagStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageFlagStatusResponse" message="tns:IDataService_SetCmoMessageFlagStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageFlagStatusOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_SetCmoMessageFlagStatus_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCmoMessage">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoMessage" message="tns:IDataService_UpdateCmoMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoMessageResponse" message="tns:IDataService_UpdateCmoMessage_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoMessageOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_UpdateCmoMessage_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCmoSettings">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoSettings" message="tns:IDataService_AddCmoSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoSettingsResponse" message="tns:IDataService_AddCmoSettings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoSettingsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_AddCmoSettings_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoSettings">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoSettings" message="tns:IDataService_GetCmoSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoSettingsResponse" message="tns:IDataService_GetCmoSettings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoSettingsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetCmoSettings_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCmoSettings">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoSettings" message="tns:IDataService_UpdateCmoSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoSettingsResponse" message="tns:IDataService_UpdateCmoSettings_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoSettingsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_UpdateCmoSettings_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementReviewMessageIDs">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementReviewMessageIDs" message="tns:IDataService_GetStatementReviewMessageIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementReviewMessageIDsResponse" message="tns:IDataService_GetStatementReviewMessageIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementReviewMessageIDsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetStatementReviewMessageIDs_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComplianceVisitMessageIDs">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetComplianceVisitMessageIDs" message="tns:IDataService_GetComplianceVisitMessageIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetComplianceVisitMessageIDsResponse" message="tns:IDataService_GetComplianceVisitMessageIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetComplianceVisitMessageIDsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetComplianceVisitMessageIDs_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoingBusinessReviewMessageIDs">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDoingBusinessReviewMessageIDs" message="tns:IDataService_GetDoingBusinessReviewMessageIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDoingBusinessReviewMessageIDsResponse" message="tns:IDataService_GetDoingBusinessReviewMessageIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetDoingBusinessReviewMessageIDsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetDoingBusinessReviewMessageIDs_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditReportMessageIDs">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetAuditReportMessageIDs" message="tns:IDataService_GetAuditReportMessageIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetAuditReportMessageIDsResponse" message="tns:IDataService_GetAuditReportMessageIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetAuditReportMessageIDsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetAuditReportMessageIDs_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentMessageID">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPaymentMessageID" message="tns:IDataService_GetPaymentMessageID_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPaymentMessageIDResponse" message="tns:IDataService_GetPaymentMessageID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetPaymentMessageIDOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetPaymentMessageID_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCmoMessageTolling">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageTolling" message="tns:IDataService_SetCmoMessageTolling_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageTollingResponse" message="tns:IDataService_SetCmoMessageTolling_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageTollingOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_SetCmoMessageTolling_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingMessageIDs">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingMessageIDs" message="tns:IDataService_GetTollingMessageIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingMessageIDsResponse" message="tns:IDataService_GetTollingMessageIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingMessageIDsOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetTollingMessageIDs_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PingCfis">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/PingCfis" message="tns:IDataService_PingCfis_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/PingCfisResponse" message="tns:IDataService_PingCfis_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/PingCfisOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_PingCfis_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEntity">
+      <wsdl:input wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetEntity" message="tns:IDataService_GetEntity_InputMessage" />
+      <wsdl:output wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetEntityResponse" message="tns:IDataService_GetEntity_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://caccess.nyccfb.info/schema/data/IDataService/GetEntityOfflineDataExceptionFault" name="OfflineDataExceptionFault" message="tns:IDataService_GetEntity_OfflineDataExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

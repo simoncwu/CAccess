@@ -1,0 +1,1160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://caccess.nyccfb.info/schema/data" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DataService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IDataService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1">
+        </msb:BinaryEncoding>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256>
+                </sp:Basic256>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict>
+                </sp:Strict>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <msf:Streamed xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+        </msf:Streamed>
+        <wsaw:UsingAddressing>
+        </wsaw:UsingAddressing>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="http://caccess.nyccfb.info/schema/data" location="" />
+  <wsdl:types />
+  <wsdl:binding name="NetTcpBinding_IDataService" type="i0:IDataService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IDataService_policy">
+    </wsp:PolicyReference>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetActiveCandidate">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveCandidate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCandidates">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveCandidates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveElectionCycles">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveElectionCycles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizedCommittees">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetAuthorizedCommittees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrimaryCommitteeID">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetPrimaryCommitteeID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommittees">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCommittees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccounts">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetBankAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidate">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidates">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCandidateName">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCandidateName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCertificationDocuments">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCertificationDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCsuLiaisons">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCsuLiaisons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingStatus">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetTrainingStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingLetterByCodes">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetterByCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingLetterByID">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetterByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingLetters">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingLetters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoibReceipts">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCoibReceipts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetComplianceVisits">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetComplianceVisits" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetInitialDocumentationRequest">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetInitialDocumentationRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdrInadequateEvent">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetIdrInadequateEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="HasIdrResponseAnalysis">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/HasIdrResponseAnalysis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDraftAuditReport">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetDraftAuditReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarInadequateEvent">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetDarInadequateEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalAuditReport">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetFinalAuditReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CountTollingDaysIncurred">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/CountTollingDaysIncurred" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingEvents">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetIdrInadequateEvents">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetIdrInadequateEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarInadequateEvents">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetDarInadequateEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuspension">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetSuspension" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingStartDate">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingStartDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublicFundsHistory">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetPublicFundsHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlobalSetting">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetGlobalSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetGlobalSetting">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/SetGlobalSetting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCsmartIdsRequests">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCsmartIdsRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDisclosureStatements">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetDisclosureStatements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoingBusinessReviews">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetDoingBusinessReviews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetElections">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetElections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveElections">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetActiveElections" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetExtensionRequest">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetExtensionRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddExtensionRequest">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/AddExtensionRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilerRegistrations">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetFilerRegistrations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilingDeadlines">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetFilingDeadlines" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinancialSummary">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetFinancialSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLiaisons">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetLiaisons" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentPlan">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetPaymentPlan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreElectionDisclosures">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetPreElectionDisclosures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementsOfNeed">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementsOfNeed" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrincipalStatementReviews">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetPrincipalStatementReviews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementReviews">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementReviews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatements">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetStatements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerminationVerifications">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetTerminationVerifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetThresholdHistory">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetThresholdHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetWebTransferDate">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetWebTransferDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddCmoAttachmentStream">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoAttachmentStream" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddCmoAttachment">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCmoAttachment">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoAttachment">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoAttachmentByIDs">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentByIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoAttachmentPath">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoAttachmentPath" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCmoAttachment">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCmoCategory">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoCategories">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoCategory">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCmoCategory">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailboxMessages">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetMailboxMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CountUnopenedMailboxMessages">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/CountUnopenedMailboxMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddCmoMessage">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCmoMessage">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/DeleteCmoMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindCmoMessages">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/FindCmoMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoMessageCreators">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageCreators" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoMessageByCandidateMessage">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageByCandidateMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoMessageByID">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessageByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoMessages">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoPostedMessagesByCandidateElection">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoPostedMessagesByCandidateElection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoPostedMessages">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoPostedMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="OpenCmoMessage">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/OpenCmoMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PostCmoMessage">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/PostCmoMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetCmoMessageArchiveStatus">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageArchiveStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetCmoMessageFlagStatus">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageFlagStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCmoMessage">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AddCmoSettings">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/AddCmoSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCmoSettings">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetCmoSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCmoSettings">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/UpdateCmoSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementReviewMessageIDs">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetStatementReviewMessageIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetComplianceVisitMessageIDs">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetComplianceVisitMessageIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoingBusinessReviewMessageIDs">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetDoingBusinessReviewMessageIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuditReportMessageIDs">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetAuditReportMessageIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentMessageID">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetPaymentMessageID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SetCmoMessageTolling">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/SetCmoMessageTolling" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTollingMessageIDs">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetTollingMessageIDs" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PingCfis">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/PingCfis" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetEntity">
+      <soap12:operation soapAction="http://caccess.nyccfb.info/schema/data/IDataService/GetEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="OfflineDataExceptionFault">
+        <soap12:fault use="literal" name="OfflineDataExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DataService">
+    <wsdl:port name="NetTcpBinding_IDataService" binding="tns:NetTcpBinding_IDataService">
+      <soap12:address location="net.tcp://localhost:8006/CAccess/DataService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8006/CAccess/DataService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

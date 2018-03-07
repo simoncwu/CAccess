@@ -1,0 +1,19 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.PrimaryGeneralStatusListViewModel
+
+@{
+    bool hasGeneral = Model.GeneralElection.Any();
+}
+@if (hasGeneral)
+{
+    <section class="panel panel-primary">
+        <div class="panel-heading"><h4 class="panel-title">General Election</h4></div>
+        @Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.DocumentStatusList, Model.GeneralElection)
+    </section>
+}
+@if (Model.PrimaryElection.Any())
+{
+    <section class="panel panel-@(hasGeneral ? "info" : "primary")">
+        <div class="panel-heading"><h4 class="panel-title">Primary Election</h4></div>
+        @Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.DocumentStatusList, Model.PrimaryElection)
+    </section>
+}

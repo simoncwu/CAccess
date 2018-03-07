@@ -1,0 +1,24 @@
+﻿@model string
+<div class="form-group@(ViewData.ContainsKey("class")? " " + ViewData["class"] : null)">
+    @Html.LabelFor(m => m, new { @class = "control-label" })
+    @if (ViewData.ModelMetadata.IsReadOnly)
+    {
+        <p class="form-control-static">@Html.DisplayFor(m => m)</p>
+    }
+    else
+    {
+        var htmlAttr = new Dictionary<string, object> {
+            { "type", "email" },
+            { "class", "form-control" }
+        };
+        string attr = "readonly";
+        if (ViewData.ContainsKey(attr))
+        {
+            htmlAttr.Add(attr, attr);
+        }
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            @Html.TextBox("", Model, htmlAttr)
+        </div>
+    }
+</div>

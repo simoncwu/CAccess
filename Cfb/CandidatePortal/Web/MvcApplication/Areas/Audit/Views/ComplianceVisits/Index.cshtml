@@ -1,0 +1,8 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Audit.Models.AuditReviewTrackingViewModel
+
+@{
+    ViewBag.Title = "Compliance Visits";
+}
+<h2>@ViewBag.Title</h2>
+<p>The purpose of a compliance visit is to determine if your campaign is in compliance with the Board&rsquo;s rules concerning record keeping and contribution and expenditure limit requirements. Your campaign must provide the Board with a written response to the findings discovered during a compliance visit. Compliance visits are preliminary reviews and are in no way a final determination concerning any aspect of the Campaign&rsquo;s compliance or the acceptability of any specific document. Your campaign will only receive a compliance visit letter following the compliance visit if CFB staff have found issues that must be addressed.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.AuditReviewTracking, Model)

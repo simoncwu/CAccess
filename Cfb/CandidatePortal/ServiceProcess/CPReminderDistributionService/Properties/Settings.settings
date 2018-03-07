@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Cfb.CandidatePortal.ServiceProcess.CPReminderDistributionService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TimerIntervalMinutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="DoingBusinessReminderDays" Type="System.Byte" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="BodyTemplateHeader" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;&lt;img src="{0}/images/caccess-logo.png" width="113" height="29" alt="C-Access"/&gt;&lt;/h1&gt;
+</Value>
+    </Setting>
+    <Setting Name="BodyTemplateFooter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;p&gt;&lt;em&gt;NOTE: Please do not reply to this automated message, as e-mail sent to this address will not be answered.&lt;/em&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</Value>
+    </Setting>
+    <Setting Name="DoingBusinessSubject" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Doing Business Reminder</Value>
+    </Setting>
+    <Setting Name="DoingBusinessBodyTemplate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;p&gt;Please be reminded that a response is due in {0} days to a notification by the CFB regarding contributions during the {1} election that exceed the doing business limit. No extensions can be granted. The notification was sent directly to your campaign via e-mail on {2:M}, {2:yyyy}. If you did not receive the notification, or if you have any questions, please contact &lt;a href="mailto:CFBDoingBusiness@nyccfb.info"&gt;CFBDoingBusiness@nyccfb.info&lt;/a&gt; immediately.&lt;/p&gt;
+</Value>
+    </Setting>
+    <Setting Name="SenderDisplayName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CFB Notice</Value>
+    </Setting>
+    <Setting Name="SenderEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

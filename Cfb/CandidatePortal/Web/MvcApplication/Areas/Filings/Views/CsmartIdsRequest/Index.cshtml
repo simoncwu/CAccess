@@ -1,0 +1,8 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.DocumentStatusListViewModel
+
+@{
+    ViewBag.Title = "C-SMART/IDS Password Requests";
+}
+<h2>@ViewBag.Title</h2>
+<p>Your campaign uses this form to request from the CFB a copy of the C-SMART software and/or request an IDS password for filing disclosure statements electronically. This form must be completed and returned to the CFB. Listed below is the history of C-SMART/IDS Requests, resubmissions of C-SMART/IDS Requests, and amendments to C-SMART/IDS Requests received by the CFB from your campaign. IDS/C-SMART Requests may have a status of Processing, Accepted, On-Hold, Rejected or No Processing Required. A &ldquo;Processing&rdquo; status does not indicate that a IDS/C-SMART Request has been &ldquo;Accepted&rdquo; by the CFB.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.DocumentStatusList, Model.Documents)

@@ -1,0 +1,79 @@
+﻿@using Cfb.CandidatePortal;
+@using Cfb.CandidatePortal.Web.Mvc.Strings;
+@using Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Controllers;
+@model IEnumerable<Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.BankAccountViewModel>
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var account in Model.OrderBy(m => m.BankName))
+        {
+            using (Ajax.BeginForm(CommitteeController.ActionName_BankAccount, CommitteeController.ControllerName, new { committeeID = account.CommitteeID, id = account.ID }, new AjaxOptions
+            {
+                HttpMethod = "GET",
+                InsertionMode = InsertionMode.Replace,
+                LoadingElementId = "LoadingElement",
+                UpdateTargetId = "BankAccountDetailsUpdateTarget"
+            }))
+            {
+                string accountTypeIcon = null;
+                switch (account.Type)
+                {
+                    case "Credit Card":
+                        accountTypeIcon = "glyphicon glyphicon-credit-card";
+                        break;
+                    case "Checking":
+                    case "Custodial":
+                    case "Money Market":
+                    case "Savings":
+                        accountTypeIcon = "fa fa-bank";
+                        break;
+                    default:
+                        accountTypeIcon = "glyphicon glyphicon-piggy-bank";
+                        break;
+                }
+                @Html.AntiForgeryToken()
+                <div class="col-sm-6 col-md-4">
+                    <div class="well well-sm ajax-trigger" data-toggle="modal" data-target="#BankAccountDetailsModal">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <h4>@account.BankName<small><span class="@accountTypeIcon"></span> @account.Type</small></h4>
+                        <p>
+                            @account.FriendlyName&nbsp;<br />
+                            xxxxxx@(account.AccountNumber.Length > 4 ? account.AccountNumber.Substring(account.AccountNumber.Length - 4) : account.AccountNumber)
+                        </p>
+                        <span class="cp-account-balance">
+                            <strong>@Html.DisplayFor(m => account.Balance)</strong>
+                            @if (account.BalanceDate.HasValue)
+                        {
+                                <span>as of @Html.DisplayFor(m => account.BalanceDate)</span>
+                            }
+                        </span>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div id="BankAccountDetailsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><span class="fa fa-bank"></span> Bank Account Details</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="BankAccountDetailsUpdateTarget"></div>
+                    <div id="LoadingElement" style="display:none;">
+                        @Html.Partial(Views.LoaderOverlayPartial)
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>You do not have any bank accounts on file for this committee.</p>
+}

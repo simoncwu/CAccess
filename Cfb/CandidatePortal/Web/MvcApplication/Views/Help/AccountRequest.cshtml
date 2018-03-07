@@ -1,0 +1,80 @@
+﻿@using Cfb.CandidatePortal
+@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Models.AccountRequestViewModel
+
+@{
+    ViewBag.Title = "Request Additional Accounts";
+    var appName = Cfb.CandidatePortal.CPProviders.SettingsProvider.ApplicationName;
+    var updateTarget = "ContactDetails";
+}
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", Actions.Default, HomeController.ControllerName)</li>
+    <li>@Html.ActionLink("Help", Actions.Default)</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+<h3>@AreaNames.Help</h3>
+<h2>@ViewBag.Title</h2>
+<p>You may request additional users for other contacts whom you wish to have access to your @appName account. Please note that only requests for authorized campaign contacts appearing on your campaign&rsquo;s Filer Registration or Certification will be accepted and approved. If you wish to request an account for a contact not currently shown, please <a href="http://www.nyccfb.info/candidate-services/forms" target="_blank" title="NYC Campaign Finance Board Forms & Guidance">amend</a> your Filer Registration or Certification as appropriate with the contact&rsquo;s information.</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">Eligible Contacts</h4>
+            </div>
+            <div class="panel-body">
+                <p id="RequestFail" class="alert alert-danger hidden" role="alert">An error occurred while processing your request. Please try again, or @Html.ActionLink("contact the CFB", HelpController.ActionName_Contact) for more assistance.</p>
+                @if (Model.EligibleContacts.Any())
+                {
+                    using (Ajax.BeginForm(new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = updateTarget,
+                        OnSuccess = "accountRequestSuccess",
+                        OnFailure = "accountRequestFail"
+                    }))
+                    {
+                        <div class="form-group">
+                            @Html.DropDownList("id", Model.EligibleContacts, "(select a contact)", new { @class = "form-control", required = "required", data_ajax_trigger = "change" })
+                        </div>
+                    }
+                    <div id="@updateTarget"></div>
+                }
+                else
+                {
+                    <p class="alert alert-warning">There are no contacts remaining in your campaign eligible for @appName accounts.</p>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        @if (Model.IneligibleContacts.Any())
+        {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Ineligible Contacts</h4>
+                </div>
+                <div class="panel-body panel-dl">
+                    <dl>
+                        @foreach (var c in Model.IneligibleContacts)
+                        {
+                            <dt>@Html.DisplayFor(m => c.FullName)</dt>
+                            <dd>@Html.DisplayFor(m => c.Reason)</dd>
+                        }
+                    </dl>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+    <script>
+        var accountRequestFail = function () {
+            $("#RequestFail").removeClass("hidden");
+        };
+        var accountRequestSuccess = function () {
+            $("#RequestFail").addClass("hidden");
+        };
+    </script>
+}

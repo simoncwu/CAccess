@@ -1,0 +1,130 @@
+﻿@font-face
+{
+    font-family: 'ProximaNova-Regular';
+    src: url('/styles/webfonts/27565D_A_0.eot');
+    src: url('/styles/webfonts/27565D_A_0.eot?#iefix') format('embedded-opentype'),url('/styles/webfonts/27565D_A_0.woff') format('woff'),url('/styles/webfonts/27565D_A_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face
+{
+    font-family: 'ProximaNova-Semibold';
+    src: url('/styles/webfonts/27565D_9_0.eot');
+    src: url('/styles/webfonts/27565D_9_0.eot?#iefix') format('embedded-opentype'),url('/styles/webfonts/27565D_9_0.woff') format('woff'),url('/styles/webfonts/27565D_9_0.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face
+{
+    font-family: 'ProximaNova-Italic';
+    src: url('/styles/webfonts/27565D_8_0.eot');
+    src: url('/styles/webfonts/27565D_8_0.eot?#iefix') format('embedded-opentype'),url('/styles/webfonts/27565D_8_0.woff') format('woff'),url('/styles/webfonts/27565D_8_0.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+aside, article, section, details, summary
+{
+    display: block;
+}
+em
+{
+    font-family: ProximaNova-Italic;
+}
+input[type=submit]
+{
+    padding-top: 1px;
+}
+input.cp-textinput, input[type=password], input[type=text]
+{
+    height: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#LoginArea input.cp-textinput
+{
+    height: auto;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+.column.two-up, .column.two-up ~ .column
+{
+    width: 442px;
+}
+.cp-PhotoUpload input[type=submit], .cp-UserGreeting input[type=submit]
+{
+    line-height: 18px;
+}
+.column.two-up .cp-gettingstarted li
+{
+    width: 186px;
+}
+.submission.description
+{
+    width: 529px;
+}
+.field .fieldData
+{
+    min-height: 15px;
+}
+section details summary
+{
+    padding-top: 0;
+}
+h1
+{
+    line-height: 23px;
+}
+.cp-UserGreeting h1
+{
+    padding-bottom: 5px;
+}
+.cp-CommitteeProfile .cp-SelectedCommittee
+{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.column.three-up, .column + .column + .column
+{
+    width: 289px;
+}
+textarea
+{
+    width: 925px;
+}
+.column.two-up.cp-boundingBox
+{
+    width: 398px;
+}
+.sso-app-list li a
+{
+    padding-top: 7px;
+    padding-bottom: 6px;
+}
+.cp-PhotoUpload input[type=file]
+{
+    width: 257px;
+}
+.cmo.contentTabs.ui-tabs .ui-tabs-panel
+{
+    width: 800px;
+}
+.column.two-up .cp-gettingstarted li
+{
+    width: 186px;
+}
+.cp-PostElectionSummary .columns
+{
+    width: 599px;
+}
+.cp-PostElectionSummary .column.two-up, .cp-PostElectionSummary .column.two-up ~ .column
+{
+    width: 300px;
+}
+.cp-FinanceSummaryPanel .column.two-up
+{
+    width: 450px;
+}
+.cp-FinanceSummaryPanel .column ~ .column
+{
+    width: 449px;
+}

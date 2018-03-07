@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC365229-1769-4CAB-9AF4-1A9C6E4B629C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cfb.CandidatePortal.UnitTest</RootNamespace>
+    <AssemblyName>Cfb.CandidatePortal.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Properties\NYCCFB.snk</AssemblyOriginatorKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnnouncementsClientTest.cs" />
+    <Compile Include="AttachmentRepositoryCollectionTest.cs" />
+    <Compile Include="AttachmentRepositoryTest.cs" />
+    <Compile Include="CfbDirectorySearcherTest.cs" />
+    <Compile Include="CmoAttachmentHandlerTest.cs" />
+    <Compile Include="CmoPostedMessageNoticeTest.cs" />
+    <Compile Include="CmoTest.cs" />
+    <Compile Include="CommitteeTest.cs" />
+    <Compile Include="CPCalendarItemTest.cs" />
+    <Compile Include="CVResponseDeadlinesTest.cs" />
+    <Compile Include="FilingDeadlineTest.cs" />
+    <Compile Include="FinancialSummaryTest.cs" />
+    <Compile Include="FundsPaymentHistoryTest.cs" />
+    <Compile Include="LiaisonTest.cs" />
+    <Compile Include="PageUrlManagerTest.cs" />
+    <Compile Include="PaymentInstallmentTest.cs" />
+    <Compile Include="PaymentPlanSummaryTest.cs" />
+    <Compile Include="PaymentPlanTest.cs" />
+    <Compile Include="PhoneNumberTest.cs" />
+    <Compile Include="PlanPaymentTest.cs" />
+    <Compile Include="PostalAddressTest.cs" />
+    <Compile Include="ProfilePhotoHandlerTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityServiceTest.cs" />
+    <Compile Include="SRResponseDeadlinesTest.cs" />
+    <Compile Include="UserManagementTest.cs" />
+    <Compile Include="UserTest.cs" />
+    <Compile Include="ZipCodeTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AuthoringTests.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cfis\CampaignContacts\CampaignContacts.csproj">
+      <Project>{ce725812-f7fc-467a-856b-c26c8390bf05}</Project>
+      <Name>CampaignContacts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DirectoryServices\DirectoryServices.csproj">
+      <Project>{0373A77B-8866-4AA4-BDF3-F6B0AD3D0FBD}</Project>
+      <Name>DirectoryServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ExceptionHandling\ExceptionHandling.csproj">
+      <Project>{521ECB6D-848B-4946-B007-9D37C9D0F234}</Project>
+      <Name>ExceptionHandling</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Extensions\Extensions\Extensions.csproj">
+      <Project>{FFBABC0D-C837-479B-8AEE-2AB284CFC679}</Project>
+      <Name>Extensions %28Extensions\Extensions%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharePoint\SharePoint\SharePoint.csproj">
+      <Project>{A29B23CB-3BBD-451D-A455-B15EB404C8AF}</Project>
+      <Name>SharePoint %28SharePoint\SharePoint%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CandidatePortal\CandidatePortal.csproj">
+      <Project>{2093CDB2-61F2-406E-959B-A6E3828E3AAD}</Project>
+      <Name>CandidatePortal %28CandidatePortal\CandidatePortal%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Cfis\Data\Data.csproj">
+      <Project>{087A2281-567D-4053-B328-81376E381914}</Project>
+      <Name>Data %28Cfis\Data%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cmo\Cmo.csproj">
+      <Project>{3DAEB28A-82A9-4869-BB21-950B11B97B09}</Project>
+      <Name>Cmo %28CandidatePortal\Cmo%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CPConfiguration\CPConfiguration.csproj">
+      <Project>{DF2FE3ED-3E6E-45A4-A404-7F3ADBE940F1}</Project>
+      <Name>CPConfiguration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data\Data.csproj">
+      <Project>{026380A9-B607-4C10-97A7-A64C04A37FF1}</Project>
+      <Name>Data %28CandidatePortal\Data\Data%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Net\Net.csproj">
+      <Project>{8D6F9122-05DB-446D-9352-F07F0BF0F746}</Project>
+      <Name>Net</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security\Security.csproj">
+      <Project>{32C4B76E-4FC7-4A8A-A7C0-D35159616864}</Project>
+      <Name>Security %28CandidatePortal\Security%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceModel\CPDataClient\CPDataClient.csproj">
+      <Project>{B2A1E764-2F94-4A5B-9EC9-5ABF9F5EB187}</Project>
+      <Name>CPDataClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceModel\CPDataService\CPDataService.csproj">
+      <Project>{01C04196-C740-4A8A-AAF5-E4EEE5E76EB4}</Project>
+      <Name>CPDataService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceModel\CPSecurityService\CPSecurityService.csproj">
+      <Project>{68C9BF97-B4E4-4CED-8231-E18B015D4ADB}</Project>
+      <Name>CPSecurityService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceModel\ServiceModel\ServiceModel.csproj">
+      <Project>{62797CC5-A9DD-4BB3-827F-0DFF1B6DDC85}</Project>
+      <Name>ServiceModel %28CandidatePortal\ServiceModel\ServiceModel%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharePoint\SharePoint\SharePoint.csproj">
+      <Project>{1E13EEAA-FBF5-46BA-8564-8EA8591A1C74}</Project>
+      <Name>SharePoint %28CandidatePortal\SharePoint\SharePoint%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\Security\Security.csproj">
+      <Project>{D96C033B-4AD8-4EDC-8C31-2979B84BC363}</Project>
+      <Name>Security %28CandidatePortal\Web\Security%29</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\Web\Web.csproj">
+      <Project>{632B4D62-68C2-4C6D-B1D7-42CBAAFD4502}</Project>
+      <Name>Web %28CandidatePortal\Web\Web%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\NYCCFB.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

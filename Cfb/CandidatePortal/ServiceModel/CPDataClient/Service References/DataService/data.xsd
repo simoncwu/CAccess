@@ -1,0 +1,2581 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://caccess.nyccfb.info/schema/data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Data.SqlClient" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.TrainingTracking" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.SubmissionDocuments" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.IO" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.Cmo" />
+  <xs:element name="GetActiveCandidate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveCandidateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetActiveCandidateResult" nillable="true" type="q1:ActiveCandidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ActiveCandidate">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://caccess.nyccfb.info/schema/data" base="q2:Candidate">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuditorName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CertificationDate" nillable="true" type="xs:dateTime" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="Classification" type="q3:CfbClassification" />
+          <xs:element minOccurs="0" name="CsuLiaisonName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ElectionCycle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FilerRegistrationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsDirectDepositAuthorized" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRRDirectDepositAuthorized" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Office" nillable="true" type="q2:NycPublicOffice" />
+          <xs:element minOccurs="0" name="PoliticalParty" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrincipalCommittee" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PrincipalCommitteeID" nillable="true" type="ser:char" />
+          <xs:element minOccurs="0" name="TerminationDate" nillable="true" type="xs:dateTime" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="TerminationReason" type="q4:TerminationReason" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q5="http://caccess.nyccfb.info/schema/data" name="ActiveCandidate" nillable="true" type="q5:ActiveCandidate" />
+  <xs:complexType name="Candidate">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://caccess.nyccfb.info/schema/data" base="q6:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q7="http://caccess.nyccfb.info/schema/data" name="Candidate" nillable="true" type="q7:Candidate" />
+  <xs:complexType name="Entity">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Address" nillable="true" type="q8:PostalAddress" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" minOccurs="0" name="ContactOrder" type="q9:ContactOrder" />
+      <xs:element xmlns:q10="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="DaytimePhone" nillable="true" type="q10:PhoneNumber" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Employer" nillable="true" type="q11:Entity" />
+      <xs:element xmlns:q12="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="EveningPhone" nillable="true" type="q12:PhoneNumber" />
+      <xs:element xmlns:q13="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Fax" nillable="true" type="q13:PhoneNumber" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" minOccurs="0" name="Honorific" type="q14:Honorific" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleInitial" nillable="true" type="ser:char" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" minOccurs="0" name="Type" type="q15:EntityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q16="http://caccess.nyccfb.info/schema/data" name="Entity" nillable="true" type="q16:Entity" />
+  <xs:complexType name="PostalAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Apartment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StreetNumber" nillable="true" type="xs:string" />
+      <xs:element xmlns:q17="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Zip" nillable="true" type="q17:ZipCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q18="http://caccess.nyccfb.info/schema/data" name="PostalAddress" nillable="true" type="q18:PostalAddress" />
+  <xs:complexType name="ZipCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Zip4" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Zip5" type="xs:unsignedInt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q19="http://caccess.nyccfb.info/schema/data" name="ZipCode" nillable="true" type="q19:ZipCode" />
+  <xs:complexType name="PhoneNumber">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AreaCode" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="ExchangeCode" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StationCode" type="xs:unsignedShort" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q20="http://caccess.nyccfb.info/schema/data" name="PhoneNumber" nillable="true" type="q20:PhoneNumber" />
+  <xs:complexType name="Liaison">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://caccess.nyccfb.info/schema/data" base="q21:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EntityName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HasManagerialControl" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="IsVGLiaison" type="xs:boolean" />
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Cfb.Cfis.CampaignContacts" minOccurs="0" name="LiaisonType" type="q22:LiaisonType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q23="http://caccess.nyccfb.info/schema/data" name="Liaison" nillable="true" type="q23:Liaison" />
+  <xs:complexType name="NycPublicOffice">
+    <xs:sequence>
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="Borough" type="q24:NycBorough" />
+      <xs:element minOccurs="0" name="District" type="xs:unsignedByte" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="Type" type="q25:NycPublicOfficeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q26="http://caccess.nyccfb.info/schema/data" name="NycPublicOffice" nillable="true" type="q26:NycPublicOffice" />
+  <xs:complexType name="OfflineDataException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Class" type="xs:unsignedByte" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/System.Data.SqlClient" minOccurs="0" name="Errors" nillable="true" type="q27:ArrayOfSqlError" />
+      <xs:element minOccurs="0" name="LineNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="Procedure" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Server" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StackTrace" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q28="http://caccess.nyccfb.info/schema/data" name="OfflineDataException" nillable="true" type="q28:OfflineDataException" />
+  <xs:element name="GetActiveCandidates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveCandidatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetActiveCandidatesResult" nillable="true" type="q29:ArrayOfKeyValueOfstringActiveCandidateDL14f_S4_S" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveElectionCycles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cutoff" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveElectionCyclesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetActiveElectionCyclesResult" nillable="true" type="q30:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthorizedCommittees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuthorizedCommitteesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetAuthorizedCommitteesResult" nillable="true" type="q31:AuthorizedCommittees" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AuthorizedCommittees">
+    <xs:sequence>
+      <xs:element xmlns:q32="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Committees" nillable="true" type="q32:ArrayOfKeyValueOfcharAuthorizedCommitteeRAPEuBXm" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q33="http://caccess.nyccfb.info/schema/data" name="AuthorizedCommittees" nillable="true" type="q33:AuthorizedCommittees" />
+  <xs:complexType name="AuthorizedCommittee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q34="http://caccess.nyccfb.info/schema/data" base="q34:Committee">
+        <xs:sequence>
+          <xs:element xmlns:q35="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BankAccounts" nillable="true" type="q35:ArrayOfKeyValueOfunsignedByteBankAccountDL14f_S4_S" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPrincipal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LastElectionDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="LastElectionDistrict" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastElectionOffice" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastPrimaryParty" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+          <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Liaisons" nillable="true" type="q36:ArrayOfKeyValueOfunsignedByteLiaisonDL14f_S4_S" />
+          <xs:element minOccurs="0" name="NotarizationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Treasurer" nillable="true" type="q34:Entity" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q37="http://caccess.nyccfb.info/schema/data" name="AuthorizedCommittee" nillable="true" type="q37:AuthorizedCommittee" />
+  <xs:complexType name="Committee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q38="http://caccess.nyccfb.info/schema/data" base="q38:Entity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BoeDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ID" type="ser:char" />
+          <xs:element minOccurs="0" name="MailingAdress" nillable="true" type="q38:PostalAddress" />
+          <xs:element minOccurs="0" name="TerminationDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="WebsiteUrl" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q39="http://caccess.nyccfb.info/schema/data" name="Committee" nillable="true" type="q39:Committee" />
+  <xs:complexType name="BankAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BankName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClosingDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CurrentBalance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CurrentBalanceDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HasDirectDeposit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpeningDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OtherPurposeSpecification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtherTypeSpecification" nillable="true" type="xs:string" />
+      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="Purpose" type="q40:BankAccountPurpose" />
+      <xs:element minOccurs="0" name="Rtn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="Type" type="q41:BankAccountType" />
+      <xs:element xmlns:q42="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Zip" nillable="true" type="q42:ZipCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q43="http://caccess.nyccfb.info/schema/data" name="BankAccount" nillable="true" type="q43:BankAccount" />
+  <xs:element name="GetPrimaryCommitteeID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrimaryCommitteeIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPrimaryCommitteeIDResult" nillable="true" type="ser:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommittees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="committeeID" nillable="true" type="ser:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommitteesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCommitteesResult" nillable="true" type="q44:ArrayOfCommittee" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfCommittee">
+    <xs:sequence>
+      <xs:element xmlns:q45="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="Committee" nillable="true" type="q45:Committee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q46="http://caccess.nyccfb.info/schema/data" name="ArrayOfCommittee" nillable="true" type="q46:ArrayOfCommittee" />
+  <xs:element name="GetBankAccounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="committeeID" type="ser:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBankAccountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetBankAccountsResult" nillable="true" type="q47:ArrayOfKeyValueOfunsignedByteBankAccountDL14f_S4_S" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCandidate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCandidateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCandidateResult" nillable="true" type="q48:Candidate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCandidates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCandidatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCandidatesResult" nillable="true" type="q49:ArrayOfKeyValueOfstringCandidateDL14f_S4_S" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCandidateName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="formal" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCandidateNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCandidateNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCertificationDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCertificationDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCertificationDocumentsResult" nillable="true" type="q50:CertificationHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CertificationHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q51="http://caccess.nyccfb.info/schema/data" base="q51:SubmissionHistoryCertificationDocument">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q52="http://caccess.nyccfb.info/schema/data" name="CertificationHistory" nillable="true" type="q52:CertificationHistory" />
+  <xs:complexType name="SubmissionHistoryCertificationDocument">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SubmissionHistory{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CertificationDocument" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q53="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Documents" nillable="true" type="q53:ArrayOfCertificationDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q54="http://caccess.nyccfb.info/schema/data" name="SubmissionHistoryCertificationDocument" nillable="true" type="q54:SubmissionHistoryCertificationDocument" />
+  <xs:complexType name="ArrayOfCertificationDocument">
+    <xs:sequence>
+      <xs:element xmlns:q55="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="CertificationDocument" nillable="true" type="q55:CertificationDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q56="http://caccess.nyccfb.info/schema/data" name="ArrayOfCertificationDocument" nillable="true" type="q56:ArrayOfCertificationDocument" />
+  <xs:complexType name="CertificationDocument">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q57="http://caccess.nyccfb.info/schema/data" base="q57:SubmissionDocument">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q58="http://caccess.nyccfb.info/schema/data" name="CertificationDocument" nillable="true" type="q58:CertificationDocument" />
+  <xs:complexType name="SubmissionDocument">
+    <xs:sequence>
+      <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="DeliveryType" type="q59:DeliveryType" />
+      <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="DocumentType" type="q60:DocumentType" />
+      <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="PageCount" type="xs:short" />
+      <xs:element minOccurs="0" name="PostmarkDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReceivedDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="Status" type="q61:DocumentStatus" />
+      <xs:element minOccurs="0" name="StatusDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="StatusReason" type="q62:DocumentStatusReason" />
+      <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="SubmissionType" type="q63:SubmissionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q64="http://caccess.nyccfb.info/schema/data" name="SubmissionDocument" nillable="true" type="q64:SubmissionDocument" />
+  <xs:element name="GetCsuLiaisons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCsuLiaisonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCsuLiaisonsResult" nillable="true" type="q65:ArrayOfKeyValueOfunsignedByteCsuLiaisonDL14f_S4_S" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CsuLiaison">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q66="http://caccess.nyccfb.info/schema/data" name="CsuLiaison" nillable="true" type="q66:CsuLiaison" />
+  <xs:element name="GetTrainingStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrainingStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetTrainingStatusResult" nillable="true" type="q67:TrainingStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TrainingStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CsmartWebRequired" type="xs:boolean" />
+      <xs:element xmlns:q68="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Registrations" nillable="true" type="q68:TrainingRegistrationCollection" />
+      <xs:element xmlns:q69="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Sessions" nillable="true" type="q69:TrainingSessionCollection" />
+      <xs:element xmlns:q70="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Trainees" nillable="true" type="q70:ArrayOfKeyValueOfshortTraineeDL14f_S4_S" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q71="http://caccess.nyccfb.info/schema/data" name="TrainingStatus" nillable="true" type="q71:TrainingStatus" />
+  <xs:complexType name="TrainingRegistrationCollection">
+    <xs:sequence>
+      <xs:element xmlns:q72="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Registrations" nillable="true" type="q72:ArrayOfTrainingRegistration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q73="http://caccess.nyccfb.info/schema/data" name="TrainingRegistrationCollection" nillable="true" type="q73:TrainingRegistrationCollection" />
+  <xs:complexType name="ArrayOfTrainingRegistration">
+    <xs:sequence>
+      <xs:element xmlns:q74="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="TrainingRegistration" nillable="true" type="q74:TrainingRegistration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q75="http://caccess.nyccfb.info/schema/data" name="ArrayOfTrainingRegistration" nillable="true" type="q75:ArrayOfTrainingRegistration" />
+  <xs:complexType name="TrainingRegistration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attended" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Completed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsReservation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RegisteringCandidateID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReservationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SessionID" type="xs:int" />
+      <xs:element minOccurs="0" name="TraineeID" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q76="http://caccess.nyccfb.info/schema/data" name="TrainingRegistration" nillable="true" type="q76:TrainingRegistration" />
+  <xs:complexType name="TrainingSessionCollection">
+    <xs:sequence>
+      <xs:element xmlns:q77="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Sessions" nillable="true" type="q77:ArrayOfKeyValueOfintTrainingSessionDL14f_S4_S" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q78="http://caccess.nyccfb.info/schema/data" name="TrainingSessionCollection" nillable="true" type="q78:TrainingSessionCollection" />
+  <xs:complexType name="TrainingSession">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cancelled" type="xs:boolean" />
+      <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.TrainingTracking" minOccurs="0" name="CourseType" type="q79:TrainingCourseType" />
+      <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.TrainingTracking" minOccurs="0" name="Location" type="q80:TrainingLocation" />
+      <xs:element minOccurs="0" name="MaximumCapacity" type="xs:short" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:dateTime" />
+      <xs:element xmlns:q81="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Trainers" nillable="true" type="q81:TrainerCollection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q82="http://caccess.nyccfb.info/schema/data" name="TrainingSession" nillable="true" type="q82:TrainingSession" />
+  <xs:complexType name="TrainerCollection">
+    <xs:sequence>
+      <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Trainers" nillable="true" type="q83:ArrayOfKeyValueOfTrainerRoleArrayOfCsuLiaisonSKjdte5T" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q84="http://caccess.nyccfb.info/schema/data" name="TrainerCollection" nillable="true" type="q84:TrainerCollection" />
+  <xs:complexType name="ArrayOfCsuLiaison">
+    <xs:sequence>
+      <xs:element xmlns:q85="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="CsuLiaison" nillable="true" type="q85:CsuLiaison" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q86="http://caccess.nyccfb.info/schema/data" name="ArrayOfCsuLiaison" nillable="true" type="q86:ArrayOfCsuLiaison" />
+  <xs:complexType name="Trainee">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q87="http://caccess.nyccfb.info/schema/data" base="q87:Entity">
+        <xs:sequence>
+          <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.TrainingTracking" minOccurs="0" name="CampaignRelationship" type="q88:CampaignRelationship" />
+          <xs:element minOccurs="0" name="ID" type="xs:short" />
+          <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q89="http://caccess.nyccfb.info/schema/data" name="Trainee" nillable="true" type="q89:Trainee" />
+  <xs:element name="GetTollingLetterByCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sourceCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eventCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="typeCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingLetterByCodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetTollingLetterByCodesResult" nillable="true" type="q90:TollingLetter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TollingLetter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element xmlns:q91="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="EventCode" nillable="true" type="q91:TollingCode" />
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+      <xs:element xmlns:q92="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="SourceCode" nillable="true" type="q92:TollingCode" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element xmlns:q93="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="TypeCode" nillable="true" type="q93:TollingCode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q94="http://caccess.nyccfb.info/schema/data" name="TollingLetter" nillable="true" type="q94:TollingLetter" />
+  <xs:complexType name="TollingCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+      <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" minOccurs="0" name="Type" type="q95:TollingCodeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q96="http://caccess.nyccfb.info/schema/data" name="TollingCode" nillable="true" type="q96:TollingCode" />
+  <xs:element name="GetTollingLetterByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="letterID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingLetterByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetTollingLetterByIDResult" nillable="true" type="q97:TollingLetter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingLetters">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingLettersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetTollingLettersResult" nillable="true" type="q98:ArrayOfTollingLetter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfTollingLetter">
+    <xs:sequence>
+      <xs:element xmlns:q99="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="TollingLetter" nillable="true" type="q99:TollingLetter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q100="http://caccess.nyccfb.info/schema/data" name="ArrayOfTollingLetter" nillable="true" type="q100:ArrayOfTollingLetter" />
+  <xs:element name="GetCoibReceipts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCoibReceiptsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCoibReceiptsResult" nillable="true" type="q101:CoibReceiptHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CoibReceiptHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q102="http://caccess.nyccfb.info/schema/data" base="q102:SubmissionHistoryCoibReceipt">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q103="http://caccess.nyccfb.info/schema/data" name="CoibReceiptHistory" nillable="true" type="q103:CoibReceiptHistory" />
+  <xs:complexType name="SubmissionHistoryCoibReceipt">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SubmissionHistory{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CoibReceipt" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q104="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Documents" nillable="true" type="q104:ArrayOfCoibReceipt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q105="http://caccess.nyccfb.info/schema/data" name="SubmissionHistoryCoibReceipt" nillable="true" type="q105:SubmissionHistoryCoibReceipt" />
+  <xs:complexType name="ArrayOfCoibReceipt">
+    <xs:sequence>
+      <xs:element xmlns:q106="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="CoibReceipt" nillable="true" type="q106:CoibReceipt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q107="http://caccess.nyccfb.info/schema/data" name="ArrayOfCoibReceipt" nillable="true" type="q107:ArrayOfCoibReceipt" />
+  <xs:complexType name="CoibReceipt">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q108="http://caccess.nyccfb.info/schema/data" base="q108:SubmissionDocument">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CoibFilingDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q109="http://caccess.nyccfb.info/schema/data" name="CoibReceipt" nillable="true" type="q109:CoibReceipt" />
+  <xs:element name="GetComplianceVisits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComplianceVisitsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetComplianceVisitsResult" nillable="true" type="q110:ComplianceVisits" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ComplianceVisits">
+    <xs:sequence>
+      <xs:element xmlns:q111="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="ResponseDeadlines" nillable="true" type="q111:CVResponseDeadlines" />
+      <xs:element xmlns:q112="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Visits" nillable="true" type="q112:CPCalendarItemCollectionComplianceVisit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q113="http://caccess.nyccfb.info/schema/data" name="ComplianceVisits" nillable="true" type="q113:ComplianceVisits" />
+  <xs:complexType name="CVResponseDeadlines">
+    <xs:sequence>
+      <xs:element xmlns:q114="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="CVResponseDeadline" nillable="true" type="q114:CVResponseDeadline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q115="http://caccess.nyccfb.info/schema/data" name="CVResponseDeadlines" nillable="true" type="q115:CVResponseDeadlines" />
+  <xs:complexType name="CVResponseDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q116="http://caccess.nyccfb.info/schema/data" base="q116:ResponseDeadlineBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q117="http://caccess.nyccfb.info/schema/data" name="CVResponseDeadline" nillable="true" type="q117:CVResponseDeadline" />
+  <xs:complexType name="ResponseDeadlineBase">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q118="http://caccess.nyccfb.info/schema/data" base="q118:CPCalendarItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommitteeID" type="ser:char" />
+          <xs:element minOccurs="0" name="ExtensionDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ExtensionNumber" type="xs:unsignedShort" />
+          <xs:element minOccurs="0" name="OriginalDueDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ResponseReceivedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ReviewNumber" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="ReviewSentDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q119="http://caccess.nyccfb.info/schema/data" name="ResponseDeadlineBase" nillable="true" type="q119:ResponseDeadlineBase" />
+  <xs:complexType name="CPCalendarItem">
+    <xs:sequence>
+      <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="CalendarItemType" type="q120:CPCalendarItemType" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HasEndDate" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsAllDayEvent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsRecurrence" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastUpdated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q121="http://caccess.nyccfb.info/schema/data" name="CPCalendarItem" nillable="true" type="q121:CPCalendarItem" />
+  <xs:complexType name="CPCalendarItemCollectionComplianceVisit">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="CPCalendarItemCollection{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ComplianceVisit" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q122="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="ComplianceVisit" nillable="true" type="q122:ComplianceVisit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q123="http://caccess.nyccfb.info/schema/data" name="CPCalendarItemCollectionComplianceVisit" nillable="true" type="q123:CPCalendarItemCollectionComplianceVisit" />
+  <xs:complexType name="ComplianceVisit">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q124="http://caccess.nyccfb.info/schema/data" base="q124:AuditReviewBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Number" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q125="http://caccess.nyccfb.info/schema/data" name="ComplianceVisit" nillable="true" type="q125:ComplianceVisit" />
+  <xs:complexType name="AuditReviewBase">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q126="http://caccess.nyccfb.info/schema/data" base="q126:CPCalendarItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommitteeID" type="ser:char" />
+          <xs:element minOccurs="0" name="CommitteeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ElectionCycle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResponseDeadline" nillable="true" type="q126:ResponseDeadlineBase" />
+          <xs:element minOccurs="0" name="SentDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q127="http://caccess.nyccfb.info/schema/data" name="AuditReviewBase" nillable="true" type="q127:AuditReviewBase" />
+  <xs:element name="GetInitialDocumentationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="published" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInitialDocumentationRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetInitialDocumentationRequestResult" nillable="true" type="q128:InitialDocumentationRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="InitialDocumentationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q129="http://caccess.nyccfb.info/schema/data" base="q129:AuditReportBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q130="http://caccess.nyccfb.info/schema/data" name="InitialDocumentationRequest" nillable="true" type="q130:InitialDocumentationRequest" />
+  <xs:complexType name="AuditReportBase">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q131="http://caccess.nyccfb.info/schema/data" base="q131:CPCalendarItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReceiptDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ResponseDeadline" nillable="true" type="q131:ResponseDeadlineBase" />
+          <xs:element minOccurs="0" name="ResponseSubmittedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SecondReceiptDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SecondSentDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q132="http://caccess.nyccfb.info/schema/data" name="AuditReportBase" nillable="true" type="q132:AuditReportBase" />
+  <xs:complexType name="IdrResponseDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q133="http://caccess.nyccfb.info/schema/data" base="q133:ReportResponseDeadline">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q134="http://caccess.nyccfb.info/schema/data" name="IdrResponseDeadline" nillable="true" type="q134:IdrResponseDeadline" />
+  <xs:complexType name="ReportResponseDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q135="http://caccess.nyccfb.info/schema/data" base="q135:ResponseDeadlineBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FirstDueDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SecondDueDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q136="http://caccess.nyccfb.info/schema/data" name="ReportResponseDeadline" nillable="true" type="q136:ReportResponseDeadline" />
+  <xs:element name="GetIdrInadequateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="published" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIdrInadequateEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetIdrInadequateEventResult" nillable="true" type="q137:IdrInadequateEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="IdrInadequateEvent">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q138="http://caccess.nyccfb.info/schema/data" base="q138:InadequateEventBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q139="http://caccess.nyccfb.info/schema/data" name="IdrInadequateEvent" nillable="true" type="q139:IdrInadequateEvent" />
+  <xs:complexType name="InadequateEventBase">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q140="http://caccess.nyccfb.info/schema/data" base="q140:AuditReportBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsAdditional" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TollingEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" minOccurs="0" name="TollingEndReason" type="q141:TollingEndReason" />
+          <xs:element minOccurs="0" name="TollingEventNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="TollingLetter" nillable="true" type="q140:TollingLetter" />
+          <xs:element minOccurs="0" name="TollingStartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q142="http://caccess.nyccfb.info/schema/data" name="InadequateEventBase" nillable="true" type="q142:InadequateEventBase" />
+  <xs:complexType name="IdrInadequateDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q143="http://caccess.nyccfb.info/schema/data" base="q143:ReportResponseDeadline">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q144="http://caccess.nyccfb.info/schema/data" name="IdrInadequateDeadline" nillable="true" type="q144:IdrInadequateDeadline" />
+  <xs:complexType name="DarInadequateDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q145="http://caccess.nyccfb.info/schema/data" base="q145:ReportResponseDeadline">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q146="http://caccess.nyccfb.info/schema/data" name="DarInadequateDeadline" nillable="true" type="q146:DarInadequateDeadline" />
+  <xs:element name="HasIdrResponseAnalysis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HasIdrResponseAnalysisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="HasIdrResponseAnalysisResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDraftAuditReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="published" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDraftAuditReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetDraftAuditReportResult" nillable="true" type="q147:DraftAuditReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DraftAuditReport">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q148="http://caccess.nyccfb.info/schema/data" base="q148:AuditReportBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q149="http://caccess.nyccfb.info/schema/data" name="DraftAuditReport" nillable="true" type="q149:DraftAuditReport" />
+  <xs:complexType name="DarResponseDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q150="http://caccess.nyccfb.info/schema/data" base="q150:ReportResponseDeadline">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q151="http://caccess.nyccfb.info/schema/data" name="DarResponseDeadline" nillable="true" type="q151:DarResponseDeadline" />
+  <xs:element name="GetDarInadequateEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="published" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDarInadequateEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetDarInadequateEventResult" nillable="true" type="q152:DarInadequateEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DarInadequateEvent">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q153="http://caccess.nyccfb.info/schema/data" base="q153:InadequateEventBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q154="http://caccess.nyccfb.info/schema/data" name="DarInadequateEvent" nillable="true" type="q154:DarInadequateEvent" />
+  <xs:element name="GetFinalAuditReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinalAuditReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetFinalAuditReportResult" nillable="true" type="q155:FinalAuditReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FinalAuditReport">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q156="http://caccess.nyccfb.info/schema/data" base="q156:AuditReportBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q157="http://caccess.nyccfb.info/schema/data" name="FinalAuditReport" nillable="true" type="q157:FinalAuditReport" />
+  <xs:element name="CountTollingDaysIncurred">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isFar" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountTollingDaysIncurredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountTollingDaysIncurredResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="far" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetTollingEventsResult" nillable="true" type="q158:ArrayOfTollingEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfTollingEvent">
+    <xs:sequence>
+      <xs:element xmlns:q159="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="TollingEvent" nillable="true" type="q159:TollingEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q160="http://caccess.nyccfb.info/schema/data" name="ArrayOfTollingEvent" nillable="true" type="q160:ArrayOfTollingEvent" />
+  <xs:complexType name="TollingEvent">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q161="http://caccess.nyccfb.info/schema/data" base="q161:CPCalendarItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReferenceEventNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="TollingDueDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TollingEndDate" nillable="true" type="xs:dateTime" />
+          <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" minOccurs="0" name="TollingEndReason" type="q162:TollingEndReason" />
+          <xs:element minOccurs="0" name="TollingEventNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="TollingLetter" nillable="true" type="q161:TollingLetter" />
+          <xs:element minOccurs="0" name="TollingStartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q163="http://caccess.nyccfb.info/schema/data" name="TollingEvent" nillable="true" type="q163:TollingEvent" />
+  <xs:element name="GetIdrInadequateEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" minOccurs="0" name="retrievalType" type="q164:InadequateEventRetrieval" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIdrInadequateEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetIdrInadequateEventsResult" nillable="true" type="q165:ArrayOfIdrInadequateEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfIdrInadequateEvent">
+    <xs:sequence>
+      <xs:element xmlns:q166="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="IdrInadequateEvent" nillable="true" type="q166:IdrInadequateEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q167="http://caccess.nyccfb.info/schema/data" name="ArrayOfIdrInadequateEvent" nillable="true" type="q167:ArrayOfIdrInadequateEvent" />
+  <xs:element name="GetDarInadequateEvents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" minOccurs="0" name="retrievalType" type="q168:InadequateEventRetrieval" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDarInadequateEventsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetDarInadequateEventsResult" nillable="true" type="q169:ArrayOfDarInadequateEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfDarInadequateEvent">
+    <xs:sequence>
+      <xs:element xmlns:q170="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="DarInadequateEvent" nillable="true" type="q170:DarInadequateEvent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q171="http://caccess.nyccfb.info/schema/data" name="ArrayOfDarInadequateEvent" nillable="true" type="q171:ArrayOfDarInadequateEvent" />
+  <xs:element name="GetSuspension">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSuspensionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetSuspensionResult" nillable="true" type="q172:Suspension" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Suspension">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SuspenderName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q173="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" minOccurs="0" name="SuspensionReason" type="q173:SuspensionReason" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q174="http://caccess.nyccfb.info/schema/data" name="Suspension" nillable="true" type="q174:Suspension" />
+  <xs:element name="GetTollingStartDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingStartDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTollingStartDateResult" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPublicFundsHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPublicFundsHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetPublicFundsHistoryResult" nillable="true" type="q175:PublicFundsHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PublicFundsHistory">
+    <xs:sequence>
+      <xs:element xmlns:q176="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Determinations" nillable="true" type="q176:ArrayOfPublicFundsDetermination" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q177="http://caccess.nyccfb.info/schema/data" name="PublicFundsHistory" nillable="true" type="q177:PublicFundsHistory" />
+  <xs:complexType name="ArrayOfPublicFundsDetermination">
+    <xs:sequence>
+      <xs:element xmlns:q178="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="PublicFundsDetermination" nillable="true" type="q178:PublicFundsDetermination" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q179="http://caccess.nyccfb.info/schema/data" name="ArrayOfPublicFundsDetermination" nillable="true" type="q179:ArrayOfPublicFundsDetermination" />
+  <xs:complexType name="PublicFundsDetermination">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="ElectionType" type="q180:ElectionType" />
+      <xs:element minOccurs="0" name="MessageID" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaymentIssued" type="xs:boolean" />
+      <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="PaymentMethod" type="q181:PaymentMethod" />
+      <xs:element minOccurs="0" name="Run" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q182="http://caccess.nyccfb.info/schema/data" name="PublicFundsDetermination" nillable="true" type="q182:PublicFundsDetermination" />
+  <xs:element name="GetGlobalSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="settingName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGlobalSettingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGlobalSettingResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetGlobalSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="settingName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetGlobalSettingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCsmartIdsRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCsmartIdsRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q183="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCsmartIdsRequestsResult" nillable="true" type="q183:CsmartIdsRequestHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CsmartIdsRequestHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q184="http://caccess.nyccfb.info/schema/data" base="q184:SubmissionHistoryCsmartIdsRequest">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q185="http://caccess.nyccfb.info/schema/data" name="CsmartIdsRequestHistory" nillable="true" type="q185:CsmartIdsRequestHistory" />
+  <xs:complexType name="SubmissionHistoryCsmartIdsRequest">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SubmissionHistory{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CsmartIdsRequest" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q186="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Documents" nillable="true" type="q186:ArrayOfCsmartIdsRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q187="http://caccess.nyccfb.info/schema/data" name="SubmissionHistoryCsmartIdsRequest" nillable="true" type="q187:SubmissionHistoryCsmartIdsRequest" />
+  <xs:complexType name="ArrayOfCsmartIdsRequest">
+    <xs:sequence>
+      <xs:element xmlns:q188="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="CsmartIdsRequest" nillable="true" type="q188:CsmartIdsRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q189="http://caccess.nyccfb.info/schema/data" name="ArrayOfCsmartIdsRequest" nillable="true" type="q189:ArrayOfCsmartIdsRequest" />
+  <xs:complexType name="CsmartIdsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q190="http://caccess.nyccfb.info/schema/data" base="q190:SubmissionDocument">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q191="http://caccess.nyccfb.info/schema/data" name="CsmartIdsRequest" nillable="true" type="q191:CsmartIdsRequest" />
+  <xs:element name="GetDisclosureStatements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDisclosureStatementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q192="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetDisclosureStatementsResult" nillable="true" type="q192:DisclosureStatementHistories" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DisclosureStatementHistories">
+    <xs:sequence>
+      <xs:element xmlns:q193="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CommitteeNames" nillable="true" type="q193:ArrayOfKeyValueOfcharstring" />
+      <xs:element xmlns:q194="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="CommitteeStatements" nillable="true" type="q194:ArrayOfKeyValueOfcharArrayOfKeyValueOfunsignedByteStatementDL14f_S4_Sox8ieOcg" />
+      <xs:element xmlns:q195="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Submissions" nillable="true" type="q195:ArrayOfKeyValueOfstringDisclosureStatementHistoryZnWN_PZKY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q196="http://caccess.nyccfb.info/schema/data" name="DisclosureStatementHistories" nillable="true" type="q196:DisclosureStatementHistories" />
+  <xs:complexType name="Statement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deferrable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsCatchUp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrimaryGeneral" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Number" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="PostOptInRequired" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q197="http://caccess.nyccfb.info/schema/data" name="Statement" nillable="true" type="q197:Statement" />
+  <xs:complexType name="SubmissionHistoryDisclosureStatement">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SubmissionHistory{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DisclosureStatement" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q198="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Documents" nillable="true" type="q198:ArrayOfDisclosureStatement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q199="http://caccess.nyccfb.info/schema/data" name="SubmissionHistoryDisclosureStatement" nillable="true" type="q199:SubmissionHistoryDisclosureStatement" />
+  <xs:complexType name="ArrayOfDisclosureStatement">
+    <xs:sequence>
+      <xs:element xmlns:q200="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="DisclosureStatement" nillable="true" type="q200:DisclosureStatement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q201="http://caccess.nyccfb.info/schema/data" name="ArrayOfDisclosureStatement" nillable="true" type="q201:ArrayOfDisclosureStatement" />
+  <xs:complexType name="DisclosureStatement">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q202="http://caccess.nyccfb.info/schema/data" base="q202:SubmissionDocument">
+        <xs:sequence>
+          <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="BackupDeliveryType" type="q203:DeliveryType" />
+          <xs:element minOccurs="0" name="BackupPostmarkDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="BackupReceivedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CommitteeID" type="ser:char" />
+          <xs:element minOccurs="0" name="CommitteeName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeferredFiling" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsAuditResponse" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReceiptCompleteDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SmallCampaign" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Statement" nillable="true" type="q202:Statement" />
+          <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.SubmissionDocuments" minOccurs="0" name="SubmissionFormats" type="q204:SubmissionFormat" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q205="http://caccess.nyccfb.info/schema/data" name="DisclosureStatement" nillable="true" type="q205:DisclosureStatement" />
+  <xs:element name="GetDoingBusinessReviews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoingBusinessReviewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q206="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetDoingBusinessReviewsResult" nillable="true" type="q206:DoingBusinessReviews" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="DoingBusinessReviews">
+    <xs:sequence>
+      <xs:element xmlns:q207="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="ResponseDeadlines" nillable="true" type="q207:DbrResponseDeadlines" />
+      <xs:element xmlns:q208="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Reviews" nillable="true" type="q208:CPCalendarItemCollectionDoingBusinessReview" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q209="http://caccess.nyccfb.info/schema/data" name="DoingBusinessReviews" nillable="true" type="q209:DoingBusinessReviews" />
+  <xs:complexType name="DbrResponseDeadlines">
+    <xs:sequence>
+      <xs:element xmlns:q210="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="DbrResponseDeadline" nillable="true" type="q210:DbrResponseDeadline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q211="http://caccess.nyccfb.info/schema/data" name="DbrResponseDeadlines" nillable="true" type="q211:DbrResponseDeadlines" />
+  <xs:complexType name="DbrResponseDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q212="http://caccess.nyccfb.info/schema/data" base="q212:ResponseDeadlineBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q213="http://caccess.nyccfb.info/schema/data" name="DbrResponseDeadline" nillable="true" type="q213:DbrResponseDeadline" />
+  <xs:complexType name="CPCalendarItemCollectionDoingBusinessReview">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="CPCalendarItemCollection{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DoingBusinessReview" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q214="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="DoingBusinessReview" nillable="true" type="q214:DoingBusinessReview" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q215="http://caccess.nyccfb.info/schema/data" name="CPCalendarItemCollectionDoingBusinessReview" nillable="true" type="q215:CPCalendarItemCollectionDoingBusinessReview" />
+  <xs:complexType name="DoingBusinessReview">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q216="http://caccess.nyccfb.info/schema/data" base="q216:AuditReviewBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Statement" nillable="true" type="q216:Statement" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q217="http://caccess.nyccfb.info/schema/data" name="DoingBusinessReview" nillable="true" type="q217:DoingBusinessReview" />
+  <xs:element name="GetElections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cutoff" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElectionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q218="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetElectionsResult" nillable="true" type="q218:Elections" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Elections">
+    <xs:sequence>
+      <xs:element xmlns:q219="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Elections" nillable="true" type="q219:ArrayOfKeyValueOfstringElectionDL14f_S4_S" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q220="http://caccess.nyccfb.info/schema/data" name="Elections" nillable="true" type="q220:Elections" />
+  <xs:complexType name="Election">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cycle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ElectionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IsTIE" type="xs:boolean" />
+      <xs:element xmlns:q221="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Statements" nillable="true" type="q221:ArrayOfKeyValueOfunsignedByteStatementDL14f_S4_S" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q222="http://caccess.nyccfb.info/schema/data" name="Election" nillable="true" type="q222:Election" />
+  <xs:element name="GetActiveElections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cutoff" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetActiveElectionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q223="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetActiveElectionsResult" nillable="true" type="q223:Elections" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExtensionRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="type" type="q224:ExtensionType" />
+        <xs:element minOccurs="0" name="reviewNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="iteration" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExtensionRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q225="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetExtensionRequestResult" nillable="true" type="q225:ExtensionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ExtensionRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CandidateID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ElectionCycle" nillable="true" type="xs:string" />
+      <xs:element xmlns:q226="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="ExtensionType" type="q226:ExtensionType" />
+      <xs:element minOccurs="0" name="Iteration" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Reason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestedDueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ReviewNumber" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q227="http://caccess.nyccfb.info/schema/data" name="ExtensionRequest" nillable="true" type="q227:ExtensionRequest" />
+  <xs:element name="AddExtensionRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element xmlns:q228="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="type" type="q228:ExtensionType" />
+        <xs:element minOccurs="0" name="reviewNumber" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="requestedDueDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="reason" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddExtensionRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q229="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="AddExtensionRequestResult" nillable="true" type="q229:ExtensionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilerRegistrations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilerRegistrationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q230="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetFilerRegistrationsResult" nillable="true" type="q230:FilerRegistrationHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FilerRegistrationHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q231="http://caccess.nyccfb.info/schema/data" base="q231:SubmissionHistoryFilerRegistrationDocument">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q232="http://caccess.nyccfb.info/schema/data" name="FilerRegistrationHistory" nillable="true" type="q232:FilerRegistrationHistory" />
+  <xs:complexType name="SubmissionHistoryFilerRegistrationDocument">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SubmissionHistory{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="FilerRegistrationDocument" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q233="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Documents" nillable="true" type="q233:ArrayOfFilerRegistrationDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q234="http://caccess.nyccfb.info/schema/data" name="SubmissionHistoryFilerRegistrationDocument" nillable="true" type="q234:SubmissionHistoryFilerRegistrationDocument" />
+  <xs:complexType name="ArrayOfFilerRegistrationDocument">
+    <xs:sequence>
+      <xs:element xmlns:q235="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="FilerRegistrationDocument" nillable="true" type="q235:FilerRegistrationDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q236="http://caccess.nyccfb.info/schema/data" name="ArrayOfFilerRegistrationDocument" nillable="true" type="q236:ArrayOfFilerRegistrationDocument" />
+  <xs:complexType name="FilerRegistrationDocument">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q237="http://caccess.nyccfb.info/schema/data" base="q237:SubmissionDocument">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q238="http://caccess.nyccfb.info/schema/data" name="FilerRegistrationDocument" nillable="true" type="q238:FilerRegistrationDocument" />
+  <xs:element name="GetFilingDeadlines">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFilingDeadlinesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q239="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetFilingDeadlinesResult" nillable="true" type="q239:FilingDeadlines" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FilingDeadlines">
+    <xs:sequence>
+      <xs:element xmlns:q240="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Deadlines" nillable="true" type="q240:CPCalendarItemCollectionFilingDeadline" />
+      <xs:element xmlns:q241="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Late" nillable="true" type="q241:CPCalendarItemCollectionFilingDeadline" />
+      <xs:element xmlns:q242="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Missing" nillable="true" type="q242:CPCalendarItemCollectionFilingDeadline" />
+      <xs:element xmlns:q243="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Required" nillable="true" type="q243:CPCalendarItemCollectionFilingDeadline" />
+      <xs:element xmlns:q244="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Upcoming" nillable="true" type="q244:CPCalendarItemCollectionFilingDeadline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q245="http://caccess.nyccfb.info/schema/data" name="FilingDeadlines" nillable="true" type="q245:FilingDeadlines" />
+  <xs:complexType name="CPCalendarItemCollectionFilingDeadline">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="CPCalendarItemCollection{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="FilingDeadline" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q246="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="FilingDeadline" nillable="true" type="q246:FilingDeadline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q247="http://caccess.nyccfb.info/schema/data" name="CPCalendarItemCollectionFilingDeadline" nillable="true" type="q247:CPCalendarItemCollectionFilingDeadline" />
+  <xs:complexType name="FilingDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q248="http://caccess.nyccfb.info/schema/data" base="q248:ResponseDeadlineBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StatementNumber" type="xs:unsignedByte" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q249="http://caccess.nyccfb.info/schema/data" name="FilingDeadline" nillable="true" type="q249:FilingDeadline" />
+  <xs:element name="GetFinancialSummary">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFinancialSummaryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q250="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetFinancialSummaryResult" nillable="true" type="q250:FinancialSummary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FinancialSummary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampaignSpending" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ContributorCount" type="xs:int" />
+      <xs:element minOccurs="0" name="LastStatementSubmitted" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="LoansPaid" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LoansReceived" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MatchingClaims" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MiscellaneousReceipts" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NetContributions" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NetExpenditures" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OutstandingBills" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PrivateFundsReceived" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PublicFundsReceived" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PublicFundsReturned" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q251="http://caccess.nyccfb.info/schema/data" name="FinancialSummary" nillable="true" type="q251:FinancialSummary" />
+  <xs:element name="GetLiaisons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="committeeID" type="ser:char" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLiaisonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q252="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLiaisonsResult" nillable="true" type="q252:ArrayOfKeyValueOfunsignedByteLiaisonDL14f_S4_S" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentPlan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentPlanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q253="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="GetPaymentPlanResult" nillable="true" type="q253:PaymentPlan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreElectionDisclosures">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPreElectionDisclosuresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q254="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetPreElectionDisclosuresResult" nillable="true" type="q254:PreElectionDisclosureHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PreElectionDisclosureHistory">
+    <xs:sequence>
+      <xs:element xmlns:q255="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="General" nillable="true" type="q255:SubmissionHistoryPreElectionDisclosure" />
+      <xs:element xmlns:q256="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Primary" nillable="true" type="q256:SubmissionHistoryPreElectionDisclosure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q257="http://caccess.nyccfb.info/schema/data" name="PreElectionDisclosureHistory" nillable="true" type="q257:PreElectionDisclosureHistory" />
+  <xs:complexType name="SubmissionHistoryPreElectionDisclosure">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SubmissionHistory{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PreElectionDisclosure" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q258="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Documents" nillable="true" type="q258:ArrayOfPreElectionDisclosure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q259="http://caccess.nyccfb.info/schema/data" name="SubmissionHistoryPreElectionDisclosure" nillable="true" type="q259:SubmissionHistoryPreElectionDisclosure" />
+  <xs:complexType name="ArrayOfPreElectionDisclosure">
+    <xs:sequence>
+      <xs:element xmlns:q260="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="PreElectionDisclosure" nillable="true" type="q260:PreElectionDisclosure" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q261="http://caccess.nyccfb.info/schema/data" name="ArrayOfPreElectionDisclosure" nillable="true" type="q261:ArrayOfPreElectionDisclosure" />
+  <xs:complexType name="PreElectionDisclosure">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q262="http://caccess.nyccfb.info/schema/data" base="q262:SubmissionDocument">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommitteeID" type="ser:char" />
+          <xs:element minOccurs="0" name="CommitteeName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q263="http://caccess.nyccfb.info/schema/data" name="PreElectionDisclosure" nillable="true" type="q263:PreElectionDisclosure" />
+  <xs:element name="GetStatementsOfNeed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatementsOfNeedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q264="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetStatementsOfNeedResult" nillable="true" type="q264:StatementOfNeedHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="StatementOfNeedHistory">
+    <xs:sequence>
+      <xs:element xmlns:q265="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="General" nillable="true" type="q265:SubmissionHistoryStatementOfNeed" />
+      <xs:element xmlns:q266="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Primary" nillable="true" type="q266:SubmissionHistoryStatementOfNeed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q267="http://caccess.nyccfb.info/schema/data" name="StatementOfNeedHistory" nillable="true" type="q267:StatementOfNeedHistory" />
+  <xs:complexType name="SubmissionHistoryStatementOfNeed">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SubmissionHistory{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="StatementOfNeed" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q268="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Documents" nillable="true" type="q268:ArrayOfStatementOfNeed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q269="http://caccess.nyccfb.info/schema/data" name="SubmissionHistoryStatementOfNeed" nillable="true" type="q269:SubmissionHistoryStatementOfNeed" />
+  <xs:complexType name="ArrayOfStatementOfNeed">
+    <xs:sequence>
+      <xs:element xmlns:q270="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="StatementOfNeed" nillable="true" type="q270:StatementOfNeed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q271="http://caccess.nyccfb.info/schema/data" name="ArrayOfStatementOfNeed" nillable="true" type="q271:ArrayOfStatementOfNeed" />
+  <xs:complexType name="StatementOfNeed">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q272="http://caccess.nyccfb.info/schema/data" base="q272:SubmissionDocument">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q273="http://caccess.nyccfb.info/schema/data" name="StatementOfNeed" nillable="true" type="q273:StatementOfNeed" />
+  <xs:element name="GetPrincipalStatementReviews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrincipalStatementReviewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q274="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetPrincipalStatementReviewsResult" nillable="true" type="q274:StatementReviews" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="StatementReviews">
+    <xs:sequence>
+      <xs:element xmlns:q275="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="ResponseDeadlines" nillable="true" type="q275:SRResponseDeadlines" />
+      <xs:element xmlns:q276="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Reviews" nillable="true" type="q276:CPCalendarItemCollectionStatementReview" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q277="http://caccess.nyccfb.info/schema/data" name="StatementReviews" nillable="true" type="q277:StatementReviews" />
+  <xs:complexType name="SRResponseDeadlines">
+    <xs:sequence>
+      <xs:element xmlns:q278="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="SRResponseDeadline" nillable="true" type="q278:SRResponseDeadline" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q279="http://caccess.nyccfb.info/schema/data" name="SRResponseDeadlines" nillable="true" type="q279:SRResponseDeadlines" />
+  <xs:complexType name="SRResponseDeadline">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q280="http://caccess.nyccfb.info/schema/data" base="q280:ResponseDeadlineBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q281="http://caccess.nyccfb.info/schema/data" name="SRResponseDeadline" nillable="true" type="q281:SRResponseDeadline" />
+  <xs:complexType name="CPCalendarItemCollectionStatementReview">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="CPCalendarItemCollection{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="StatementReview" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q282="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="StatementReview" nillable="true" type="q282:StatementReview" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q283="http://caccess.nyccfb.info/schema/data" name="CPCalendarItemCollectionStatementReview" nillable="true" type="q283:CPCalendarItemCollectionStatementReview" />
+  <xs:complexType name="StatementReview">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q284="http://caccess.nyccfb.info/schema/data" base="q284:AuditReviewBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Statement" nillable="true" type="q284:Statement" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q285="http://caccess.nyccfb.info/schema/data" name="StatementReview" nillable="true" type="q285:StatementReview" />
+  <xs:element name="GetStatementReviews">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatementReviewsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q286="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetStatementReviewsResult" nillable="true" type="q286:StatementReviews" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q287="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetStatementsResult" nillable="true" type="q287:ArrayOfKeyValueOfunsignedByteStatementDL14f_S4_S" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTerminationVerifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTerminationVerificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q288="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetTerminationVerificationsResult" nillable="true" type="q288:TerminationHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="TerminationHistory">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q289="http://caccess.nyccfb.info/schema/data" base="q289:SubmissionHistoryTerminationVerification">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q290="http://caccess.nyccfb.info/schema/data" name="TerminationHistory" nillable="true" type="q290:TerminationHistory" />
+  <xs:complexType name="SubmissionHistoryTerminationVerification">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="SubmissionHistory{0}" Namespace="http://caccess.nyccfb.info/schema/data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="TerminationVerification" Namespace="http://caccess.nyccfb.info/schema/data">
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q291="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Documents" nillable="true" type="q291:ArrayOfTerminationVerification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q292="http://caccess.nyccfb.info/schema/data" name="SubmissionHistoryTerminationVerification" nillable="true" type="q292:SubmissionHistoryTerminationVerification" />
+  <xs:complexType name="ArrayOfTerminationVerification">
+    <xs:sequence>
+      <xs:element xmlns:q293="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="TerminationVerification" nillable="true" type="q293:TerminationVerification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q294="http://caccess.nyccfb.info/schema/data" name="ArrayOfTerminationVerification" nillable="true" type="q294:ArrayOfTerminationVerification" />
+  <xs:complexType name="TerminationVerification">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q295="http://caccess.nyccfb.info/schema/data" base="q295:SubmissionDocument">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q296="http://caccess.nyccfb.info/schema/data" name="TerminationVerification" nillable="true" type="q296:TerminationVerification" />
+  <xs:element name="GetThresholdHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetThresholdHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q297="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetThresholdHistoryResult" nillable="true" type="q297:ThresholdHistory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ThresholdHistory">
+    <xs:sequence>
+      <xs:element xmlns:q298="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="History" nillable="true" type="q298:ArrayOfKeyValueOfunsignedByteThresholdStatusDL14f_S4_S" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q299="http://caccess.nyccfb.info/schema/data" name="ThresholdHistory" nillable="true" type="q299:ThresholdHistory" />
+  <xs:complexType name="ThresholdStatus">
+    <xs:sequence>
+      <xs:element xmlns:q300="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Revisions" nillable="true" type="q300:ArrayOfThresholdRevision" />
+      <xs:element minOccurs="0" name="Statement" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q301="http://caccess.nyccfb.info/schema/data" name="ThresholdStatus" nillable="true" type="q301:ThresholdStatus" />
+  <xs:complexType name="ArrayOfThresholdRevision">
+    <xs:sequence>
+      <xs:element xmlns:q302="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="ThresholdRevision" nillable="true" type="q302:ThresholdRevision" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q303="http://caccess.nyccfb.info/schema/data" name="ArrayOfThresholdRevision" nillable="true" type="q303:ArrayOfThresholdRevision" />
+  <xs:complexType name="ThresholdRevision">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Funds" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FundsRequired" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Number" type="xs:unsignedShort" />
+      <xs:element minOccurs="0" name="NumberRequired" type="xs:unsignedShort" />
+      <xs:element xmlns:q304="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Office" nillable="true" type="q304:NycPublicOffice" />
+      <xs:element xmlns:q305="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Statement" nillable="true" type="q305:Statement" />
+      <xs:element xmlns:q306="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal" minOccurs="0" name="Type" type="q306:ThresholdRevisionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q307="http://caccess.nyccfb.info/schema/data" name="ThresholdRevision" nillable="true" type="q307:ThresholdRevision" />
+  <xs:element name="GetWebTransferDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWebTransferDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWebTransferDateResult" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCmoAttachmentStream">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q308="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="stream" nillable="true" type="q308:CmoAttachmentStream" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CmoAttachmentStream">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q309="http://schemas.datacontract.org/2004/07/System.IO" base="q309:MemoryStream">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CandidateID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MessageID" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element xmlns:q310="http://caccess.nyccfb.info/schema/data" name="CmoAttachmentStream" nillable="true" type="q310:CmoAttachmentStream" />
+  <xs:element name="AddCmoAttachmentStreamResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q311="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="AddCmoAttachmentStreamResult" nillable="true" type="q311:CmoAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CmoAttachment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CandidateID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="MessageID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q312="http://caccess.nyccfb.info/schema/data" name="CmoAttachment" nillable="true" type="q312:CmoAttachment" />
+  <xs:element name="AddCmoAttachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="data" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCmoAttachmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q313="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="AddCmoAttachmentResult" nillable="true" type="q313:CmoAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCmoAttachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q314="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="attachment" nillable="true" type="q314:CmoAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCmoAttachmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteCmoAttachmentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoAttachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uniqueID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoAttachmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q315="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoAttachmentResult" nillable="true" type="q315:CmoAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoAttachmentByIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoAttachmentByIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q316="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoAttachmentByIDsResult" nillable="true" type="q316:CmoAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoAttachmentPath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="id" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoAttachmentPathResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCmoAttachmentPathResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCmoAttachment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q317="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="attachment" nillable="true" type="q317:CmoAttachment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCmoAttachmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCmoAttachmentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCmoCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q318="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="category" nillable="true" type="q318:CmoCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CmoCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hidden" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="MessageTemplateBody" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageTemplateEditable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MessageTemplateTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q319="http://caccess.nyccfb.info/schema/data" name="CmoCategory" nillable="true" type="q319:CmoCategory" />
+  <xs:element name="DeleteCmoCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteCmoCategoryResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoCategories">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q320="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCmoCategoriesResult" nillable="true" type="q320:ArrayOfKeyValueOfunsignedByteCmoCategoryDL14f_S4_S" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q321="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoCategoryResult" nillable="true" type="q321:CmoCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCmoCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q322="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="category" nillable="true" type="q322:CmoCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCmoCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCmoCategoryResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMailboxMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q323="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.Cmo" minOccurs="0" name="view" type="q323:CmoMailboxView" />
+        <xs:element xmlns:q324="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="elections" nillable="true" type="q324:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMailboxMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q325="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetMailboxMessagesResult" nillable="true" type="q325:ArrayOfCmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfCmoMessage">
+    <xs:sequence>
+      <xs:element xmlns:q326="http://caccess.nyccfb.info/schema/data" minOccurs="0" maxOccurs="unbounded" name="CmoMessage" nillable="true" type="q326:CmoMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q327="http://caccess.nyccfb.info/schema/data" name="ArrayOfCmoMessage" nillable="true" type="q327:ArrayOfCmoMessage" />
+  <xs:complexType name="CmoMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArchiveDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Archiver" nillable="true" type="xs:string" />
+      <xs:element xmlns:q328="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Attachments" nillable="true" type="q328:ArrayOfKeyValueOfunsignedByteCmoAttachmentDL14f_S4_S" />
+      <xs:element minOccurs="0" name="AuditReviewNumber" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Body" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CandidateID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q329="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="Category" nillable="true" type="q329:CmoCategory" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ElectionCycle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FollowUpDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FollowUpFlagger" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="NeedsFollowUp" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OpenDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OpenReceiptEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Opener" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostDate" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q330="http://schemas.datacontract.org/2004/07/Cfb.CandidatePortal.PostElection" minOccurs="0" name="PostElectionAuditRequestType" nillable="true" type="q330:AuditRequestType" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TollingEventNumber" nillable="true" type="xs:int" />
+      <xs:element xmlns:q331="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="TollingLetter" nillable="true" type="q331:TollingLetter" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q332="http://caccess.nyccfb.info/schema/data" name="CmoMessage" nillable="true" type="q332:CmoMessage" />
+  <xs:element name="CountUnopenedMailboxMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q333="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="elections" nillable="true" type="q333:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountUnopenedMailboxMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CountUnopenedMailboxMessagesResult" type="xs:unsignedInt" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCmoMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="body" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="creator" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="openReceiptEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="categoryID" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCmoMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q334="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="AddCmoMessageResult" nillable="true" type="q334:CmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCmoMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="version" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCmoMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteCmoMessageResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCmoMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="creator" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="category" nillable="true" type="xs:unsignedByte" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="body" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="postedStart" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="postedEnd" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="opened" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hasAttachments" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCmoMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q335="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="FindCmoMessagesResult" nillable="true" type="q335:ArrayOfCmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoMessageCreators">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoMessageCreatorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q336="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCmoMessageCreatorsResult" nillable="true" type="q336:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoMessageByCandidateMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoMessageByCandidateMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q337="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoMessageByCandidateMessageResult" nillable="true" type="q337:CmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoMessageByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="uniqueID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoMessageByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q338="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoMessageByIDResult" nillable="true" type="q338:CmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q339="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="uniqueIDs" nillable="true" type="q339:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q340="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoMessagesResult" nillable="true" type="q340:ArrayOfCmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoPostedMessagesByCandidateElection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoPostedMessagesByCandidateElectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q341="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoPostedMessagesByCandidateElectionResult" nillable="true" type="q341:ArrayOfCmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoPostedMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="showAllData" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoPostedMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q342="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoPostedMessagesResult" nillable="true" type="q342:ArrayOfCmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenCmoMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="version" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpenCmoMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OpenCmoMessageResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostCmoMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="version" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="notify" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostCmoMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PostCmoMessageResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCmoMessageArchiveStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="archived" type="xs:boolean" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="version" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCmoMessageArchiveStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetCmoMessageArchiveStatusResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCmoMessageFlagStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="flagged" type="xs:boolean" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="version" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCmoMessageFlagStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetCmoMessageFlagStatusResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCmoMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q343="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="message" nillable="true" type="q343:CmoMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCmoMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCmoMessageResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCmoSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isPaperless" type="xs:boolean" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCmoSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q344="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="AddCmoSettingsResult" nillable="true" type="q344:CmoSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CmoSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CandidateID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPaperless" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdatedDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdaterUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element xmlns:q345="http://caccess.nyccfb.info/schema/data" name="CmoSettings" nillable="true" type="q345:CmoSettings" />
+  <xs:element name="GetCmoSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCmoSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q346="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetCmoSettingsResult" nillable="true" type="q346:CmoSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCmoSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q347="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="settings" nillable="true" type="q347:CmoSettings" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCmoSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateCmoSettingsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatementReviewMessageIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatementReviewMessageIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q348="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetStatementReviewMessageIDsResult" nillable="true" type="q348:ArrayOfKeyValueOfunsignedBytestring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComplianceVisitMessageIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetComplianceVisitMessageIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q349="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetComplianceVisitMessageIDsResult" nillable="true" type="q349:ArrayOfKeyValueOfunsignedBytestring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoingBusinessReviewMessageIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoingBusinessReviewMessageIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q350="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetDoingBusinessReviewMessageIDsResult" nillable="true" type="q350:ArrayOfKeyValueOfunsignedBytestring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditReportMessageIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuditReportMessageIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q351="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAuditReportMessageIDsResult" nillable="true" type="q351:ArrayOfKeyValueOfAuditReportTypestringL8IRX61O" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentMessageID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="paymentRun" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPaymentMessageIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPaymentMessageIDResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCmoMessageTolling">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="messageID" type="xs:int" />
+        <xs:element minOccurs="0" name="eventNumber" type="xs:int" />
+        <xs:element xmlns:q352="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="letter" nillable="true" type="q352:TollingLetter" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetCmoMessageTollingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetCmoMessageTollingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingMessageIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="far" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTollingMessageIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q353="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetTollingMessageIDsResult" nillable="true" type="q353:ArrayOfKeyValueOfintstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingCfis">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingCfisResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="candidateID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="committeeID" nillable="true" type="ser:char" />
+        <xs:element minOccurs="0" name="electionCycle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="liaisonID" nillable="true" type="xs:unsignedByte" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q354="http://caccess.nyccfb.info/schema/data" minOccurs="0" name="GetEntityResult" nillable="true" type="q354:Entity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,104 @@
+﻿@using Cfb.CandidatePortal
+@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Profile.Models.CandidateProfileViewModel
+
+@{
+    ViewBag.Title = "Candidate Profile";
+}
+<h2>@ViewBag.Title</h2>
+<p>
+    Below is a summary of candidate information as submitted to the CFB by your campaign in a Filer Registration or Certification form. If any of this information has changed and is no longer current, you must update the appropriate <a href="http://www.nyccfb.info/candidate-services/forms" target="_blank" title="NYC Campaign Finance Board Candidate Forms" class="popup">form</a>. In order to update the Filer Registration or Certification, you must submit an amended form in hard copy. Please contact your CSU liaison for further information.
+</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    bool tie = Model.IsTie;
+    @* Candidate Information *@
+    <section>
+        <div class="row">
+            <div class="col-xs-6 col-sm-2">
+                @Html.EditorFor(m => m.Name.Salutation, new { @readonly = true })
+            </div>
+            <div class="col-xs-4 col-xs-offset-2 col-sm-2 col-sm-offset-0 col-sm-push-8 col-md-1 col-md-push-9">
+                <div class="cp-ID">
+                    @Html.EditorFor(m => m.ID)
+                </div>
+            </div>
+            <div class="col-xs-9 col-sm-6 col-sm-pull-2 col-md-4 col-md-pull-1">
+                @Html.EditorFor(m => m.Name.FirstName, new { @readonly = true })
+            </div>
+            <div class="col-xs-3 col-sm-2 col-sm-pull-2 col-md-1 col-md-pull-1">
+                @Html.EditorFor(m => m.Name.MiddleInitial, new { @readonly = true })
+            </div>
+            <div class="col-xs-12 col-sm-10 col-sm-offset-2 col-md-4 col-md-pull-1 col-md-offset-0">
+                @Html.EditorFor(m => m.Name.LastName, new { @readonly = true })
+            </div>
+        </div>
+        @Html.EditorFor(m => m.ContactInfo)
+    </section>
+    <hr />
+    @* Employer Information *@
+    <section class="panel panel-info panel-heading-only">
+        <div class="panel-heading" data-toggle="collapse" data-target="#EmployerPanel">
+            <h4 class="panel-title"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Employer Information</h4>
+        </div>
+        <div id="EmployerPanel" class="panel-collapse collapse in">
+            <div class="panel-body">
+                @Html.EditorFor(m => m.Employer)
+            </div>
+        </div>
+    </section>
+    @* Activation Information *@
+    <section class="panel panel-info panel-heading-only">
+        <div class="panel-heading" data-toggle="collapse" data-target="#ActivationPanel">
+            <h4 class="panel-title"><i class="fa fa-wpforms" aria-hidden="true"></i> Registration/Certification</h4>
+        </div>
+        <div id="ActivationPanel" class="panel-collapse collapse in ">
+            <div class="panel-body">
+                <div class="row">
+                    @if (!tie)
+                {
+                        <div class="col-sm-3 col-lg-2">
+                            @Html.EditorFor(m => m.Classification, new { @readonly = true })
+                        </div>
+                        <div class="col-sm-5 col-md-3 col-lg-2">
+                            @Html.EditorFor(m => m.OfficeSought, new { @readonly = true })
+                        </div>
+                        <div class="col-sm-4 col-md-2 col-lg-2">
+                            @Html.EditorFor(m => m.Borough, new { @readonly = true, @class = Model.OfficeSought == NycPublicOfficeType.BoroughPresident ? "" : "hidden" })
+                            @Html.EditorFor(m => m.District, new { @readonly = true, @class = Model.OfficeSought == NycPublicOfficeType.CityCouncilMember ? "" : "hidden" })
+                        </div>
+                    }
+                    <div class="col-sm-@(tie ? 8 : 12) col-md-@(tie ? "9" : "4 col -lg-6")">
+                        @Html.EditorFor(m => m.PoliticalParty, new { @readonly = true })
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        @Html.EditorFor(m => m.RegistrationDate)
+                    </div>
+                    @if (!tie)
+                {
+                        <div class="col-sm-4 col-md-3">
+                            @Html.EditorFor(m => m.CertificationDate)
+                        </div>
+                        <div class="col-sm-4 col-md-3">
+                            @Html.EditorFor(m => m.TerminationDate)
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-12">
+                                    @Html.EditorFor(m => m.DDAuth, new { @readonly = true })
+                                </div>
+                                @if (Model.HasRRAccounts)
+                                {
+                                    <div class="col-sm-6 col-md-12">
+                                        @Html.EditorFor(m => m.RRAuth, new { @readonly = true })
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<footer class="text-muted text-right">Candidate data last updated: @Model.LastUpdated.ToString()</footer>

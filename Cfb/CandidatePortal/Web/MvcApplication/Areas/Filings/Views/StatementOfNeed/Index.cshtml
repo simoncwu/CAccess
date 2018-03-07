@@ -1,0 +1,8 @@
+﻿@model Cfb.CandidatePortal.Web.MvcApplication.Areas.Filings.Models.DocumentStatusListViewModel
+
+@{ 
+    ViewBag.Title = "Statements of Need";
+}
+<h2>@ViewBag.Title</h2>
+<p>Listed below is the history of Statements of Need received by the CFB from your campaign. Statements of Need may have a status of Processing, Accepted, On-Hold, Rejected or No Processing Required. A &ldquo;Processing&rdquo; status does not indicate that a Statement of Need has been &ldquo;Accepted&rdquo; by the CFB.</p>
+@Html.Partial(Cfb.CandidatePortal.Web.Mvc.Strings.Views.PrimaryGeneralStatusList, Model)

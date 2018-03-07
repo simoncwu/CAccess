@@ -1,0 +1,22 @@
+﻿@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@model Cfb.CandidatePortal.Web.MvcApplication.Models.MessageViewModel
+
+<div class="collapse">
+    <dl class="dl-horizontal-cmo pull-right">
+        <dt class="visible-xs">@Html.DisplayNameFor(m => m.Posted)</dt>
+        <dd class="visible-xs">@string.Format(Cfb.CandidatePortal.Web.Mvc.Strings.DataFormats.MediumDateTime, Model.Posted)</dd>
+        <dt>@Html.DisplayNameFor(m => m.OpenedDate)</dt>
+        <dd>@Html.DisplayFor(m => m.OpenedDate)</dd>
+        @if (Model.ArchivedDate.HasValue)
+        {
+            <dt>@Html.DisplayNameFor(m => m.ArchivedDate)</dt>
+            <dd>@Html.DisplayFor(m => m.ArchivedDate)<br class="visible-xs" /> by @Html.DisplayFor(m => m.ArchiveUser)</dd>
+        }
+        @if (Model.Flagged)
+        {
+            <dt>@Html.DisplayNameFor(m => m.FlagDate)</dt>
+            <dd>@Html.DisplayFor(m => m.FlagDate)<br class="visible-xs" /> by @Html.DisplayFor(m => m.FlagUser)</dd>
+        }
+    </dl>
+</div>
+@Html.Partial(MessagesController.ViewName_UpdateResultMessage)

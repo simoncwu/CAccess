@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/CandidatePortal.master" CodeBehind="Help.master.cs"
+    Inherits="Cfb.CandidatePortal.Web.WebApplication.Help.Help" %>
+
+<%@ MasterType VirtualPath="~/CandidatePortal.master" %>
+<asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInHead" runat="server">
+    <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInBody" runat="server">
+    <asp:ContentPlaceHolder ID="PlaceHolderPageTitleInBody" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderAdditionalPageHead" runat="server">
+    <asp:ContentPlaceHolder ID="PlaceHolderAdditionalPageHead" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
+    <asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server" />
+</asp:Content>
+<asp:Content ContentPlaceHolderID="PlaceHolderInaccurateData" runat="server">
+</asp:Content>

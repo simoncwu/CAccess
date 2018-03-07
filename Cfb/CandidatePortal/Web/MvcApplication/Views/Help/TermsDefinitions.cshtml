@@ -1,0 +1,44 @@
+﻿@using Cfb.CandidatePortal.Web.Mvc.Strings
+@using Cfb.CandidatePortal.Web.MvcApplication.Controllers
+@{
+    ViewBag.Title = "CFB Terms and Definitions";
+}
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("Home", Actions.Default, HomeController.ControllerName)</li>
+    <li>@Html.ActionLink("Help", Actions.Default)</li>
+    <li class="active">@ViewBag.Title</li>
+</ol>
+<h3>@AreaNames.Help</h3>
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <section class="col-sm-6">
+        <h4>Document Statuses</h4>
+        <dl>
+            <dt>Processing</dt>
+            <dd>The document is in the possession of the CFB but has not been through the quality control checks that would result in acceptance.</dd>
+            <dt>On-Hold</dt>
+            <dd>The document is in possession of the CFB but is missing information needed to be accepted.</dd>
+            <dt>Accepted</dt>
+            <dd>The document has been reconciled and, if electronic, uploaded into the CFB&rsquo;s systems.</dd>
+            <dt>Rejected</dt>
+            <dd>The document has errors rendering it unacceptable and is returned to the committee. The committee must correct all errors and resubmit.</dd>
+            <dt>No Processing Required</dt>
+            <dd>The document is in the possession of the CFB but does not require any processing by the CFB&rsquo;s systems.</dd>
+        </dl>
+    </section>
+    <section class="col-sm-6">
+        <h4>Document Types</h4>
+        <dl>
+            <dt>Initial</dt>
+            <dd>An initial document is the first submission of a document type.</dd>
+            <dt>Amendment</dt>
+            <dd>An amendment is a document updating or correcting information about the committee or a submission in C-SMART adding or correcting information previously reported in that particular disclosure statement.</dd>
+            <dt>Resubmission</dt>
+            <dd>A resubmission is a disclosure statement sent to replace a previous filing.</dd>
+            <dt>Internal Amendment</dt>
+            <dd>An internal amendment indicates when the CFB has updated or corrected committee information, usually to clarify unclear information provided to the CFB.</dd>
+            <dt>Documentation</dt>
+            <dd>Documentation consists of other disclosure information sent to the CFB in response to an audit statement review.</dd>
+        </dl>
+    </section>
+</div>
